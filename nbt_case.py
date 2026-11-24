@@ -58,18 +58,25 @@ def fix_nbt_case(command):
 
 	def fix_block(match):
 		block = match.group(0)
-		for old, new in renames.items():
-			pattern = re.compile(r'([{,]\s*)(' + old + r'|' + new + r')(\s*:)', re.IGNORECASE)
+		for old, (new, kind) in renames.items():
+			# The key, and the number after it: the field's TYPE changed too, and nbt={...} matching
+			# compares tag types (NbtUtils.compareNbt), so a float 0f or an int 0 matches a double field
+			# no better than the old name does.
+			pattern = re.compile(r'([{,]\s*)(' + old + r'|' + new + r')(\s*:\s*)(-?(?:\d+\.?\d*|\.\d+)[bBsSlLfFdD]?)?',
+				re.IGNORECASE)
 
-			def rename(m, new=new):
-				if m.group(2) != new:
+			def rename(m, new=new, kind=kind):
+				value = m.group(4) or ''
+				if value and kind == 'd' and value[-1] not in 'dD' and (value[-1].isalpha() or '.' not in value):
+					value = (value[:-1] if value[-1].isalpha() else value) + 'd'
+				if m.group(2) != new or value != (m.group(4) or ''):
 					key = (m.group(2), new)
 					if key not in _warned:
 						_warned.add(key)
-						print(f'Warning: "{m.group(2)}" should be "{new}" on this Minecraft — '
-							f'nbt={{...}} matching is case-sensitive and the old name matches nothing. '
-							f'Corrected.')
-				return m.group(1) + new + m.group(3)
+						print(f'Warning: "{m.group(2)}" should be "{new}" (a double, e.g. {new}:0d) on this '
+							f'Minecraft — nbt={{...}} matching is case- and type-sensitive and the old form '
+							f'matches nothing. Corrected.')
+				return m.group(1) + new + m.group(3) + value
 
 			block = pattern.sub(rename, block)
 		for field in FIELDS:

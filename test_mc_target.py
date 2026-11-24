@@ -137,35 +137,44 @@ class TestPackFormat(_Env):
 
 
 class TestEntityNbtRenames(_Env):
-	"""FallDistance -> fall_distance: in the entity's NBT since 1.21.5, gated at 26.1 on this rung."""
+	"""FallDistance (float) -> fall_distance (double): the entity's NBT since 1.21.5, one gate on every rung."""
 
-	def test_renamed_from_26_1(self):
-		for mc, want in (('1.21.1', {}), ('1.21.8', {}), ('1.21.11', {}), ('26.1', {'FallDistance': 'fall_distance'}),
-						 ('26.1.2', {'FallDistance': 'fall_distance'}), ('26.2', {'FallDistance': 'fall_distance'})):
+	def test_renamed_from_1_21_5(self):
+		R = {'FallDistance': ('fall_distance', 'd')}
+		for mc, want in (('1.21.1', {}), ('1.21.4', {}), ('1.21.5', R), ('1.21.8', R), ('1.21.11', R),
+						 ('26.1', R), ('26.1.2', R), ('26.2', R)):
 			os.environ['CBSCRIPT_MC'] = mc
 			self.assertEqual(mc_target.entity_nbt_renames(), want, mc)
 
-	def test_fall_distance_is_snake_case_on_26_1_2(self):
-		os.environ['CBSCRIPT_MC'] = '26.1.2'
-		nbt_case.reset_warnings()
-		self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={FallDistance:0f}]'), '@e[nbt={fall_distance:0f}]')
-		self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={falldistance:0f}]'), '@e[nbt={fall_distance:0f}]')
-		self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={fall_distance:0d}]'), '@e[nbt={fall_distance:0d}]')
-		self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={onground:1b,FallDistance:0f}]'), '@e[nbt={OnGround:1b,fall_distance:0f}]')
+	def test_fall_distance_is_a_snake_case_double_from_1_21_5(self):
+		for mc in ('1.21.8', '26.1.2'):
+			os.environ['CBSCRIPT_MC'] = mc
+			nbt_case.reset_warnings()
+			for written, want in (
+					('@e[nbt={FallDistance:0f}]', '@e[nbt={fall_distance:0d}]'),
+					('@e[nbt={falldistance:0f}]', '@e[nbt={fall_distance:0d}]'),
+					('@e[nbt={fall_distance:0f}]', '@e[nbt={fall_distance:0d}]'),
+					('@e[nbt={FallDistance:0}]', '@e[nbt={fall_distance:0d}]'),
+					('@e[nbt={FallDistance:2.5F}]', '@e[nbt={fall_distance:2.5d}]'),
+					('@e[nbt={fall_distance:0d}]', '@e[nbt={fall_distance:0d}]'),
+					('@e[nbt={fall_distance:0.5}]', '@e[nbt={fall_distance:0.5}]'),
+					('@e[nbt={onground:1b,FallDistance:0f}]', '@e[nbt={OnGround:1b,fall_distance:0d}]')):
+				self.assertEqual(nbt_case.fix_nbt_case(written), want, (mc, written))
 
-	def test_1_21_x_keeps_fall_distance_camel_case(self):
-		for mc in ('1.21.8', '1.21.11'):
+	def test_before_1_21_5_keeps_fall_distance_camel_case_float(self):
+		for mc in ('1.21.1', '1.21.4'):
 			os.environ['CBSCRIPT_MC'] = mc
 			nbt_case.reset_warnings()
 			self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={falldistance:0f}]'), '@e[nbt={FallDistance:0f}]', mc)
 
 
 PROBE = """dir "x"
-desc "26.1.2 dialect probe"
+desc "dialect probe"
 
 reset
     tell @a 'Hello! [Click me](call go)'
     /execute as @e[nbt={FallDistance:0f}] run say still
+    /execute as @e[nbt={onground:1b,falldistance:2f}] run say odd
     /team add red
     /team modify red color red
     /item replace entity @s hotbar.0 with minecraft:stone 1
@@ -202,7 +211,8 @@ class TestCompiledOutput(unittest.TestCase):
 		self.assertNotIn('maxCommandChainLength', text)
 		self.assertIn('"click_event":{"action":"run_command","command":', text)
 		self.assertNotIn('clickEvent', text)
-		self.assertIn('nbt={fall_distance:0f}', text)
+		self.assertIn('nbt={fall_distance:0d}', text)
+		self.assertIn('nbt={OnGround:1b,fall_distance:2d}', text)
 		self.assertNotIn('FallDistance', text)
 		self.assertEqual((meta['pack']['pack_format'], meta['pack']['max_format']), (101, [101, 1]))
 
@@ -212,7 +222,8 @@ class TestCompiledOutput(unittest.TestCase):
 		text, meta = compile_with('26.2')
 		self.assertIn('gamerule max_command_sequence_length', text)
 		self.assertIn('"click_event":{"action":"run_command","command":', text)
-		self.assertIn('nbt={fall_distance:0f}', text)
+		self.assertIn('nbt={fall_distance:0d}', text)
+		self.assertNotIn('FallDistance', text)
 		self.assertIn('team modify red color red', text)
 		self.assertIn('item replace entity @s hotbar.0 with minecraft:stone 1', text)
 		self.assertEqual((meta['pack']['pack_format'], meta['pack']['min_format'], meta['pack']['max_format']),
@@ -222,8 +233,23 @@ class TestCompiledOutput(unittest.TestCase):
 		text, meta = compile_with('1.21.11')
 		self.assertIn('gamerule max_command_sequence_length', text)
 		self.assertIn('"click_event":{"action":"run_command","command":', text)
-		self.assertIn('nbt={FallDistance:0f}', text)
+		self.assertIn('nbt={fall_distance:0d}', text)
+		self.assertNotIn('FallDistance', text)
 		self.assertEqual(meta['pack']['pack_format'], 94)
+
+	def test_1_21_8_and_1_21_10_write_fall_distance(self):
+		for mc in ('1.21.8', '1.21.10'):
+			text, _ = compile_with(mc)
+			self.assertIn('nbt={fall_distance:0d}', text, mc)
+			self.assertIn('nbt={OnGround:1b,fall_distance:2d}', text, mc)
+			self.assertNotIn('FallDistance', text, mc)
+			self.assertNotIn('falldistance', text, mc)
+
+	def test_1_21_4_keeps_fall_distance(self):
+		text, _ = compile_with('1.21.4')
+		self.assertIn('nbt={FallDistance:0f}', text)
+		self.assertIn('nbt={OnGround:1b,FallDistance:2f}', text)
+		self.assertNotIn('fall_distance', text)
 
 
 if __name__ == '__main__':
