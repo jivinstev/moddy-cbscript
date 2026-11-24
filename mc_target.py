@@ -74,3 +74,16 @@ def pack_meta(desc):
 def max_chain_rule():
 	"""The game rule that bounds a function's command chain, as the target's /gamerule spells it."""
 	return 'max_command_sequence_length' if version() >= (1, 21, 11) else 'maxCommandChainLength'
+
+
+# Entity NBT renamed FallDistance (float) to fall_distance (double) in 1.21.5. From that release the
+# entity class writes and reads fall_distance; only the datafixer (EntityFallDistanceFloatToDoubleFix)
+# still names FallDistance, to convert saved entities. The type changed with the name (putDouble), and
+# selector nbt matching compares tag types, so nbt={FallDistance:0f} and nbt={fall_distance:0f} both
+# compile, load and match nothing on 1.21.5 and later; nbt={fall_distance:0d} is the form that matches.
+FALL_DISTANCE_SNAKE_SINCE = (1, 21, 5)
+
+
+def entity_nbt_renames():
+	"""Entity NBT fields the target names differently, {old: (new, numeric suffix of its type)}."""
+	return {'FallDistance': ('fall_distance', 'd')} if version() >= FALL_DISTANCE_SNAKE_SINCE else {}
