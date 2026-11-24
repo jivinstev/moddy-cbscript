@@ -77,15 +77,14 @@ def max_chain_rule():
 	return 'max_command_sequence_length' if version() >= (1, 21, 11) else 'maxCommandChainLength'
 
 
-# Entity NBT renamed FallDistance (float) to fall_distance (double); the game's datafixer
-# (EntityFallDistanceFloatToDoubleFix) converts saved entities, but nbt={FallDistance:...} in a selector
-# matches nothing on a game that stores fall_distance. The rename is older than 26.x: in the 1.21.5
-# server jar the entity class already writes fall_distance and only the datafixer still names
-# FallDistance. The 26.1.2 rung gates it at 26.1 so a 1.21.x compile stays byte-for-byte what its own
-# rung writes; lowering this to (1, 21, 5) belongs on master, carried up the ladder.
-FALL_DISTANCE_SNAKE_SINCE = (26, 1)
+# Entity NBT renamed FallDistance (float) to fall_distance (double) in 1.21.5. From that release the
+# entity class writes and reads fall_distance; only the datafixer (EntityFallDistanceFloatToDoubleFix)
+# still names FallDistance, to convert saved entities. The type changed with the name (putDouble), and
+# selector nbt matching compares tag types, so nbt={FallDistance:0f} and nbt={fall_distance:0f} both
+# compile, load and match nothing on 1.21.5 and later; nbt={fall_distance:0d} is the form that matches.
+FALL_DISTANCE_SNAKE_SINCE = (1, 21, 5)
 
 
 def entity_nbt_renames():
-	"""Entity NBT fields the target spells differently from the CamelCase name, {old: new}."""
-	return {'FallDistance': 'fall_distance'} if version() >= FALL_DISTANCE_SNAKE_SINCE else {}
+	"""Entity NBT fields the target names differently, {old: (new, numeric suffix of its type)}."""
+	return {'FallDistance': ('fall_distance', 'd')} if version() >= FALL_DISTANCE_SNAKE_SINCE else {}
