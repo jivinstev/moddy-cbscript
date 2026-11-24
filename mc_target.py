@@ -10,11 +10,13 @@ DEFAULT = '1.21.1'
 
 # pack_format per release, newest first; a version takes the first row it reaches.
 # 1.21/1.21.1 = 48, 1.21.2/1.21.3 = 57, 1.21.4 = 61, 1.21.5 = 71, 1.21.6 = 80, 1.21.7/1.21.8 = 81,
-# 1.21.9/1.21.10 = 88.0, 1.21.11 = 94.1, 26.1/26.1.1/26.1.2 = 101.1, 26.2 = 107.1 (read off each server jar's version.json:
+# 1.21.9/1.21.10 = 88.0, 1.21.11 = 94.1, 26.1/26.1.1/26.1.2 = 101.1, 26.2 = 107.1,
+# 26.3 = 121.0 (read off each server jar's version.json:
 # pack_version.data_major/data_minor; 1.21.11's SharedConstants.DATA_PACK_FORMAT_MAJOR/MINOR = 94/1).
 # A newer Minecraft than the table knows gets the newest number it has, which that Minecraft reads as
 # "made for an older version" and still loads.
 PACK_FORMATS = (
+	((26, 3), (121, 0)),
 	((26, 2), (107, 1)),
 	((26, 1), (101, 1)),
 	((1, 21, 11), (94, 1)),
@@ -89,3 +91,16 @@ FALL_DISTANCE_SNAKE_SINCE = (1, 21, 5)
 def entity_nbt_renames():
 	"""Entity NBT fields the target names differently, {old: (new, numeric suffix of its type)}."""
 	return {'FallDistance': ('fall_distance', 'd')} if version() >= FALL_DISTANCE_SNAKE_SINCE else {}
+
+
+# 26.3 rebuilt loot data around one dispatch key, "type": a loot function names itself with "type"
+# where it said "function" (the 26.3 server jar's LootItemFunctions no longer holds the string
+# "function"; vanilla's own loot tables now write {"type": "minecraft:set_count", ...}), and a data pack
+# with one item modifier in the old shape stops the whole server from loading its data packs
+# ("No key type in MapLike[{"function":...}]", "Failed to load datapacks, can't proceed").
+LOOT_TYPE_KEY_SINCE = (26, 3)
+
+
+def loot_function_key():
+	"""The key an item modifier's loot function names itself with on the target."""
+	return 'type' if version() >= LOOT_TYPE_KEY_SINCE else 'function'

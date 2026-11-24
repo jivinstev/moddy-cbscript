@@ -35,7 +35,7 @@ class TestPackFormat(_Env):
 		for mc, fmt in (('1.21.1', 48), ('1.21', 48), ('1.21.2', 57), ('1.21.3', 57), ('1.21.4', 61),
 						('1.21.5', 71), ('1.21.6', 80), ('1.21.7', 81), ('1.21.8', 81), ('1.21.9', 88),
 						('1.21.10', 88), ('1.21.11', 94), ('26.1', 101), ('26.1.1', 101), ('26.1.2', 101),
-						('26.2', 107)):
+						('26.2', 107), ('26.3', 121)):
 			os.environ['CBSCRIPT_MC'] = mc
 			self.assertEqual(mc_target.pack_format(), fmt, mc)
 
@@ -75,10 +75,17 @@ class TestPackFormat(_Env):
 		self.assertEqual(mc_target.pack_meta('d'),
 						 {'pack_format': 107, 'description': 'd', 'min_format': [107, 1], 'max_format': [107, 1]})
 
+	def test_26_3_declares_121_0(self):
+		# The 26.3 server jar (sha1 33680f5f2ac32864d6d7cf5e56a705fdb3e05f4c) says data_major 121, data_minor 0.
+		os.environ['CBSCRIPT_MC'] = '26.3'
+		self.assertEqual(mc_target.pack_meta('d'),
+						 {'pack_format': 121, 'description': 'd', 'min_format': [121, 0], 'max_format': [121, 0]})
+
 	def test_the_chain_rule_is_spelled_the_targets_way(self):
 		for mc, rule in (('1.21.1', 'maxCommandChainLength'), ('1.21.8', 'maxCommandChainLength'),
 						 ('1.21.10', 'maxCommandChainLength'), ('1.21.11', 'max_command_sequence_length'),
-						 ('26.1.2', 'max_command_sequence_length'), ('26.2', 'max_command_sequence_length')):
+						 ('26.1.2', 'max_command_sequence_length'), ('26.2', 'max_command_sequence_length'),
+						 ('26.3', 'max_command_sequence_length')):
 			os.environ['CBSCRIPT_MC'] = mc
 			self.assertEqual(mc_target.max_chain_rule(), rule, mc)
 
@@ -135,6 +142,48 @@ class TestPackFormat(_Env):
 		self.assertEqual((meta['pack']['pack_format'], meta['pack']['min_format'], meta['pack']['max_format']),
 						 (107, [107, 1], [107, 1]))
 
+	def test_the_written_mcmeta_for_26_3_declares_121_0(self):
+		import mcworld
+		os.environ['CBSCRIPT_MC'] = '26.3'
+		w = mcworld.mcworld.__new__(mcworld.mcworld)
+		buf = io.BytesIO()
+		w.zip = zipfile.ZipFile(buf, 'w')
+		w.write_mcmeta('t')
+		w.zip.close()
+		meta = json.loads(zipfile.ZipFile(buf).read('pack.mcmeta'))
+		self.assertEqual((meta['pack']['pack_format'], meta['pack']['min_format'], meta['pack']['max_format']),
+						 (121, [121, 0], [121, 0]))
+
+
+class TestLootFunctionKey(_Env):
+	"""26.3 names a loot function with "type", not "function"; an item modifier in the old shape stops the server."""
+
+	OLD = '{"function":"minecraft:fill_player_head","entity":"this"}'
+
+	def test_the_key_from_26_3(self):
+		for mc, key in (('1.21.8', 'function'), ('26.1.2', 'function'), ('26.2', 'function'), ('26.3', 'type')):
+			os.environ['CBSCRIPT_MC'] = mc
+			self.assertEqual(mc_target.loot_function_key(), key, mc)
+
+	def test_26_3_renames_the_dispatch_key_in_place(self):
+		import loot_syntax
+		os.environ['CBSCRIPT_MC'] = '26.3'
+		loot_syntax.reset_warnings()
+		self.assertEqual(loot_syntax.fix_item_modifier(self.OLD), '{"type":"minecraft:fill_player_head","entity":"this"}')
+		self.assertEqual(loot_syntax.fix_item_modifier('[{"count":2,"function":"minecraft:set_count"}]'),
+						 '[{"count":2,"type":"minecraft:set_count"}]')
+		# Already the 26.3 shape, or a value that only reads like the key: left exactly as written.
+		self.assertEqual(loot_syntax.fix_item_modifier('{ "type": "minecraft:set_count", "count": 2 }'),
+						 '{ "type": "minecraft:set_count", "count": 2 }')
+		self.assertEqual(loot_syntax.fix_item_modifier('{"type":"minecraft:set_name","name":"function"}'),
+						 '{"type":"minecraft:set_name","name":"function"}')
+
+	def test_below_26_3_the_text_is_untouched(self):
+		import loot_syntax
+		for mc in ('1.21.8', '26.1.2', '26.2'):
+			os.environ['CBSCRIPT_MC'] = mc
+			self.assertEqual(loot_syntax.fix_item_modifier(self.OLD), self.OLD, mc)
+
 
 class TestEntityNbtRenames(_Env):
 	"""FallDistance (float) -> fall_distance (double): the entity's NBT since 1.21.5, one gate on every rung."""
@@ -142,7 +191,7 @@ class TestEntityNbtRenames(_Env):
 	def test_renamed_from_1_21_5(self):
 		R = {'FallDistance': ('fall_distance', 'd')}
 		for mc, want in (('1.21.1', {}), ('1.21.4', {}), ('1.21.5', R), ('1.21.8', R), ('1.21.11', R),
-						 ('26.1', R), ('26.1.2', R), ('26.2', R)):
+						 ('26.1', R), ('26.1.2', R), ('26.2', R), ('26.3', R)):
 			os.environ['CBSCRIPT_MC'] = mc
 			self.assertEqual(mc_target.entity_nbt_renames(), want, mc)
 
@@ -183,6 +232,11 @@ end
 function go()
     /say went
 end
+
+item_modifier set_head {
+    "function": "minecraft:fill_player_head",
+    "entity": "this"
+}
 """
 
 
@@ -199,7 +253,8 @@ def compile_with(mc):
 		verdict = json.loads(r.stdout)
 		assert verdict['ok'], verdict
 		with zipfile.ZipFile(out) as z:
-			text = '\n'.join(z.read(n).decode() for n in sorted(z.namelist()) if n.endswith('.mcfunction'))
+			text = '\n'.join(z.read(n).decode() for n in sorted(z.namelist())
+							 if n.endswith('.mcfunction') or '/item_modifier/' in n)
 			return text, json.loads(z.read('pack.mcmeta'))
 
 
@@ -228,6 +283,22 @@ class TestCompiledOutput(unittest.TestCase):
 		self.assertIn('item replace entity @s hotbar.0 with minecraft:stone 1', text)
 		self.assertEqual((meta['pack']['pack_format'], meta['pack']['min_format'], meta['pack']['max_format']),
 						 (107, [107, 1], [107, 1]))
+
+	def test_26_3(self):
+		text, meta = compile_with('26.3')
+		self.assertIn('gamerule max_command_sequence_length', text)
+		self.assertIn('"click_event":{"action":"run_command","command":', text)
+		self.assertIn('nbt={fall_distance:0d}', text)
+		self.assertIn('team modify red color red', text)
+		self.assertIn('item replace entity @s hotbar.0 with minecraft:stone 1', text)
+		self.assertIn('{"type":"minecraft:fill_player_head","entity":"this"}', text)
+		self.assertNotIn('"function"', text)
+		self.assertEqual((meta['pack']['pack_format'], meta['pack']['min_format'], meta['pack']['max_format']),
+						 (121, [121, 0], [121, 0]))
+
+	def test_26_2_keeps_the_function_key(self):
+		text, _ = compile_with('26.2')
+		self.assertIn('"function":"minecraft:fill_player_head"', text)
 
 	def test_1_21_11_is_what_its_rung_writes(self):
 		text, meta = compile_with('1.21.11')

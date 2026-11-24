@@ -7,6 +7,7 @@ import json
 import io
 import zipfile
 from CompileError import CompileError
+import loot_syntax
 import mc_target
 
 class mcworld(object):
@@ -109,7 +110,7 @@ class mcworld(object):
 			
 			for name in item_modifiers:
 				item_modifier_file = os.path.join(item_modifier_dir, f'{name}.json')
-				self.zip.writestr(item_modifier_file, item_modifiers[name])
+				self.zip.writestr(item_modifier_file, loot_syntax.fix_item_modifier(item_modifiers[name]))
 
 	def write_mcmeta(self, desc):
 		mcmeta_file = 'pack.mcmeta'
