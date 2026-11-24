@@ -117,7 +117,8 @@ class mcworld(object):
 		# The target's own number (48 on 1.21.1, 61 on 1.21.4). A pack written with the other target's
 		# number still loads, but as "made for an older/newer version", and the mod's install path
 		# had to rewrite it on the way into the world (T11.5).
-		self.zip.writestr(mcmeta_file, json.dumps({'pack':{'pack_format':mc_target.pack_format(), 'description':desc}}, indent=4))
+		# From 1.21.9 the game also needs min_format/max_format (mc_target.pack_meta).
+		self.zip.writestr(mcmeta_file, json.dumps({'pack':mc_target.pack_meta(desc)}, indent=4))
 	
 	def write_zip(self):
 		self.zip.close()
