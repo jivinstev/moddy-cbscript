@@ -3,10 +3,16 @@
 import io
 import json
 import os
+import subprocess
+import sys
+import tempfile
 import unittest
 import zipfile
 
 import mc_target
+import nbt_case
+
+HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 class _Env(unittest.TestCase):
@@ -109,6 +115,81 @@ class TestPackFormat(_Env):
 		meta = json.loads(zipfile.ZipFile(buf).read('pack.mcmeta'))
 		self.assertEqual((meta['pack']['pack_format'], meta['pack']['min_format'], meta['pack']['max_format']),
 						 (101, [101, 1], [101, 1]))
+
+
+class TestEntityNbtRenames(_Env):
+	"""FallDistance -> fall_distance: in the entity's NBT since 1.21.5, gated at 26.1 on this rung."""
+
+	def test_renamed_from_26_1(self):
+		for mc, want in (('1.21.1', {}), ('1.21.8', {}), ('1.21.11', {}), ('26.1', {'FallDistance': 'fall_distance'}),
+						 ('26.1.2', {'FallDistance': 'fall_distance'})):
+			os.environ['CBSCRIPT_MC'] = mc
+			self.assertEqual(mc_target.entity_nbt_renames(), want, mc)
+
+	def test_fall_distance_is_snake_case_on_26_1_2(self):
+		os.environ['CBSCRIPT_MC'] = '26.1.2'
+		nbt_case.reset_warnings()
+		self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={FallDistance:0f}]'), '@e[nbt={fall_distance:0f}]')
+		self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={falldistance:0f}]'), '@e[nbt={fall_distance:0f}]')
+		self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={fall_distance:0d}]'), '@e[nbt={fall_distance:0d}]')
+		self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={onground:1b,FallDistance:0f}]'), '@e[nbt={OnGround:1b,fall_distance:0f}]')
+
+	def test_1_21_x_keeps_fall_distance_camel_case(self):
+		for mc in ('1.21.8', '1.21.11'):
+			os.environ['CBSCRIPT_MC'] = mc
+			nbt_case.reset_warnings()
+			self.assertEqual(nbt_case.fix_nbt_case('@e[nbt={falldistance:0f}]'), '@e[nbt={FallDistance:0f}]', mc)
+
+
+PROBE = """dir "x"
+desc "26.1.2 dialect probe"
+
+reset
+    tell @a 'Hello! [Click me](call go)'
+    /execute as @e[nbt={FallDistance:0f}] run say still
+end
+
+function go()
+    /say went
+end
+"""
+
+
+def compile_with(mc):
+	"""Compile PROBE with the REAL compiler at CBSCRIPT_MC=mc; return every function's text and pack.mcmeta."""
+	with tempfile.TemporaryDirectory() as d:
+		src = os.path.join(d, 'probe.cbscript')
+		out = os.path.join(d, 'probe.zip')
+		with open(src, 'w', encoding='utf-8') as f:
+			f.write(PROBE)
+		env = dict(os.environ, CBSCRIPT_MC=mc)
+		r = subprocess.run([sys.executable, os.path.join(HERE, 'compile_once.py'), src, '--out', out],
+			capture_output=True, text=True, encoding='utf-8', env=env, cwd=d)
+		verdict = json.loads(r.stdout)
+		assert verdict['ok'], verdict
+		with zipfile.ZipFile(out) as z:
+			text = '\n'.join(z.read(n).decode() for n in sorted(z.namelist()) if n.endswith('.mcfunction'))
+			return text, json.loads(z.read('pack.mcmeta'))
+
+
+class TestCompiledOutput(unittest.TestCase):
+
+	def test_26_1_2(self):
+		text, meta = compile_with('26.1.2')
+		self.assertIn('gamerule max_command_sequence_length', text)
+		self.assertNotIn('maxCommandChainLength', text)
+		self.assertIn('"click_event":{"action":"run_command","command":', text)
+		self.assertNotIn('clickEvent', text)
+		self.assertIn('nbt={fall_distance:0f}', text)
+		self.assertNotIn('FallDistance', text)
+		self.assertEqual((meta['pack']['pack_format'], meta['pack']['max_format']), (101, [101, 1]))
+
+	def test_1_21_11_is_what_its_rung_writes(self):
+		text, meta = compile_with('1.21.11')
+		self.assertIn('gamerule max_command_sequence_length', text)
+		self.assertIn('"click_event":{"action":"run_command","command":', text)
+		self.assertIn('nbt={FallDistance:0f}', text)
+		self.assertEqual(meta['pack']['pack_format'], 94)
 
 
 if __name__ == '__main__':

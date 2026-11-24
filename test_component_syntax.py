@@ -91,6 +91,13 @@ class TestClickEvent(Base):
 		self.assertEqual(tellraw.click_event('open_url', 'https://x.y'), '"clickEvent":{"action":"open_url","value":"https://x.y"}')
 
 
+	def test_26_1_2_writes_click_event(self):
+		import tellraw
+		os.environ['CBSCRIPT_MC'] = '26.1.2'
+		self.assertEqual(tellraw.click_event('open_url', 'https://x.y'), '"click_event":{"action":"open_url","url":"https://x.y"}')
+		self.assertEqual(tellraw.click_event('run_command', '/function a:b'), '"click_event":{"action":"run_command","command":"/function a:b"}')
+
+
 class TestLint(Base):
 	"""The silent 1.21.5 forms nothing rewrites are WARNED about, and the command is left as written."""
 

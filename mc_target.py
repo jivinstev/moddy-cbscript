@@ -75,3 +75,17 @@ def pack_meta(desc):
 def max_chain_rule():
 	"""The game rule that bounds a function's command chain, as the target's /gamerule spells it."""
 	return 'max_command_sequence_length' if version() >= (1, 21, 11) else 'maxCommandChainLength'
+
+
+# Entity NBT renamed FallDistance (float) to fall_distance (double); the game's datafixer
+# (EntityFallDistanceFloatToDoubleFix) converts saved entities, but nbt={FallDistance:...} in a selector
+# matches nothing on a game that stores fall_distance. The rename is older than 26.x: in the 1.21.5
+# server jar the entity class already writes fall_distance and only the datafixer still names
+# FallDistance. The 26.1.2 rung gates it at 26.1 so a 1.21.x compile stays byte-for-byte what its own
+# rung writes; lowering this to (1, 21, 5) belongs on master, carried up the ladder.
+FALL_DISTANCE_SNAKE_SINCE = (26, 1)
+
+
+def entity_nbt_renames():
+	"""Entity NBT fields the target spells differently from the CamelCase name, {old: new}."""
+	return {'FallDistance': 'fall_distance'} if version() >= FALL_DISTANCE_SNAKE_SINCE else {}

@@ -20,6 +20,8 @@ printed in the same style as the rest of the compiler so the author still learns
 """
 import re
 
+import mc_target
+
 # Vanilla entity NBT fields whose capitalisation is load-bearing.
 #
 # Deliberately short: every entry can only be one thing, so rewriting it is safe. A field a custom
@@ -50,9 +52,29 @@ def fix_nbt_case(command):
 	if not command or 'nbt=' not in command:
 		return command
 
+	# Fields the target renamed (FallDistance -> fall_distance, mc_target.entity_nbt_renames): either
+	# spelling, in any case, becomes the one THIS target reads.
+	renames = mc_target.entity_nbt_renames()
+
 	def fix_block(match):
 		block = match.group(0)
+		for old, new in renames.items():
+			pattern = re.compile(r'([{,]\s*)(' + old + r'|' + new + r')(\s*:)', re.IGNORECASE)
+
+			def rename(m, new=new):
+				if m.group(2) != new:
+					key = (m.group(2), new)
+					if key not in _warned:
+						_warned.add(key)
+						print(f'Warning: "{m.group(2)}" should be "{new}" on this Minecraft — '
+							f'nbt={{...}} matching is case-sensitive and the old name matches nothing. '
+							f'Corrected.')
+				return m.group(1) + new + m.group(3)
+
+			block = pattern.sub(rename, block)
 		for field in FIELDS:
+			if field in renames:
+				continue
 			# A field name sits after `{` or `,` and before `:`. Anchoring on that is what stops a
 			# VALUE that happens to read like a field name from being rewritten inside the data.
 			pattern = re.compile(r'([{,]\s*)(' + field + r')(\s*:)', re.IGNORECASE)
