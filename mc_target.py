@@ -10,11 +10,12 @@ DEFAULT = '1.21.1'
 
 # pack_format per release, newest first; a version takes the first row it reaches.
 # 1.21/1.21.1 = 48, 1.21.2/1.21.3 = 57, 1.21.4 = 61, 1.21.5 = 71, 1.21.6 = 80, 1.21.7/1.21.8 = 81,
-# 1.21.9/1.21.10 = 88.0, 1.21.11 = 94.1, 26.1/26.1.1/26.1.2 = 101.1 (read off each server jar's version.json:
+# 1.21.9/1.21.10 = 88.0, 1.21.11 = 94.1, 26.1/26.1.1/26.1.2 = 101.1, 26.2 = 107.1 (read off each server jar's version.json:
 # pack_version.data_major/data_minor; 1.21.11's SharedConstants.DATA_PACK_FORMAT_MAJOR/MINOR = 94/1).
 # A newer Minecraft than the table knows gets the newest number it has, which that Minecraft reads as
 # "made for an older version" and still loads.
 PACK_FORMATS = (
+	((26, 2), (107, 1)),
 	((26, 1), (101, 1)),
 	((1, 21, 11), (94, 1)),
 	((1, 21, 9), (88, 0)),

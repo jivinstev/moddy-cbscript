@@ -34,7 +34,8 @@ class TestPackFormat(_Env):
 	def test_each_target_gets_its_own_number(self):
 		for mc, fmt in (('1.21.1', 48), ('1.21', 48), ('1.21.2', 57), ('1.21.3', 57), ('1.21.4', 61),
 						('1.21.5', 71), ('1.21.6', 80), ('1.21.7', 81), ('1.21.8', 81), ('1.21.9', 88),
-						('1.21.10', 88), ('1.21.11', 94), ('26.1', 101), ('26.1.1', 101), ('26.1.2', 101)):
+						('1.21.10', 88), ('1.21.11', 94), ('26.1', 101), ('26.1.1', 101), ('26.1.2', 101),
+						('26.2', 107)):
 			os.environ['CBSCRIPT_MC'] = mc
 			self.assertEqual(mc_target.pack_format(), fmt, mc)
 
@@ -68,10 +69,16 @@ class TestPackFormat(_Env):
 			self.assertEqual(mc_target.pack_meta('d'),
 							 {'pack_format': 101, 'description': 'd', 'min_format': [101, 1], 'max_format': [101, 1]}, mc)
 
+	def test_26_2_declares_107_1(self):
+		# The 26.2 server jar (sha1 823e2250d24b3ddac457a60c92a6a941943fcd6a) says data_major 107, data_minor 1.
+		os.environ['CBSCRIPT_MC'] = '26.2'
+		self.assertEqual(mc_target.pack_meta('d'),
+						 {'pack_format': 107, 'description': 'd', 'min_format': [107, 1], 'max_format': [107, 1]})
+
 	def test_the_chain_rule_is_spelled_the_targets_way(self):
 		for mc, rule in (('1.21.1', 'maxCommandChainLength'), ('1.21.8', 'maxCommandChainLength'),
 						 ('1.21.10', 'maxCommandChainLength'), ('1.21.11', 'max_command_sequence_length'),
-						 ('26.1.2', 'max_command_sequence_length')):
+						 ('26.1.2', 'max_command_sequence_length'), ('26.2', 'max_command_sequence_length')):
 			os.environ['CBSCRIPT_MC'] = mc
 			self.assertEqual(mc_target.max_chain_rule(), rule, mc)
 
@@ -116,13 +123,25 @@ class TestPackFormat(_Env):
 		self.assertEqual((meta['pack']['pack_format'], meta['pack']['min_format'], meta['pack']['max_format']),
 						 (101, [101, 1], [101, 1]))
 
+	def test_the_written_mcmeta_for_26_2_declares_107_1(self):
+		import mcworld
+		os.environ['CBSCRIPT_MC'] = '26.2'
+		w = mcworld.mcworld.__new__(mcworld.mcworld)
+		buf = io.BytesIO()
+		w.zip = zipfile.ZipFile(buf, 'w')
+		w.write_mcmeta('t')
+		w.zip.close()
+		meta = json.loads(zipfile.ZipFile(buf).read('pack.mcmeta'))
+		self.assertEqual((meta['pack']['pack_format'], meta['pack']['min_format'], meta['pack']['max_format']),
+						 (107, [107, 1], [107, 1]))
+
 
 class TestEntityNbtRenames(_Env):
 	"""FallDistance -> fall_distance: in the entity's NBT since 1.21.5, gated at 26.1 on this rung."""
 
 	def test_renamed_from_26_1(self):
 		for mc, want in (('1.21.1', {}), ('1.21.8', {}), ('1.21.11', {}), ('26.1', {'FallDistance': 'fall_distance'}),
-						 ('26.1.2', {'FallDistance': 'fall_distance'})):
+						 ('26.1.2', {'FallDistance': 'fall_distance'}), ('26.2', {'FallDistance': 'fall_distance'})):
 			os.environ['CBSCRIPT_MC'] = mc
 			self.assertEqual(mc_target.entity_nbt_renames(), want, mc)
 
@@ -147,6 +166,9 @@ desc "26.1.2 dialect probe"
 reset
     tell @a 'Hello! [Click me](call go)'
     /execute as @e[nbt={FallDistance:0f}] run say still
+    /team add red
+    /team modify red color red
+    /item replace entity @s hotbar.0 with minecraft:stone 1
 end
 
 function go()
@@ -183,6 +205,18 @@ class TestCompiledOutput(unittest.TestCase):
 		self.assertIn('nbt={fall_distance:0f}', text)
 		self.assertNotIn('FallDistance', text)
 		self.assertEqual((meta['pack']['pack_format'], meta['pack']['max_format']), (101, [101, 1]))
+
+	def test_26_2(self):
+		# 26.2 changed no spelling the compiler writes: the reports diff against 26.1.2 shows only the pack
+		# format, and team modify's colour argument (minecraft:color -> minecraft:team_color) still takes `red`.
+		text, meta = compile_with('26.2')
+		self.assertIn('gamerule max_command_sequence_length', text)
+		self.assertIn('"click_event":{"action":"run_command","command":', text)
+		self.assertIn('nbt={fall_distance:0f}', text)
+		self.assertIn('team modify red color red', text)
+		self.assertIn('item replace entity @s hotbar.0 with minecraft:stone 1', text)
+		self.assertEqual((meta['pack']['pack_format'], meta['pack']['min_format'], meta['pack']['max_format']),
+						 (107, [107, 1], [107, 1]))
 
 	def test_1_21_11_is_what_its_rung_writes(self):
 		text, meta = compile_with('1.21.11')
