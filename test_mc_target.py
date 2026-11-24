@@ -28,7 +28,7 @@ class TestPackFormat(_Env):
 	def test_each_target_gets_its_own_number(self):
 		for mc, fmt in (('1.21.1', 48), ('1.21', 48), ('1.21.2', 57), ('1.21.3', 57), ('1.21.4', 61),
 						('1.21.5', 71), ('1.21.6', 80), ('1.21.7', 81), ('1.21.8', 81), ('1.21.9', 88),
-						('1.21.10', 88)):
+						('1.21.10', 88), ('1.21.11', 94)):
 			os.environ['CBSCRIPT_MC'] = mc
 			self.assertEqual(mc_target.pack_format(), fmt, mc)
 
@@ -49,6 +49,17 @@ class TestPackFormat(_Env):
 			os.environ['CBSCRIPT_MC'] = mc
 			self.assertEqual(mc_target.pack_meta('d'),
 							 {'pack_format': 88, 'description': 'd', 'min_format': [88, 0], 'max_format': [88, 0]}, mc)
+
+	def test_1_21_11_declares_94_1(self):
+		os.environ['CBSCRIPT_MC'] = '1.21.11'
+		self.assertEqual(mc_target.pack_meta('d'),
+						 {'pack_format': 94, 'description': 'd', 'min_format': [94, 1], 'max_format': [94, 1]})
+
+	def test_the_chain_rule_is_spelled_the_targets_way(self):
+		for mc, rule in (('1.21.1', 'maxCommandChainLength'), ('1.21.8', 'maxCommandChainLength'),
+						 ('1.21.10', 'maxCommandChainLength'), ('1.21.11', 'max_command_sequence_length')):
+			os.environ['CBSCRIPT_MC'] = mc
+			self.assertEqual(mc_target.max_chain_rule(), rule, mc)
 
 	def test_garbage_is_the_default_not_a_crash(self):
 		os.environ['CBSCRIPT_MC'] = 'latest'

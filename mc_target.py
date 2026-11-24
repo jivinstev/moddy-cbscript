@@ -10,10 +10,12 @@ DEFAULT = '1.21.1'
 
 # pack_format per release, newest first; a version takes the first row it reaches.
 # 1.21/1.21.1 = 48, 1.21.2/1.21.3 = 57, 1.21.4 = 61, 1.21.5 = 71, 1.21.6 = 80, 1.21.7/1.21.8 = 81,
-# 1.21.9/1.21.10 = 88.0 (read off each server jar's version.json: pack_version.data_major/data_minor).
+# 1.21.9/1.21.10 = 88.0, 1.21.11 = 94.1 (read off each server jar's version.json:
+# pack_version.data_major/data_minor; 1.21.11's SharedConstants.DATA_PACK_FORMAT_MAJOR/MINOR = 94/1).
 # A newer Minecraft than the table knows gets the newest number it has, which that Minecraft reads as
 # "made for an older version" and still loads.
 PACK_FORMATS = (
+	((1, 21, 11), (94, 1)),
 	((1, 21, 9), (88, 0)),
 	((1, 21, 7), 81),
 	((1, 21, 6), 80),
@@ -64,3 +66,11 @@ def pack_meta(desc):
 		pack['min_format'] = [major, minor]
 		pack['max_format'] = [major, minor]
 	return pack
+
+
+# 1.21.11 moved game rules into a registry with snake_case ids, and the old camelCase names are no longer
+# commands ("gamerule maxCommandChainLength" is an unknown command there; Mojang's GameRuleRegistryFix maps
+# maxCommandChainLength -> minecraft:max_command_sequence_length). The one rule the compiler writes itself.
+def max_chain_rule():
+	"""The game rule that bounds a function's command chain, as the target's /gamerule spells it."""
+	return 'max_command_sequence_length' if version() >= (1, 21, 11) else 'maxCommandChainLength'

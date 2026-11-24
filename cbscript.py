@@ -1,4 +1,5 @@
 import global_context
+import mc_target
 import mcworld
 from environment import environment
 from mcfunction import mcfunction, compile_section
@@ -168,7 +169,7 @@ class cbscript(object):
 		
 	def add_max_chain_length(self):
 		f = self.global_context.get_reset_function()
-		f.insert_command('/gamerule maxCommandChainLength 1000000000', 0)
+		f.insert_command(f'/gamerule {mc_target.max_chain_rule()} 1000000000', 0)
 		
 	def initialize_stack(self):
 		f = self.global_context.get_reset_function()
