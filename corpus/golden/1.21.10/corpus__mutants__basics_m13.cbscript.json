@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/basics_m13.cbscript",
+ "ok": false,
+ "namespace": "basics_m13",
+ "error": "Syntax error at line 15 column 7. Unexpected COLON symbol \":\" in state 174.",
+ "log": [
+  "Syntax error at line 15 column 7. Unexpected COLON symbol \":\" in state 174."
+ ],
+ "files": []
+}

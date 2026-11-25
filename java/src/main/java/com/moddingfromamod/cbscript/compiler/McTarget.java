@@ -7,8 +7,9 @@ import java.util.Map;
 public final class McTarget {
     public static final String DEFAULT = "1.21.1";
 
-    /** pack_format per release, newest first; a version takes the first row it reaches. */
+    /** pack_format per release, newest first; a version takes the first row it reaches: {since, {major, minor}}. */
     private static final int[][][] PACK_FORMATS = {
+            {{1, 21, 9}, {88, 0}},
             {{1, 21, 7}, {81}},
             {{1, 21, 6}, {80}},
             {{1, 21, 5}, {71}},
@@ -86,20 +87,34 @@ public final class McTarget {
         return version.length >= since.length;
     }
 
-    public int packFormat() {
+    /** The last data-pack format a bare pack_format may declare; past it, min_format and max_format are required. */
+    static final int LAST_BARE_FORMAT = 81;
+
+    /** {major, minor} of the target's data-pack format. */
+    private int[] row() {
         for (int[][] row : PACK_FORMATS) {
             if (atLeast(row[0])) {
-                return row[1][0];
+                return row[1].length == 2 ? row[1] : new int[] {row[1][0], 0};
             }
         }
-        return PACK_FORMATS[PACK_FORMATS.length - 1][1][0];
+        int[] last = PACK_FORMATS[PACK_FORMATS.length - 1][1];
+        return last.length == 2 ? last : new int[] {last[0], 0};
     }
 
-    /** pack.mcmeta's "pack" object (insertion ordered). */
+    public int packFormat() {
+        return row()[0];
+    }
+
+    /** pack.mcmeta's "pack" object (insertion ordered); from 1.21.9 with min_format and max_format. */
     public Map<String, Object> packMeta(String desc) {
+        int[] r = row();
         Map<String, Object> pack = new java.util.LinkedHashMap<>();
-        pack.put("pack_format", (long) packFormat());
+        pack.put("pack_format", (long) r[0]);
         pack.put("description", desc);
+        if (r[0] > LAST_BARE_FORMAT) {
+            pack.put("min_format", java.util.List.of((long) r[0], (long) r[1]));
+            pack.put("max_format", java.util.List.of((long) r[0], (long) r[1]));
+        }
         return pack;
     }
 
