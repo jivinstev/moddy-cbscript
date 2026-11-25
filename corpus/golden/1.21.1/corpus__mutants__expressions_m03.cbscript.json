@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/expressions_m03.cbscript",
+ "ok": false,
+ "namespace": "expressions_m03",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

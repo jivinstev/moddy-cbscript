@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/execute_items_m15.cbscript",
+ "ok": false,
+ "namespace": "execute_items_m15",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

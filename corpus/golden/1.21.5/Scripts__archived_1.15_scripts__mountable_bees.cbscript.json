@@ -1,0 +1,185 @@
+{
+ "id": "Scripts/archived 1.15 scripts/mountable_bees.cbscript",
+ "ok": true,
+ "namespace": "mountable_bees",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/mountable_bees/function/click_advancement_reward.mcfunction",
+   "advancement revoke @s only mountable_bees:damage_click_detector\nfunction mountable_bees:destroy_click\nexecute if score @s enable_click matches 1.. run function mountable_bees:line025/execute1"
+  ],
+  [
+   "data/mountable_bees/function/line025/execute1.mcfunction",
+   "function mountable_bees:create_click\nfunction mountable_bees:left_click_callback"
+  ],
+  [
+   "data/mountable_bees/function/enable_click.mcfunction",
+   "execute unless score @s enable_click matches 1.. run function mountable_bees:line044/execute2"
+  ],
+  [
+   "data/mountable_bees/function/line044/execute2.mcfunction",
+   "scoreboard players set @s enable_click 1\nfunction mountable_bees:create_click"
+  ],
+  [
+   "data/mountable_bees/function/create_click.mcfunction",
+   "execute at @s anchored eyes positioned ^ ^ ^1 run function mountable_bees:line051/execute4\nexecute as @e[type=minecraft:wandering_trader,tag=NewClickDetector] run function mountable_bees:line060/execute5\nscoreboard players operation @s click_detector = Global id"
+  ],
+  [
+   "data/mountable_bees/function/line053/execute3.mcfunction",
+   "tp @s ~ ~-1 ~\ndata modify entity @s Air set value 0s\ndata modify entity @s Air set value 1s"
+  ],
+  [
+   "data/mountable_bees/function/line051/execute4.mcfunction",
+   "scoreboard players set @e[type=minecraft:area_effect_cloud,tag=ClickPos] _age 1\nsummon minecraft:area_effect_cloud ~ ~1000 ~ {\"Tags\":[\"ClickPos\"],\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"Passengers\":[{\"id\":\"minecraft:wandering_trader\",\"Tags\":[\"ClickDetector\",\"NewClickDetector\"],\"NoAI\":1,\"Silent\":1,\"Offers\":{}}]}\nscoreboard players add @e[type=minecraft:area_effect_cloud,tag=ClickPos] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:area_effect_cloud,tag=ClickPos,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s click_pos run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=ClickPos,limit=1,scores={_age=1}] _id\nscoreboard players operation Global _id = @s click_pos\nexecute as @e[type=minecraft:area_effect_cloud,tag=ClickPos] if score @s _id = Global _id run function mountable_bees:line053/execute3"
+  ],
+  [
+   "data/mountable_bees/function/line060/execute5.mcfunction",
+   "tag @s remove NewClickDetector\neffect give @s invisibility 1 0 true\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global id run scoreboard players get @s _id\nteam join no_collision"
+  ],
+  [
+   "data/mountable_bees/function/disable_click.mcfunction",
+   "scoreboard players set @s enable_click 0\nfunction mountable_bees:destroy_click"
+  ],
+  [
+   "data/mountable_bees/function/destroy_click.mcfunction",
+   "scoreboard players operation Global _id = @s click_pos\nexecute as @e[type=minecraft:area_effect_cloud,tag=ClickPos] if score @s _id = Global _id run function mountable_bees:line075/execute6\nscoreboard players operation Global _id = @s click_detector\nexecute as @e[type=minecraft:wandering_trader,tag=ClickDetector] if score @s _id = Global _id run function mountable_bees:line080/execute7\nscoreboard players set @s click_pos 0\nscoreboard players set @s click_detector 0"
+  ],
+  [
+   "data/mountable_bees/function/line075/execute6.mcfunction",
+   "scoreboard players set @s kill 1\ntp @s ~ -200 ~\nkill @s"
+  ],
+  [
+   "data/mountable_bees/function/line080/execute7.mcfunction",
+   "scoreboard players set @s kill 1\ntp @s ~ -200 ~\nkill @s"
+  ],
+  [
+   "data/mountable_bees/function/reset.mcfunction",
+   "data modify storage mountable_bees:global args set value {}\ndata modify storage mountable_bees stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add ry dummy\nscoreboard objectives add bee_alive dummy\nscoreboard objectives add _vel_2 dummy\nscoreboard objectives add _vel_1 dummy\nscoreboard objectives add _vel_0 dummy\nscoreboard objectives add dash dummy\nscoreboard objectives add _delta_2 dummy\nscoreboard objectives add _delta_1 dummy\nscoreboard objectives add _delta_0 dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add _pos1_2 dummy\nscoreboard objectives add _pos1_1 dummy\nscoreboard objectives add _pos1_0 dummy\nscoreboard objectives add bee dummy\nscoreboard objectives add pig dummy\nscoreboard objectives add selected dummy\nscoreboard objectives add kill dummy\nscoreboard objectives add click_detector dummy\nscoreboard objectives add id dummy\nscoreboard objectives add click_pos dummy\nscoreboard objectives add _id dummy\nscoreboard objectives add _unique dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add enable_click dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c3 Constant 3\nscoreboard objectives add mai_scratch4 dummy\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nteam add no_collision\nteam modify no_collision collisionRule never\nscoreboard objectives add right_clicked minecraft.custom:minecraft.talked_to_villager\nteam add no_collision\nteam modify no_collision collisionRule never"
+  ],
+  [
+   "data/mountable_bees/function/left_right_click_clock.mcfunction",
+   "execute as @a run function mountable_bees:line098/execute11\nexecute as @e[type=minecraft:wandering_trader,tag=ClickDetector] run function mountable_bees:line114/execute12"
+  ],
+  [
+   "data/mountable_bees/function/line101/execute8.mcfunction",
+   "tp @s ~ ~-1 ~\ndata merge entity @s {Air:0s}\ndata merge entity @s {Air:1s}"
+  ],
+  [
+   "data/mountable_bees/function/line100/execute9.mcfunction",
+   "scoreboard players operation Global _id = @s click_pos\nexecute as @e[type=minecraft:area_effect_cloud,tag=ClickPos] if score @s _id = Global _id run function mountable_bees:line101/execute8"
+  ],
+  [
+   "data/mountable_bees/function/line099/execute10.mcfunction",
+   "execute at @s anchored eyes positioned ^ ^ ^1 run function mountable_bees:line100/execute9\nexecute if score @s right_clicked matches 1.. run function mountable_bees:right_click_callback"
+  ],
+  [
+   "data/mountable_bees/function/line098/execute11.mcfunction",
+   "execute if score @s enable_click matches 1.. run function mountable_bees:line099/execute10\nscoreboard players set @s right_clicked 0"
+  ],
+  [
+   "data/mountable_bees/function/line114/execute12.mcfunction",
+   "effect give @s invisibility 1 0 true\ndata modify entity @s AbsorptionAmount set value 100.0f"
+  ],
+  [
+   "data/mountable_bees/function/left_click_callback.mcfunction",
+   ""
+  ],
+  [
+   "data/mountable_bees/function/right_click_callback.mcfunction",
+   "execute at @s positioned ~ ~-0.4 ~ as @e[type=minecraft:pig,tag=SaddleHolder,sort=nearest,limit=1,distance=..0.1] run function mountable_bees:line102/execute30"
+  ],
+  [
+   "data/mountable_bees/function/main.mcfunction",
+   "scoreboard players set @e[type=minecraft:pig,tag=SaddleHolder] selected 0\nexecute as @a at @s run function mountable_bees:line025/execute21\nexecute as @e[type=minecraft:pig,tag=SaddleHolder] at @s run function mountable_bees:line064/execute27\nexecute as @e[type=minecraft:bee] run function mountable_bees:line092/execute29"
+  ],
+  [
+   "data/mountable_bees/function/line027/execute13.mcfunction",
+   "scoreboard players set @e[type=minecraft:pig,tag=SaddleHolder] _age 1\nsummon minecraft:pig ~ 1000 ~ {\"Tags\":[\"SaddleHolder\"],\"NoAI\":1,\"Silent\":1,\"Absorption\":100}\nscoreboard players add @e[type=minecraft:pig,tag=SaddleHolder] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:pig,tag=SaddleHolder,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s pig run scoreboard players get @e[type=minecraft:pig,tag=SaddleHolder,limit=1,scores={_age=1}] _id"
+  ],
+  [
+   "data/mountable_bees/function/line031/execute14.mcfunction",
+   "team join no_collision\nscoreboard players operation @s bee = Global id\nscoreboard players set @s selected 1"
+  ],
+  [
+   "data/mountable_bees/function/line026/execute15.mcfunction",
+   "execute unless score @s pig matches 1.. run function mountable_bees:line027/execute13\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global id run scoreboard players get @s _id\nscoreboard players operation Global _id = @s pig\nexecute as @e[type=minecraft:pig,tag=SaddleHolder] if score @s _id = Global _id run function mountable_bees:line031/execute14"
+  ],
+  [
+   "data/mountable_bees/function/line048/execute16.mcfunction",
+   "scoreboard players remove @s dash 1\nscoreboard players operation Global mai_scratch2 = Global _delta_0\nscoreboard players operation Global mai_scratch3 = Global _delta_1\nscoreboard players operation Global mai_scratch4 = Global _delta_2\nscoreboard players operation Global mai_scratch2 *= c3 Constant\nscoreboard players operation Global mai_scratch3 *= c3 Constant\nscoreboard players operation Global mai_scratch4 *= c3 Constant\nscoreboard players operation @s _vel_0 = Global mai_scratch2\nscoreboard players operation @s _vel_1 = Global mai_scratch3\nscoreboard players operation @s _vel_2 = Global mai_scratch4\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2\nscoreboard players set Global mai_scratch1 0"
+  ],
+  [
+   "data/mountable_bees/function/line048/else17.mcfunction",
+   "scoreboard players operation @s _vel_0 = Global _delta_0\nscoreboard players operation @s _vel_1 = Global _delta_1\nscoreboard players operation @s _vel_2 = Global _delta_2\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2"
+  ],
+  [
+   "data/mountable_bees/function/line047/execute18.mcfunction",
+   "scoreboard players set Global mai_scratch1 1\nexecute if score @s dash matches 1.. run function mountable_bees:line048/execute16\nexecute if score Global mai_scratch1 matches 1.. run function mountable_bees:line048/else17\nexecute store result entity @s Rotation[1] float 0.0001 run data get entity 0-0-0-0-C1 Rotation[1] 10000\nexecute store result entity @s Rotation[0] float 0.0001 run data get entity 0-0-0-0-C1 Rotation[0] 10000"
+  ],
+  [
+   "data/mountable_bees/function/line046/execute19.mcfunction",
+   "scoreboard players operation Global _id = @s bee\nexecute as @e[type=minecraft:bee] if score @s _id = Global _id run function mountable_bees:line047/execute18"
+  ],
+  [
+   "data/mountable_bees/function/line037/execute20.mcfunction",
+   "function mountable_bees:enable_click\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\ntp 0-0-0-0-C1 ~ ~ ~ ~ ~\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global _pos1_0 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global _pos1_1 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global _pos1_2 = 0-0-0-0-C1 _pos_2\nexecute as 0-0-0-0-C1 at @s run tp @s ^ ^ ^0.2\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global mai_scratch1 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global mai_scratch2 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global mai_scratch3 = 0-0-0-0-C1 _pos_2\nscoreboard players operation Global mai_scratch1 -= Global _pos1_0\nscoreboard players operation Global mai_scratch2 -= Global _pos1_1\nscoreboard players operation Global mai_scratch3 -= Global _pos1_2\nscoreboard players operation Global _delta_0 = Global mai_scratch1\nscoreboard players operation Global _delta_1 = Global mai_scratch2\nscoreboard players operation Global _delta_2 = Global mai_scratch3\nexecute at @s positioned ~ ~-0.4 ~ as @e[type=minecraft:pig,tag=SaddleHolder,sort=nearest,limit=1,distance=..0.1] run function mountable_bees:line046/execute19\nscoreboard players set Global mai_scratch0 0"
+  ],
+  [
+   "data/mountable_bees/function/line025/execute21.mcfunction",
+   "execute if entity @s[nbt={\"SelectedItem\":{\"id\":\"minecraft:saddle\"}}] anchored eyes positioned ^ ^ ^3 as @e[type=minecraft:bee,distance=..3] run function mountable_bees:line026/execute15\nscoreboard players set Global mai_scratch0 1\nexecute if entity @s[nbt={\"RootVehicle\":{\"Entity\":{\"Tags\":[\"SaddleHolder\"]}}}] if entity @s[nbt={\"SelectedItem\":{\"id\":\"minecraft:poppy\"}}] run function mountable_bees:line037/execute20\nexecute if score Global mai_scratch0 matches 1.. run function mountable_bees:disable_click"
+  ],
+  [
+   "data/mountable_bees/function/line067/execute22.mcfunction",
+   "scoreboard players operation Global _id = @s bee\nexecute as @e[type=minecraft:bee] if score @s _id = Global _id run scoreboard players set @s pig 0\ntp @s ~ -200 ~\nkill @s\nscoreboard players set Global mai_scratch0 0"
+  ],
+  [
+   "data/mountable_bees/function/line075/execute23.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global _pos_0 = @s _pos_0\nscoreboard players operation Global _pos_1 = @s _pos_1\nscoreboard players operation Global _pos_2 = @s _pos_2\nexecute store result score Global ry run data get entity @s Rotation[0] 10000\nteam join no_collision\nscoreboard players set Global bee_alive 1\nscoreboard players set Global mai_scratch2 0"
+  ],
+  [
+   "data/mountable_bees/function/line075/else24.mcfunction",
+   "tp @s ~ -200 ~\nkill @s"
+  ],
+  [
+   "data/mountable_bees/function/line084/execute25.mcfunction",
+   "execute store result entity @s Rotation[0] float 0.0001 run scoreboard players get Global ry\nscoreboard players operation @s _pos_0 = Global _pos_0\nscoreboard players operation @s _pos_1 = Global _pos_1\nscoreboard players operation @s _pos_2 = Global _pos_2\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run tp @s ^ ^-0.19 ^-0.1"
+  ],
+  [
+   "data/mountable_bees/function/line067/else26.mcfunction",
+   "scoreboard players set Global bee_alive 0\nscoreboard players operation Global _id = @s bee\nscoreboard players set Global mai_scratch2 1\nexecute as @e[type=minecraft:bee] if score @s _id = Global _id run function mountable_bees:line075/execute23\nexecute if score Global mai_scratch2 matches 1.. run function mountable_bees:line075/else24\nexecute if score Global bee_alive matches 1.. run function mountable_bees:line084/execute25"
+  ],
+  [
+   "data/mountable_bees/function/line064/execute27.mcfunction",
+   "effect give @s invisibility 1 1 true\ndata modify entity @s AbsorptionAmount set value 100.0f\nexecute store result score Global mai_scratch1 run data get entity @s Saddle 1\nscoreboard players set Global mai_scratch0 1\nexecute unless score Global mai_scratch1 matches 1.. unless score @s selected matches 1.. run function mountable_bees:line067/execute22\nexecute if score Global mai_scratch0 matches 1.. run function mountable_bees:line067/else26"
+  ],
+  [
+   "data/mountable_bees/function/line093/execute28.mcfunction",
+   "scoreboard players set Global mai_scratch0 0"
+  ],
+  [
+   "data/mountable_bees/function/line092/execute29.mcfunction",
+   "scoreboard players operation Global _id = @s pig\nscoreboard players set Global mai_scratch0 1\nexecute as @e[type=minecraft:pig,tag=SaddleHolder] if score @s _id = Global _id run function mountable_bees:line093/execute28\nexecute if score Global mai_scratch0 matches 1.. run scoreboard players set @s pig 0"
+  ],
+  [
+   "data/mountable_bees/function/line102/execute30.mcfunction",
+   "scoreboard players operation Global _id = @s bee\nexecute as @e[type=minecraft:bee] if score @s _id = Global _id run scoreboard players set @s dash 10"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"mountable_bees:left_right_click_clock\",\n        \"mountable_bees:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"mountable_bees:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"Put saddles on bees and ride them\"\n    }\n}"
+  ],
+  [
+   "data/mountable_bees/advancement/damage_click_detector.json",
+   "{\"criteria\":{\"damage_click_detector\":{\"trigger\":\"minecraft:player_hurt_entity\",\"conditions\":{\"damage\":{\"entity\":{\"nbt\":\"{Tags:\\\"ClickDetector\\\"}\"}}}}},\"rewards\":{\"function\":\"mountable_bees:click_advancement_reward\"}}"
+  ]
+ ]
+}

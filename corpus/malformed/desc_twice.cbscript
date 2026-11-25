@@ -1,0 +1,5 @@
+dir "."
+desc "a"
+desc "b"
+reset
+end

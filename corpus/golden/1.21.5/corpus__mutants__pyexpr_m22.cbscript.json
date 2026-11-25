@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/pyexpr_m22.cbscript",
+ "ok": false,
+ "namespace": "pyexpr_m22",
+ "error": "Syntax error at line 23 column 8. Unexpected ID symbol \"i\" in state 378.",
+ "log": [
+  "Syntax error at line 23 column 8. Unexpected ID symbol \"i\" in state 378."
+ ],
+ "files": []
+}

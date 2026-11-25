@@ -1,0 +1,10 @@
+dir "."
+clock Tick
+	/say x
+end
+reset
+	x = = 1
+end
+reset
+	y = 2
+end

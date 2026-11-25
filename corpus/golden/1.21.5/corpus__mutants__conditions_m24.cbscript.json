@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/conditions_m24.cbscript",
+ "ok": false,
+ "namespace": "conditions_m24",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

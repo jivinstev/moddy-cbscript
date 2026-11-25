@@ -1,0 +1,107 @@
+# mutant of corpus/programs/pyexpr.cbscript: delete token '$' on line 103
+dir "."
+desc "Compile-time Python expressions"
+
+$i = 7
+$f = 2.5
+$s = "text"
+$l = [1, 2, 3]
+$t = (4, 5)
+$d = {"a": 1, "b": [2, 3]}
+$e = []
+$neg = -3
+$total = $i + $f
+$prod = $i * $i
+$div = $i / 2
+$idiv = $"i // 2"
+$mod = $i % 3
+$pow = $i ** 2
+$cmp = $i == 7
+$ne = $i != 7
+$le = $i <= 7
+$ge = $i >= 8
+$lt = $i < 1
+$gt = $i > 1
+$both = $i > 1 and $i < 10
+$either = $i < 1 or $i > 5
+$idx = $l[1]
+$didx = $d["b"][0]
+$len = $len($l)
+$rng = $list($range(2, 10, 3))
+$up = $s.$upper()
+$rep = $s.$replace("t", "T")
+$fmt = "v{}".$format($i)
+$joined = ",".$join(["x", "y"])
+$sq = $math.$sqrt(16)
+$fl = $math.$floor(2.7)
+$pi = $math.$pi
+$sin = $math.$sin(0.5)
+$cos = $math.$cos($math.$pi / 3)
+$at2 = $math.$atan2(1, 2)
+$ab = $abs(-4)
+$mn = $min(3, 1, 2)
+$mx = $max([3, 9, 2])
+$rd = $round(2.567, 2)
+$rd0 = $round(2.5)
+$ii = $int("12") + $int(3.9)
+$fs = $float("1.5")
+$st = $str(42) + "!"
+$ch = $chr(65)
+$od = $ord("a")
+$hx = $hex(255)
+$srt = $sorted([3, 1, 2])
+$rev = $list($reversed([1, 2]))
+$z = $list($zip([1, 2], ["a", "b"]))
+$en = $list($enumerate(["p", "q"]))
+$sm = $sum([1, 2, 3])
+$tup = $tuple([1])
+$big = 2 ** 70
+$tiny = 1 / 3
+$exp = $"1e20 * 1"
+$small = 0.0001 / 1000
+$m = {
+	"k": 1,
+	"j": 2
+}
+$nested = [
+	1,
+	2
+]
+$call = $max(
+	1,
+	2
+)
+$interp = $"[x * 2 for x in range(4)]"
+$cond = $"'yes' if i > 3 else 'no'"
+
+reset
+	/say $i $f $s $l $t $d $e $neg $total $prod $div $idiv $mod $pow
+	/say $cmp $ne $le $ge $lt $gt $both $either $idx $didx $len $rng
+	/say $up $rep $fmt $joined $sq $fl $pi $sin $cos $at2 $ab $mn $mx $rd $rd0
+	/say $ii $fs $st $ch $od $hx $srt $rev $z $en $sm $tup $big $tiny $exp $small
+	/say $m $nested $call $interp $cond
+	/say -$i -$f
+	/say $namespace $global_scale
+	$print("printed")
+	$print([$i, $s, ($f, 1)])
+	if $i > 5
+		/say big
+	else
+		/say small
+	end
+	if $i < 5
+		/say never
+	end
+	if $s == "text"
+		/say yes
+	end
+	x = $i
+	y = $i + 1
+	$local = 3
+	/say $local
+	$a, $b = (1, 2)
+	$c, $dd, $ee = [1, 2, 3]
+	/say a $b $c $dd $ee
+	<zv> = <$l>
+	at <$l> do x = 1
+end

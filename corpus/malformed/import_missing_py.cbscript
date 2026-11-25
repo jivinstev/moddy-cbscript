@@ -1,0 +1,5 @@
+dir "."
+desc "imports a python file that is not there"
+import helpers.py
+reset
+end

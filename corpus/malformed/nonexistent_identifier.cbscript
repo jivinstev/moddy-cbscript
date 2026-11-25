@@ -1,0 +1,5 @@
+dir "."
+reset
+	Nonexistent = 1
+	x = TrueValue
+end

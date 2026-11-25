@@ -1,0 +1,5 @@
+dir "."
+reset
+	on nothing do x = 1
+	x = = 1
+end

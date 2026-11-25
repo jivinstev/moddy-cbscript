@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/just_an_expression.cbscript",
+ "ok": false,
+ "namespace": "just_an_expression",
+ "error": "Syntax error at line 1 column 6. Unexpected NEWLINE symbol \"\\n\" in state 4.",
+ "log": [
+  "Syntax error at line 1 column 6. Unexpected NEWLINE symbol \"\\n\" in state 4."
+ ],
+ "files": []
+}
