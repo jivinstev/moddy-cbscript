@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/basics_m19.cbscript",
+ "ok": false,
+ "namespace": "basics_m19",
+ "error": "Syntax error at line 20 column 7. Unexpected NEWLINE symbol \"\\n\" in state 438.",
+ "log": [
+  "Syntax error at line 20 column 7. Unexpected NEWLINE symbol \"\\n\" in state 438."
+ ],
+ "files": []
+}

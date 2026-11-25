@@ -1,0 +1,69 @@
+# mutant of corpus/programs/definitions.cbscript: insert end at line 27
+dir "."
+desc "Tags, recipes, advancements, loot tables, predicates, item modifiers, arrays"
+
+define block_tag soft
+	sand
+	gravel
+end
+
+define entity_tag hostile
+	zombie
+	skeleton
+end
+
+define item_tag gems
+	diamond
+	emerald
+end
+
+shaped recipe
+	"#S#"
+	" S "
+	keys
+		S = item:stick
+		G = tag:gems
+		W = tag:planks
+	end
+end
+	result: 1 diamond_sword
+end
+
+advancement first_join {
+	"criteria": {
+		"tick": {"trigger": "minecraft:tick"}
+	},
+	"rewards": {"function": "definitions:welcome"}
+}
+
+loot_table block definitions:my_block {"pools": [{"rolls": 1, "entries": [{"type": "minecraft:item", "name": "minecraft:stone"}]}]}
+loot_table block other:named_block {"pools": []}
+
+predicate sneaking {"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"flags": {"is_sneaking": true}}}
+
+item_modifier set_name {"function": "minecraft:set_name", "name": {"text": "Named", "color": "gold"}}
+item_modifier counted {"function": "minecraft:set_count", "count": 2, "conditions": [{"condition": "minecraft:random_chance", "chance": 0.5}]}
+
+array scores[5]
+array ranged[2 to 6]
+
+function welcome()
+	/say welcome
+end
+
+$k = 3
+
+reset
+	scores[2] = 7
+	x = scores[2]
+	ranged[3] = x
+	i = 1
+	scores[i] = 4
+	y = scores[i]
+	scores[$k] = 1
+	as @e[type=hostile] do x = 1
+	as @e[type=!hostile] do x = 2
+	if @s[sneaking] do x = 3
+	if predicate sneaking do x = 4
+end
+

@@ -1,0 +1,10 @@
+{
+ "id": "Scripts/archived 1.15 scripts/falling_blocks.cbscript",
+ "ok": false,
+ "namespace": "falling_blocks",
+ "error": "Syntax error at line 11 column 15. Unexpected ID symbol \"Radius\" in state 227.",
+ "log": [
+  "Syntax error at line 11 column 15. Unexpected ID symbol \"Radius\" in state 227."
+ ],
+ "files": []
+}

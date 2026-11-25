@@ -1,0 +1,4 @@
+dir "."
+reset
+	if predicate nope do x = 1
+end

@@ -1,0 +1,6 @@
+dir "."
+define @C = @e[type=cow]
+end
+reset
+	as create @C at @s do x = 1
+end

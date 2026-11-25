@@ -1,0 +1,6 @@
+# mutant of corpus/programs/no_desc.cbscript: swap lines 2 and 3
+# no desc line: optdesc is empty
+reset
+dir "."
+	/say no desc
+end

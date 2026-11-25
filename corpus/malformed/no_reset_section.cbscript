@@ -1,0 +1,4 @@
+dir "."
+clock tick
+	x += 1
+end

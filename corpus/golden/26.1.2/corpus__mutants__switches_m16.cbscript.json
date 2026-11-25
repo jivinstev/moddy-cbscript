@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/switches_m16.cbscript",
+ "ok": false,
+ "namespace": "switches_m16",
+ "error": "Syntax error at line 21 column 1. Unexpected COMMAND symbol \"/say zero\" in state 795.",
+ "log": [
+  "Syntax error at line 21 column 1. Unexpected COMMAND symbol \"/say zero\" in state 795."
+ ],
+ "files": []
+}

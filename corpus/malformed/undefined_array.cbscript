@@ -1,0 +1,4 @@
+dir "."
+reset
+	x = nope[1]
+end
