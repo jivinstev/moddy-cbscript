@@ -1,0 +1,5 @@
+dir "."
+reset
+	/say $missing_name
+	x = $undefined_thing + 1
+end

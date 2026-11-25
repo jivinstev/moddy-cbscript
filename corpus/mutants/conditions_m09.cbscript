@@ -1,0 +1,41 @@
+# mutant of corpus/programs/conditions.cbscript: truncate before line 41
+dir "."
+desc "If, unless, else, while, conditions"
+
+define @Pig = @e[type=pig]
+end
+
+$blk = "dirt"
+
+predicate my_pred {"condition": "minecraft:random_chance", "chance": 0.5}
+
+define block_tag my_tag
+	stone
+	dirt
+end
+
+
+reset
+	a = 1
+	b = 2
+	if a > b
+		/say gt
+	end
+	if a >= 2 and b <= 5 and a < 3 and b == 2
+		/say multi
+	end
+	if a
+		/say truthy
+	end
+	if not a
+		/say not
+	end
+	if a == b
+		/say block form
+	else if a > b
+		/say else if
+	else unless b < 0
+		/say else unless
+	else
+		/say else
+	end

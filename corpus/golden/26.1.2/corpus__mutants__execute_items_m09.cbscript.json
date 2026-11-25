@@ -1,0 +1,43 @@
+{
+ "id": "corpus/mutants/execute_items_m09.cbscript",
+ "ok": true,
+ "namespace": "execute_items_m09",
+ "error": null,
+ "log": [
+  "Warning: Unknown argument for execute on: \"spouse\" at line 63"
+ ],
+ "files": [
+  [
+   "data/execute_items_m09/function/reset.mcfunction",
+   "data modify storage execute_items_m09:global args set value {}\ndata modify storage execute_items_m09 stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add x dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c3 Constant 3\nscoreboard players set c2 Constant 2\nscoreboard players set c1 Constant 1\nscoreboard objectives add _scratch0 dummy\nexecute as @a run say as\nexecute as @a at @s run say at\nexecute at @s run say at only\nexecute at @s anchored eyes run say eyes\nexecute at @s anchored feet positioned ~ ~1 ~ run say feet coords\nexecute positioned ~ ~1 ~ run say coords\nexecute anchored eyes positioned ^ ^ ^1 run say anchored local\nexecute at @s positioned ~1 ~ ~ run say sel coords\nscoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result entity @e[limit=1,scores={_age=1}] Pos[0] double 0.0001 run scoreboard players get c1 Constant\nexecute store result entity @e[limit=1,scores={_age=1}] Pos[1] double 0.0001 run scoreboard players get c2 Constant\nexecute store result entity @e[limit=1,scores={_age=1}] Pos[2] double 0.0001 run scoreboard players get c3 Constant\nexecute at @e[scores={_age=1}] run function execute_items_m09:line033/execute1\nscoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result entity @e[limit=1,scores={_age=1}] Pos[0] double 0.01 run scoreboard players get c1 Constant\nexecute store result entity @e[limit=1,scores={_age=1}] Pos[1] double 0.01 run scoreboard players get c2 Constant\nexecute store result entity @e[limit=1,scores={_age=1}] Pos[2] double 0.01 run scoreboard players get c3 Constant\nexecute at @e[scores={_age=1}] run function execute_items_m09:line036/execute2\nexecute facing ~ ~ ~1 run say facing coords\nexecute facing entity @p feet run say facing entity\nexecute rotated as @s run say rotated\nexecute align xyz run say align\nexecute in the_nether run say nether\nexecute in the_end run say end\nexecute in overworld run say overworld\nexecute on vehicle run say on\nexecute on spouse run say unknown on\nexecute as @e[type=minecraft:cow,tag=farm] run function execute_items_m09:line066/execute3\nscoreboard players set Global _scratch0 1\nexecute as @a at @s run function execute_items_m09:line070/execute4\nexecute if score Global _scratch0 matches 1.. run say else branch\nexecute if score Global x matches 2.. say exec merged\nexecute as @e[type=minecraft:cow,tag=farm] if entity @s[tag=x] unless entity @s[tag=y] run say chain\nexecute as @a run scoreboard players set Global x 1\nexecute as @a run scoreboard players add Global x 2\nexecute as @a run scoreboard players add Global x 2\nexecute as @a at @s run summon minecraft:cow ~ ~ ~"
+  ],
+  [
+   "data/execute_items_m09/function/line033/execute1.mcfunction",
+   "kill @e[scores={_age=1}]\nsay vector"
+  ],
+  [
+   "data/execute_items_m09/function/line036/execute2.mcfunction",
+   "kill @e[scores={_age=1}]\nsay scaled vector"
+  ],
+  [
+   "data/execute_items_m09/function/line066/execute3.mcfunction",
+   "say block as\nsay two commands"
+  ],
+  [
+   "data/execute_items_m09/function/line070/execute4.mcfunction",
+   "say block\nscoreboard players set Global _scratch0 0"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"execute_items_m09:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 101,\n        \"description\": \"Execute chains\",\n        \"min_format\": [\n            101,\n            1\n        ],\n        \"max_format\": [\n            101,\n            1\n        ]\n    }\n}"
+  ]
+ ]
+}

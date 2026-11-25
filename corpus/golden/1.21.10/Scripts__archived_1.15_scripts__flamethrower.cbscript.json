@@ -1,0 +1,73 @@
+{
+ "id": "Scripts/archived 1.15 scripts/flamethrower.cbscript",
+ "ok": true,
+ "namespace": "flamethrower",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/flamethrower/function/reset.mcfunction",
+   "data modify storage flamethrower:global args set value {}\ndata modify storage flamethrower stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add _vel_2 dummy\nscoreboard objectives add _vel_1 dummy\nscoreboard objectives add _vel_0 dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add Param1 dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add _aim_2 dummy\nscoreboard objectives add _aim_1 dummy\nscoreboard objectives add _aim_0 dummy\nscoreboard objectives add timer dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add ry dummy\nscoreboard objectives add rx dummy\nscoreboard objectives add fuel dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c2 Constant 2\nscoreboard objectives add mai_scratch6 dummy\nscoreboard objectives add mai_scratch5 dummy\nscoreboard objectives add mai_scratch4 dummy\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy"
+  ],
+  [
+   "data/flamethrower/function/main.mcfunction",
+   "execute as @a[nbt={\"SelectedItem\":{\"id\":\"minecraft:pig_spawn_egg\",\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"Flamethrower\\\"}\"}}}}] at @s run function flamethrower:line015/execute7\nexecute as @e[type=minecraft:pig,tag=Flame] at @s run function flamethrower:line049/execute11"
+  ],
+  [
+   "data/flamethrower/function/line017/execute1.mcfunction",
+   "scoreboard players add @s fuel 8\nscoreboard players set Global mai_scratch0 0"
+  ],
+  [
+   "data/flamethrower/function/line017/else2.mcfunction",
+   "execute store success score Global mai_scratch2 run clear @s charcoal 1\nexecute if score Global mai_scratch2 matches 1.. run scoreboard players add @s fuel 8"
+  ],
+  [
+   "data/flamethrower/function/line016/execute3.mcfunction",
+   "execute store success score Global mai_scratch1 run clear @s coal 1\nscoreboard players set Global mai_scratch0 1\nexecute if score Global mai_scratch1 matches 1.. run function flamethrower:line017/execute1\nexecute if score Global mai_scratch0 matches 1.. run function flamethrower:line017/else2"
+  ],
+  [
+   "data/flamethrower/function/line038/execute4.mcfunction",
+   "scoreboard players set @s timer 50\nexecute store result entity @s Rotation[1] float 0.0001 run scoreboard players get Global rx\nexecute store result entity @s Rotation[0] float 0.0001 run scoreboard players get Global ry\nscoreboard players operation Global mai_scratch0 = Global _aim_0\nscoreboard players operation Global mai_scratch3 = Global _aim_1\nscoreboard players operation Global mai_scratch4 = Global _aim_2\nscoreboard players operation Global mai_scratch0 *= c2 Constant\nscoreboard players operation Global mai_scratch3 *= c2 Constant\nscoreboard players operation Global mai_scratch4 *= c2 Constant\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction flamethrower:rand\nscoreboard players set Global Param0 -200\nscoreboard players set Global Param1 200\nfunction flamethrower:rand\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction flamethrower:rand\nscoreboard players operation Global mai_scratch0 += Global ReturnValue\nscoreboard players operation Global mai_scratch3 += Global ReturnValue\nscoreboard players operation Global mai_scratch4 += Global ReturnValue\nscoreboard players operation @s _vel_0 = Global mai_scratch0\nscoreboard players operation @s _vel_1 = Global mai_scratch3\nscoreboard players operation @s _vel_2 = Global mai_scratch4\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction flamethrower:rand\nscoreboard players set Global Param0 100\nfunction flamethrower:rand\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction flamethrower:rand\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation @s _pos_0 += Global ReturnValue\nscoreboard players operation @s _pos_1 += Global ReturnValue\nscoreboard players operation @s _pos_2 += Global ReturnValue\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2"
+  ],
+  [
+   "data/flamethrower/function/line036/execute5.mcfunction",
+   "tp 0-0-0-0-C1 ~ ~ ~ ~ ~\nscoreboard players set @e[type=minecraft:pig,tag=Flame] _age 1\nsummon minecraft:pig ~ ~ ~ {\"Tags\":[\"Flame\"],\"Fire\":100,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:pig,tag=Flame] _age 1\nexecute as @e[type=minecraft:pig,tag=Flame,limit=1,scores={_age=1}] run function flamethrower:line038/execute4"
+  ],
+  [
+   "data/flamethrower/function/line028/execute6.mcfunction",
+   "scoreboard players remove @s fuel 1\nfunction flamethrower:get_aim\nexecute store result score Global rx run data get entity @s Rotation[1] 10000\nexecute store result score Global ry run data get entity @s Rotation[0] 10000\nexecute positioned ^ ^1 ^2 run function flamethrower:line036/execute5"
+  ],
+  [
+   "data/flamethrower/function/line015/execute7.mcfunction",
+   "execute unless score @s fuel matches 1.. run function flamethrower:line016/execute3\nexecute if score @s fuel matches 1.. run function flamethrower:line028/execute6"
+  ],
+  [
+   "data/flamethrower/function/line055/execute8.mcfunction",
+   "scoreboard players set Global Param0 -100\nscoreboard players set Global Param1 100\nfunction flamethrower:rand\nexecute store result score Global mai_scratch3 run data get entity @s Motion[2] 10000\nscoreboard players operation Global mai_scratch3 += Global ReturnValue\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get Global mai_scratch3\nscoreboard players set Global Param0 -100\nscoreboard players set Global Param1 100\nfunction flamethrower:rand\nexecute store result score Global mai_scratch3 run data get entity @s Motion[1] 10000\nscoreboard players operation Global mai_scratch3 += Global ReturnValue\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get Global mai_scratch3"
+  ],
+  [
+   "data/flamethrower/function/line059/execute9.mcfunction",
+   "scoreboard players set Global Param0 -100\nscoreboard players set Global Param1 100\nfunction flamethrower:rand\nexecute store result score Global mai_scratch5 run data get entity @s Motion[0] 10000\nscoreboard players operation Global mai_scratch5 += Global ReturnValue\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get Global mai_scratch5\nscoreboard players set Global Param0 -100\nscoreboard players set Global Param1 100\nfunction flamethrower:rand\nexecute store result score Global mai_scratch5 run data get entity @s Motion[2] 10000\nscoreboard players operation Global mai_scratch5 += Global ReturnValue\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get Global mai_scratch5"
+  ],
+  [
+   "data/flamethrower/function/line063/execute10.mcfunction",
+   "scoreboard players set Global Param0 -100\nscoreboard players set Global Param1 100\nfunction flamethrower:rand\nexecute store result score Global mai_scratch6 run data get entity @s Motion[0] 10000\nscoreboard players operation Global mai_scratch6 += Global ReturnValue\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get Global mai_scratch6\nscoreboard players set Global Param0 -100\nscoreboard players set Global Param1 100\nfunction flamethrower:rand\nexecute store result score Global mai_scratch6 run data get entity @s Motion[1] 10000\nscoreboard players operation Global mai_scratch6 += Global ReturnValue\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get Global mai_scratch6"
+  ],
+  [
+   "data/flamethrower/function/line049/execute11.mcfunction",
+   "effect give @s minecraft:invisibility 10 1 true\nexecute if block ~ ~ ~ minecraft:air run setblock ~ ~ ~ fire\nexecute store result score Global mai_scratch0 run data get entity @s Motion[1] 10000\nscoreboard players add Global mai_scratch0 30\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get Global mai_scratch0\nexecute store result score Global mai_scratch0 run data get entity @s Motion[0] 10000\nexecute if score Global mai_scratch0 matches 0 run function flamethrower:line055/execute8\nexecute store result score Global mai_scratch3 run data get entity @s Motion[1] 10000\nexecute store result score Global mai_scratch4 run data get entity @s Motion[1] 10000\nexecute if score Global mai_scratch3 matches -100.. if score Global mai_scratch4 matches ..100 run function flamethrower:line059/execute9\nexecute store result score Global mai_scratch5 run data get entity @s Motion[2] 10000\nexecute if score Global mai_scratch5 matches 0 run function flamethrower:line063/execute10\nscoreboard players remove @s timer 1\nexecute if score @s timer matches ..0 run kill @s"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"flamethrower:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"flamethrower:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 88,\n        \"description\": \"Flamethrower\",\n        \"min_format\": [\n            88,\n            0\n        ],\n        \"max_format\": [\n            88,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}

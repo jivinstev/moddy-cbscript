@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/execute_items_m13.cbscript",
+ "ok": false,
+ "namespace": "execute_items_m13",
+ "error": "Syntax error at line 33 column 8. Unexpected DECIMAL symbol \"2\" in state 108.",
+ "log": [
+  "Syntax error at line 33 column 8. Unexpected DECIMAL symbol \"2\" in state 108."
+ ],
+ "files": []
+}

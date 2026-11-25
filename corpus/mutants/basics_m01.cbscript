@@ -1,0 +1,11 @@
+# mutant of corpus/programs/basics.cbscript: truncate before line 11
+# A program with every top-level section kind.
+dir "."
+desc "Basics: reset, clock, function, macro, template"
+scale 1000
+
+import common
+
+reset
+	/say reset
+	score = 0

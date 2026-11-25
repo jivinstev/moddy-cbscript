@@ -1,0 +1,49 @@
+{
+ "id": "corpus/programs/switches.cbscript",
+ "ok": true,
+ "namespace": "switches",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/switches/function/reset.mcfunction",
+   "data modify storage switches:global args set value {}\ndata modify storage switches stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add y dummy\nscoreboard objectives add x dummy\nscoreboard objectives add _scratch0 dummy\nscoreboard players set Global x 3\nexecute if score Global x matches 1 run say one\nexecute if score Global x matches 2..4 run function switches:line10/case2-4_1\nexecute if score Global x matches 5..5 run function switches:line14/case5_2\nscoreboard players operation Global _scratch0 = Global x\nscoreboard players add Global _scratch0 1\nexecute if score Global _scratch0 matches 0 run say zero\nexecute if score Global x matches 1..2 run function switches:line25/switch1-2_3\nexecute if score Global x matches 3..4 run function switches:line31/switch3-4_4\nexecute if score Global x matches 5..6 run function switches:line37/switch5-6_5\nexecute if score Global x matches 7..9 run function switches:line43/switch7-9_6"
+  ],
+  [
+   "data/switches/function/line10/case2-4_1.mcfunction",
+   "say two to four\nsay second"
+  ],
+  [
+   "data/switches/function/line14/case5_2.mcfunction",
+   "scoreboard players set Global x 1\nscoreboard players set Global y 2"
+  ],
+  [
+   "data/switches/function/line25/switch1-2_3.mcfunction",
+   "execute if score Global x matches 1 run say a\nexecute if score Global x matches 2 run say b"
+  ],
+  [
+   "data/switches/function/line31/switch3-4_4.mcfunction",
+   "execute if score Global x matches 3 run say c\nexecute if score Global x matches 4 run say d"
+  ],
+  [
+   "data/switches/function/line37/switch5-6_5.mcfunction",
+   "execute if score Global x matches 5 run say e\nexecute if score Global x matches 6 run say f"
+  ],
+  [
+   "data/switches/function/line43/switch7-9_6.mcfunction",
+   "execute if score Global x matches 7 run say g\nexecute if score Global x matches 8 run say h\n$execute if score Global x matches 9 run say $(macro) i"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"switches:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 101,\n        \"description\": \"Numeric switches\",\n        \"min_format\": [\n            101,\n            1\n        ],\n        \"max_format\": [\n            101,\n            1\n        ]\n    }\n}"
+  ]
+ ]
+}

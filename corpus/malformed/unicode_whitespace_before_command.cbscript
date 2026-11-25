@@ -1,0 +1,5 @@
+dir "."
+reset
+ /say nbsp before
+　/say ideographic space
+end

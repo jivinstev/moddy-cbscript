@@ -1,0 +1,8 @@
+dir "."
+reset
+	switch x
+		case 3 to 1
+			/say a
+		end
+	end
+end

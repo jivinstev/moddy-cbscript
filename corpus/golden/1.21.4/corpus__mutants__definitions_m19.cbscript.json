@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/definitions_m19.cbscript",
+ "ok": false,
+ "namespace": "definitions_m19",
+ "error": "Syntax error at line 11 column 2. Unexpected end symbol \"end\" in state 387.",
+ "log": [
+  "Syntax error at line 11 column 2. Unexpected end symbol \"end\" in state 387."
+ ],
+ "files": []
+}

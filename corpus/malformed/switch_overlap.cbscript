@@ -1,0 +1,11 @@
+dir "."
+reset
+	switch x
+		case 1 to 3
+			/say a
+		end
+		case 2
+			/say b
+		end
+	end
+end

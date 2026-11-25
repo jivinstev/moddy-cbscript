@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/conditions_m02.cbscript",
+ "ok": false,
+ "namespace": "conditions_m02",
+ "error": "Syntax error at line 80 column 2. Unexpected while symbol \"while\" in state 143.",
+ "log": [
+  "Syntax error at line 80 column 2. Unexpected while symbol \"while\" in state 143."
+ ],
+ "files": []
+}

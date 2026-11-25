@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/selectors_m06.cbscript",
+ "ok": false,
+ "namespace": "selectors_m06",
+ "error": "Syntax error at line 20 column 1. Unexpected end symbol \"end\" in state 128.",
+ "log": [
+  "Syntax error at line 20 column 1. Unexpected end symbol \"end\" in state 128."
+ ],
+ "files": []
+}

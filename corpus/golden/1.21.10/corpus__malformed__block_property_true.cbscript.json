@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/block_property_true.cbscript",
+ "ok": false,
+ "namespace": "block_property_true",
+ "error": "Syntax error at line 15 column 35. Unexpected true symbol \"true\" in state 1219.",
+ "log": [
+  "Syntax error at line 15 column 35. Unexpected true symbol \"true\" in state 1219."
+ ],
+ "files": []
+}
