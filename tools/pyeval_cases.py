@@ -734,6 +734,8 @@ def evaluate(expr):
 		sys.stdout = saved
 	if ' at 0x' in result or ' at 0x' in out.getvalue():
 		return None, None  # object addresses are not reproducible
+	if "<module '" in result:
+		return None, None  # a module's repr says how that Python was built (built-in or a shared library)
 	return result, out.getvalue()
 
 
