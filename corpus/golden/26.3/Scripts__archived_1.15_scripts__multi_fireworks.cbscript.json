@@ -1,0 +1,113 @@
+{
+ "id": "Scripts/archived 1.15 scripts/multi_fireworks.cbscript",
+ "ok": true,
+ "namespace": "multi_fireworks",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/multi_fireworks/function/reset.mcfunction",
+   "data modify storage multi_fireworks:global args set value {}\ndata modify storage multi_fireworks stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add popit dummy\nscoreboard objectives add _unique dummy\nscoreboard objectives add id dummy\nscoreboard objectives add _id dummy\nscoreboard objectives add tracker dummy\nscoreboard objectives add audio_cooldown dummy\nscoreboard objectives add _vel_2 dummy\nscoreboard objectives add _vel_1 dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add _vel_0 dummy\nscoreboard objectives add Param1 dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add i dummy\nscoreboard objectives add found dummy\nscoreboard objectives add mai_scratch7 dummy\nscoreboard objectives add mai_scratch6 dummy\nscoreboard objectives add mai_scratch5 dummy\nscoreboard objectives add mai_scratch4 dummy\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy"
+  ],
+  [
+   "data/multi_fireworks/function/main.mcfunction",
+   "execute as @e[type=minecraft:item,nbt={\"Item\":{\"id\":\"minecraft:firework_rocket\"}}] if data entity @s Item.tag at @s run function multi_fireworks:line028/execute5\nscoreboard players set @e[type=minecraft:firework_rocket] mai_scratch2 0\nexecute as @e[type=minecraft:firework_rocket] run function multi_fireworks:for10_ln45\nexecute as @a[nbt={\"SelectedItem\":{\"id\":\"minecraft:stick\",\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"Sparkler\\\"}\"}}}}] at @s anchored eyes positioned ^ ^ ^1 run function multi_fireworks:line062/execute12\nexecute as @a[nbt={\"SelectedItem\":{\"id\":\"minecraft:fishing_rod\",\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"Sparkler\\\"}\"}}}}] at @s anchored eyes positioned ^-0.5 ^-0.1 ^0.7 run function multi_fireworks:line071/execute14\nexecute as @e[type=minecraft:snowball,nbt={\"Item\":{\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"Pop-It\\\"}\"}}}}] at @s run function multi_fireworks:line080/execute18\nexecute as @e[type=minecraft:marker,scores={popit=1..}] at @s run function multi_fireworks:line095/execute21"
+  ],
+  [
+   "data/multi_fireworks/function/line032/execute1.mcfunction",
+   "scoreboard players set Global found 1\nkill @s"
+  ],
+  [
+   "data/multi_fireworks/function/line031/execute2.mcfunction",
+   "execute store result score Global mai_scratch1 run data get entity @s Item.Count 1\nexecute if score Global mai_scratch1 matches 1 unless score Global found matches 1.. run function multi_fireworks:line032/execute1"
+  ],
+  [
+   "data/multi_fireworks/function/line037/execute3.mcfunction",
+   "data merge entity @s {Item:{tag:{Multi:1b}}}\nexecute store result entity @s Item.tag.Multi byte 1.0 run data get entity @s Item.Count 1\ndata modify entity @s Item.Count set value 1b"
+  ],
+  [
+   "data/multi_fireworks/function/line029/execute4.mcfunction",
+   "scoreboard players set Global found 0\nexecute as @e[type=minecraft:item,nbt={\"Item\":{\"id\":\"minecraft:firework_rocket\"}},distance=..1] unless data entity @s Item.tag.Fireworks.Explosions run function multi_fireworks:line031/execute2\nexecute if score Global found matches 1.. run function multi_fireworks:line037/execute3"
+  ],
+  [
+   "data/multi_fireworks/function/line028/execute5.mcfunction",
+   "execute store result score Global mai_scratch0 run data get entity @s Item.Count 1\nexecute unless score Global mai_scratch0 matches 1 run function multi_fireworks:line029/execute4"
+  ],
+  [
+   "data/multi_fireworks/function/line048/for006.mcfunction",
+   "scoreboard players set @e[type=minecraft:firework_rocket] _age 1\nsummon minecraft:firework_rocket ~ ~ ~ {\"Life\":0,\"LifeTime\":10}\nscoreboard players add @e[type=minecraft:firework_rocket] _age 1\nexecute as @e[type=minecraft:firework_rocket,limit=1,scores={_age=1}] run function multi_fireworks:line049/execute7\nscoreboard players add Global i 1\nexecute if score Global i <= Global mai_scratch6 run function multi_fireworks:line048/for006"
+  ],
+  [
+   "data/multi_fireworks/function/line049/execute7.mcfunction",
+   "data modify entity @s FireworksItem set from entity @e[type=minecraft:firework_rocket,limit=1,scores={mai_scratch2=1..}] FireworksItem\ndata modify entity @s ShotAtAngle set value 1b\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction multi_fireworks:rand\nscoreboard players set Global Param0 500\nfunction multi_fireworks:rand\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction multi_fireworks:rand\nscoreboard players operation @s _vel_0 = Global ReturnValue\nscoreboard players operation @s _vel_1 = Global ReturnValue\nscoreboard players operation @s _vel_2 = Global ReturnValue\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2\nscoreboard players set Global Param0 5\nfunction multi_fireworks:rand\nexecute store result score Global mai_scratch7 run data get entity @s LifeTime 1\nscoreboard players operation Global mai_scratch7 += Global ReturnValue\nexecute store result entity @s LifeTime int 1.0 run scoreboard players get Global mai_scratch7\ndata modify entity @s FireworksItem.tag.Multi set value 0b"
+  ],
+  [
+   "data/multi_fireworks/function/line047/execute8.mcfunction",
+   "scoreboard players set Global i 1\nexecute store result score Global mai_scratch6 run data get entity @s FireworksItem.tag.Multi 1\nexecute if score Global i <= Global mai_scratch6 run function multi_fireworks:line048/for006\nkill @s"
+  ],
+  [
+   "data/multi_fireworks/function/line046/execute9.mcfunction",
+   "execute store result score Global mai_scratch4 run data get entity @s LifeTime 1\nscoreboard players remove Global mai_scratch4 10\nexecute store result score Global mai_scratch5 run data get entity @s Life 1\nexecute if score Global mai_scratch5 = Global mai_scratch4 run function multi_fireworks:line047/execute8"
+  ],
+  [
+   "data/multi_fireworks/function/for10_ln45.mcfunction",
+   "scoreboard players set @s mai_scratch2 1\nexecute store result score Global mai_scratch3 run data get entity @s FireworksItem.tag.Multi 1\nexecute if score Global mai_scratch3 matches 1.. at @s run function multi_fireworks:line046/execute9\nscoreboard players set @s mai_scratch2 0"
+  ],
+  [
+   "data/multi_fireworks/function/line065/execute11.mcfunction",
+   "playsound minecraft:entity.creeper.primed neutral @a ~ ~ ~ 0.2 2\nscoreboard players set Global Param0 5\nfunction multi_fireworks:rand\nscoreboard players operation @s audio_cooldown = Global ReturnValue"
+  ],
+  [
+   "data/multi_fireworks/function/line062/execute12.mcfunction",
+   "particle flame ~ ~ ~ 0 0 0 0.005 1 force @a\nscoreboard players remove @s audio_cooldown 1\nexecute if score @s audio_cooldown matches ..0 run function multi_fireworks:line065/execute11"
+  ],
+  [
+   "data/multi_fireworks/function/line074/execute13.mcfunction",
+   "playsound minecraft:entity.creeper.primed neutral @a ~ ~ ~ 0.2 2\nscoreboard players set Global Param0 5\nfunction multi_fireworks:rand\nscoreboard players operation @s audio_cooldown = Global ReturnValue"
+  ],
+  [
+   "data/multi_fireworks/function/line071/execute14.mcfunction",
+   "particle flame ~ ~ ~ 0 0 0 0.005 1 force @a\nscoreboard players remove @s audio_cooldown 1\nexecute if score @s audio_cooldown matches ..0 run function multi_fireworks:line074/execute13"
+  ],
+  [
+   "data/multi_fireworks/function/line081/execute15.mcfunction",
+   "scoreboard players operation Global _id = @s tracker\nexecute as @e[type=minecraft:marker] if score @s _id = Global _id run tp @s ~ ~ ~\nscoreboard players set Global mai_scratch2 0"
+  ],
+  [
+   "data/multi_fireworks/function/line088/execute16.mcfunction",
+   "scoreboard players operation @s popit = Global id\ntp @s ~ ~ ~"
+  ],
+  [
+   "data/multi_fireworks/function/line081/else17.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global id run scoreboard players get @s _id\nscoreboard players set @e[type=minecraft:marker] _age 1\nsummon minecraft:marker ~ ~ ~\nscoreboard players add @e[type=minecraft:marker] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:marker,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s tracker run scoreboard players get @e[type=minecraft:marker,limit=1,scores={_age=1}] _id\nscoreboard players operation Global _id = @s tracker\nexecute as @e[type=minecraft:marker] if score @s _id = Global _id run function multi_fireworks:line088/execute16"
+  ],
+  [
+   "data/multi_fireworks/function/line080/execute18.mcfunction",
+   "scoreboard players set Global mai_scratch2 1\nexecute if score @s tracker matches 1.. run function multi_fireworks:line081/execute15\nexecute if score Global mai_scratch2 matches 1.. run function multi_fireworks:line081/else17"
+  ],
+  [
+   "data/multi_fireworks/function/line096/execute19.mcfunction",
+   "scoreboard players set Global mai_scratch2 0"
+  ],
+  [
+   "data/multi_fireworks/function/line096/else20.mcfunction",
+   "particle smoke ~ ~ ~ 0 0 0 0.05 20 force @a\nplaysound minecraft:block.note_block.snare neutral @a ~ ~ ~ 1 1\nkill @s"
+  ],
+  [
+   "data/multi_fireworks/function/line095/execute21.mcfunction",
+   "scoreboard players operation Global _id = @s popit\nscoreboard players set Global mai_scratch2 1\nexecute as @e[type=minecraft:snowball,nbt={\"Item\":{\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"Pop-It\\\"}\"}}}}] if score @s _id = Global _id run function multi_fireworks:line096/execute19\nexecute if score Global mai_scratch2 matches 1.. run function multi_fireworks:line096/else20"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"multi_fireworks:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"multi_fireworks:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 121,\n        \"description\": \"Colored slime blocks for piston machines\",\n        \"min_format\": [\n            121,\n            0\n        ],\n        \"max_format\": [\n            121,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}

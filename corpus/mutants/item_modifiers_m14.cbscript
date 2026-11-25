@@ -1,0 +1,15 @@
+# mutant of corpus/programs/item_modifiers.cbscript: replace token 'b' with '!' on line 8
+dir "."
+desc "Item modifiers in each loot-function shape (26.3 renames function to type)"
+
+item_modifier plain {"function": "minecraft:set_count", "count": 3}
+item_modifier already_typed {"type": "minecraft:set_count", "count": 1}
+item_modifier both_keys {"function": "minecraft:set_count", "type": "minecraft:set_count", "count": 1}
+item_modifier with_conditions {"function": "minecraft:set_damage", "damage": 0.5, "conditions": [{"condition": "minecraft:random_chance", "chance": 0.25}]}
+item_modifier not_json {"function": "minecraft:set_count", "count": 2!}
+item_modifier unicode_name {"function": "minecraft:set_name", "name": {"text": "Été ☃", "italic": false}, "nested": {"function": "kept"}}
+item_modifier big_numbers {"function": "minecraft:set_count", "count": 100000000000000000000, "z": -0.0}
+
+reset
+	/say item modifiers
+end

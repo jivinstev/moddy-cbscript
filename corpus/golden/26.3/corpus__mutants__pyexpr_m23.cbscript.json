@@ -1,0 +1,25 @@
+{
+ "id": "corpus/mutants/pyexpr_m23.cbscript",
+ "ok": true,
+ "namespace": "pyexpr_m23",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/pyexpr_m23/function/reset.mcfunction",
+   "data modify storage pyexpr_m23:global args set value {}\ndata modify storage pyexpr_m23 stack set value []\ngamerule max_command_sequence_length 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"pyexpr_m23:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 121,\n        \"description\": \"Compile-time Python expressions\",\n        \"min_format\": [\n            121,\n            0\n        ],\n        \"max_format\": [\n            121,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}

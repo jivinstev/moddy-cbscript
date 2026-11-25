@@ -1,0 +1,53 @@
+{
+ "id": "Scripts/archived 1.15 scripts/permatext.cbscript",
+ "ok": true,
+ "namespace": "permatext",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/permatext/function/reset.mcfunction",
+   "data modify storage permatext:global args set value {}\ndata modify storage permatext stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add _age dummy\nscoreboard objectives add no_text dummy\nscoreboard objectives add mai_scratch0 dummy"
+  ],
+  [
+   "data/permatext/function/main.mcfunction",
+   "scoreboard players set @e[type=minecraft:item_frame] mai_scratch0 0\nexecute as @e[type=minecraft:item_frame] run function permatext:for3_ln15\nscoreboard players set @e[type=minecraft:item_frame] mai_scratch0 0\nexecute as @e[type=minecraft:item_frame] run function permatext:for6_ln26"
+  ],
+  [
+   "data/permatext/function/line017/execute1.mcfunction",
+   "data modify entity @s CustomName set from entity @e[type=minecraft:item_frame,limit=1,scores={mai_scratch0=1..}] Item.tag.display.Name\nkill @e[type=minecraft:item_frame,limit=1,scores={mai_scratch0=1..}]\nsummon item ~ ~ ~ {Item:{id:\"minecraft:item_frame\", Count:1b},PickupDelay:20}\nplaysound minecraft:entity.item_frame.break block @a"
+  ],
+  [
+   "data/permatext/function/line016/execute2.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=FloatingText] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"FloatingText\"],\"Invulnerable\":1,\"Marker\":1,\"NoGravity\":1,\"Invisible\":1,\"CustomNameVisible\":1}\nscoreboard players add @e[type=minecraft:armor_stand,tag=FloatingText] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=FloatingText,limit=1,scores={_age=1}] run function permatext:line017/execute1"
+  ],
+  [
+   "data/permatext/function/for3_ln15.mcfunction",
+   "scoreboard players set @s mai_scratch0 1\nexecute unless score @s no_text matches 1.. if data entity @s Item{\"id\":\"minecraft:name_tag\"} if data entity @s Item.tag.display.Name at @s align xyz positioned ~0.5 ~0.5 ~0.5 run function permatext:line016/execute2\nscoreboard players set @s mai_scratch0 0"
+  ],
+  [
+   "data/permatext/function/line029/execute4.mcfunction",
+   "scoreboard players set @e[type=minecraft:item_frame,limit=1,scores={mai_scratch0=1..}] no_text 1\ndata modify entity @e[type=minecraft:item_frame,limit=1,scores={mai_scratch0=1..}] Item set value {\"id\":\"minecraft:name_tag\",\"Count\":1b,\"tag\":{\"display\":{\"Name\":\"\\\"temp\\\"\"}}}\ndata modify entity @e[type=minecraft:item_frame,limit=1,scores={mai_scratch0=1..}] Item.tag.display.Name set from entity @s CustomName\nkill @s"
+  ],
+  [
+   "data/permatext/function/line027/execute5.mcfunction",
+   "scoreboard players set @s no_text 0\nexecute as @e[type=minecraft:armor_stand,tag=FloatingText,distance=0..0.01,limit=1] run function permatext:line029/execute4"
+  ],
+  [
+   "data/permatext/function/for6_ln26.mcfunction",
+   "scoreboard players set @s mai_scratch0 1\nexecute unless data entity @s Item at @s align xyz positioned ~0.5 ~0.5 ~0.5 run function permatext:line027/execute5\nscoreboard players set @s mai_scratch0 0"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"permatext:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"permatext:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 121,\n        \"description\": \"Write permanent float text in your world.\",\n        \"min_format\": [\n            121,\n            0\n        ],\n        \"max_format\": [\n            121,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}

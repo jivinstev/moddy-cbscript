@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/item_modifiers_m08.cbscript",
+ "ok": false,
+ "namespace": "item_modifiers_m08",
+ "error": "Syntax error at line 12 column 1. Unexpected COMMAND symbol \"/say item modifiers\" in state 142.",
+ "log": [
+  "Syntax error at line 12 column 1. Unexpected COMMAND symbol \"/say item modifiers\" in state 142."
+ ],
+ "files": []
+}

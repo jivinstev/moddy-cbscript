@@ -1,0 +1,25 @@
+{
+ "id": "corpus/mutants/item_modifiers_m22.cbscript",
+ "ok": true,
+ "namespace": "item_modifiers_m22",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/item_modifiers_m22/function/reset.mcfunction",
+   "data modify storage item_modifiers_m22:global args set value {}\ndata modify storage item_modifiers_m22 stack set value []\ngamerule max_command_sequence_length 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"item_modifiers_m22:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 94,\n        \"description\": \"Item modifiers in each loot-function shape (26.3 renames function to type)\",\n        \"min_format\": [\n            94,\n            1\n        ],\n        \"max_format\": [\n            94,\n            1\n        ]\n    }\n}"
+  ]
+ ]
+}
