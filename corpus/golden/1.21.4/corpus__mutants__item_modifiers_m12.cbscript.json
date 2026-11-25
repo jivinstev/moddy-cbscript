@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/item_modifiers_m12.cbscript",
+ "ok": false,
+ "namespace": "item_modifiers_m12",
+ "error": "Syntax error at line 6 column 30. Unexpected COLON symbol \":\" in state 220.",
+ "log": [
+  "Syntax error at line 6 column 30. Unexpected COLON symbol \":\" in state 220."
+ ],
+ "files": []
+}

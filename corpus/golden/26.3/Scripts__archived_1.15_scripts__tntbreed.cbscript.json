@@ -1,0 +1,57 @@
+{
+ "id": "Scripts/archived 1.15 scripts/tntbreed.cbscript",
+ "ok": true,
+ "namespace": "tntbreed",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/tntbreed/function/reset.mcfunction",
+   "data modify storage tntbreed:global args set value {}\ndata modify storage tntbreed stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add ready dummy\nscoreboard objectives add _vel_2 dummy\nscoreboard objectives add _vel_1 dummy\nscoreboard objectives add _vel_0 dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add hop_timer dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c100 Constant 100\nscoreboard objectives add mai_scratch5 dummy\nscoreboard objectives add mai_scratch4 dummy\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy"
+  ],
+  [
+   "data/tntbreed/function/main.mcfunction",
+   "scoreboard players set @a mai_scratch0 0\nexecute as @a run function tntbreed:for6_ln18\nexecute as @e[type=minecraft:tnt] at @s if entity @e[type=minecraft:item,nbt={\"Item\":{\"id\":\"minecraft:gunpowder\"}},distance=..1] run function tntbreed:line043/execute7"
+  ],
+  [
+   "data/tntbreed/function/line025/execute1.mcfunction",
+   "scoreboard players remove @s hop_timer 1\nscoreboard players set Global mai_scratch1 0"
+  ],
+  [
+   "data/tntbreed/function/line028/execute2.mcfunction",
+   "execute store result score @a[limit=1,scores={mai_scratch0=1..}] _pos_0 run data get entity @a[limit=1,scores={mai_scratch0=1..}] Pos[0] 10000\nexecute store result score @a[limit=1,scores={mai_scratch0=1..}] _pos_1 run data get entity @a[limit=1,scores={mai_scratch0=1..}] Pos[1] 10000\nexecute store result score @a[limit=1,scores={mai_scratch0=1..}] _pos_2 run data get entity @a[limit=1,scores={mai_scratch0=1..}] Pos[2] 10000\nscoreboard players operation Global mai_scratch3 = @a[limit=1,scores={mai_scratch0=1..}] _pos_0\nscoreboard players operation Global mai_scratch4 = @a[limit=1,scores={mai_scratch0=1..}] _pos_1\nscoreboard players operation Global mai_scratch5 = @a[limit=1,scores={mai_scratch0=1..}] _pos_2\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global mai_scratch3 -= @s _pos_0\nscoreboard players operation Global mai_scratch4 -= @s _pos_1\nscoreboard players operation Global mai_scratch5 -= @s _pos_2\nscoreboard players operation Global mai_scratch3 /= c100 Constant\nscoreboard players operation Global mai_scratch4 /= c100 Constant\nscoreboard players operation Global mai_scratch5 /= c100 Constant\nscoreboard players operation @s _vel_0 = Global mai_scratch3\nscoreboard players operation @s _vel_1 = Global mai_scratch4\nscoreboard players operation @s _vel_2 = Global mai_scratch5\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2\ndata modify entity @s Motion[1] set value 0.035d\nscoreboard players set @s hop_timer 50"
+  ],
+  [
+   "data/tntbreed/function/line025/else3.mcfunction",
+   "execute store result score Global mai_scratch2 run data get entity @s OnGround 1\nexecute if score Global mai_scratch2 matches 1.. run function tntbreed:line028/execute2"
+  ],
+  [
+   "data/tntbreed/function/line035/execute4.mcfunction",
+   "execute store result score Global mai_scratch3 run data get entity @s Fuse 1\nscoreboard players add Global mai_scratch3 16\nexecute store result entity @s Fuse short 1.0 run scoreboard players get Global mai_scratch3"
+  ],
+  [
+   "data/tntbreed/function/line020/execute5.mcfunction",
+   "execute at @s facing entity @a[limit=1,scores={mai_scratch0=1..}] feet run tp @s ~ ~ ~ ~ ~\nscoreboard players set Global mai_scratch1 1\nexecute if score @s hop_timer matches 1.. run function tntbreed:line025/execute1\nexecute if score Global mai_scratch1 matches 1.. run function tntbreed:line025/else3\nexecute store result score Global mai_scratch1 run data get entity @s Fuse 1\nexecute if score Global mai_scratch1 matches ..31 run function tntbreed:line035/execute4"
+  ],
+  [
+   "data/tntbreed/function/for6_ln18.mcfunction",
+   "scoreboard players set @s mai_scratch0 1\nexecute if entity @s[nbt={\"SelectedItem\":{\"id\":\"minecraft:gunpowder\"}}] at @s as @e[type=minecraft:tnt,distance=..16] run function tntbreed:line020/execute5\nscoreboard players set @s mai_scratch0 0"
+  ],
+  [
+   "data/tntbreed/function/line043/execute7.mcfunction",
+   "kill @e[type=minecraft:item,nbt={\"Item\":{\"id\":\"minecraft:gunpowder\"}},distance=..1]\nsay ready\nscoreboard players set @s ready 400"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"tntbreed:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"tntbreed:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 121,\n        \"description\": \"Use gunpowder to breed TNT\",\n        \"min_format\": [\n            121,\n            0\n        ],\n        \"max_format\": [\n            121,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}

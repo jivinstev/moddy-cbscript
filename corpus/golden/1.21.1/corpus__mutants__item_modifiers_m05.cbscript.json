@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/item_modifiers_m05.cbscript",
+ "ok": false,
+ "namespace": "item_modifiers_m05",
+ "error": "Syntax error at line 2 column 1. Unexpected end symbol \"end\" in state 90.",
+ "log": [
+  "Syntax error at line 2 column 1. Unexpected end symbol \"end\" in state 90."
+ ],
+ "files": []
+}

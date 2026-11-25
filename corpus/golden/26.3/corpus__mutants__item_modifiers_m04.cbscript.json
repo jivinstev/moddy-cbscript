@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/item_modifiers_m04.cbscript",
+ "ok": false,
+ "namespace": "item_modifiers_m04",
+ "error": "Syntax error at line 11 column 27. Unexpected NORMSTRING symbol \"\"function\"\" in state 167.",
+ "log": [
+  "Syntax error at line 11 column 27. Unexpected NORMSTRING symbol \"\"function\"\" in state 167."
+ ],
+ "files": []
+}

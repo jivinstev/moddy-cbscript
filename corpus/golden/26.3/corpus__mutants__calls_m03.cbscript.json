@@ -1,0 +1,65 @@
+{
+ "id": "corpus/mutants/calls_m03.cbscript",
+ "ok": true,
+ "namespace": "calls_m03",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/calls_m03/function/poke.mcfunction",
+   "scoreboard players operation Global n = Global Param0\n$say poked $(nm)"
+  ],
+  [
+   "data/calls_m03/function/recurse.mcfunction",
+   "scoreboard players operation Global depth = Global Param0\nexecute if score Global depth matches 1.. run function calls_m03:line029/execute1"
+  ],
+  [
+   "data/calls_m03/function/line029/execute1.mcfunction",
+   "data modify storage calls_m03 stack append value {}\nexecute store result storage calls_m03 stack[-1].v0 int 1 run scoreboard players get Global depth\nscoreboard players operation Global rec_scratch0 = Global depth\nscoreboard players remove Global rec_scratch0 1\nscoreboard players operation Global Param0 = Global rec_scratch0\nfunction calls_m03:recurse\nexecute store result score Global depth run data get storage calls_m03 stack[-1].v0 1\ndata remove storage calls_m03 stack[-1]"
+  ],
+  [
+   "data/calls_m03/function/counter.mcfunction",
+   "say counting\nscoreboard players set Global ReturnValue 3"
+  ],
+  [
+   "data/calls_m03/function/reset.mcfunction",
+   "data modify storage calls_m03:global args set value {}\ndata modify storage calls_m03 stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add ent dummy\nscoreboard objectives add id dummy\nscoreboard objectives add _unique dummy\nscoreboard objectives add id2 dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add partner dummy\nscoreboard objectives add _id dummy\nscoreboard objectives add owner dummy\nscoreboard objectives add z dummy\nscoreboard objectives add score dummy\nscoreboard objectives add y dummy\nscoreboard objectives add v dummy\nscoreboard objectives add val dummy\nscoreboard objectives add res dummy\nscoreboard objectives add Param{i} dummy\nscoreboard objectives add Param1 dummy\nscoreboard objectives add x dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add depth dummy\nscoreboard objectives add _scratch0 dummy\nscoreboard objectives add rec_scratch0 dummy\nscoreboard players set Global Param0 3\nfunction calls_m03:recurse\nfunction calls_m03:counter\nfunction calls_m03:counter\nscoreboard players operation Global x = Global ReturnValue\nscoreboard players set Global Param0 1\nscoreboard players set Global Param1 2\nfunction other_ns:helper\nsay hi\nsay hi\nsay no args\nscoreboard players set Global Param{i} 1\nfunction calls_m03:tpl_a\nscoreboard players operation Global Param{i} = Global x\nfunction calls_m03:tpl_b\nscoreboard players set Global Param{i} 2\nfunction calls_m03:tpl_a\nscoreboard players set Global Param{i} 0\nfunction calls_m03:looped_1\nscoreboard players set Global Param0 1\nexecute as @e[type=minecraft:armor_stand,tag=thing] run function calls_m03:poke\nscoreboard players set Global Param0 2\nfunction calls_m03:poke\nscoreboard players set Global Param0 3\nexecute as @e[type=minecraft:armor_stand,tag=thing,limit=1] run function calls_m03:poke\nscoreboard players operation Global y = Global ReturnValue\ndata modify storage calls_m03:global args.nm set value \"bob\"\nscoreboard players operation Global _scratch0 = Global x\nscoreboard players add Global _scratch0 1\nexecute store result storage calls_m03:global args.level int 1 run scoreboard players get Global _scratch0\ndata modify storage calls_m03:global args.three set value 3\nfunction calls_m03:line057/with002 with storage calls_m03:global args\ndata modify storage calls_m03:global args.nm set value \"alice\"\nscoreboard players set Global Param0 1\nfunction calls_m03:recurse with storage calls_m03:global args\ndata modify storage calls_m03:global args.nm set value \"carl\"\nscoreboard players set Global Param0 4\nexecute as @e[type=minecraft:armor_stand,tag=thing] run function calls_m03:poke with storage calls_m03:global args\ndata modify storage calls_m03:global args.nm set value \"dee\"\nscoreboard players set Global Param{i} 1\nfunction calls_m03:tpl_cwith storage calls_m03:global args\nfunction calls_m03:counter with storage calls_m03:global args\nfunction other_ns:helper with storage calls_m03:global args\nscoreboard players set Global Param0 5\nexecute as @e[type=minecraft:armor_stand,tag=thing] run function calls_m03:poke with storage calls_m03:global args\nscoreboard players set Global Param{i} 1\nfunction calls_m03:tpl_dwith storage calls_m03:global args\ndata modify storage calls_m03 stack append value {}\nexecute store result storage calls_m03 stack[-1].v0 int 1 run scoreboard players get Global x\nexecute store result storage calls_m03 stack[-1].v1 int 1 run scoreboard players get Global y\ndata modify storage calls_m03 stack[-1].v2 set value 3\nexecute store result score Global x run data get storage calls_m03 stack[-1].v0 1\nexecute store result score Global y run data get storage calls_m03 stack[-1].v1 1\ndata remove storage calls_m03 stack[-1]\ndata remove storage calls_m03 stack[-1]\ndata modify storage calls_m03 stack append value {}\n$scoreboard players set player_$(id) score 1\n$scoreboard players operation Global z = player_$(id) score\n$tellraw @a [\"\",{\"score\":{\"name\":\"player_$(id)\",\"objective\":\"score\"}}]\nscoreboard players operation Global _id = Global owner\nexecute as @e[tag=owner,limit=1] if score @s _id = Global _id run say owner\nscoreboard players operation Global _id = Global owner\nexecute as @e[tag=owner,limit=1] if score @s _id = Global _id run say typed owner\nscoreboard players operation Global _id = Global owner\nexecute as @e[tag=owner,limit=1] if score @s _id = Global _id run scoreboard players set Global x 1\nscoreboard players operation Global _id = Global owner\nexecute as @e[tag=owner,limit=1] if score @s _id = Global _id run scoreboard players set Global x 2\nscoreboard players operation Global _id = @e[type=minecraft:armor_stand,tag=thing] partner\nexecute as @e[tag=partner,limit=1] if score @s _id = Global _id run say partner\nscoreboard players set @e[type=minecraft:armor_stand,tag=thing] _age 1\nsummon minecraft:armor_stand ~ ~ ~\nscoreboard players add @e[type=minecraft:armor_stand,tag=thing] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=thing,limit=1,scores={_age=1}] run say created\nscoreboard players set @e[type=minecraft:armor_stand,tag=thing] _age 1\nsummon minecraft:armor_stand ~ ~ ~\nscoreboard players add @e[type=minecraft:armor_stand,tag=thing] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=thing,limit=1,scores={_age=1}] run scoreboard players set Global x 3\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:armor_stand,tag=thing,limit=1] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global id2 run scoreboard players get @e[type=minecraft:armor_stand,tag=thing,limit=1] _id\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global id run scoreboard players get @s _id\nscoreboard players set @e[type=minecraft:armor_stand,tag=thing] _age 1\nsummon minecraft:armor_stand ~ ~ ~\nscoreboard players add @e[type=minecraft:armor_stand,tag=thing] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:armor_stand,tag=thing,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global ent run scoreboard players get @e[type=minecraft:armor_stand,tag=thing,limit=1,scores={_age=1}] _id\nsummon minecraft:armor_stand ^ ^ ^2\nsummon minecraft:armor_stand ~ ~ ~\nfunction calls:recurse"
+  ],
+  [
+   "data/calls_m03/function/tpl_a.mcfunction",
+   "scoreboard players operation Global val = Global Param0\nsay tpl a\nscoreboard players operation Global res = Global val"
+  ],
+  [
+   "data/calls_m03/function/tpl_b.mcfunction",
+   "scoreboard players operation Global val = Global Param0\nsay tpl b\nscoreboard players operation Global res = Global val"
+  ],
+  [
+   "data/calls_m03/function/looped_1.mcfunction",
+   "scoreboard players operation Global v = Global Param0\nscoreboard players operation Global Param{i} = Global v\nfunction calls_m03:looped_1"
+  ],
+  [
+   "data/calls_m03/function/line057/with002.mcfunction",
+   "$say $(nm) $(level)"
+  ],
+  [
+   "data/calls_m03/function/tpl_c.mcfunction",
+   "scoreboard players operation Global val = Global Param0\nsay tpl c\nscoreboard players operation Global res = Global val"
+  ],
+  [
+   "data/calls_m03/function/tpl_d.mcfunction",
+   "scoreboard players operation Global val = Global Param0\nsay tpl d\nscoreboard players operation Global res = Global val"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"calls_m03:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 121,\n        \"description\": \"Calls, macros, templates, with, push/pop, define name, pointers\",\n        \"min_format\": [\n            121,\n            0\n        ],\n        \"max_format\": [\n            121,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}
