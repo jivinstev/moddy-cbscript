@@ -1,0 +1,6 @@
+dir "."
+reset
+	x = 1 ? 2
+	y = `3`
+	/say ok
+end

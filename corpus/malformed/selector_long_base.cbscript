@@ -1,0 +1,4 @@
+dir "."
+reset
+	as @xyz do x = 1
+end

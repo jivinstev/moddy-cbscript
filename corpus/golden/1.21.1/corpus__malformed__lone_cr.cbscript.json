@@ -1,0 +1,25 @@
+{
+ "id": "corpus/malformed/lone_cr.cbscript",
+ "ok": true,
+ "namespace": "lone_cr",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/lone_cr/function/reset.mcfunction",
+   "data modify storage lone_cr:global args set value {}\ndata modify storage lone_cr stack set value []\ngamerule maxCommandChainLength 1000000000\nsay cr"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"lone_cr:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

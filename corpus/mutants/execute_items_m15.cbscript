@@ -1,0 +1,25 @@
+# mutant of corpus/programs/execute_items.cbscript: truncate before line 25
+dir "."
+desc "Execute chains"
+
+define @Cow = @e[type=cow, tag=farm]
+end
+
+reset
+	as @a
+		/say as
+	end
+	as @a at @s
+		/say at
+	end
+	at @s
+		/say at only
+	end
+	at @s eyes
+		/say eyes
+	end
+	at @s feet ~ ~1 ~
+		/say feet coords
+	end
+	at ~ ~1 ~
+		/say coords

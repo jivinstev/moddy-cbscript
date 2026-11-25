@@ -1,0 +1,6 @@
+dir "."
+desc "imports a cblib that is not there"
+import nothere
+import nothere2.cblib
+reset
+end

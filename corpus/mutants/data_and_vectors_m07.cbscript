@@ -1,0 +1,78 @@
+# mutant of corpus/programs/data_and_vectors.cbscript: delete token 'Sign' on line 37
+dir "."
+desc "NBT, storage, blocks, vectors"
+
+define [Sign] at ~ ~1 ~
+	power: RecordItem.count int
+	scaled: RecordItem.count double 100
+	slot[$i]: Items[$i].count byte
+	slotscaled[$i]: Items[$i].count float 10
+end
+
+define [Chest]
+	count: Items[0].count byte
+end
+
+reset
+	@s.{Tags} = {a: 1}
+	@s.[Tags] = '["x"]'
+	@s.{Tags} += {b: 2}
+	@s.[Tags] += "y"
+	:{store.path} = {key: "value", n: 1.5f, l: [I; 1, 2], q: $marker}
+	:[store.list] += @s.Inventory
+	mystore:{a.b} = :{store.path}
+	mystore:[a.list] = mystore:[b.list]
+	[~ ~ ~].{Items} = {x: 1b}
+	[].[Items] += {id: "minecraft:stone"}
+	[~1 ~ ~].{Items} = [~ ~ ~].Items
+	:{a} = @s.{SelectedItem}
+	:{a} = 'raw string'
+	remove @s.Tags
+	remove :{store.path}
+	remove [~ ~ ~].Items
+	remove mystore:a.b
+	x = :store.value
+	x = mystore:path.v
+	:store.value = 5
+	:store.value = x
+	x = [].power
+	[Sign].power = 7
+	[Sign].scaled = x
+	x = [Sign at ~ ~2 ~].power
+	x = [Sign].slot[3]
+	[Sign at ~1 ~ ~].slotscaled[2] = 4
+	x = [Chest].count
+	x = success
+/execute if entity @a
+	y = result
+/time query daytime
+	<v> = <1, 2, 3>
+	<v> = <x, y, x + y>
+	<w> = <v> + <1, 1, 1>
+	<w> = <v> - <w>
+	<w> = <v> * 2
+	<w> = <v> / 2
+	<w> = <v> % 3
+	<w> = <v> + 1
+	<w> = <v> - x
+	<w> = 2 * <v>
+	<w> = 3 + <v>
+	<w> = -<v>
+	<w> = (<v> + <w>)
+	<w> += <v>
+	<w> -= <1, 0, 0>
+	<w> *= 3
+	<w> /= x
+	<w> %= 2
+	<w> += 1
+	<w> -= x
+	<w> = here
+	<w> = here(100)
+	<x, y, z> = <v>
+	<x, y, z> += <1, 2, 3>
+	d = <v> * <w>
+	<w> = @s.<pos>
+	<w> = <1, 2, 3>
+end
+
+$marker = "{Marker:1b}"

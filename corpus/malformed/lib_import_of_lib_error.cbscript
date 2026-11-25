@@ -1,0 +1,6 @@
+dir "."
+import common
+reset
+	create @Position
+	@Entity.hp = 3
+end
