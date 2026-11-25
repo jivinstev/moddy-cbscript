@@ -1,0 +1,41 @@
+{
+ "id": "corpus/mutants/basics_m20.cbscript",
+ "ok": true,
+ "namespace": "basics_m20",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/basics_m20/function/reset.mcfunction",
+   "data modify storage basics_m20:global args set value {}\ndata modify storage basics_m20 stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add Param0 dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add amount dummy\nscoreboard objectives add count dummy\nscoreboard objectives add score dummy\nsay reset\nscoreboard players set Global score 0\nscoreboard players set Global count 5"
+  ],
+  [
+   "data/basics_m20/function/tick.mcfunction",
+   "scoreboard players add Global score 1\nexecute if score Global score matches 101.. run function basics_m20:line017/execute1\nscoreboard players set Global score 0"
+  ],
+  [
+   "data/basics_m20/function/line017/execute1.mcfunction",
+   ""
+  ],
+  [
+   "data/basics_m20/function/add_points.mcfunction",
+   "scoreboard players operation Global amount = Global Param0\nscoreboard players operation Global score += Global amount\nscoreboard players operation Global ReturnValue = Global score"
+  ],
+  [
+   "data/basics_m20/function/no_params.mcfunction",
+   "say no params"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"basics_m20:tick\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"basics_m20:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"Basics: reset, clock, function, macro, template\"\n    }\n}"
+  ]
+ ]
+}

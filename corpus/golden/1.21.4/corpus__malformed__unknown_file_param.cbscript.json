@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/unknown_file_param.cbscript",
+ "ok": false,
+ "namespace": "unknown_file_param",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Unable to parse script."
+ ],
+ "files": []
+}

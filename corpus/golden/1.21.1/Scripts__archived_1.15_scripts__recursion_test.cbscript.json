@@ -1,0 +1,45 @@
+{
+ "id": "Scripts/archived 1.15 scripts/recursion_test.cbscript",
+ "ok": true,
+ "namespace": "recursion_test",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/recursion_test/function/recurse.mcfunction",
+   "scoreboard players operation Global y = Global Param1\nscoreboard players operation Global x = Global Param0\nexecute if score Global x matches 0.. run function recursion_test:line007/execute1"
+  ],
+  [
+   "data/recursion_test/function/line007/execute1.mcfunction",
+   "tellraw @a [\"\",{\"score\":{\"name\":\"Global\",\"objective\":\"x\"}},{\"text\":\" \"},{\"score\":{\"name\":\"Global\",\"objective\":\"y\"}}]\ndata modify storage recursion_test stack append value {}\nexecute store result storage recursion_test stack[-1].v0 int 1 run scoreboard players get Global x\nexecute store result storage recursion_test stack[-1].v1 int 1 run scoreboard players get Global y\nscoreboard players operation Global rec_scratch0 = Global x\nscoreboard players remove Global rec_scratch0 1\nscoreboard players operation Global Param0 = Global rec_scratch0\nscoreboard players operation Global rec_scratch1 = Global y\nscoreboard players add Global rec_scratch1 1\nscoreboard players operation Global Param1 = Global rec_scratch1\nfunction recursion_test:recurse\nexecute store result score Global x run data get storage recursion_test stack[-1].v0 1\nexecute store result score Global y run data get storage recursion_test stack[-1].v1 1\ndata remove storage recursion_test stack[-1]\ntellraw @a [\"\",{\"score\":{\"name\":\"Global\",\"objective\":\"x\"}},{\"text\":\" \"},{\"score\":{\"name\":\"Global\",\"objective\":\"y\"}}]"
+  ],
+  [
+   "data/recursion_test/function/factorial.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global fac_scratch0 1\nexecute if score Global n matches ..1 run function recursion_test:line015/execute2\nexecute if score Global fac_scratch0 matches 1.. run function recursion_test:line015/else3"
+  ],
+  [
+   "data/recursion_test/function/line015/execute2.mcfunction",
+   "scoreboard players set Global ReturnValue 1\nscoreboard players set Global fac_scratch0 0"
+  ],
+  [
+   "data/recursion_test/function/line015/else3.mcfunction",
+   "data modify storage recursion_test stack append value {}\nexecute store result storage recursion_test stack[-1].v0 int 1 run scoreboard players get Global n\nexecute store result storage recursion_test stack[-1].v1 int 1 run scoreboard players get Global fac_scratch0\nscoreboard players operation Global fac_scratch0 = Global n\nscoreboard players remove Global fac_scratch0 1\nscoreboard players operation Global Param0 = Global fac_scratch0\nfunction recursion_test:factorial\nexecute store result score Global n run data get storage recursion_test stack[-1].v0 1\nexecute store result score Global fac_scratch0 run data get storage recursion_test stack[-1].v1 1\ndata remove storage recursion_test stack[-1]\nscoreboard players operation Global ReturnValue *= Global n"
+  ],
+  [
+   "data/recursion_test/function/reset.mcfunction",
+   "data modify storage recursion_test:global args set value {}\ndata modify storage recursion_test stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add val dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add n dummy\nscoreboard objectives add Param1 dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add y dummy\nscoreboard objectives add x dummy\nscoreboard objectives add fac_scratch0 dummy\nscoreboard objectives add rec_scratch1 dummy\nscoreboard objectives add rec_scratch0 dummy\nscoreboard players set Global Param0 5\nscoreboard players set Global Param1 5\nfunction recursion_test:recurse\nscoreboard players set Global Param0 5\nfunction recursion_test:factorial\nscoreboard players operation Global val = Global ReturnValue\ntellraw @a [\"\",{\"score\":{\"name\":\"Global\",\"objective\":\"val\"}}]"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"recursion_test:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"Test for new data storage features\"\n    }\n}"
+  ]
+ ]
+}

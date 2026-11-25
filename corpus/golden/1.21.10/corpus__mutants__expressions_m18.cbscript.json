@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/expressions_m18.cbscript",
+ "ok": false,
+ "namespace": "expressions_m18",
+ "error": "Syntax error at line 26 column 4. Unexpected DOT symbol \".\" in state 59.",
+ "log": [
+  "Syntax error at line 26 column 4. Unexpected DOT symbol \".\" in state 59."
+ ],
+ "files": []
+}

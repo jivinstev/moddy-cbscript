@@ -1,0 +1,3 @@
+# Repository examples left out of the corpus, with the reason.
+Scripts/archived 1.16 scripts/eye_of_spender.cbscript   # takes over 120 s to compile in Python
+Scripts/mtg/mtg.cbscript   # imports cards.py: running a Python file is outside what a Java compiler can do (JAVA_PORT.md, Boundary)
