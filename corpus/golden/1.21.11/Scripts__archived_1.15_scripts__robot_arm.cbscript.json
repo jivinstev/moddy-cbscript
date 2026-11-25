@@ -1,0 +1,10 @@
+{
+ "id": "Scripts/archived 1.15 scripts/robot_arm.cbscript",
+ "ok": false,
+ "namespace": "robot_arm",
+ "error": "Syntax error at line 27 column 9. Unexpected NORMSTRING symbol \"'\"CustomName\":\"\\\"Marker\\\"\", Duration:-1,Age:-2147483648,WaitTime:-2147483648}'\" in state 708.",
+ "log": [
+  "Syntax error at line 27 column 9. Unexpected NORMSTRING symbol \"'\"CustomName\":\"\\\"Marker\\\"\", Duration:-1,Age:-2147483648,WaitTime:-2147483648}'\" in state 708."
+ ],
+ "files": []
+}

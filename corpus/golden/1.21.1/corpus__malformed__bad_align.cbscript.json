@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/bad_align.cbscript",
+ "ok": false,
+ "namespace": "bad_align",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Unable to parse script."
+ ],
+ "files": []
+}

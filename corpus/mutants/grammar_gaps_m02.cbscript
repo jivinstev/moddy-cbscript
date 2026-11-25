@@ -1,0 +1,5 @@
+# mutant of corpus/programs/grammar_gaps.cbscript: truncate before line 5
+dir "."
+desc "Productions the other programs do not reach"
+
+$p, $q = (1, 2)

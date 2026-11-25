@@ -1,0 +1,7 @@
+dir "."
+function t{$a}(x)
+	y = nope[1]
+end
+reset
+	t{1}(2)
+end

@@ -1,0 +1,65 @@
+{
+ "id": "Scripts/archived 1.15 scripts/giant_fireworks.cbscript",
+ "ok": true,
+ "namespace": "giant_fireworks",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/giant_fireworks/function/reset.mcfunction",
+   "data modify storage giant_fireworks:global args set value {}\ndata modify storage giant_fireworks stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add _vel_2 dummy\nscoreboard objectives add _vel_1 dummy\nscoreboard objectives add _vel_0 dummy\nscoreboard objectives add _delta_2 dummy\nscoreboard objectives add _delta_1 dummy\nscoreboard objectives add _delta_0 dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add _pos1_2 dummy\nscoreboard objectives add _pos1_1 dummy\nscoreboard objectives add _pos1_0 dummy\nscoreboard objectives add rx dummy\nscoreboard objectives add ry dummy\nscoreboard objectives add age dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c2 Constant 2\nscoreboard players set c80000 Constant 80000\nscoreboard players set c350000 Constant 350000\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nteam add no_collision\nteam modify no_collision collisionRule never\ntellraw @a [\"\",{\"text\":\"[Spawn Giant Firework]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function giant_fireworks:giant_firework\"},\"color\":\"green\"}]"
+  ],
+  [
+   "data/giant_fireworks/function/giant_firework.mcfunction",
+   "scoreboard players set @e[type=minecraft:giant,tag=GiantFirework] _age 1\nsummon minecraft:giant ~2 ~-6 ~-4 {\"Tags\":[\"GiantFirework\",\"InvisGiant\"],\"Silent\":1}\nscoreboard players add @e[type=minecraft:giant,tag=GiantFirework] _age 1\nexecute as @e[type=minecraft:giant,tag=GiantFirework,limit=1,scores={_age=1}] run function giant_fireworks:line028/execute1"
+  ],
+  [
+   "data/giant_fireworks/function/line028/execute1.mcfunction",
+   "replaceitem entity @s weapon.mainhand firework_rocket\nplaysound minecraft:entity.firework_rocket.launch neutral @a ~ ~ ~ 1 0 0.7"
+  ],
+  [
+   "data/giant_fireworks/function/main.mcfunction",
+   "execute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nexecute as @e[type=minecraft:giant,tag=InvisGiant] run effect give @s invisibility 1 1 true\nexecute as @e[type=minecraft:giant,tag=GiantFirework] at @s run function giant_fireworks:line040/execute7\nexecute as @e[type=minecraft:giant,tag=GiantItem] at @s run function giant_fireworks:line069/execute8"
+  ],
+  [
+   "data/giant_fireworks/function/line046/for002.mcfunction",
+   "scoreboard players set Global rx -80000\nexecute if score Global rx <= c80000 Constant run function giant_fireworks:line047/for003\nscoreboard players add Global ry 20000\nexecute if score Global ry <= c350000 Constant run function giant_fireworks:line046/for002"
+  ],
+  [
+   "data/giant_fireworks/function/line047/for003.mcfunction",
+   "scoreboard players set @e[type=minecraft:giant,tag=GiantItem] _age 1\nsummon minecraft:giant ~2 ~-6 ~-4 {\"Tags\":[\"GiantItem\",\"InvisGiant\"],\"Silent\":1}\nscoreboard players add @e[type=minecraft:giant,tag=GiantItem] _age 1\nexecute as @e[type=minecraft:giant,tag=GiantItem,limit=1,scores={_age=1}] run function giant_fireworks:line048/execute5\nscoreboard players add Global rx 10000\nexecute if score Global rx <= c80000 Constant run function giant_fireworks:line047/for003"
+  ],
+  [
+   "data/giant_fireworks/function/line049/execute4.mcfunction",
+   "tp @s ~ ~ ~\nexecute store result entity @s Rotation[1] float 0.0001 run scoreboard players get Global rx\nexecute store result entity @s Rotation[0] float 0.0001 run scoreboard players get Global ry\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global _pos1_0 = @s _pos_0\nscoreboard players operation Global _pos1_1 = @s _pos_1\nscoreboard players operation Global _pos1_2 = @s _pos_2\nexecute at @s run tp @s ^ ^ ^6\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global mai_scratch0 = @s _pos_0\nscoreboard players operation Global mai_scratch1 = @s _pos_1\nscoreboard players operation Global mai_scratch2 = @s _pos_2\nscoreboard players operation Global mai_scratch0 -= Global _pos1_0\nscoreboard players operation Global mai_scratch1 -= Global _pos1_1\nscoreboard players operation Global mai_scratch2 -= Global _pos1_2\nscoreboard players operation Global _delta_0 = Global mai_scratch0\nscoreboard players operation Global _delta_1 = Global mai_scratch1\nscoreboard players operation Global _delta_2 = Global mai_scratch2"
+  ],
+  [
+   "data/giant_fireworks/function/line048/execute5.mcfunction",
+   "execute as 0-0-0-0-C1 run function giant_fireworks:line049/execute4\nscoreboard players operation @s _vel_0 = Global _delta_0\nscoreboard players operation @s _vel_1 = Global _delta_1\nscoreboard players operation @s _vel_2 = Global _delta_2\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2\nexecute store result score Global mai_scratch0 run data get entity @s Motion[1] 10000\nscoreboard players operation Global mai_scratch0 /= c2 Constant\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get Global mai_scratch0\nteam join no_collision\nreplaceitem entity @s weapon.mainhand blue_wool"
+  ],
+  [
+   "data/giant_fireworks/function/line043/execute6.mcfunction",
+   "playsound minecraft:entity.firework_rocket.large_blast neutral @a ~ ~ ~ 1 0 0.7\nscoreboard players set Global ry 0\nexecute if score Global ry <= c350000 Constant run function giant_fireworks:line046/for002\nkill @s"
+  ],
+  [
+   "data/giant_fireworks/function/line040/execute7.mcfunction",
+   "data modify entity @s Motion[1] set value 0.2d\nscoreboard players add @s age 1\nexecute if score @s age matches 40 run function giant_fireworks:line043/execute6"
+  ],
+  [
+   "data/giant_fireworks/function/line069/execute8.mcfunction",
+   "execute store result score Global mai_scratch0 run data get entity @s Motion[1] 10000\nscoreboard players add Global mai_scratch0 120\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get Global mai_scratch0\nscoreboard players add @s age 1\nexecute if score @s age matches 30.. run kill @s"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"giant_fireworks:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"giant_fireworks:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"Create giant fireworks\"\n    }\n}"
+  ]
+ ]
+}

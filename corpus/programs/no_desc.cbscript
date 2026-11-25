@@ -1,0 +1,5 @@
+# no desc line: optdesc is empty
+dir "."
+reset
+	/say no desc
+end

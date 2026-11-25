@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/definitions_m22.cbscript",
+ "ok": false,
+ "namespace": "definitions_m22",
+ "error": "Syntax error at line 5 column 2. Unexpected block_tag symbol \"block_tag\" in state 92.",
+ "log": [
+  "Syntax error at line 5 column 2. Unexpected block_tag symbol \"block_tag\" in state 92."
+ ],
+ "files": []
+}

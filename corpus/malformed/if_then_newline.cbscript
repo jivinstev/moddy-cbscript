@@ -1,0 +1,79 @@
+dir "."
+desc "If, unless, else, while, conditions"
+
+define @Pig = @e[type=pig]
+end
+
+reset
+	a = 1
+	b = 2
+	if a > b then
+		/say gt
+	end
+	if a >= 2 and b <= 5 and a < 3 and b == 2 then
+		/say multi
+	end
+	if a then
+		/say truthy
+	end
+	if not a then
+		/say not
+	end
+	if a == b
+		/say block form
+	else if a > b
+		/say else if
+	else unless b < 0
+		/say else unless
+	else
+		/say else
+	end
+	unless a == 1 then
+		/say unless
+	end
+	if @Pig then /say pigs
+	if @a[tag=x] do /say tagged
+	if 1 == 1 then /say const true
+	if 1 == 2 then /say const false
+	if 3 > 2 then /say c3
+	if 3 < 2 then /say c4
+	if 2 >= 2 then /say c5
+	if 2 <= 1 then /say c6
+	unless 1 == 1 then /say u1
+	unless 1 == 2 then /say u2
+	if a > 5 then /say k1
+	if 5 > a then /say k2
+	if a < 5 then /say k3
+	if a <= 5 then /say k4
+	if a >= 5 then /say k5
+	if a == 5 then /say k6
+	if predicate my_pred then /say pred
+	if predicate minecraft:other then /say pred2
+	if block ~ ~-1 ~ stone then /say stone
+	if block ~ ~ ~ stone_stairs[facing=north, half=top] then /say stairs
+	if block ~ ~ ~ chest{Items:[]} then /say chest
+	if block grass_block then /say nocoords
+	if block $blk then /say virtual
+	if block ~ ~ ~ $blk then /say virtual2
+	if block ~1 ~ ~ my_tag then /say tag
+	if @s.{Inventory[0]} then /say nbt
+	if @s.[Tags] then /say nbtlist
+	if :{my.path} then /say storage
+	if <v> == <w> then /say vec
+	if <v> == <1, 2, 3> then /say vec const
+	while a < 10
+		a += 1
+	end
+	while a < 20 at @s
+		a += 1
+	end
+end
+
+$blk = "dirt"
+
+predicate my_pred {"condition": "minecraft:random_chance", "chance": 0.5}
+
+define block_tag my_tag
+	stone
+	dirt
+end

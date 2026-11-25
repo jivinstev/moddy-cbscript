@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/json_bad_number_type.cbscript",
+ "ok": false,
+ "namespace": "json_bad_number_type",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Unable to parse script."
+ ],
+ "files": []
+}

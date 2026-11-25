@@ -1,0 +1,7 @@
+dir "."
+macro $m($a)
+	/say $a
+end
+reset
+	$m(1, 2)
+end

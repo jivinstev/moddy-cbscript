@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/conditions_m10.cbscript",
+ "ok": false,
+ "namespace": "conditions_m10",
+ "error": "Syntax error at line 67 column 36. Unexpected NEWLINE symbol \"\\n\" in state 592.",
+ "log": [
+  "Syntax error at line 67 column 36. Unexpected NEWLINE symbol \"\\n\" in state 592."
+ ],
+ "files": []
+}

@@ -1,0 +1,25 @@
+{
+ "id": "corpus/malformed/apply_replacement_negative.cbscript",
+ "ok": true,
+ "namespace": "apply_replacement_negative",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/apply_replacement_negative/function/reset.mcfunction",
+   "data modify storage apply_replacement_negative:global args set value {}\ndata modify storage apply_replacement_negative stack set value []\ngamerule max_command_sequence_length 1000000000\nsay -5 -1 -word 51.5"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"apply_replacement_negative:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 101,\n        \"description\": \"No Description\",\n        \"min_format\": [\n            101,\n            1\n        ],\n        \"max_format\": [\n            101,\n            1\n        ]\n    }\n}"
+  ]
+ ]
+}
