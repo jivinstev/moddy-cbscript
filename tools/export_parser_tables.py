@@ -29,10 +29,11 @@ def main():
 	for i, prod in enumerate(p.productions):
 		lines.append(f'P\t{i}\t{prod.name}\t{prod.len}\t{prod.func or "-"}\t{prod.str}')
 	for state in sorted(p.action):
-		for tok, act in p.action[state].items():
+		# Sorted: PLY builds these dicts in an order that depends on the hash seed; the numbering does not.
+		for tok, act in sorted(p.action[state].items()):
 			lines.append(f'A\t{state}\t{tok}\t{act}')
 	for state in sorted(p.goto):
-		for nt, st in p.goto[state].items():
+		for nt, st in sorted(p.goto[state].items()):
 			lines.append(f'G\t{state}\t{nt}\t{st}')
 	for state in sorted(p.defaulted_states):
 		lines.append(f'D\t{state}\t{p.defaulted_states[state]}')
