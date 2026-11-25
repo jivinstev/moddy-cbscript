@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/bad_path_type.cbscript",
+ "ok": false,
+ "namespace": "bad_path_type",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Unable to parse script."
+ ],
+ "files": []
+}

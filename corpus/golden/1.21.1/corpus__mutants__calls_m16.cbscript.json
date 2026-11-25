@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/calls_m16.cbscript",
+ "ok": false,
+ "namespace": "calls_m16",
+ "error": "Syntax error at line 9 column 6. Unexpected NEWLINE symbol \"\\n\" in state 413.",
+ "log": [
+  "Syntax error at line 9 column 6. Unexpected NEWLINE symbol \"\\n\" in state 413."
+ ],
+ "files": []
+}

@@ -1,0 +1,13 @@
+{
+ "id": "Scripts/archived 1.15 scripts/spyglass.cbscript",
+ "ok": false,
+ "namespace": "spyglass",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> FileNotFoundError: [Errno 2] No such file or directory: 'blocks.json'",
+  "Error compiling block at line 165",
+  "Unable to compile function \"create_magnified_block\" at line 164",
+  "Error compiling block at line 164"
+ ],
+ "files": []
+}

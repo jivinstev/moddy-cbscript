@@ -1,0 +1,106 @@
+# mutant of corpus/programs/calls.cbscript: replace token '"Calls, macros, templates, with, push/pop, define name, pointers"' with '(' on line 2
+dir "."
+desc (
+
+define @Thing = @e[type=armor_stand, tag=thing]
+	partner = @e[tag=partner, limit=1]
+	function poke(n)
+		/say poked $(nm)
+	end
+end
+
+owner: @e[tag=owner, limit=1]
+
+macro $twice($cmd)
+	/$cmd
+	/$cmd
+end
+
+macro $noargs()
+	/say no args
+end
+
+function tpl{$suffix}(val)
+	/say tpl $suffix
+	res = val
+end
+
+function recurse(depth)
+	if depth > 0
+		recurse(depth - 1)
+	end
+end
+
+function looped{$a}(v)
+	looped{$a}(v)
+end
+
+function counter()
+	/say counting
+	return 3
+end
+
+reset
+	recurse(3)
+	counter()
+	x = counter()
+	other_ns:helper(1, 2)
+	$twice("say hi")
+	$noargs()
+	tpl{"a"}(1)
+	tpl{"b"}(x)
+	tpl{"a"}(2)
+	looped{1}(0)
+	@Thing.poke(1)
+	@s.poke(2)
+	y = @Thing[limit=1].poke(3)
+	with
+		$(nm) = "bob"
+		$(level) = x + 1
+		$(three) = 3
+	do
+		/say $(nm) $(level)
+	end
+	with
+		$(nm) = "alice"
+	recurse(1)
+	with
+		$(nm) = "carl"
+	@Thing.poke(4)
+	with
+		$(nm) = "dee"
+	tpl{"c"}(1)
+	counter() with macros
+	other_ns:helper() with macros
+	@Thing.poke(5) with macros
+	tpl{"d"}(1) with macros
+	push x, y, 3
+	pop x, y
+	pop
+	push
+	define name pname = "player_$(id)"
+	pname.score = 1
+	z = pname.score
+	tell @a "(pname.score)"
+	as owner
+		/say owner
+	end
+	as owner (@a)
+		/say typed owner
+	end
+	as owner do x = 1
+	as owner (@a) do x = 2
+	as @Thing.partner
+		/say partner
+	end
+	as create @Thing
+		/say created
+	end
+	as create @Thing do x = 3
+	id = &@s
+	id2 = &@Thing[limit=1]
+	ent = create @Thing
+	create @Thing ^ ^ ^2
+	create @Thing ~ ~ ~
+	/function calls:recurse
+end

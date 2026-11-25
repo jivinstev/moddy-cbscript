@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/execute_items_m04.cbscript",
+ "ok": false,
+ "namespace": "execute_items_m04",
+ "error": "Syntax error at line 23 column 9. Unexpected end symbol \"end\" in state 438.",
+ "log": [
+  "Syntax error at line 23 column 9. Unexpected end symbol \"end\" in state 438."
+ ],
+ "files": []
+}

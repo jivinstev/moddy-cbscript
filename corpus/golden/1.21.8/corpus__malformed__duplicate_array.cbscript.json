@@ -1,0 +1,11 @@
+{
+ "id": "corpus/malformed/duplicate_array.cbscript",
+ "ok": false,
+ "namespace": "duplicate_array",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Array \"a\" is defined multiple times.",
+  "Error compiling block at line 3"
+ ],
+ "files": []
+}

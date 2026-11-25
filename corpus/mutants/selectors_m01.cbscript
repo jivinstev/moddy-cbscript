@@ -1,0 +1,54 @@
+# mutant of corpus/programs/selectors.cbscript: delete token 'am' on line 14
+dir "."
+desc "Selector definitions"
+
+define @Zombie = @e[type=zombie, tag=undead]
+	create {"Tags":["undead"], "Health":20.0f}
+	hp = Health float 10
+	health : Health float
+	<pos> = Pos double 100
+	<mot> : Motion double
+	target = @e[tag=target, limit=1]
+	array arr[0 to 3]
+	predicate is_burning {"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"flags": {"is_on_fire": true}}}
+	function speak()
+		/say I  a zombie
+		@s.hp = 5
+	end
+end
+
+define @Marker : @e[type=marker]
+end
+
+@Short = @e[type=armor_stand, limit=1]
+
+define @Player = @a
+end
+
+reset
+	create @Zombie
+	create @Zombie ~ ~1 ~
+	@Zombie.speak()
+	as @Zombie do @s.speak()
+	@Zombie[limit=1].hp = 3
+	x = @Zombie[limit=1].hp
+	<v> = @Zombie[limit=1].<pos>
+	@Zombie[limit=1].<pos> = <1, 2, 3>
+	@Zombie[limit=1].<pos> += <1, 1, 1>
+	as @Zombie[limit=1] do @s.hp = @s.hp + 1
+	as @e[type=!player, type=!item, tag=a, tag=!b, distance=..5, level=1.., x_rotation=-90..90, sort=nearest, limit=2] do hits = 1 # complex
+	as @e[hp >= 3, hp < 10, alive, not dead] do hits = 1 # scores
+	as @e[x == 1, y > 2, z <= 3] do hits = 1 # scores2
+	as @e[gamemode=survival, gamemode=!creative, name=Bob, team=, nbt={OnGround:1b}] do hits = 1 # parts
+	as @Short do hits = 1 # short
+	as @e[type=player] do hits = 1 # player
+	as @Player do hits = 1 # defined player
+	as @e[is_burning] do hits = 1 # pred in selector
+	move @s ~ ~1 ~
+	move @a ~1 ~ ~
+	tell @a "Hello {Rworld{- and [click](/say hi) and (score) and (@s.score) and (@s)"
+	title @a "Title text"
+	subtitle @a "Sub"
+	actionbar @a "Bar"
+	title @a 10 70 20 "Timed"
+end

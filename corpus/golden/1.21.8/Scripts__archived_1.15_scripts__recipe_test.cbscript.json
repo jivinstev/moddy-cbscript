@@ -1,0 +1,33 @@
+{
+ "id": "Scripts/archived 1.15 scripts/recipe_test.cbscript",
+ "ok": true,
+ "namespace": "recipe_test",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/recipe_test/function/reset.mcfunction",
+   "data modify storage recipe_test:global args set value {}\ndata modify storage recipe_test stack set value []\ngamerule maxCommandChainLength 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"recipe_test:reset\"\n    ]\n}"
+  ],
+  [
+   "data/recipe_test/tags/item/grasslike.json",
+   "{\n    \"values\": [\n        \"minecraft:podzol\",\n        \"minecraft:grass_block\",\n        \"minecraft:mycelium\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"Test for shaped crafting recipes\"\n    }\n}"
+  ],
+  [
+   "data/recipe_test/recipe/shaped1.json",
+   "{\n    \"type\": \"minecraft:crafting_shaped\",\n    \"group\": \"recipe_test\",\n    \"pattern\": [\n        \"GGG\",\n        \"GBG\",\n        \"GGG\"\n    ],\n    \"key\": {\n        \"G\": {\n            \"tag\": \"recipe_test:grasslike\"\n        },\n        \"B\": {\n            \"item\": \"minecraft:slime_ball\"\n        }\n    },\n    \"result\": {\n        \"item\": \"minecraft:cocoa_beans\",\n        \"count\": 7\n    }\n}"
+  ]
+ ]
+}

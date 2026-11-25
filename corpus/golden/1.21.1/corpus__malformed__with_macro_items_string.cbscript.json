@@ -1,0 +1,29 @@
+{
+ "id": "corpus/malformed/with_macro_items_string.cbscript",
+ "ok": true,
+ "namespace": "with_macro_items_string",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/with_macro_items_string/function/reset.mcfunction",
+   "data modify storage with_macro_items_string:global args set value {}\ndata modify storage with_macro_items_string stack set value []\ngamerule maxCommandChainLength 1000000000\ndata modify storage with_macro_items_string:global args.a set value \"text\"\ndata modify storage with_macro_items_string:global args.b set value 5\nfunction with_macro_items_string:line003/with001 with storage with_macro_items_string:global args"
+  ],
+  [
+   "data/with_macro_items_string/function/line003/with001.mcfunction",
+   "$say $(a) $(b)"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"with_macro_items_string:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

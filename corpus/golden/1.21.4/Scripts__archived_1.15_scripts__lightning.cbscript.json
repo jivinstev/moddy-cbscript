@@ -1,0 +1,33 @@
+{
+ "id": "Scripts/archived 1.15 scripts/lightning.cbscript",
+ "ok": true,
+ "namespace": "lightning",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/lightning/function/reset.mcfunction",
+   "data modify storage lightning:global args set value {}\ndata modify storage lightning stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add z dummy\nscoreboard objectives add y dummy\nscoreboard objectives add x dummy"
+  ],
+  [
+   "data/lightning/function/main.mcfunction",
+   "execute as @e[type=minecraft:lightning_bolt] run function lightning:line015/execute1"
+  ],
+  [
+   "data/lightning/function/line015/execute1.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global x = @s _pos_0\nscoreboard players operation Global y = @s _pos_1\nscoreboard players operation Global z = @s _pos_2\ntellraw @a [\"\",{\"score\":{\"name\":\"Global\",\"objective\":\"x\"}},{\"text\":\" \"},{\"score\":{\"name\":\"Global\",\"objective\":\"y\"}},{\"text\":\" \"},{\"score\":{\"name\":\"Global\",\"objective\":\"z\"}}]"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"lightning:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"lightning:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"Lightning\"\n    }\n}"
+  ]
+ ]
+}

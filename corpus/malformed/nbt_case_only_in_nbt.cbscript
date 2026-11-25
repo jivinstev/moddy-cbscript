@@ -1,0 +1,6 @@
+dir "."
+reset
+	/say onground health
+	/execute as @e[nbt={health:20f,customname:"x"}] run say y
+	/data merge entity @s {onground:1b}
+end

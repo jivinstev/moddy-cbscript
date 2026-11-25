@@ -1,0 +1,45 @@
+{
+ "id": "corpus/mutants/loops_m21.cbscript",
+ "ok": true,
+ "namespace": "loops_m21",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/loops_m21/function/reset.mcfunction",
+   "data modify storage loops_m21:global args set value {}\ndata modify storage loops_m21 stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add visits dummy\nscoreboard objectives add m dummy\nscoreboard objectives add step dummy\nscoreboard objectives add k dummy\nscoreboard objectives add j dummy\nscoreboard objectives add total dummy\nscoreboard objectives add i dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c20 Constant 20\nscoreboard players set c9 Constant 9\nscoreboard players set c0 Constant 0\nscoreboard players set c10 Constant 10\nscoreboard objectives add _scratch0 dummy\nscoreboard players set Global i 1\nexecute if score Global i <= c10 Constant run function loops_m21:line006/for001\nscoreboard players set Global j 10\nexecute if score Global j >= c0 Constant run function loops_m21:line010/for002\nscoreboard players set Global k 0\nexecute if score Global k <= c9 Constant run function loops_m21:line013/for003\nscoreboard players set Global m 0\nexecute if score Global step matches ..-1 if score Global m >= c20 Constant run function loops_m21:line017/for004\nexecute if score Global step matches 1.. if score Global m <= c20 Constant run function loops_m21:line017/for004\nsay compile time 0\nsay compile time 1\nsay compile time 2\nsay pair 1 2\nsay pair 3 4\nsay triple 1 2 3\nscoreboard players set @a _scratch0 0\nexecute as @a run function loops_m21:for5_ln29\nsay a\nsay b"
+  ],
+  [
+   "data/loops_m21/function/line006/for001.mcfunction",
+   "say $i\nscoreboard players operation Global total += Global i\nscoreboard players add Global i 1\nexecute if score Global i <= c10 Constant run function loops_m21:line006/for001"
+  ],
+  [
+   "data/loops_m21/function/line010/for002.mcfunction",
+   "scoreboard players operation Global total -= Global j\nscoreboard players remove Global j 2\nexecute if score Global j >= c0 Constant run function loops_m21:line010/for002"
+  ],
+  [
+   "data/loops_m21/function/line013/for003.mcfunction",
+   "scoreboard players operation Global total += Global k\nscoreboard players set Global step 2\nscoreboard players add Global k 3\nexecute if score Global k <= c9 Constant run function loops_m21:line013/for003"
+  ],
+  [
+   "data/loops_m21/function/line017/for004.mcfunction",
+   "scoreboard players operation Global total += Global m\nscoreboard players operation Global m += Global step\nexecute if score Global step matches ..-1 if score Global m >= c20 Constant run function loops_m21:line017/for004\nexecute if score Global step matches 1.. if score Global m <= c20 Constant run function loops_m21:line017/for004"
+  ],
+  [
+   "data/loops_m21/function/for5_ln29.mcfunction",
+   "scoreboard players set @s _scratch0 1\nscoreboard players add @a[limit=1,scores={_scratch0=1..}] visits 1\nsay @a[limit=1,scores={_scratch0=1..}]\nscoreboard players set @s _scratch0 0"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"loops_m21:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 94,\n        \"description\": \"Loops\",\n        \"min_format\": [\n            94,\n            1\n        ],\n        \"max_format\": [\n            94,\n            1\n        ]\n    }\n}"
+  ]
+ ]
+}
