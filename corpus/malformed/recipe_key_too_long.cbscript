@@ -1,0 +1,8 @@
+dir "."
+shaped recipe
+	"AB"
+	keys
+		AB = item:stick
+	end
+	result: 1 stick
+end

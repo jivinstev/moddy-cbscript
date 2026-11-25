@@ -1,0 +1,7 @@
+dir "."
+define @A = @e
+	array arr[2]
+end
+reset
+	x = arr[1]
+end

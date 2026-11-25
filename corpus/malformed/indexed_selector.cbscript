@@ -1,0 +1,6 @@
+dir "."
+define @M = @e[type=marker]
+end
+reset
+	as @M[3] do x = 1
+end

@@ -1,0 +1,19 @@
+# mutant of corpus/programs/loops.cbscript: truncate before line 19
+dir "."
+desc "Loops"
+
+reset
+	for i = 1 to 10
+		/say $i
+		total += i
+	end
+	for j = 10 to 0 by -2
+		total -= j
+	end
+	for k = 0 to 9 by 3
+		total += k
+	end
+	step = 2
+	for m = 0 to 20 by step
+		total += m
+	end

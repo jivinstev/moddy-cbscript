@@ -1,0 +1,84 @@
+# mutant of corpus/programs/conditions.cbscript: insert '"' before 'end' on line 25
+dir "."
+desc "If, unless, else, while, conditions"
+
+define @Pig = @e[type=pig]
+end
+
+$blk = "dirt"
+
+predicate my_pred {"condition": "minecraft:random_chance", "chance": 0.5}
+
+define block_tag my_tag
+	stone
+	dirt
+end
+
+
+reset
+	a = 1
+	b = 2
+	if a > b
+		/say gt
+	end
+	if a >= 2 and b <= 5 and a < 3 and b == 2
+		/say multi
+	" end
+	if a
+		/say truthy
+	end
+	if not a
+		/say not
+	end
+	if a == b
+		/say block form
+	else if a > b
+		/say else if
+	else unless b < 0
+		/say else unless
+	else
+		/say else
+	end
+	unless a == 1
+		/say unless
+	end
+	if @Pig then hits += 1
+	if @a[tag=x] do hits += 1
+	if scale == 1000 then hits += 1
+	if scale == 2000 then hits += 1
+	if scale > 2000 then hits += 1
+	if scale < 2000 then hits += 1
+	if scale >= 2000 then hits += 1
+	if scale <= 1000 then hits += 1
+	unless scale == 1000 then hits += 1
+	unless scale == 2000 then hits += 1
+	if a > 5 then hits += 1
+	if scale > a then hits += 1
+	if a < 5 then hits += 1
+	if a <= 5 then hits += 1
+	if a >= 5 then hits += 1
+	if a == 5 then hits += 1
+	if predicate my_pred
+		hits += 1
+	end
+	if block ~ ~-1 ~ stone then hits += 1
+	if block ~ ~ ~ stone_stairs[facing=north, half=top] then hits += 1
+	if block ~ ~ ~ chest{Items:[]} then hits += 1
+	if block grass_block then hits += 1
+	if block $blk then hits += 1
+	if block ~ ~ ~ $blk then hits += 1
+	if block ~1 ~ ~ my_tag then hits += 1
+	if @s.{Inventory[0]} then hits += 1
+	if @s.[Tags] then hits += 1
+	if :{my.path} then hits += 1
+	if <v> == <w> then hits += 1
+	if <v> == <1, 2, 3> then hits += 1
+	while a < 10
+		a += 1
+	end
+	while a < 20 at @s
+		a += 1
+	end
+end
+
+

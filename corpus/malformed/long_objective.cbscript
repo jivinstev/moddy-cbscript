@@ -1,0 +1,4 @@
+dir "."
+reset
+	this_name_is_far_too_long = 1
+end

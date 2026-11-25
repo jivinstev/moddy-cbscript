@@ -1,0 +1,25 @@
+{
+ "id": "corpus/malformed/crlf_line_endings.cbscript",
+ "ok": true,
+ "namespace": "crlf_line_endings",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/crlf_line_endings/function/reset.mcfunction",
+   "data modify storage crlf_line_endings:global args set value {}\ndata modify storage crlf_line_endings stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add x dummy\nsay crlf\nscoreboard players set Global x 1"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"crlf_line_endings:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"crlf\"\n    }\n}"
+  ]
+ ]
+}

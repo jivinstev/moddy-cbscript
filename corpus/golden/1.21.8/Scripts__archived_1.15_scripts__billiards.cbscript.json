@@ -1,0 +1,329 @@
+{
+ "id": "Scripts/archived 1.15 scripts/billiards.cbscript",
+ "ok": true,
+ "namespace": "billiards",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/billiards/function/update.mcfunction",
+   "execute positioned ~ ~-1.7 ~ run tp @s ~ ~ ~\ndata merge entity @s {Pose:{Head:[0.0001f,0.0001f,0.0001f]}}\nexecute store result entity @s Pose.Head[0] float 0.0001 run scoreboard players get @s rot_x\nexecute store result entity @s Pose.Head[1] float 0.0001 run scoreboard players get @s rot_y\nexecute at @s run tp @s ^ ^0.287 ^\nexecute store result entity @s Rotation[1] float 0.0001 run scoreboard players get @s rot_x\nexecute store result entity @s Rotation[0] float 0.0001 run scoreboard players get @s rot_y\nexecute at @s run tp @s ^ ^-0.287 ^\ndata merge entity @s {Fire:32767s}\nexecute at @s rotated as @s run tp @s ~ ~ ~ 0 0"
+  ],
+  [
+   "data/billiards/function/sqrt.mcfunction",
+   "scoreboard players operation Global _x = Global Param0\nscoreboard players set Global sqr_scratch0 1\nexecute if score Global _x matches 0.. if score Global _x matches ..19310 run function billiards:line003/execute1\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 19311.. if score Global _x matches ..1705544 run function billiards:line003/else2\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 1705545.. if score Global _x matches ..39400514 run function billiards:line003/else3\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 39400515.. if score Global _x matches ..455779650 run function billiards:line003/else4\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 455779651.. if score Global _x matches ..2147483647 run function billiards:line003/else5\nscoreboard players operation Global sqr_scratch0 = Global _x\nscoreboard players operation Global sqr_scratch0 /= sqrt y\nscoreboard players operation sqrt y += Global sqr_scratch0\nscoreboard players operation sqrt y /= c2 Constant\nscoreboard players operation Global sqr_scratch0 = sqrt y\nscoreboard players operation Global sqr_scratch0 *= sqrt y\nexecute if score Global sqr_scratch0 > Global _x run scoreboard players remove sqrt y 1\nscoreboard players operation Global ReturnValue = sqrt y"
+  ],
+  [
+   "data/billiards/function/line003/execute1.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 4095\nscoreboard players set sqrt y -594039\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 149\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/billiards/function/line003/else2.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 903167\nscoreboard players set sqrt y -1568669636\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 1857\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/billiards/function/line003/else3.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c141 Constant\nscoreboard players add Global sqr_scratch1 224767\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 10425\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/billiards/function/line003/else4.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c7775 Constant\nscoreboard players add Global sqr_scratch1 60419\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 39184\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/billiards/function/line003/else5.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c100000 Constant\nscoreboard players add Global sqr_scratch1 26111\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 91181"
+  ],
+  [
+   "data/billiards/function/abs.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global abs_scratch0 1\nexecute if score Global n matches ..-1 run function billiards:line025/execute6\nexecute if score Global abs_scratch0 matches 1.. run scoreboard players operation Global ReturnValue = Global n"
+  ],
+  [
+   "data/billiards/function/line025/execute6.mcfunction",
+   "scoreboard players operation Global ReturnValue = Global n\nscoreboard players operation Global ReturnValue *= minus Constant\nscoreboard players set Global abs_scratch0 0"
+  ],
+  [
+   "data/billiards/function/sin.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c360 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 181.. run function billiards:line035/execute7\nscoreboard players operation Global ReturnValue = Global _sin_angle\nscoreboard players operation Global ReturnValue *= c4000 Constant\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global ReturnValue *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global sin_scratch1 = Global _sin_angle\nscoreboard players operation Global sin_scratch1 *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 40500\nscoreboard players operation Global sin_scratch0 -= Global sin_scratch1\nscoreboard players operation Global ReturnValue /= Global sin_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/billiards/function/line035/execute7.mcfunction",
+   "scoreboard players remove Global _sin_angle 180\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/billiards/function/sin_precise.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c36000 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 18001.. run function billiards:line048/execute8\nscoreboard players set Global sin2_scratch0 18000\nscoreboard players operation Global sin2_scratch0 -= Global _sin_angle\nscoreboard players operation Global _angle_sq = Global _sin_angle\nscoreboard players operation Global _angle_sq *= Global sin2_scratch0\nscoreboard players operation Global _angle_sq /= c100 Constant\nscoreboard players operation Global ReturnValue = Global _angle_sq\nscoreboard players operation Global ReturnValue *= c4 Constant\nscoreboard players operation Global ReturnValue *= c100 Constant\nscoreboard players set Global sin2_scratch0 4050000\nscoreboard players operation Global sin2_scratch0 -= Global _angle_sq\nscoreboard players operation Global ReturnValue /= Global sin2_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/billiards/function/line048/execute8.mcfunction",
+   "scoreboard players remove Global _sin_angle 18000\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/billiards/function/cos.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos_scratch0 = Global _cos_angle\nscoreboard players add Global cos_scratch0 90\nscoreboard players operation Global Param0 = Global cos_scratch0\nfunction billiards:sin"
+  ],
+  [
+   "data/billiards/function/cos_precise.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos2_scratch0 = Global _cos_angle\nscoreboard players add Global cos2_scratch0 9000\nscoreboard players operation Global Param0 = Global cos2_scratch0\nfunction billiards:sin_precise"
+  ],
+  [
+   "data/billiards/function/sign.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global sig_scratch0 1\nexecute if score Global n matches 1.. run function billiards:line068/execute9\nexecute if score Global sig_scratch0 matches 1.. if score Global n matches ..-1 run function billiards:line068/else10\nexecute if score Global sig_scratch0 matches 1.. run scoreboard players set Global ReturnValue 0"
+  ],
+  [
+   "data/billiards/function/line068/execute9.mcfunction",
+   "scoreboard players set Global ReturnValue 1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/billiards/function/line068/else10.mcfunction",
+   "scoreboard players set Global ReturnValue -1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/billiards/function/reset.mcfunction",
+   "data modify storage billiards:global args set value {}\ndata modify storage billiards stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add _pos2_2 dummy\nscoreboard objectives add _pos2_1 dummy\nscoreboard objectives add _pos2_0 dummy\nscoreboard objectives add p2 dummy\nscoreboard objectives add z2 dummy\nscoreboard objectives add y2 dummy\nscoreboard objectives add x2 dummy\nscoreboard objectives add _v2_2 dummy\nscoreboard objectives add _v2_1 dummy\nscoreboard objectives add _v2_0 dummy\nscoreboard objectives add moving2 dummy\nscoreboard objectives add moving1 dummy\nscoreboard objectives add p1 dummy\nscoreboard objectives add z1 dummy\nscoreboard objectives add y1 dummy\nscoreboard objectives add x1 dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add _pos1_2 dummy\nscoreboard objectives add _pos1_1 dummy\nscoreboard objectives add _pos1_0 dummy\nscoreboard objectives add _v1_2 dummy\nscoreboard objectives add _v1_1 dummy\nscoreboard objectives add _v1_0 dummy\nscoreboard objectives add _vel_2 dummy\nscoreboard objectives add _vel_1 dummy\nscoreboard objectives add _vel_0 dummy\nscoreboard objectives add vz dummy\nscoreboard objectives add vy dummy\nscoreboard objectives add vx dummy\nscoreboard objectives add _v_2 dummy\nscoreboard objectives add _v_1 dummy\nscoreboard objectives add _v_0 dummy\nscoreboard objectives add z dummy\nscoreboard objectives add x dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add color dummy\nscoreboard objectives add billiard_ball dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add _cos_angle dummy\nscoreboard objectives add _angle_sq dummy\nscoreboard objectives add mult dummy\nscoreboard objectives add _sin_angle dummy\nscoreboard objectives add n dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add y dummy\nscoreboard objectives add _x dummy\nscoreboard objectives add rot_y dummy\nscoreboard objectives add rot_x dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c80 Constant 80\nscoreboard players set c0 Constant 0\nscoreboard players set c5 Constant 5\nscoreboard players set c300 Constant 300\nscoreboard players set c98 Constant 98\nscoreboard players set c4 Constant 4\nscoreboard players set c100 Constant 100\nscoreboard players set c36000 Constant 36000\nscoreboard players set c4000 Constant 4000\nscoreboard players set c360 Constant 360\nscoreboard players set minus Constant -1\nscoreboard players set c2 Constant 2\nscoreboard players set c100000 Constant 100000\nscoreboard players set c7775 Constant 7775\nscoreboard players set c141 Constant 141\nscoreboard objectives add mai_scratch12 dummy\nscoreboard objectives add mai_scratch11 dummy\nscoreboard objectives add mai_scratch10 dummy\nscoreboard objectives add mai_scratch9 dummy\nscoreboard objectives add mai_scratch8 dummy\nscoreboard objectives add mai_scratch7 dummy\nscoreboard objectives add mai_scratch6 dummy\nscoreboard objectives add mai_scratch5 dummy\nscoreboard objectives add mai_scratch4 dummy\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nscoreboard objectives add is__scratch0 dummy\nscoreboard objectives add sig_scratch0 dummy\nscoreboard objectives add cos2_scratch0 dummy\nscoreboard objectives add cos_scratch0 dummy\nscoreboard objectives add sin2_scratch0 dummy\nscoreboard objectives add sin_scratch1 dummy\nscoreboard objectives add sin_scratch0 dummy\nscoreboard objectives add abs_scratch0 dummy\nscoreboard objectives add sqr_scratch1 dummy\nscoreboard objectives add sqr_scratch0 dummy\nscoreboard objectives add Billiards trigger"
+  ],
+  [
+   "data/billiards/function/create_balls.mcfunction",
+   "kill @e[type=minecraft:armor_stand,tag=MiniBlock,scores={billiard_ball=1..}]\nexecute positioned ~-1.44 ~0.3 ~-1.44 run function billiards:line046/execute12\nexecute positioned ~-0.72 ~0.3 ~-1.44 run function billiards:line046/execute14\nexecute positioned ~0.0 ~0.3 ~-1.44 run function billiards:line046/execute16\nexecute positioned ~0.72 ~0.3 ~-1.44 run function billiards:line046/execute18\nexecute positioned ~1.44 ~0.3 ~-1.44 run function billiards:line046/execute20\nexecute positioned ~-1.08 ~0.3 ~-0.72 run function billiards:line046/execute22\nexecute positioned ~-0.36 ~0.3 ~-0.72 run function billiards:line046/execute24\nexecute positioned ~0.36 ~0.3 ~-0.72 run function billiards:line046/execute26\nexecute positioned ~1.08 ~0.3 ~-0.72 run function billiards:line046/execute28\nexecute positioned ~-0.72 ~0.3 ~0.0 run function billiards:line046/execute30\nexecute positioned ~0.0 ~0.3 ~0.0 run function billiards:line046/execute32\nexecute positioned ~0.72 ~0.3 ~0.0 run function billiards:line046/execute34\nexecute positioned ~-0.36 ~0.3 ~0.72 run function billiards:line046/execute36\nexecute positioned ~0.36 ~0.3 ~0.72 run function billiards:line046/execute38\nexecute positioned ~0.0 ~0.3 ~1.44 run function billiards:line046/execute40\nexecute positioned ~0.0 ~0.3 ~11.016 run function billiards:line046/execute42"
+  ],
+  [
+   "data/billiards/function/line047/execute11.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head green_wool\nscoreboard players set @s color 1\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute12.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute11"
+  ],
+  [
+   "data/billiards/function/line047/execute13.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head gold_ore\nscoreboard players set @s color 2\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute14.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute13"
+  ],
+  [
+   "data/billiards/function/line047/execute15.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head magenta_wool\nscoreboard players set @s color 1\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute16.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute15"
+  ],
+  [
+   "data/billiards/function/line047/execute17.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head lapis_ore\nscoreboard players set @s color 2\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute18.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute17"
+  ],
+  [
+   "data/billiards/function/line047/execute19.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head redstone_ore\nscoreboard players set @s color 2\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute20.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute19"
+  ],
+  [
+   "data/billiards/function/line047/execute21.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head yellow_wool\nscoreboard players set @s color 1\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute22.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute21"
+  ],
+  [
+   "data/billiards/function/line047/execute23.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head coal_ore\nscoreboard players set @s color 2\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute24.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute23"
+  ],
+  [
+   "data/billiards/function/line047/execute25.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head blue_wool\nscoreboard players set @s color 1\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute26.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute25"
+  ],
+  [
+   "data/billiards/function/line047/execute27.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head iron_ore\nscoreboard players set @s color 2\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute28.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute27"
+  ],
+  [
+   "data/billiards/function/line047/execute29.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head red_wool\nscoreboard players set @s color 1\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute30.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute29"
+  ],
+  [
+   "data/billiards/function/line047/execute31.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head obsidian\nscoreboard players set @s color 3\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute32.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute31"
+  ],
+  [
+   "data/billiards/function/line047/execute33.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head purple_wool\nscoreboard players set @s color 1\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute34.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute33"
+  ],
+  [
+   "data/billiards/function/line047/execute35.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head diamond_ore\nscoreboard players set @s color 2\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute36.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute35"
+  ],
+  [
+   "data/billiards/function/line047/execute37.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head orange_wool\nscoreboard players set @s color 1\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute38.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute37"
+  ],
+  [
+   "data/billiards/function/line047/execute39.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head emerald_ore\nscoreboard players set @s color 2\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute40.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute39"
+  ],
+  [
+   "data/billiards/function/line047/execute41.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head smooth_quartz\nscoreboard players set @s color 4\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line046/execute42.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line047/execute41"
+  ],
+  [
+   "data/billiards/function/tell_buttons.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"[Reset Game]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/trigger Billiards set 2\"},\"color\":\"green\"}]\ntellraw @s [\"\",{\"text\":\"[Reset Cue Ball]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/trigger Billiards set 3\"},\"color\":\"gray\"}]"
+  ],
+  [
+   "data/billiards/function/trigger.mcfunction",
+   "execute as @a at @s run function billiards:line063/execute46\nscoreboard players set @a Billiards 0\nscoreboard players enable @a Billiards"
+  ],
+  [
+   "data/billiards/function/line071/execute43.mcfunction",
+   "scoreboard players set @s billiard_ball 1\nreplaceitem entity @s armor.head smooth_quartz\nscoreboard players set @s color 4\nfunction billiards:update"
+  ],
+  [
+   "data/billiards/function/line070/execute44.mcfunction",
+   "scoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"MiniBlock\"],\"Pose\":{\"Head\":[0.0001f,0f,0f]},\"Marker\":1b,\"Invisible\":1b,\"NoGravity\":1b,\"Invulnerable\":1b,\"Silent\":1b}\nscoreboard players add @e[type=minecraft:armor_stand,tag=MiniBlock] _age 1\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={_age=1}] run function billiards:line071/execute43"
+  ],
+  [
+   "data/billiards/function/line68/case3_45.mcfunction",
+   "kill @e[type=minecraft:armor_stand,tag=MiniBlock,scores={billiard_ball=1..,color=4}]\nexecute positioned ~ ~0.3 ~ run function billiards:line070/execute44"
+  ],
+  [
+   "data/billiards/function/line063/execute46.mcfunction",
+   "execute if score @s Billiards matches 2 run function billiards:create_balls\nexecute if score @s Billiards matches 3..3 run function billiards:line68/case3_45\nexecute unless score @s Billiards matches 0 run function billiards:tell_buttons"
+  ],
+  [
+   "data/billiards/function/is_moving.mcfunction",
+   "scoreboard players operation Global x = @s _v_0\nscoreboard players operation Global y = @s _v_1\nscoreboard players operation Global z = @s _v_2\nscoreboard players set Global is__scratch0 1\nexecute if score Global x matches -4.. if score Global x matches ..4 if score Global z matches -4.. if score Global z matches ..4 run function billiards:line091/execute47\nexecute if score Global is__scratch0 matches 1.. run scoreboard players set Global ReturnValue 1"
+  ],
+  [
+   "data/billiards/function/line091/execute47.mcfunction",
+   "scoreboard players set Global ReturnValue 0\nscoreboard players set Global is__scratch0 0"
+  ],
+  [
+   "data/billiards/function/main.mcfunction",
+   "execute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,scores={billiard_ball=1..,color=4}] at @s positioned ~ ~1.5 ~ if entity @e[type=minecraft:arrow,distance=..1.5,limit=1] run function billiards:line100/execute49\nexecute as @e[type=minecraft:arrow] run function billiards:line109/execute50\nscoreboard players set @e[type=minecraft:armor_stand,tag=MiniBlock,scores={billiard_ball=1..}] mai_scratch1 0\nexecute as @e[type=minecraft:armor_stand,tag=MiniBlock,scores={billiard_ball=1..}] run function billiards:for63_ln115"
+  ],
+  [
+   "data/billiards/function/line101/execute48.mcfunction",
+   "execute store result score @s _vel_0 run data get entity @s Motion[0] 10000\nexecute store result score @s _vel_1 run data get entity @s Motion[1] 10000\nexecute store result score @s _vel_2 run data get entity @s Motion[2] 10000\nscoreboard players operation Global mai_scratch0 = @s _vel_0\nscoreboard players operation Global mai_scratch1 = @s _vel_1\nscoreboard players operation Global mai_scratch2 = @s _vel_2\nscoreboard players operation Global mai_scratch0 /= c2 Constant\nscoreboard players operation Global mai_scratch1 /= c2 Constant\nscoreboard players operation Global mai_scratch2 /= c2 Constant\nscoreboard players operation Global vx = Global mai_scratch0\nscoreboard players operation Global vy = Global mai_scratch1\nscoreboard players operation Global vz = Global mai_scratch2\nkill @s"
+  ],
+  [
+   "data/billiards/function/line100/execute49.mcfunction",
+   "execute as @e[type=minecraft:arrow,distance=..1.5] run function billiards:line101/execute48\nscoreboard players operation @s _v_0 = Global vx\nscoreboard players set @s _v_1 0\nscoreboard players operation @s _v_2 = Global vz\nplaysound block.wood.hit ambient @a ~ ~ ~ 1 2"
+  ],
+  [
+   "data/billiards/function/line109/execute50.mcfunction",
+   "execute store result score Global mai_scratch0 run data get entity @s inGround 1\nexecute if score Global mai_scratch0 matches 1.. run kill @s"
+  ],
+  [
+   "data/billiards/function/line133/while51.mcfunction",
+   "execute as @e[type=minecraft:armor_stand,tag=MiniBlock,distance=0.001..0.69,scores={billiard_ball=1..}] at @s facing entity @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={billiard_ball=1..,mai_scratch1=1..}] feet run tp @s ^ ^ ^-0.01\nexecute if entity @e[type=minecraft:armor_stand,tag=MiniBlock,distance=0.001..0.69,limit=1,scores={billiard_ball=1..}] run function billiards:line133/while51"
+  ],
+  [
+   "data/billiards/function/line144/execute52.mcfunction",
+   "scoreboard players set Global mai_scratch3 0"
+  ],
+  [
+   "data/billiards/function/line144/else53.mcfunction",
+   "scoreboard players operation Global _v2_0 = @s _v_0\nscoreboard players operation Global _v2_1 = @s _v_1\nscoreboard players operation Global _v2_2 = @s _v_2\nscoreboard players operation Global x2 = Global _v2_0\nscoreboard players operation Global y2 = Global _v2_1\nscoreboard players operation Global z2 = Global _v2_2\nscoreboard players operation Global mai_scratch4 = Global _v2_0\nscoreboard players operation Global mai_scratch4 *= Global _v2_0\nscoreboard players operation Global mai_scratch5 = Global _v2_1\nscoreboard players operation Global mai_scratch5 *= Global _v2_1\nscoreboard players operation Global mai_scratch6 = Global _v2_2\nscoreboard players operation Global mai_scratch6 *= Global _v2_2\nscoreboard players operation Global mai_scratch4 += Global mai_scratch5\nscoreboard players operation Global mai_scratch4 += Global mai_scratch6\nscoreboard players operation Global p2 = Global mai_scratch4\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global _pos2_0 = @s _pos_0\nscoreboard players operation Global _pos2_1 = @s _pos_1\nscoreboard players operation Global _pos2_2 = @s _pos_2\nscoreboard players operation Global mai_scratch4 = Global _pos2_0\nscoreboard players operation Global mai_scratch5 = Global _pos2_1\nscoreboard players operation Global mai_scratch6 = Global _pos2_2\nscoreboard players operation Global mai_scratch4 -= Global _pos1_0\nscoreboard players operation Global mai_scratch5 -= Global _pos1_1\nscoreboard players operation Global mai_scratch6 -= Global _pos1_2\nscoreboard players operation Global mai_scratch7 = Global _v2_0\nscoreboard players operation Global mai_scratch8 = Global _v2_1\nscoreboard players operation Global mai_scratch9 = Global _v2_2\nscoreboard players operation Global mai_scratch7 -= Global _v1_0\nscoreboard players operation Global mai_scratch8 -= Global _v1_1\nscoreboard players operation Global mai_scratch9 -= Global _v1_2\nscoreboard players operation Global mai_scratch10 = Global _pos2_0\nscoreboard players operation Global mai_scratch11 = Global _pos2_1\nscoreboard players operation Global mai_scratch12 = Global _pos2_2\nscoreboard players operation Global mai_scratch10 -= Global _pos1_0\nscoreboard players operation Global mai_scratch11 -= Global _pos1_1\nscoreboard players operation Global mai_scratch12 -= Global _pos1_2\nscoreboard players operation Global mai_scratch7 *= Global mai_scratch10\nscoreboard players operation Global mai_scratch8 *= Global mai_scratch11\nscoreboard players operation Global mai_scratch9 *= Global mai_scratch12\nscoreboard players operation Global mai_scratch7 += Global mai_scratch8\nscoreboard players operation Global mai_scratch7 += Global mai_scratch9\nscoreboard players operation Global mai_scratch4 *= Global mai_scratch7\nscoreboard players operation Global mai_scratch5 *= Global mai_scratch7\nscoreboard players operation Global mai_scratch6 *= Global mai_scratch7\nscoreboard players operation Global mai_scratch7 = Global _pos2_0\nscoreboard players operation Global mai_scratch8 = Global _pos2_1\nscoreboard players operation Global mai_scratch9 = Global _pos2_2\nscoreboard players operation Global mai_scratch7 -= Global _pos1_0\nscoreboard players operation Global mai_scratch8 -= Global _pos1_1\nscoreboard players operation Global mai_scratch9 -= Global _pos1_2\nscoreboard players operation Global mai_scratch10 = Global _pos2_0\nscoreboard players operation Global mai_scratch11 = Global _pos2_1\nscoreboard players operation Global mai_scratch12 = Global _pos2_2\nscoreboard players operation Global mai_scratch10 -= Global _pos1_0\nscoreboard players operation Global mai_scratch11 -= Global _pos1_1\nscoreboard players operation Global mai_scratch12 -= Global _pos1_2\nscoreboard players operation Global mai_scratch7 *= Global mai_scratch10\nscoreboard players operation Global mai_scratch8 *= Global mai_scratch11\nscoreboard players operation Global mai_scratch9 *= Global mai_scratch12\nscoreboard players operation Global mai_scratch7 += Global mai_scratch8\nscoreboard players operation Global mai_scratch7 += Global mai_scratch9\nscoreboard players operation Global mai_scratch4 /= Global mai_scratch7\nscoreboard players operation Global mai_scratch5 /= Global mai_scratch7\nscoreboard players operation Global mai_scratch6 /= Global mai_scratch7\nscoreboard players operation @s _v_0 -= Global mai_scratch4\nscoreboard players operation @s _v_1 -= Global mai_scratch5\nscoreboard players operation @s _v_2 -= Global mai_scratch6\nscoreboard players operation Global mai_scratch4 = Global _pos1_0\nscoreboard players operation Global mai_scratch5 = Global _pos1_1\nscoreboard players operation Global mai_scratch6 = Global _pos1_2\nscoreboard players operation Global mai_scratch4 -= Global _pos2_0\nscoreboard players operation Global mai_scratch5 -= Global _pos2_1\nscoreboard players operation Global mai_scratch6 -= Global _pos2_2\nscoreboard players operation Global mai_scratch7 = Global _v1_0\nscoreboard players operation Global mai_scratch8 = Global _v1_1\nscoreboard players operation Global mai_scratch9 = Global _v1_2\nscoreboard players operation Global mai_scratch7 -= Global _v2_0\nscoreboard players operation Global mai_scratch8 -= Global _v2_1\nscoreboard players operation Global mai_scratch9 -= Global _v2_2\nscoreboard players operation Global mai_scratch10 = Global _pos1_0\nscoreboard players operation Global mai_scratch11 = Global _pos1_1\nscoreboard players operation Global mai_scratch12 = Global _pos1_2\nscoreboard players operation Global mai_scratch10 -= Global _pos2_0\nscoreboard players operation Global mai_scratch11 -= Global _pos2_1\nscoreboard players operation Global mai_scratch12 -= Global _pos2_2\nscoreboard players operation Global mai_scratch7 *= Global mai_scratch10\nscoreboard players operation Global mai_scratch8 *= Global mai_scratch11\nscoreboard players operation Global mai_scratch9 *= Global mai_scratch12\nscoreboard players operation Global mai_scratch7 += Global mai_scratch8\nscoreboard players operation Global mai_scratch7 += Global mai_scratch9\nscoreboard players operation Global mai_scratch4 *= Global mai_scratch7\nscoreboard players operation Global mai_scratch5 *= Global mai_scratch7\nscoreboard players operation Global mai_scratch6 *= Global mai_scratch7\nscoreboard players operation Global mai_scratch7 = Global _pos1_0\nscoreboard players operation Global mai_scratch8 = Global _pos1_1\nscoreboard players operation Global mai_scratch9 = Global _pos1_2\nscoreboard players operation Global mai_scratch7 -= Global _pos2_0\nscoreboard players operation Global mai_scratch8 -= Global _pos2_1\nscoreboard players operation Global mai_scratch9 -= Global _pos2_2\nscoreboard players operation Global mai_scratch10 = Global _pos1_0\nscoreboard players operation Global mai_scratch11 = Global _pos1_1\nscoreboard players operation Global mai_scratch12 = Global _pos1_2\nscoreboard players operation Global mai_scratch10 -= Global _pos2_0\nscoreboard players operation Global mai_scratch11 -= Global _pos2_1\nscoreboard players operation Global mai_scratch12 -= Global _pos2_2\nscoreboard players operation Global mai_scratch7 *= Global mai_scratch10\nscoreboard players operation Global mai_scratch8 *= Global mai_scratch11\nscoreboard players operation Global mai_scratch9 *= Global mai_scratch12\nscoreboard players operation Global mai_scratch7 += Global mai_scratch8\nscoreboard players operation Global mai_scratch7 += Global mai_scratch9\nscoreboard players operation Global mai_scratch4 /= Global mai_scratch7\nscoreboard players operation Global mai_scratch5 /= Global mai_scratch7\nscoreboard players operation Global mai_scratch6 /= Global mai_scratch7\nscoreboard players operation @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={billiard_ball=1..,mai_scratch1=1..}] _v_0 -= Global mai_scratch4\nscoreboard players operation @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={billiard_ball=1..,mai_scratch1=1..}] _v_1 -= Global mai_scratch5\nscoreboard players operation @e[type=minecraft:armor_stand,tag=MiniBlock,limit=1,scores={billiard_ball=1..,mai_scratch1=1..}] _v_2 -= Global mai_scratch6\nplaysound block.wood.hit ambient @a ~ ~ ~ 1 2"
+  ],
+  [
+   "data/billiards/function/line141/execute54.mcfunction",
+   "function billiards:is_moving\nscoreboard players operation Global moving2 = Global ReturnValue\nscoreboard players set Global mai_scratch3 1\nexecute if score Global moving1 matches ..0 if score Global moving2 matches ..0 run function billiards:line144/execute52\nexecute store result score Global mai_scratch4 run data get entity @s Pos[1] 10000\nexecute if score Global mai_scratch3 matches 1.. if score Global mai_scratch4 matches 54591.. run function billiards:line144/else53"
+  ],
+  [
+   "data/billiards/function/line167/execute55.mcfunction",
+   "scoreboard players operation Global mai_scratch3 = Global vx\nscoreboard players operation Global mai_scratch3 *= c4 Constant\nscoreboard players operation Global mai_scratch3 /= c5 Constant\nscoreboard players operation Global mai_scratch5 = Global vz\nscoreboard players operation Global mai_scratch5 *= minus Constant\nscoreboard players operation Global mai_scratch5 *= c4 Constant\nscoreboard players operation Global mai_scratch5 /= c5 Constant\nscoreboard players operation @s _v_0 = Global mai_scratch3\nscoreboard players operation @s _v_1 = Global vy\nscoreboard players operation @s _v_2 = Global mai_scratch5\nexecute store result score Global mai_scratch3 run data get entity @s Pos[1] 10000\nexecute if score Global mai_scratch3 matches 54591.. run playsound block.wool.hit ambient @a ~ ~ ~ 1 2\nexecute at @s run tp @s ~-0.0 ~ ~-0.1"
+  ],
+  [
+   "data/billiards/function/line167/execute56.mcfunction",
+   "scoreboard players operation Global mai_scratch5 = Global vx\nscoreboard players operation Global mai_scratch5 *= c4 Constant\nscoreboard players operation Global mai_scratch5 /= c5 Constant\nscoreboard players operation Global mai_scratch6 = Global vz\nscoreboard players operation Global mai_scratch6 *= minus Constant\nscoreboard players operation Global mai_scratch6 *= c4 Constant\nscoreboard players operation Global mai_scratch6 /= c5 Constant\nscoreboard players operation @s _v_0 = Global mai_scratch5\nscoreboard players operation @s _v_1 = Global vy\nscoreboard players operation @s _v_2 = Global mai_scratch6\nexecute store result score Global mai_scratch5 run data get entity @s Pos[1] 10000\nexecute if score Global mai_scratch5 matches 54591.. run playsound block.wool.hit ambient @a ~ ~ ~ 1 2\nexecute at @s run tp @s ~-0.0 ~ ~0.1"
+  ],
+  [
+   "data/billiards/function/line167/execute57.mcfunction",
+   "scoreboard players operation Global mai_scratch6 = Global vx\nscoreboard players operation Global mai_scratch6 *= minus Constant\nscoreboard players operation Global mai_scratch6 *= c4 Constant\nscoreboard players operation Global mai_scratch6 /= c5 Constant\nscoreboard players operation Global mai_scratch7 = Global vz\nscoreboard players operation Global mai_scratch7 *= c4 Constant\nscoreboard players operation Global mai_scratch7 /= c5 Constant\nscoreboard players operation @s _v_0 = Global mai_scratch6\nscoreboard players operation @s _v_1 = Global vy\nscoreboard players operation @s _v_2 = Global mai_scratch7\nexecute store result score Global mai_scratch6 run data get entity @s Pos[1] 10000\nexecute if score Global mai_scratch6 matches 54591.. run playsound block.wool.hit ambient @a ~ ~ ~ 1 2\nexecute at @s run tp @s ~-0.1 ~ ~-0.0"
+  ],
+  [
+   "data/billiards/function/line167/execute58.mcfunction",
+   "scoreboard players operation Global mai_scratch7 = Global vx\nscoreboard players operation Global mai_scratch7 *= minus Constant\nscoreboard players operation Global mai_scratch7 *= c4 Constant\nscoreboard players operation Global mai_scratch7 /= c5 Constant\nscoreboard players operation Global mai_scratch8 = Global vz\nscoreboard players operation Global mai_scratch8 *= c4 Constant\nscoreboard players operation Global mai_scratch8 /= c5 Constant\nscoreboard players operation @s _v_0 = Global mai_scratch7\nscoreboard players operation @s _v_1 = Global vy\nscoreboard players operation @s _v_2 = Global mai_scratch8\nexecute store result score Global mai_scratch7 run data get entity @s Pos[1] 10000\nexecute if score Global mai_scratch7 matches 54591.. run playsound block.wool.hit ambient @a ~ ~ ~ 1 2\nexecute at @s run tp @s ~0.1 ~ ~-0.0"
+  ],
+  [
+   "data/billiards/function/line132/execute59.mcfunction",
+   "execute if entity @e[type=minecraft:armor_stand,tag=MiniBlock,distance=0.001..0.69,limit=1,scores={billiard_ball=1..}] run function billiards:line133/while51\nfunction billiards:is_moving\nscoreboard players operation Global moving1 = Global ReturnValue\nexecute store result score Global mai_scratch2 run data get entity @s Pos[1] 10000\nexecute if score Global mai_scratch2 matches 54591.. as @e[type=minecraft:armor_stand,tag=MiniBlock,distance=0.001..0.7,scores={billiard_ball=1..}] run function billiards:line141/execute54\nscoreboard players operation Global vx = @s _v_0\nscoreboard players operation Global vy = @s _v_1\nscoreboard players operation Global vz = @s _v_2\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation 0-0-0-0-C1 _pos_0 = @s _pos_0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = @s _pos_1\nscoreboard players operation 0-0-0-0-C1 _pos_2 = @s _pos_2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nscoreboard players set Global mai_scratch3 0\nscoreboard players operation Global mai_scratch3 *= c300 Constant\nscoreboard players operation Global mai_scratch5 = Global vx\nscoreboard players operation Global mai_scratch5 += Global mai_scratch3\nexecute store result score Global mai_scratch3 run data get entity 0-0-0-0-C1 Pos[0] 10000\nscoreboard players operation Global mai_scratch3 += Global mai_scratch5\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get Global mai_scratch3\nscoreboard players set Global mai_scratch3 1\nscoreboard players operation Global mai_scratch3 *= c300 Constant\nscoreboard players operation Global mai_scratch5 = Global vz\nscoreboard players operation Global mai_scratch5 += Global mai_scratch3\nexecute store result score Global mai_scratch3 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global mai_scratch3 += Global mai_scratch5\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get Global mai_scratch3\nexecute at 0-0-0-0-C1 unless block ~ ~1.41 ~ minecraft:air run function billiards:line167/execute55\nscoreboard players operation Global vx = @s _v_0\nscoreboard players operation Global vy = @s _v_1\nscoreboard players operation Global vz = @s _v_2\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation 0-0-0-0-C1 _pos_0 = @s _pos_0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = @s _pos_1\nscoreboard players operation 0-0-0-0-C1 _pos_2 = @s _pos_2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nscoreboard players set Global mai_scratch5 0\nscoreboard players operation Global mai_scratch5 *= c300 Constant\nscoreboard players operation Global mai_scratch6 = Global vx\nscoreboard players operation Global mai_scratch6 += Global mai_scratch5\nexecute store result score Global mai_scratch5 run data get entity 0-0-0-0-C1 Pos[0] 10000\nscoreboard players operation Global mai_scratch5 += Global mai_scratch6\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get Global mai_scratch5\nscoreboard players set Global mai_scratch5 -1\nscoreboard players operation Global mai_scratch5 *= c300 Constant\nscoreboard players operation Global mai_scratch6 = Global vz\nscoreboard players operation Global mai_scratch6 += Global mai_scratch5\nexecute store result score Global mai_scratch5 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global mai_scratch5 += Global mai_scratch6\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get Global mai_scratch5\nexecute at 0-0-0-0-C1 unless block ~ ~1.41 ~ minecraft:air run function billiards:line167/execute56\nscoreboard players operation Global vx = @s _v_0\nscoreboard players operation Global vy = @s _v_1\nscoreboard players operation Global vz = @s _v_2\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation 0-0-0-0-C1 _pos_0 = @s _pos_0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = @s _pos_1\nscoreboard players operation 0-0-0-0-C1 _pos_2 = @s _pos_2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nscoreboard players set Global mai_scratch6 1\nscoreboard players operation Global mai_scratch6 *= c300 Constant\nscoreboard players operation Global mai_scratch7 = Global vx\nscoreboard players operation Global mai_scratch7 += Global mai_scratch6\nexecute store result score Global mai_scratch6 run data get entity 0-0-0-0-C1 Pos[0] 10000\nscoreboard players operation Global mai_scratch6 += Global mai_scratch7\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get Global mai_scratch6\nscoreboard players set Global mai_scratch6 0\nscoreboard players operation Global mai_scratch6 *= c300 Constant\nscoreboard players operation Global mai_scratch7 = Global vz\nscoreboard players operation Global mai_scratch7 += Global mai_scratch6\nexecute store result score Global mai_scratch6 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global mai_scratch6 += Global mai_scratch7\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get Global mai_scratch6\nexecute at 0-0-0-0-C1 unless block ~ ~1.41 ~ minecraft:air run function billiards:line167/execute57\nscoreboard players operation Global vx = @s _v_0\nscoreboard players operation Global vy = @s _v_1\nscoreboard players operation Global vz = @s _v_2\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation 0-0-0-0-C1 _pos_0 = @s _pos_0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = @s _pos_1\nscoreboard players operation 0-0-0-0-C1 _pos_2 = @s _pos_2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nscoreboard players set Global mai_scratch7 -1\nscoreboard players operation Global mai_scratch7 *= c300 Constant\nscoreboard players operation Global mai_scratch8 = Global vx\nscoreboard players operation Global mai_scratch8 += Global mai_scratch7\nexecute store result score Global mai_scratch7 run data get entity 0-0-0-0-C1 Pos[0] 10000\nscoreboard players operation Global mai_scratch7 += Global mai_scratch8\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get Global mai_scratch7\nscoreboard players set Global mai_scratch7 0\nscoreboard players operation Global mai_scratch7 *= c300 Constant\nscoreboard players operation Global mai_scratch8 = Global vz\nscoreboard players operation Global mai_scratch8 += Global mai_scratch7\nexecute store result score Global mai_scratch7 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global mai_scratch7 += Global mai_scratch8\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get Global mai_scratch7\nexecute at 0-0-0-0-C1 unless block ~ ~1.41 ~ minecraft:air run function billiards:line167/execute58"
+  ],
+  [
+   "data/billiards/function/line188/execute60.mcfunction",
+   "scoreboard players operation @s _v_0 -= c0 Constant\nscoreboard players operation @s _v_1 -= c80 Constant\nscoreboard players operation @s _v_2 -= c0 Constant\nscoreboard players set Global mai_scratch8 0"
+  ],
+  [
+   "data/billiards/function/line188/else61.mcfunction",
+   "scoreboard players operation Global x = @s _v_0\nscoreboard players operation Global y = @s _v_1\nscoreboard players operation Global z = @s _v_2\nscoreboard players operation @s _v_0 = Global x\nscoreboard players set @s _v_1 0\nscoreboard players operation @s _v_2 = Global z"
+  ],
+  [
+   "data/billiards/function/line187/execute62.mcfunction",
+   "scoreboard players set Global mai_scratch8 1\nexecute if block ~-0.3 ~-0.1 ~-0.3 minecraft:air if block ~0.3 ~-0.5 ~-0.3 minecraft:air if block ~-0.3 ~-0.5 ~0.3 minecraft:air if block ~0.3 ~-0.5 ~0.3 minecraft:air run function billiards:line188/execute60\nexecute if score Global mai_scratch8 matches 1.. run function billiards:line188/else61"
+  ],
+  [
+   "data/billiards/function/for63_ln115.mcfunction",
+   "scoreboard players set @s mai_scratch1 1\nscoreboard players operation @s _v_0 *= c98 Constant\nscoreboard players operation @s _v_1 *= c98 Constant\nscoreboard players operation @s _v_2 *= c98 Constant\nscoreboard players operation @s _v_0 /= c100 Constant\nscoreboard players operation @s _v_1 /= c100 Constant\nscoreboard players operation @s _v_2 /= c100 Constant\nscoreboard players operation Global x = @s _v_0\nscoreboard players operation Global y = @s _v_1\nscoreboard players operation Global z = @s _v_2\nexecute if score Global x matches -49.. if score Global x matches ..-1 run scoreboard players add Global x 1\nexecute if score Global z matches -49.. if score Global z matches ..-1 run scoreboard players add Global z 1\nscoreboard players operation @s _v_0 = Global x\nscoreboard players operation @s _v_1 = Global y\nscoreboard players operation @s _v_2 = Global z\nscoreboard players operation Global _v1_0 = @s _v_0\nscoreboard players operation Global _v1_1 = @s _v_1\nscoreboard players operation Global _v1_2 = @s _v_2\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global _pos1_0 = @s _pos_0\nscoreboard players operation Global _pos1_1 = @s _pos_1\nscoreboard players operation Global _pos1_2 = @s _pos_2\nscoreboard players operation Global x1 = Global _v1_0\nscoreboard players operation Global y1 = Global _v1_1\nscoreboard players operation Global z1 = Global _v1_2\nscoreboard players operation Global mai_scratch2 = Global _v1_0\nscoreboard players operation Global mai_scratch2 *= Global _v1_0\nscoreboard players operation Global mai_scratch3 = Global _v1_1\nscoreboard players operation Global mai_scratch3 *= Global _v1_1\nscoreboard players operation Global mai_scratch4 = Global _v1_2\nscoreboard players operation Global mai_scratch4 *= Global _v1_2\nscoreboard players operation Global mai_scratch2 += Global mai_scratch3\nscoreboard players operation Global mai_scratch2 += Global mai_scratch4\nscoreboard players operation Global p1 = Global mai_scratch2\nexecute at @s run function billiards:line132/execute59\nexecute at @s positioned ~ ~1.2 ~ run function billiards:line187/execute62\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation @s _pos_0 += @s _v_0\nscoreboard players operation @s _pos_1 += @s _v_1\nscoreboard players operation @s _pos_2 += @s _v_2\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nscoreboard players set @s mai_scratch1 0"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"billiards:trigger\",\n        \"billiards:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"billiards:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"Enderman makes a clock tick.\"\n    }\n}"
+  ]
+ ]
+}

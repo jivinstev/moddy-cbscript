@@ -1,0 +1,6 @@
+dir "."
+desc "crlf"
+reset
+	/say crlf
+	x = 1
+end

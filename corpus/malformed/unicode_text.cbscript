@@ -1,0 +1,6 @@
+dir "."
+desc "Ünïcödé ☃ 𝄞"
+reset
+	/say ünïcödé ☃ 𝄞
+	tell @a "héllo ☃"
+end
