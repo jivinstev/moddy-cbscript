@@ -1,0 +1,57 @@
+{
+ "id": "Scripts/archived 1.15 scripts/predicate_test.cbscript",
+ "ok": true,
+ "namespace": "predicate_test",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/predicate_test/function/reset.mcfunction",
+   "data modify storage predicate_test:global args set value {}\ndata modify storage predicate_test stack set value []\ngamerule max_command_sequence_length 1000000000"
+  ],
+  [
+   "data/predicate_test/function/main.mcfunction",
+   "#/execute as @p if predicate $namespace:sneaking run say hi\nexecute at @a if predicate predicate_test:night run say night\nexecute as @a[predicate=predicate_test:survival] run say survival"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"predicate_test:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"predicate_test:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 94,\n        \"description\": \"Test for predicate feature\",\n        \"min_format\": [\n            94,\n            1\n        ],\n        \"max_format\": [\n            94,\n            1\n        ]\n    }\n}"
+  ],
+  [
+   "data/predicate_test/predicate/dark.json",
+   "{\"condition\":\"location_check\",\"predicate\":{\"light\":{\"light\":{\"min\":0,\"max\":8}}}}"
+  ],
+  [
+   "data/predicate_test/predicate/night.json",
+   "{\"condition\":\"time_check\",\"value\":{\"min\":13000,\"max\":24000},\"period\":24000}"
+  ],
+  [
+   "data/predicate_test/predicate/sneaking.json",
+   "{\"condition\":\"entity_properties\",\"entity\":\"this\",\"predicate\":{\"flags\":{\"is_sneaking\":true}}}"
+  ],
+  [
+   "data/predicate_test/predicate/desert.json",
+   "{\"condition\":\"location_check\",\"predicate\":{\"biome\":\"desert\"}}"
+  ],
+  [
+   "data/predicate_test/predicate/above_64.json",
+   "{\"condition\":\"location_check\",\"predicate\":{\"position\":{\"y\":{\"min\":64,\"max\":256}}}}"
+  ],
+  [
+   "data/predicate_test/predicate/survival.json",
+   "{\"condition\":\"entity_properties\",\"entity\":\"this\",\"predicate\":{\"player\":{\"gamemode\":\"survival\"}}}"
+  ],
+  [
+   "data/predicate_test/predicate/coin_flip.json",
+   "{\"condition\":\"random_chance\",\"chance\":0.5}"
+  ]
+ ]
+}
