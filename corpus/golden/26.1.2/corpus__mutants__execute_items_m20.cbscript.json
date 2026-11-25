@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/execute_items_m20.cbscript",
+ "ok": false,
+ "namespace": "execute_items_m20",
+ "error": "Syntax error at line 53 column 2. Unexpected in symbol \"in\" in state 143.",
+ "log": [
+  "Syntax error at line 53 column 2. Unexpected in symbol \"in\" in state 143."
+ ],
+ "files": []
+}

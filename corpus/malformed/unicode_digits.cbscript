@@ -1,0 +1,5 @@
+dir "."
+reset
+	x = ٣
+	/say done
+end

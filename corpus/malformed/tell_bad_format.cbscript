@@ -1,0 +1,4 @@
+dir "."
+reset
+	tell @a "{Qbad"
+end

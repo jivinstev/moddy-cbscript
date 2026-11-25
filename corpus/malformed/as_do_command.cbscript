@@ -1,0 +1,42 @@
+dir "."
+desc "Execute chains"
+
+define @Cow = @e[type=cow, tag=farm]
+end
+
+reset
+	as @a do /say as
+	as @a at @s do /say at
+	at @s do /say at only
+	at @s eyes do /say eyes
+	at @s feet ~ ~1 ~ do /say feet coords
+	at ~ ~1 ~ do /say coords
+	at eyes ^ ^ ^1 do /say anchored local
+	at @s ~1 ~ ~ do /say sel coords
+	at <1, 2, 3> do /say vector
+	at (100) <1, 2, 3> do /say scaled vector
+	facing ~ ~ ~1 do /say facing coords
+	facing @p do /say facing entity
+	rotated @s do /say rotated
+	align xyz do /say align
+	align xz do /say align2
+	in the_nether do /say nether
+	in the_end do /say end
+	in overworld do /say overworld
+	on vehicle do /say on
+	on passengers do /say on passengers
+	as @Cow
+		/say block as
+		/say two commands
+	end
+	as @a at @s
+		/say block
+	else
+		/say else branch
+	end
+	if @a then /execute say exec merged
+	as @a then
+		/say then form
+	end
+	as @Cow if @s[tag=x] unless @s[tag=y] do /say chain
+end

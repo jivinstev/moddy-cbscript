@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/as_do_command.cbscript",
+ "ok": false,
+ "namespace": "as_do_command",
+ "error": "Syntax error at line 8 column 11. Unexpected DIVIDE symbol \"/\" in state 600.",
+ "log": [
+  "Syntax error at line 8 column 11. Unexpected DIVIDE symbol \"/\" in state 600."
+ ],
+ "files": []
+}

@@ -1,0 +1,25 @@
+{
+ "id": "corpus/malformed/uuid_selector.cbscript",
+ "ok": true,
+ "namespace": "uuid_selector",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/uuid_selector/function/reset.mcfunction",
+   "data modify storage uuid_selector:global args set value {}\ndata modify storage uuid_selector stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add _id dummy\nscoreboard objectives add _unique dummy\nscoreboard objectives add id dummy\nscoreboard objectives add x dummy\nexecute as 1-2-3-4-FF run scoreboard players set Global x 1\nexecute as 0-0-0-0-E78A2C0D run scoreboard players set Global x 2\nscoreboard players add Global _unique 1\nexecute unless score 1-2-3-4-FF _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global id run scoreboard players get 1-2-3-4-FF _id"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"uuid_selector:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

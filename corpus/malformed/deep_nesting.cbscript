@@ -1,0 +1,15 @@
+dir "."
+reset
+	if a
+		if b
+			as @a
+				at @s
+					if c > 1
+						/say deep
+						x = 1
+					end
+				end
+			end
+		end
+	end
+end

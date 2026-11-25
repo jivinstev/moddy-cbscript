@@ -1,0 +1,66 @@
+# mutant of corpus/programs/library.cbscript: delete line 44
+dir "."
+desc "Compile-time library: builtins, math, str/list/dict methods, number formatting"
+
+$b1 = [$abs(-3), $abs(-2.5), $all([1, 2]), $any([0, 0]), $bin(10), $bool(0), $bool("x"), $chr(9731), $divmod(17, 5), $divmod(-17, 5)]
+$b2 = [$float(3), $float("-2.25"), $hex(-255), $int(-3.7), $int("-42"), $int("ff", 16), $len("abc"), $len({"a": 1}), $max(1, 2.5), $min("b", "a")]
+$b3 = [$oct(8), $ord("Z"), $pow(2, 10), $pow(2, -1), $pow(3, 4, 5), $repr("it's"), $repr([1, "a"]), $round(1.25, 1), $round(-2.5), $round(3.14159, 3)]
+$x1 = $"sorted([3, 1, 2], reverse=True)"
+$b4 = [$list($range(5)), $list($range(10, 0, -3)), $sorted(["b", "C", "a"]), $x1, $str(None), $str(True), $sum([0.1, 0.2]), $tuple("ab"), $list($zip("ab", [1, 2])), $dict([("k", 1)])]
+$b5 = [$set([1, 1, 2]), $list($reversed("abc")), $isinstance(1, $int), $bool([]), $len($range(3, 9)), $str(1.0), $str(-0.0), $int(True), $float("inf"), $float("-inf")]
+$m1 = [$math.$ceil(2.1), $math.$floor(-2.1), $math.$sqrt(2), $math.$sin(1), $math.$cos(2), $math.$tan(0.5), $math.$asin(0.5), $math.$acos(0.5), $math.$atan(1)]
+$m2 = [$math.$degrees(1), $math.$radians(180), $math.$exp(1), $math.$log(10), $math.$log(8, 2), $math.$log10(1000), $math.$log2(1024), $math.$pow(2, 0.5), $math.$hypot(3, 4)]
+$m3 = [$math.$fabs(-1), $math.$trunc(-2.7), $math.$e, $math.$tau, $math.$isqrt(17), $math.$gcd(12, 18), $math.$factorial(10), $math.$copysign(3, -0.0), $math.$fmod(-7, 3), $math.$inf]
+$s1 = ["Ab c".$lower(), "ab c".$title(), "ab".$capitalize(), "  x  ".$strip(), "xxyxx".$lstrip("x"), "xxyxx".$rstrip("x"), "a,b,,c".$split(","), "a b  c".$split(), "-".$join(["1", "2"])]
+$s2 = ["abc".$startswith("ab"), "abc".$endswith("bc"), "banana".$find("an"), "banana".$index("na"), "banana".$count("a"), "{0}-{1}".$format(1, "z"), "7".$zfill(3), "x".$center(5, "*"), "x".$ljust(3, "."), "x".$rjust(3)]
+$x2 = $"'abcdef'[1:4]"
+$x3 = $"'abcdef'[::-1]"
+$x4 = $"'abcdef'[-2:]"
+$x5 = $"'b' in 'abc'"
+$s3 = ["12".$isdigit(), "ab".$isalpha(), "AbC".$swapcase(), "abc"[1], $x2, $x3, $x4, "ab" * 3, "ab" + "cd", $x5]
+$x6 = $"[1, 2, 3][1:]"
+$x7 = $"2 in [1, 2]"
+$x8 = $"5 not in [1, 2]"
+$x9 = $"[3, 4][0:1]"
+$l1 = [[1, 2, 3][-1], $x6, [1, 2] + [3], [0] * 3, [1, 2, 3].$index(2), [1, 1, 2].$count(1), $x7, $x8, $x9]
+$d1 = [{"a": 1}.$get("a"), {"a": 1}.$get("b", 0), $list({"a": 1, "b": 2}.$keys()), $list({"a": 1}.$values()), $list({"a": 1}.$items()), {"x": {"y": 2}}["x"]["y"]]
+$x10 = $"7 // 2"
+$x11 = $"-7 // 2"
+$x12 = $"7 // 2.0"
+$x13 = $"-0.5 // 1"
+$x14 = $"1e16"
+$x15 = $"1e15"
+$x16 = $"1.5e-5"
+$n1 = [7 / 2, -7 / 2, $x10, $x11, 7 % 3, -7 % 3, 7 % -3, 2 ** 100, 2 ** -2, 10 / 5, 1 / 3, 2 / 3, 0.1 + 0.2, $x14, $x15, $x16, 0.0001, 123456789.123]
+$n2 = [1 < 2 < 3, 3 > 2 > 2, 1 == 1.0, $x12, 7.5 % 2, $x13, 100000000000000000000.0, 1.0 * 10 ** 22, 3 - 5, -(-3), 2 * 3.0, 9 ** 0.5]
+$c1 = $"[x * x for x in range(5) if x % 2 == 0]"
+$c2 = $"{k: v for k, v in [('a', 1), ('b', 2)]}"
+$c3 = $"'big' if 10 > 5 else 'small'"
+$c4 = $"sum(x for x in range(4))"
+$c5 = $"(lambda: 1) is None"
+$c6 = $"not True or (False and True)"
+$c7 = $"[i for i in range(3)][1:]"
+$c8 = $"{1, 2} == {2, 1}"
+$c9 = $"'%d items, %s' % (3, 'ok')"
+$j1 = $json.$dumps({"a": [1, 2.5, None, True], "b": "é"})
+$j2 = $json.$loads("[1, 2]")
+
+reset
+	/say $b1
+	/say $b2
+	/say $b3
+	/say $b4
+	/say $b5
+	/say $m1
+	/say $m2
+	/say $m3
+	/say $s1
+	/say $s2
+	/say $s3
+	/say $l1
+	/say $d1
+	/say $n1
+	/say $n2
+	/say $c1 $c2 $c3 $c4 $c5 $c6 $c7 $c8 $c9 $c10
+	/say $j1 $j2
+end

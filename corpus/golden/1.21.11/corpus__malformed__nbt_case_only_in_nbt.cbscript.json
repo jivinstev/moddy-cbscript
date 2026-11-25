@@ -1,0 +1,28 @@
+{
+ "id": "corpus/malformed/nbt_case_only_in_nbt.cbscript",
+ "ok": true,
+ "namespace": "nbt_case_only_in_nbt",
+ "error": null,
+ "log": [
+  "Warning: \"customname\" should be \"CustomName\" — vanilla NBT field names are CamelCase and nbt={...} matching is case-sensitive, so the lower-case form matches nothing and the rule never fires. Corrected.",
+  "Warning: \"health\" should be \"Health\" — vanilla NBT field names are CamelCase and nbt={...} matching is case-sensitive, so the lower-case form matches nothing and the rule never fires. Corrected."
+ ],
+ "files": [
+  [
+   "data/nbt_case_only_in_nbt/function/reset.mcfunction",
+   "data modify storage nbt_case_only_in_nbt:global args set value {}\ndata modify storage nbt_case_only_in_nbt stack set value []\ngamerule max_command_sequence_length 1000000000\nsay onground health\nexecute as @e[nbt={Health:20f,CustomName:\"x\"}] run say y\ndata merge entity @s {onground:1b}"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"nbt_case_only_in_nbt:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 94,\n        \"description\": \"No Description\",\n        \"min_format\": [\n            94,\n            1\n        ],\n        \"max_format\": [\n            94,\n            1\n        ]\n    }\n}"
+  ]
+ ]
+}

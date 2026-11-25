@@ -1,0 +1,25 @@
+{
+ "id": "corpus/mutants/library_m15.cbscript",
+ "ok": true,
+ "namespace": "library_m15",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/library_m15/function/reset.mcfunction",
+   "data modify storage library_m15:global args set value {}\ndata modify storage library_m15 stack set value []\ngamerule maxCommandChainLength 1000000000\nsay [3, 2.5, True, False, '0b1010', False, True, '☃', (3, 2), (-4, 3)]\nsay [3.0, -2.25, '-0xff', -3, -42, 255, 3, 1, 2.5, 'a']\nsay $define\nsay [[0, 1, 2, 3, 4], [10, 7, 4, 1], ['C', 'a', 'b'], [3, 2, 1], '0', '1', 0.30000000000000004, ('a', 'b'), [('a', 1), ('b', 2)], {'k': 1}]\nsay [{1, 2}, ['c', 'b', 'a'], True, False, 6, '1.0', '-0.0', 1, inf, -inf]\nsay [3, -3, 1.4142135623730951, 0.8414709848078965, -0.4161468365471424, 0.5463024898437905, 0.5235987755982989, 1.0471975511965979, 0.7853981633974483]\nsay [57.29577951308232, 3.141592653589793, 2.718281828459045, 2.302585092994046, 3.0, 3.0, 10.0, 1.4142135623730951, 5.0]\nsay [1.0, -2, 2.718281828459045, 6.283185307179586, 4, 6, 3628800, -3.0, -1.0, inf]\nsay ['ab c', 'Ab C', 'Ab', 'x', 'yxx', 'xxy', ['a', 'b', '', 'c'], ['a', 'b', 'c'], '1-2']\nsay [True, True, 1, 2, 3, '1-z', '007', '**x**', 'x..', '  x']\nsay [True, True, 'aBc', 'b', 'bcd', 'fedcba', 'ef', 'ababab', 'abcd', True]\nsay [3, [2, 3], [1, 2, 3], [0, 0, 0], 1, 2, True, True, [3]]\nsay [1, 0, ['a', 'b'], [1], [('a', 1)], 2]\nsay [3.5, -3.5, 3, -4, 1, 2, -2, 1267650600228229401496703205376, 0.25, 2.0, 0.3333333333333333, 0.6666666666666666, 0.30000000000000004, 1e+16, 1000000000000000.0, 1.5e-05, 0.0001, 123456789.123]\nsay [True, False, True, 3.0, 1.5, -1.0, 1e+20, 1e+22, -2, 3, 6.0, 3.0]\nsay [0, 4, 16] {'a': 1, 'b': 2} big 6 False False [1, 2] True 3 items, ok 2 and 6\nsay {\"a\": [1, 2.5, 0, 1], \"b\": \"\\u00e9\"} [1, 2]"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"library_m15:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"Compile-time library: builtins, math, str/list/dict methods, number formatting\"\n    }\n}"
+  ]
+ ]
+}

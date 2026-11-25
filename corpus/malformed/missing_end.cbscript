@@ -1,0 +1,3 @@
+dir "."
+reset
+	/say x

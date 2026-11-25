@@ -1,0 +1,27 @@
+{
+ "id": "corpus/malformed/bom_at_start.cbscript",
+ "ok": true,
+ "namespace": "bom_at_start",
+ "error": null,
+ "log": [
+  "Illegal character \"﻿\" was skipped at line 1"
+ ],
+ "files": [
+  [
+   "data/bom_at_start/function/reset.mcfunction",
+   "data modify storage bom_at_start:global args set value {}\ndata modify storage bom_at_start stack set value []\ngamerule maxCommandChainLength 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"bom_at_start:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}
