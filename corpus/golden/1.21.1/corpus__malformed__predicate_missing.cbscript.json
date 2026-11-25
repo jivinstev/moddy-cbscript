@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/predicate_missing.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "predicate_missing",
  "error": "Compile failed — see log.",

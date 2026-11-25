@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/no_desc_m07.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "no_desc_m07",
  "error": "Syntax error at line 3 column 5. Unexpected MINUS symbol \"-\" in state 75.",

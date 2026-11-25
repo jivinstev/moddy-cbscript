@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/basics_m10.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "basics_m10",
  "error": "Syntax error at line 15 column 8. Unexpected PLUSEQUALS symbol \"+=\" in state 57.",

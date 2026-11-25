@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/library_m02.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "library_m02",
  "error": "Syntax error at line 24 column 5. Unexpected DOLLAR symbol \"$\" in state 145.",

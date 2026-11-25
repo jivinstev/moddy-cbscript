@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/tuple_assign_mismatch.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "tuple_assign_mismatch",
  "error": "Compile failed — see log.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/lone_cr.cbscript",
- "version": "1.21.5",
  "ok": true,
  "namespace": "lone_cr",
  "error": null,

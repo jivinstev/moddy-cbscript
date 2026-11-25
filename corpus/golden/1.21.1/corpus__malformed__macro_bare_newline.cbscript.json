@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/macro_bare_newline.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "macro_bare_newline",
  "error": "Syntax error at line 16 column 21. Unexpected NEWLINE symbol \"\\n\" in state 601.",

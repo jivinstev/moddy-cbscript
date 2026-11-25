@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/bee_gun.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "bee_gun",
  "error": "Compile failed — see log.",

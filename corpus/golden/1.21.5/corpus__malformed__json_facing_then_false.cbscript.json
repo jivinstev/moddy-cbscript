@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/json_facing_then_false.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "json_facing_then_false",
  "error": "Syntax error at line 22 column 45. Unexpected false symbol \"false\" in state 1096.",

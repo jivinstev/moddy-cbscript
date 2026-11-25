@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/grammar_gaps_m17.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "grammar_gaps_m17",
  "error": "Syntax error at line 30 column 15. Unexpected ID symbol \"tag\" in state 509.",

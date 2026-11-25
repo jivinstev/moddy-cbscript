@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/uppercase_function_name.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "uppercase_function_name",
  "error": "Compile failed — see log.",

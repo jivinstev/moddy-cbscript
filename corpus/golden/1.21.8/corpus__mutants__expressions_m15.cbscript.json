@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/expressions_m15.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "expressions_m15",
  "error": "Syntax error: unexpected End of File",

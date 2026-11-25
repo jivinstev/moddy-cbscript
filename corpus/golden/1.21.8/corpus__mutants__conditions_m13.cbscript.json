@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/conditions_m13.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "conditions_m13",
  "error": "Syntax error: unexpected End of File",

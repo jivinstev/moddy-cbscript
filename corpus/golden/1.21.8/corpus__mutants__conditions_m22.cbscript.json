@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/conditions_m22.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "conditions_m22",
  "error": "Syntax error at line 67 column 2. Unexpected if symbol \"if\" in state 143.",

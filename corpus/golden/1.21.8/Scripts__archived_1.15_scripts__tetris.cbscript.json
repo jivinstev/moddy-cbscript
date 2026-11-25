@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/tetris.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "tetris",
  "error": "Compile failed — see log.",

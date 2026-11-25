@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/unknown_file_param.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "unknown_file_param",
  "error": "Compile failed — see log.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/selector_array_without_selector.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "selector_array_without_selector",
  "error": "Compile failed — see log.",

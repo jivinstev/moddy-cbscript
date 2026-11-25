@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/spyglass.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "spyglass",
  "error": "Compile failed — see log.",

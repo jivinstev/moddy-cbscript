@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/import_bad_type.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "import_bad_type",
  "error": "Compile failed — see log.",

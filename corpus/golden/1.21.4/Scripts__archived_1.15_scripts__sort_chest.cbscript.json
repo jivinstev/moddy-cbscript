@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/sort_chest.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "sort_chest",
  "error": "Syntax error at line 63 column 10. Unexpected DECIMAL symbol \"57\" in state 8.",

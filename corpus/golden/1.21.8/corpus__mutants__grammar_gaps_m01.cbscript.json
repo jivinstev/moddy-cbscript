@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/grammar_gaps_m01.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "grammar_gaps_m01",
  "error": "Syntax error at line 33 column 4. Unexpected DOT symbol \".\" in state 59.",

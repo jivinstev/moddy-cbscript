@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/loot_table_unnamespaced.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "loot_table_unnamespaced",
  "error": "Syntax error at line 37 column 27. Unexpected LCURLY symbol \"{\" in state 295.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/dollar_shadows_builtin.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "dollar_shadows_builtin",
  "error": "Compile failed — see log.",

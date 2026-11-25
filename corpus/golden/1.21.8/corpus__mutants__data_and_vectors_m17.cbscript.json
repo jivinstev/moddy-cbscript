@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/data_and_vectors_m17.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "data_and_vectors_m17",
  "error": "Syntax error at line 5 column 7. Unexpected COLON symbol \":\" in state 675.",

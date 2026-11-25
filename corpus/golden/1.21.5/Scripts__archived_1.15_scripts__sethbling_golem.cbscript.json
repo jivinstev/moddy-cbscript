@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/sethbling_golem.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "sethbling_golem",
  "error": "Compile failed — see log.",

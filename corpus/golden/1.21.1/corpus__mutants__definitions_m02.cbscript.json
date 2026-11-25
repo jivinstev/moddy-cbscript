@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/definitions_m02.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "definitions_m02",
  "error": "Syntax error at line 18 column 9. Unexpected NEWLINE symbol \"\\n\" in state 57.",

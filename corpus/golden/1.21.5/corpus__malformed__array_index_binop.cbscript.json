@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/array_index_binop.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "array_index_binop",
  "error": "Compile failed — see log.",

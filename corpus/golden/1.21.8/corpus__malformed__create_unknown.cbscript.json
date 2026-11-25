@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/create_unknown.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "create_unknown",
  "error": "Compile failed — see log.",

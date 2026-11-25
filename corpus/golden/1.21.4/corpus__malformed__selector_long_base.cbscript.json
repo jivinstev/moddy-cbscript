@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/selector_long_base.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "selector_long_base",
  "error": "Compile failed — see log.",

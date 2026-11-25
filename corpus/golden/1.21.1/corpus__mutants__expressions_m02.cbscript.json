@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/expressions_m02.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "expressions_m02",
  "error": "Syntax error at line 33 column 4. Unexpected EQUALS symbol \"=\" in state 57.",

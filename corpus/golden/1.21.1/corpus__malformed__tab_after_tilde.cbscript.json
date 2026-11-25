@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/tab_after_tilde.cbscript",
- "version": "1.21.1",
  "ok": true,
  "namespace": "tab_after_tilde",
  "error": null,

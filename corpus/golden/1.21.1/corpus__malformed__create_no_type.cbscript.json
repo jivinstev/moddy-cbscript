@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/create_no_type.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "create_no_type",
  "error": "Compile failed — see log.",

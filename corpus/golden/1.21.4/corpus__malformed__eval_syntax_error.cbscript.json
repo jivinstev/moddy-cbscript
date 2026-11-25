@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/eval_syntax_error.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "eval_syntax_error",
  "error": "Compile failed — see log.",

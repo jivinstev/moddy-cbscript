@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/missing_macro.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "missing_macro",
  "error": "Compile failed — see log.",

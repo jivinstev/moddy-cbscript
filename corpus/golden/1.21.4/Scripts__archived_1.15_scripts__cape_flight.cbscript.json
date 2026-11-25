@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/cape_flight.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "cape_flight",
  "error": "Compile failed — see log.",

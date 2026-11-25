@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/for_not_iterable.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "for_not_iterable",
  "error": "Compile failed — see log.",

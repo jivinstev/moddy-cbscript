@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/grammar_gaps_m18.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "grammar_gaps_m18",
  "error": "Syntax error at line 6 column 10. Unexpected NEWLINE symbol \"\\n\" in state 155.",

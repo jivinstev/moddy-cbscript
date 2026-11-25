@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/import_missing_py.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "import_missing_py",
  "error": "Unexpected compiler error: FileNotFoundError(2, 'No such file or directory')",

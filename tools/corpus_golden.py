@@ -101,9 +101,9 @@ def compile_case(case, version, python):
 						files.append([info.filename, data.decode('utf-8')])
 					except UnicodeDecodeError:
 						files.append([info.filename, None, data.hex()])
+		# No version field: identical outputs across versions are then identical files (one git blob).
 		return {
 			'id': case.id,
-			'version': version,
 			'ok': verdict['ok'],
 			'namespace': verdict['namespace'],
 			'error': normalize_error(verdict['error']),

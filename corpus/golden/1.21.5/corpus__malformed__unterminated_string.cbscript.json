@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/unterminated_string.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "unterminated_string",
  "error": "Syntax error at line 2 column 7. Unexpected ID symbol \"never\" in state 460.",

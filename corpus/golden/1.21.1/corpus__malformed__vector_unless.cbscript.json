@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/vector_unless.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "vector_unless",
  "error": "Compile failed — see log.",

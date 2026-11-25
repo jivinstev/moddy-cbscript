@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/loops_m04.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "loops_m04",
  "error": "Syntax error at line 20 column 8. Unexpected in symbol \"in\" in state 555.",

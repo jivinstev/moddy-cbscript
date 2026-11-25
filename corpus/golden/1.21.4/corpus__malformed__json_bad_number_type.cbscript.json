@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/json_bad_number_type.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "json_bad_number_type",
  "error": "Compile failed — see log.",

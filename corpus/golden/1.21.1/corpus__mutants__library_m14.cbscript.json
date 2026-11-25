@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/library_m14.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "library_m14",
  "error": "Compile failed — see log.",

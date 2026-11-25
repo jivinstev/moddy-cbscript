@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/bom_at_start.cbscript",
- "version": "1.21.5",
  "ok": true,
  "namespace": "bom_at_start",
  "error": null,

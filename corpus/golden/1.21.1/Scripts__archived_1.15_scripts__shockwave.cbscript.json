@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/shockwave.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "shockwave",
  "error": "Compile failed — see log.",

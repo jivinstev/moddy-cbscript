@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/ender_clock.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "ender_clock",
  "error": "Syntax error at line 129 column 7. Unexpected on symbol \"on\" in state 554.",

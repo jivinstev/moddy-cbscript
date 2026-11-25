@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/switches_m24.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "switches_m24",
  "error": "Syntax error at line 43 column 3. Unexpected RBRACK symbol \"]\" in state 738.",

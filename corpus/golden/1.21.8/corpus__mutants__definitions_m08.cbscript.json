@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/definitions_m08.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "definitions_m08",
  "error": "Syntax error at line 38 column 61. Unexpected GT symbol \">\" in state 976.",

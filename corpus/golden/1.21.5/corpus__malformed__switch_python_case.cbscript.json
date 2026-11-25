@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/switch_python_case.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "switch_python_case",
  "error": "Compile failed — see log.",

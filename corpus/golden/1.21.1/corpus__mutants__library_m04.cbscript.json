@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/library_m04.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "library_m04",
  "error": "Syntax error at line 25 column 2. Unexpected end symbol \"end\" in state 125.",

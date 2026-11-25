@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/conditions_m23.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "conditions_m23",
  "error": "Syntax error at line 34 column 2. Unexpected else symbol \"else\" in state 399.",

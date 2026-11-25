@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/loops_m10.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "loops_m10",
  "error": "Syntax error at line 16 column 7. Unexpected EQUALEQUAL symbol \"==\" in state 408.",

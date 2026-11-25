@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/python_if_error_in_body.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "python_if_error_in_body",
  "error": "Compile failed — see log.",

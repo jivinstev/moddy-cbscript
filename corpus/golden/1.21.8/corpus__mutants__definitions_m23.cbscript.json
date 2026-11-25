@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/definitions_m23.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "definitions_m23",
  "error": "Syntax error at line 9 column 1. Unexpected define symbol \"define\" in state 723.",

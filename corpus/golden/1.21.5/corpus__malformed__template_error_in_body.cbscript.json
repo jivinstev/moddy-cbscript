@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/template_error_in_body.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "template_error_in_body",
  "error": "Compile failed — see log.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/library_m10.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "library_m10",
  "error": "Compile failed — see log.",

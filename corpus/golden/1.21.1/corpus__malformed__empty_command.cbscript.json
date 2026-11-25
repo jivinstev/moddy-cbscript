@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/empty_command.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "empty_command",
  "error": "Unexpected compiler error: IndexError('string index out of range')",

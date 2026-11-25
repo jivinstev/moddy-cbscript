@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.16 scripts/speedrun_practice.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "speedrun_practice",
  "error": "Compile failed — see log.",

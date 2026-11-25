@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/loops_m23.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "loops_m23",
  "error": "Syntax error at line 36 column 6. Unexpected end symbol \"end\" in state 29.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/undefined_array.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "undefined_array",
  "error": "Compile failed — see log.",

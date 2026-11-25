@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/predicate_defined_after_use.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "predicate_defined_after_use",
  "error": "Compile failed — see log.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/grammar_gaps_m04.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "grammar_gaps_m04",
  "error": "Syntax error: unexpected End of File",

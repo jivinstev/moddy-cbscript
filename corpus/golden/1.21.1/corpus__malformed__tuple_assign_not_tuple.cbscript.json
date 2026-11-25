@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/tuple_assign_not_tuple.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "tuple_assign_not_tuple",
  "error": "Compile failed — see log.",

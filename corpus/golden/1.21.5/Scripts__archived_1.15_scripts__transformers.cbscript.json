@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/transformers.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "transformers",
  "error": "Compile failed — see log.",

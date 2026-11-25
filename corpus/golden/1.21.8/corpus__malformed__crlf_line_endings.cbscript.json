@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/crlf_line_endings.cbscript",
- "version": "1.21.8",
  "ok": true,
  "namespace": "crlf_line_endings",
  "error": null,

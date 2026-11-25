@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/switches_m12.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "switches_m12",
  "error": "Syntax error at line 21 column 2. Unexpected switch symbol \"switch\" in state 795.",

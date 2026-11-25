@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/conditions_m01.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "conditions_m01",
  "error": "Syntax error at line 62 column 8. Unexpected PLUS symbol \"+\" in state 408.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/json_bad_literal_array.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "json_bad_literal_array",
  "error": "Compile failed — see log.",

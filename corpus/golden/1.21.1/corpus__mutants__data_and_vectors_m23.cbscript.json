@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/data_and_vectors_m23.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "data_and_vectors_m23",
  "error": "Syntax error at line 48 column 2. Unexpected ID symbol \"y\" in state 100.",

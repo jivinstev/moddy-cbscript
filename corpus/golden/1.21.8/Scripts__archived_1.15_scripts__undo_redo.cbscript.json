@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/undo_redo.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "undo_redo",
  "error": "Compile failed — see log.",

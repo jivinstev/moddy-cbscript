@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/unicode_digits.cbscript",
- "version": "1.21.5",
  "ok": true,
  "namespace": "unicode_digits",
  "error": null,

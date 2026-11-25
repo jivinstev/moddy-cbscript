@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.18 scripts/atari.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "atari",
  "error": "Compile failed — see log.",

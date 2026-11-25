@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/block_not_defined.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "block_not_defined",
  "error": "Compile failed — see log.",

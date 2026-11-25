@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/nbt_case_only_in_nbt.cbscript",
- "version": "1.21.8",
  "ok": true,
  "namespace": "nbt_case_only_in_nbt",
  "error": null,

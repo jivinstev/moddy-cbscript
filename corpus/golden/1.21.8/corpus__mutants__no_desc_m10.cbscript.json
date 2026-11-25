@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/no_desc_m10.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "no_desc_m10",
  "error": "Syntax error at line 2 column 2. Unexpected end symbol \"end\" in state 90.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/library_m12.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "library_m12",
  "error": "Compile failed — see log.",

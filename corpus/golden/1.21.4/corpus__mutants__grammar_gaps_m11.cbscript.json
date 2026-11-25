@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/grammar_gaps_m11.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "grammar_gaps_m11",
  "error": "Syntax error at line 40 column 2. Unexpected create symbol \"create\" in state 143.",

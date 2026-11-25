@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/calls_m08.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "calls_m08",
  "error": "Syntax error at line 12 column 22. Unexpected if symbol \"if\" in state 367.",

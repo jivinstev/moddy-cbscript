@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/pyexpr_m03.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "pyexpr_m03",
  "error": "Syntax error at line 67 column 2. Unexpected end symbol \"end\" in state 90.",

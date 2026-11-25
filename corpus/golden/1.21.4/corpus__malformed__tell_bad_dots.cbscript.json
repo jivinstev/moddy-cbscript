@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/tell_bad_dots.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "tell_bad_dots",
  "error": "Compile failed — see log.",

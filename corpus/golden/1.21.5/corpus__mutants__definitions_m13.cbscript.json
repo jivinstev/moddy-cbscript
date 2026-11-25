@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/definitions_m13.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "definitions_m13",
  "error": "Syntax error at line 28 column 9. Unexpected DECIMAL symbol \"1\" in state 1137.",

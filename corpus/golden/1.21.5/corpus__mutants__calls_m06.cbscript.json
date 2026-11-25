@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/calls_m06.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "calls_m06",
  "error": "Syntax error at line 69 column 3. Unexpected COMMENT symbol \"#.poke(4)\" in state 1223.",

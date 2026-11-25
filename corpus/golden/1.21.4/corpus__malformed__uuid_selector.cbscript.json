@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/uuid_selector.cbscript",
- "version": "1.21.4",
  "ok": true,
  "namespace": "uuid_selector",
  "error": null,

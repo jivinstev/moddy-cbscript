@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/only_comments.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "only_comments",
  "error": "Syntax error: unexpected End of File",

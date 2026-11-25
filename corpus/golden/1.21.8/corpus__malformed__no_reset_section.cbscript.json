@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/no_reset_section.cbscript",
- "version": "1.21.8",
  "ok": true,
  "namespace": "no_reset_section",
  "error": null,

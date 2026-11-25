@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/expressions_m24.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "expressions_m24",
  "error": "Syntax error at line 35 column 11. Unexpected NEWLINE symbol \"\\n\" in state 7.",

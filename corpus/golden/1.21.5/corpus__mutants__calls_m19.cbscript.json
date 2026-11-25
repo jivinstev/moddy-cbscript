@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/calls_m19.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "calls_m19",
  "error": "Syntax error at line 51 column 11. Unexpected create symbol \"create\" in state 1019.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/execute_items_m01.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "execute_items_m01",
  "error": "Syntax error: unexpected End of File",

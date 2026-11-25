@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/library_m22.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "library_m22",
  "error": "Syntax error at line 58 column 11. Unexpected DOLLAR symbol \"$\" in state 408.",

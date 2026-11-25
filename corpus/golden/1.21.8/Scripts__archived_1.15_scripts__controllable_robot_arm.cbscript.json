@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/controllable_robot_arm.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "controllable_robot_arm",
  "error": "Syntax error at line 16 column 8. Unexpected DOLLAR symbol \"$\" in state 123.",

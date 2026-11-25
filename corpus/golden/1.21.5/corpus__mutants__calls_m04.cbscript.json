@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/calls_m04.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "calls_m04",
  "error": "Syntax error at line 84 column 10. Unexpected DECIMAL symbol \"1\" in state 606.",

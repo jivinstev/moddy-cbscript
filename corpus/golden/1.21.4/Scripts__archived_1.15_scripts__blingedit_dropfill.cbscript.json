@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/blingedit_dropfill.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "blingedit_dropfill",
  "error": "Syntax error at line 1 column 4. Unexpected COLON symbol \":\" in state 75.",

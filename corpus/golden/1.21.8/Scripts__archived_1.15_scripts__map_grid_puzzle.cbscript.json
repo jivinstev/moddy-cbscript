@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/map_grid_puzzle.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "map_grid_puzzle",
  "error": "Syntax error at line 8 column 9. Unexpected NORMSTRING symbol \"'{Tags:[\"PuzzleFrame\"], Facing:$FacingUp, Invulnerable:1b}'\" in state 708.",

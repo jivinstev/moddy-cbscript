@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/unicode_text.cbscript",
- "version": "1.21.8",
  "ok": true,
  "namespace": "unicode_text",
  "error": null,

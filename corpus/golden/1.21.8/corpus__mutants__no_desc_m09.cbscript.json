@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/no_desc_m09.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "no_desc_m09",
  "error": "Syntax error: unexpected End of File",

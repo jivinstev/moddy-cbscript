@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/bad_path_type.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "bad_path_type",
  "error": "Compile failed — see log.",

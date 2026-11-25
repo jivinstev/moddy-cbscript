@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/switches_m17.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "switches_m17",
  "error": "Syntax error: unexpected End of File",

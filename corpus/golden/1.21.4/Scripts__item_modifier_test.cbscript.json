@@ -1,6 +1,5 @@
 {
  "id": "Scripts/item_modifier_test.cbscript",
- "version": "1.21.4",
  "ok": true,
  "namespace": "item_modifier_test",
  "error": null,

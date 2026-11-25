@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/tell_empty_parens.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "tell_empty_parens",
  "error": "Compile failed — see log.",

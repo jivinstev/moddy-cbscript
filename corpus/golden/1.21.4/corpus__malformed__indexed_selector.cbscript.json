@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/indexed_selector.cbscript",
- "version": "1.21.4",
  "ok": true,
  "namespace": "indexed_selector",
  "error": null,

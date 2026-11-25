@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/power_variable.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "power_variable",
  "error": "Syntax error at line 3 column 10. Unexpected ID symbol \"z\" in state 74.",

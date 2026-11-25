@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/selectors_m20.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "selectors_m20",
  "error": "Syntax error at line 5 column 34. Unexpected EQUALS symbol \"=\" in state 367.",

@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/expr_compile_error.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "expr_compile_error",
  "error": "Compile failed — see log.",

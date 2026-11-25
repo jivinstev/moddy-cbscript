@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/definitions_m06.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "definitions_m06",
  "error": "Syntax error at line 49 column 2. Unexpected FUNCTIONID symbol \"welcome\" in state 133.",

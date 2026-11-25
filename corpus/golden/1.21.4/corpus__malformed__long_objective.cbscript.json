@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/long_objective.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "long_objective",
  "error": "Compile failed — see log.",

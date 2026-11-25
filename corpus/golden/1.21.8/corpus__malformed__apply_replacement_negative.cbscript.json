@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/apply_replacement_negative.cbscript",
- "version": "1.21.8",
  "ok": true,
  "namespace": "apply_replacement_negative",
  "error": null,

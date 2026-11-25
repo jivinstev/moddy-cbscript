@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/print_failure.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "print_failure",
  "error": "Compile failed — see log.",

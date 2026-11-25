@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/vector_const_assign.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "vector_const_assign",
  "error": "Compile failed — see log.",

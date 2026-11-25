@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/execute_items_m02.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "execute_items_m02",
  "error": "Syntax error at line 25 column 2. Unexpected at symbol \"at\" in state 143.",

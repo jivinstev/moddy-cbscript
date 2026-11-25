@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/uppercase_clock_then_more_errors.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "uppercase_clock_then_more_errors",
  "error": "Compile failed — see log.",

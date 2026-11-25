@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/selectors_m14.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "selectors_m14",
  "error": "Syntax error: unexpected End of File",

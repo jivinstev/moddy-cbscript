@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/deep_nesting.cbscript",
- "version": "1.21.8",
  "ok": true,
  "namespace": "deep_nesting",
  "error": null,

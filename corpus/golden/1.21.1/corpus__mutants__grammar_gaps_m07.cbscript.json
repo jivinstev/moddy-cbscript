@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/grammar_gaps_m07.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "grammar_gaps_m07",
  "error": "Syntax error at line 28 column 31. Unexpected RPAREN symbol \")\" in state 1030.",

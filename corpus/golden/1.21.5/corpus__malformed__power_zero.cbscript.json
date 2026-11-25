@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/power_zero.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "power_zero",
  "error": "Compile failed — see log.",

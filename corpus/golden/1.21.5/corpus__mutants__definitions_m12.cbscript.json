@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/definitions_m12.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "definitions_m12",
  "error": "Syntax error: unexpected End of File",

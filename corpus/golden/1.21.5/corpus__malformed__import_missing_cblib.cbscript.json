@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/import_missing_cblib.cbscript",
- "version": "1.21.5",
  "ok": false,
  "namespace": "import_missing_cblib",
  "error": "Unexpected compiler error: FileNotFoundError(2, 'No such file or directory')",

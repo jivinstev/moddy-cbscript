@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/expressions_m04.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "expressions_m04",
  "error": "Syntax error at line 34 column 9. Unexpected DECIMAL symbol \"0\" in state 16.",

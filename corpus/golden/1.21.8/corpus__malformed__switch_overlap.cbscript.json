@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/switch_overlap.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "switch_overlap",
  "error": "Compile failed — see log.",

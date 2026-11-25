@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/duplicate_array.cbscript",
- "version": "1.21.1",
  "ok": false,
  "namespace": "duplicate_array",
  "error": "Compile failed — see log.",

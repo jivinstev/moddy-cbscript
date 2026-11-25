@@ -1,6 +1,5 @@
 {
  "id": "Scripts/archived 1.15 scripts/glass_pipes.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "glass_pipes",
  "error": "Compile failed — see log.",

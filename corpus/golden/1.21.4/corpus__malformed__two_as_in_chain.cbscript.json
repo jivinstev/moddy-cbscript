@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/two_as_in_chain.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "two_as_in_chain",
  "error": "Compile failed — see log.",

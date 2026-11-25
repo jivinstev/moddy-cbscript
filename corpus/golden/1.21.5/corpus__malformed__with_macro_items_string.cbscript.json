@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/with_macro_items_string.cbscript",
- "version": "1.21.5",
  "ok": true,
  "namespace": "with_macro_items_string",
  "error": null,

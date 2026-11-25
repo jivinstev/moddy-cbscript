@@ -1,6 +1,5 @@
 {
  "id": "corpus/mutants/switches_m21.cbscript",
- "version": "1.21.8",
  "ok": false,
  "namespace": "switches_m21",
  "error": "Syntax error at line 10 column 5. Unexpected NEWLINE symbol \"\\n\" in state 412.",

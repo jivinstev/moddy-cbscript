@@ -1,6 +1,5 @@
 {
  "id": "Scripts/perf.cbscript",
- "version": "1.21.8",
  "ok": true,
  "namespace": "perf",
  "error": null,

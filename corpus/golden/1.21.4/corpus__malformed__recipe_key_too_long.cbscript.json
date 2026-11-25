@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/recipe_key_too_long.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "recipe_key_too_long",
  "error": "Compile failed — see log.",

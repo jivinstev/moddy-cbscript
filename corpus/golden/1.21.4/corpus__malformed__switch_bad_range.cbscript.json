@@ -1,6 +1,5 @@
 {
  "id": "corpus/malformed/switch_bad_range.cbscript",
- "version": "1.21.4",
  "ok": false,
  "namespace": "switch_bad_range",
  "error": "Compile failed — see log.",
