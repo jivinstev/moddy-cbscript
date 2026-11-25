@@ -1,0 +1,53 @@
+{
+ "id": "corpus/programs/conditions.cbscript",
+ "ok": true,
+ "namespace": "conditions",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/conditions/function/reset.mcfunction",
+   "data modify storage conditions:global args set value {}\ndata modify storage conditions stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add hits dummy\nscoreboard objectives add b dummy\nscoreboard objectives add a dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c3 Constant 3\nscoreboard players set c2 Constant 2\nscoreboard players set c1 Constant 1\nscoreboard objectives add _scratch0 dummy\nscoreboard players set Global a 1\nscoreboard players set Global b 2\nexecute if score Global a > Global b run say gt\nexecute if score Global a matches 2.. if score Global b matches ..5 if score Global a matches ..2 if score Global b matches 2 run say multi\nexecute if score Global a matches 1.. run say truthy\nexecute if score Global a matches ..0 run say not\nscoreboard players set Global _scratch0 1\nexecute if score Global a = Global b run function conditions:line032/execute1\nexecute if score Global _scratch0 matches 1.. if score Global a > Global b run function conditions:line032/else2\nexecute if score Global _scratch0 matches 1.. unless score Global b matches ..-1 run function conditions:line032/else3\nexecute if score Global _scratch0 matches 1.. run say else\nexecute unless score Global a matches 1 run say unless\nexecute if entity @e[type=minecraft:pig] run scoreboard players add Global hits 1\nexecute if entity @a[tag=x] run scoreboard players add Global hits 1\nexecute if score Global unique matches -1 run scoreboard players add Global hits 1\nexecute if score Global unique matches -1 run scoreboard players add Global hits 1\nexecute run scoreboard players add Global hits 1\nexecute if score Global unique matches -1 run scoreboard players add Global hits 1\nexecute run scoreboard players add Global hits 1\nexecute if score Global unique matches -1 run scoreboard players add Global hits 1\nexecute run scoreboard players add Global hits 1\nexecute run scoreboard players add Global hits 1\nexecute if score Global a matches 6.. run scoreboard players add Global hits 1\nexecute if score Global a matches 10001.. run scoreboard players add Global hits 1\nexecute if score Global a matches ..4 run scoreboard players add Global hits 1\nexecute if score Global a matches ..5 run scoreboard players add Global hits 1\nexecute if score Global a matches 5.. run scoreboard players add Global hits 1\nexecute if score Global a matches 5 run scoreboard players add Global hits 1\nexecute if predicate conditions:my_pred run scoreboard players add Global hits 1\nexecute if block ~ ~-1 ~ minecraft:stone run scoreboard players add Global hits 1\nexecute if block ~ ~ ~ minecraft:stone_stairs[facing=north,half=top] run scoreboard players add Global hits 1\nexecute if block ~ ~ ~ minecraft:chest{\"Items\":[]} run scoreboard players add Global hits 1\nexecute if block ~ ~ ~ minecraft:grass_block run scoreboard players add Global hits 1\nexecute if block ~ ~ ~ minecraft:dirt run scoreboard players add Global hits 1\nexecute if block ~ ~ ~ minecraft:dirt run scoreboard players add Global hits 1\nexecute if block ~1 ~ ~ #conditions:my_tag run scoreboard players add Global hits 1\nexecute if data entity @s Inventory[0] run scoreboard players add Global hits 1\nexecute if data entity @s Tags run scoreboard players add Global hits 1\nexecute if data storage conditions my.path run scoreboard players add Global hits 1\nexecute if score Global _v_0 = Global _w_0 if score Global _v_1 = Global _w_1 if score Global _v_2 = Global _w_2 run scoreboard players add Global hits 1\nexecute if score Global _v_0 = c1 Constant if score Global _v_1 = c2 Constant if score Global _v_2 = c3 Constant run scoreboard players add Global hits 1\nexecute if score Global a matches ..9 run function conditions:line075/while4\nexecute if score Global a matches ..19 at @s run function conditions:line078/while5"
+  ],
+  [
+   "data/conditions/function/line032/execute1.mcfunction",
+   "say block form\nscoreboard players set Global _scratch0 0"
+  ],
+  [
+   "data/conditions/function/line032/else2.mcfunction",
+   "say else if\nscoreboard players set Global _scratch0 0"
+  ],
+  [
+   "data/conditions/function/line032/else3.mcfunction",
+   "say else unless\nscoreboard players set Global _scratch0 0"
+  ],
+  [
+   "data/conditions/function/line075/while4.mcfunction",
+   "scoreboard players add Global a 1\nexecute if score Global a matches ..9 run function conditions:line075/while4"
+  ],
+  [
+   "data/conditions/function/line078/while5.mcfunction",
+   "scoreboard players add Global a 1\nexecute if score Global a matches ..19 at @s run function conditions:line078/while5"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"conditions:reset\"\n    ]\n}"
+  ],
+  [
+   "data/conditions/tags/block/my_tag.json",
+   "{\n    \"values\": [\n        \"minecraft:stone\",\n        \"minecraft:dirt\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 94,\n        \"description\": \"If, unless, else, while, conditions\",\n        \"min_format\": [\n            94,\n            1\n        ],\n        \"max_format\": [\n            94,\n            1\n        ]\n    }\n}"
+  ],
+  [
+   "data/conditions/predicate/my_pred.json",
+   "{\"condition\":\"minecraft:random_chance\",\"chance\":0.5}"
+  ]
+ ]
+}

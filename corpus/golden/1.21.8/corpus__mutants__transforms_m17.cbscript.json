@@ -1,0 +1,25 @@
+{
+ "id": "corpus/mutants/transforms_m17.cbscript",
+ "ok": true,
+ "namespace": "transforms_m17",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/transforms_m17/function/reset.mcfunction",
+   "data modify storage transforms_m17:global args set value {}\ndata modify storage transforms_m17 stack set value []\ngamerule maxCommandChainLength 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"transforms_m17:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

@@ -1,0 +1,23 @@
+# mutant of corpus/programs/switches.cbscript: truncate before line 23
+dir "."
+desc "Numeric switches"
+
+reset
+	x = 3
+	switch x
+		case 1
+			/say one
+		end
+		case 2 to 4
+			/say two to four
+			/say second
+		end
+		case 5
+			x = 1
+			y = 2
+		end
+	end
+	switch x + 1
+		case 0
+			/say zero
+		end

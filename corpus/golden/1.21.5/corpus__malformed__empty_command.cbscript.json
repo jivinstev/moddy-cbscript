@@ -1,0 +1,8 @@
+{
+ "id": "corpus/malformed/empty_command.cbscript",
+ "ok": false,
+ "namespace": "empty_command",
+ "error": "Unexpected compiler error: IndexError('string index out of range')",
+ "log": [],
+ "files": []
+}

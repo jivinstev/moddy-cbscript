@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/execute_items_m03.cbscript",
+ "ok": false,
+ "namespace": "execute_items_m03",
+ "error": "Syntax error at line 38 column 2. Unexpected NOT symbol \"!\" in state 92.",
+ "log": [
+  "Syntax error at line 38 column 2. Unexpected NOT symbol \"!\" in state 92."
+ ],
+ "files": []
+}

@@ -1,0 +1,6 @@
+# mutant of corpus/programs/no_desc.cbscript: replace token 'dir' with 'then' on line 2
+# no desc line: optdesc is empty
+then "."
+reset
+	/say no desc
+end

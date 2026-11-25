@@ -1,0 +1,25 @@
+{
+ "id": "corpus/mutants/library_m24.cbscript",
+ "ok": true,
+ "namespace": "library_m24",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/library_m24/function/reset.mcfunction",
+   "data modify storage library_m24:global args set value {}\ndata modify storage library_m24 stack set value []\ngamerule maxCommandChainLength 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"library_m24:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"Compile-time library: builtins, math, str/list/dict methods, number formatting\"\n    }\n}"
+  ]
+ ]
+}

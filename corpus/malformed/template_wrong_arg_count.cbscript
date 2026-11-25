@@ -1,0 +1,7 @@
+dir "."
+function t{$a}(x)
+	/say $a
+end
+reset
+	t{1, 2}(3)
+end

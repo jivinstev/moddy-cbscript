@@ -1,0 +1,109 @@
+{
+ "id": "Scripts/plinko_demo.cbscript",
+ "ok": true,
+ "namespace": "plinko_demo",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/plinko_demo/function/sqrt.mcfunction",
+   "scoreboard players operation Global _x = Global Param0\nscoreboard players set Global sqr_scratch0 1\nexecute if score Global _x matches 0.. if score Global _x matches ..19310 run function plinko_demo:line003/execute1\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 19311.. if score Global _x matches ..1705544 run function plinko_demo:line003/else2\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 1705545.. if score Global _x matches ..39400514 run function plinko_demo:line003/else3\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 39400515.. if score Global _x matches ..455779650 run function plinko_demo:line003/else4\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 455779651.. if score Global _x matches ..2147483647 run function plinko_demo:line003/else5\nscoreboard players operation Global sqr_scratch0 = Global _x\nscoreboard players operation Global sqr_scratch0 /= sqrt y\nscoreboard players operation sqrt y += Global sqr_scratch0\nscoreboard players operation sqrt y /= c2 Constant\nscoreboard players operation Global sqr_scratch0 = sqrt y\nscoreboard players operation Global sqr_scratch0 *= sqrt y\nexecute if score Global sqr_scratch0 > Global _x run scoreboard players remove sqrt y 1\nscoreboard players operation Global ReturnValue = sqrt y"
+  ],
+  [
+   "data/plinko_demo/function/line003/execute1.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 4095\nscoreboard players set sqrt y -594039\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 149\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/plinko_demo/function/line003/else2.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 903167\nscoreboard players set sqrt y -1568669636\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 1857\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/plinko_demo/function/line003/else3.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c141 Constant\nscoreboard players add Global sqr_scratch1 224767\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 10425\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/plinko_demo/function/line003/else4.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c7775 Constant\nscoreboard players add Global sqr_scratch1 60419\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 39184\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/plinko_demo/function/line003/else5.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c100000 Constant\nscoreboard players add Global sqr_scratch1 26111\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 91181"
+  ],
+  [
+   "data/plinko_demo/function/abs.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global abs_scratch0 1\nexecute if score Global n matches ..-1 run function plinko_demo:line025/execute6\nexecute if score Global abs_scratch0 matches 1.. run scoreboard players operation Global ReturnValue = Global n"
+  ],
+  [
+   "data/plinko_demo/function/line025/execute6.mcfunction",
+   "scoreboard players operation Global ReturnValue = Global n\nscoreboard players operation Global ReturnValue *= minus Constant\nscoreboard players set Global abs_scratch0 0"
+  ],
+  [
+   "data/plinko_demo/function/sin.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c360 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 181.. run function plinko_demo:line035/execute7\nscoreboard players operation Global ReturnValue = Global _sin_angle\nscoreboard players operation Global ReturnValue *= c4000 Constant\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global ReturnValue *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global sin_scratch1 = Global _sin_angle\nscoreboard players operation Global sin_scratch1 *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 40500\nscoreboard players operation Global sin_scratch0 -= Global sin_scratch1\nscoreboard players operation Global ReturnValue /= Global sin_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/plinko_demo/function/line035/execute7.mcfunction",
+   "scoreboard players remove Global _sin_angle 180\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/plinko_demo/function/sin_precise.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c36000 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 18001.. run function plinko_demo:line048/execute8\nscoreboard players set Global sin2_scratch0 18000\nscoreboard players operation Global sin2_scratch0 -= Global _sin_angle\nscoreboard players operation Global _angle_sq = Global _sin_angle\nscoreboard players operation Global _angle_sq *= Global sin2_scratch0\nscoreboard players operation Global _angle_sq /= c100 Constant\nscoreboard players operation Global ReturnValue = Global _angle_sq\nscoreboard players operation Global ReturnValue *= c4 Constant\nscoreboard players operation Global ReturnValue *= c100 Constant\nscoreboard players set Global sin2_scratch0 4050000\nscoreboard players operation Global sin2_scratch0 -= Global _angle_sq\nscoreboard players operation Global ReturnValue /= Global sin2_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/plinko_demo/function/line048/execute8.mcfunction",
+   "scoreboard players remove Global _sin_angle 18000\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/plinko_demo/function/cos.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos_scratch0 = Global _cos_angle\nscoreboard players add Global cos_scratch0 90\nscoreboard players operation Global Param0 = Global cos_scratch0\nfunction plinko_demo:sin"
+  ],
+  [
+   "data/plinko_demo/function/cos_precise.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos2_scratch0 = Global _cos_angle\nscoreboard players add Global cos2_scratch0 9000\nscoreboard players operation Global Param0 = Global cos2_scratch0\nfunction plinko_demo:sin_precise"
+  ],
+  [
+   "data/plinko_demo/function/sign.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global sig_scratch0 1\nexecute if score Global n matches 1.. run function plinko_demo:line068/execute9\nexecute if score Global sig_scratch0 matches 1.. if score Global n matches ..-1 run function plinko_demo:line068/else10\nexecute if score Global sig_scratch0 matches 1.. run scoreboard players set Global ReturnValue 0"
+  ],
+  [
+   "data/plinko_demo/function/line068/execute9.mcfunction",
+   "scoreboard players set Global ReturnValue 1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/plinko_demo/function/line068/else10.mcfunction",
+   "scoreboard players set Global ReturnValue -1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/plinko_demo/function/reset.mcfunction",
+   "data modify storage plinko_demo:global args set value {}\ndata modify storage plinko_demo stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add velocity_y dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add _cos_angle dummy\nscoreboard objectives add _angle_sq dummy\nscoreboard objectives add mult dummy\nscoreboard objectives add _sin_angle dummy\nscoreboard objectives add n dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add y dummy\nscoreboard objectives add _x dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c4 Constant 4\nscoreboard players set c100 Constant 100\nscoreboard players set c36000 Constant 36000\nscoreboard players set c4000 Constant 4000\nscoreboard players set c360 Constant 360\nscoreboard players set minus Constant -1\nscoreboard players set c2 Constant 2\nscoreboard players set c100000 Constant 100000\nscoreboard players set c7775 Constant 7775\nscoreboard players set c141 Constant 141\nscoreboard objectives add tic_scratch0 dummy\nscoreboard objectives add sig_scratch0 dummy\nscoreboard objectives add cos2_scratch0 dummy\nscoreboard objectives add cos_scratch0 dummy\nscoreboard objectives add sin2_scratch0 dummy\nscoreboard objectives add sin_scratch1 dummy\nscoreboard objectives add sin_scratch0 dummy\nscoreboard objectives add abs_scratch0 dummy\nscoreboard objectives add sqr_scratch1 dummy\nscoreboard objectives add sqr_scratch0 dummy"
+  ],
+  [
+   "data/plinko_demo/function/tick.mcfunction",
+   "execute as @e[type=minecraft:block_display,tag=physics_block] run function plinko_demo:line021/execute13"
+  ],
+  [
+   "data/plinko_demo/function/line026/execute11.mcfunction",
+   "data modify entity @s teleport_duration set value 0\nscoreboard players set Global tic_scratch0 0"
+  ],
+  [
+   "data/plinko_demo/function/line022/with012.mcfunction",
+   "scoreboard players set Global tic_scratch0 1\n$execute if score collider_$(collider) y matches ..54000 run function plinko_demo:line026/execute11\nexecute if score Global tic_scratch0 matches 1.. run data modify entity @s teleport_duration set value 1\n$execute if score collider_$(collider) y matches ..51999 run scoreboard players set collider_$(collider) y 72000\n$execute if score collider_$(collider) velocity_y matches ..-1001 run scoreboard players set collider_$(collider) velocity_y -1000"
+  ],
+  [
+   "data/plinko_demo/function/line021/execute13.mcfunction",
+   "execute store result storage plinko_demo:global args.collider int 1 run scoreboard players get @s collider_id\nfunction plinko_demo:line022/with012 with storage plinko_demo:global args"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"plinko_demo:tick\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"plinko_demo:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"Demonstrates plinko\"\n    }\n}"
+  ]
+ ]
+}

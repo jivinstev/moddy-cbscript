@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/calls_m20.cbscript",
+ "ok": false,
+ "namespace": "calls_m20",
+ "error": "Syntax error at line 3 column 6. Unexpected LPAREN symbol \"(\" in state 460.",
+ "log": [
+  "Syntax error at line 3 column 6. Unexpected LPAREN symbol \"(\" in state 460."
+ ],
+ "files": []
+}
