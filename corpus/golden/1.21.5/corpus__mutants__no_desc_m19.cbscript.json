@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/no_desc_m19.cbscript",
+ "ok": false,
+ "namespace": "no_desc_m19",
+ "error": "Syntax error at line 4 column 2. Unexpected end symbol \"end\" in state 306.",
+ "log": [
+  "Syntax error at line 4 column 2. Unexpected end symbol \"end\" in state 306."
+ ],
+ "files": []
+}

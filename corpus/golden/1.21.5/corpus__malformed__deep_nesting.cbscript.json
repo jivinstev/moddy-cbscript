@@ -1,0 +1,29 @@
+{
+ "id": "corpus/malformed/deep_nesting.cbscript",
+ "ok": true,
+ "namespace": "deep_nesting",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/deep_nesting/function/reset.mcfunction",
+   "data modify storage deep_nesting:global args set value {}\ndata modify storage deep_nesting stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add x dummy\nscoreboard objectives add c dummy\nscoreboard objectives add b dummy\nscoreboard objectives add a dummy\nexecute if score Global a matches 1.. if score Global b matches 1.. as @a at @s if score Global c matches 2.. run function deep_nesting:line007/execute1"
+  ],
+  [
+   "data/deep_nesting/function/line007/execute1.mcfunction",
+   "say deep\nscoreboard players set Global x 1"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"deep_nesting:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

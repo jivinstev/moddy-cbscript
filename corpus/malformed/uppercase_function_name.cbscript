@@ -1,0 +1,7 @@
+dir "."
+function BadName()
+	/say x
+end
+reset
+	/say after
+end

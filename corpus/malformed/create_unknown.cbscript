@@ -1,0 +1,4 @@
+dir "."
+reset
+	create @Nope
+end
