@@ -1,0 +1,61 @@
+{
+ "id": "Scripts/archived 1.15 scripts/tornado.cbscript",
+ "ok": true,
+ "namespace": "tornado",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/tornado/function/reset.mcfunction",
+   "data modify storage tornado:global args set value {}\ndata modify storage tornado stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add age dummy\nscoreboard objectives add _v_2 dummy\nscoreboard objectives add _v_1 dummy\nscoreboard objectives add _v_0 dummy\nscoreboard objectives add _vel_2 dummy\nscoreboard objectives add _vel_1 dummy\nscoreboard objectives add _vel_0 dummy\nscoreboard objectives add dz dummy\nscoreboard objectives add dy dummy\nscoreboard objectives add dx dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add _pos1_2 dummy\nscoreboard objectives add _pos1_1 dummy\nscoreboard objectives add _pos1_0 dummy\nscoreboard objectives add angle dummy\nscoreboard objectives add Param1 dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add height dummy\nscoreboard objectives add i dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add _random_seed dummy\nscoreboard objectives add _rand_min dummy\nscoreboard objectives add _rand_max dummy\nscoreboard objectives add _rand_range dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c0 Constant 0\nscoreboard players set c4 Constant 4\nscoreboard players set minus Constant -1\nscoreboard players set c2000 Constant 2000\nscoreboard players set c10000 Constant 10000\nscoreboard players set c30 Constant 30\nscoreboard players set c256 Constant 256\nscoreboard players set c1664525 Constant 1664525\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nscoreboard players set @e[type=minecraft:marker] _age 1\nsummon minecraft:marker ~ ~ ~\nscoreboard players add @e[type=minecraft:marker] _age 1\nexecute as @e[type=minecraft:marker,limit=1,scores={_age=1}] run function tornado:line004/execute1\ntellraw @a [\"\",{\"text\":\"[Spawn Tornado]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function tornado:spawn_tornado\"}}]"
+  ],
+  [
+   "data/tornado/function/line004/execute1.mcfunction",
+   "execute store result score Global _random_seed run data get entity @s UUID[0] 0.00001\nkill @s"
+  ],
+  [
+   "data/tornado/function/randint.mcfunction",
+   "scoreboard players operation Global _rand_max = Global Param1\nscoreboard players operation Global _rand_min = Global Param0\nscoreboard players operation Global _rand_range = Global _rand_max\nscoreboard players operation Global _rand_range -= Global _rand_min\nscoreboard players operation Global _random_seed *= c1664525 Constant\nscoreboard players add Global _random_seed 1013904223\nscoreboard players operation Global ReturnValue = Global _random_seed\nscoreboard players operation Global ReturnValue /= c256 Constant\nscoreboard players operation Global ReturnValue %= Global _rand_range\nscoreboard players operation Global ReturnValue += Global _rand_min"
+  ],
+  [
+   "data/tornado/function/spawn_tornado.mcfunction",
+   "summon minecraft:area_effect_cloud ~ ~ ~ {\"Tags\":[\"Tornado\"],\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648}"
+  ],
+  [
+   "data/tornado/function/main.mcfunction",
+   "execute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nexecute as @e[type=minecraft:area_effect_cloud,tag=Tornado] at @s run function tornado:line034/execute5\nexecute as @e[type=minecraft:llama_spit,tag=Spit] run function tornado:line059/execute6"
+  ],
+  [
+   "data/tornado/function/line035/for002.mcfunction",
+   "scoreboard players set Global Param0 0\nscoreboard players set Global Param1 30000\nfunction tornado:randint\nscoreboard players operation Global height = Global ReturnValue\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run data get entity @s Pos[0] 10000\nexecute store result score Global mai_scratch0 run data get entity @s Pos[1] 10000\nscoreboard players operation Global mai_scratch0 += Global height\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get Global mai_scratch0\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run data get entity @s Pos[2] 10000\nscoreboard players set Global Param0 0\nscoreboard players set Global Param1 360\nfunction tornado:randint\nscoreboard players operation Global angle = Global ReturnValue\nscoreboard players operation Global angle *= c10000 Constant\nexecute store result entity 0-0-0-0-C1 Rotation[0] float 0.0001 run scoreboard players get Global angle\ndata modify entity 0-0-0-0-C1 Rotation[1] set value 0.0f\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global _pos1_0 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global _pos1_1 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global _pos1_2 = 0-0-0-0-C1 _pos_2\nexecute as 0-0-0-0-C1 at @s run tp @s ^ ^ ^1\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global mai_scratch0 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global mai_scratch1 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global mai_scratch2 = 0-0-0-0-C1 _pos_2\nscoreboard players operation Global mai_scratch0 -= Global _pos1_0\nscoreboard players operation Global mai_scratch1 -= Global _pos1_1\nscoreboard players operation Global mai_scratch2 -= Global _pos1_2\nscoreboard players operation Global dx = Global mai_scratch0\nscoreboard players operation Global dy = Global mai_scratch1\nscoreboard players operation Global dz = Global mai_scratch2\nexecute as 0-0-0-0-C1 at @s run tp @s ^ ^ ^-1\nscoreboard players operation Global mai_scratch0 = Global dx\nscoreboard players operation Global mai_scratch1 = Global dy\nscoreboard players operation Global mai_scratch2 = Global dz\nscoreboard players operation Global mai_scratch0 *= Global height\nscoreboard players operation Global mai_scratch1 *= Global height\nscoreboard players operation Global mai_scratch2 *= Global height\nscoreboard players operation Global mai_scratch0 /= c2000 Constant\nscoreboard players operation Global mai_scratch1 /= c2000 Constant\nscoreboard players operation Global mai_scratch2 /= c2000 Constant\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation 0-0-0-0-C1 _pos_0 += Global mai_scratch0\nscoreboard players operation 0-0-0-0-C1 _pos_1 += Global mai_scratch1\nscoreboard players operation 0-0-0-0-C1 _pos_2 += Global mai_scratch2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nexecute at 0-0-0-0-C1 run function tornado:line048/execute4\nscoreboard players add Global i 1\nexecute if score Global i <= c30 Constant run function tornado:line035/for002"
+  ],
+  [
+   "data/tornado/function/line049/execute3.mcfunction",
+   "scoreboard players operation Global mai_scratch0 = Global dz\nscoreboard players operation Global mai_scratch0 *= minus Constant\nscoreboard players set Global mai_scratch1 200\nscoreboard players operation Global mai_scratch2 = Global dx\nscoreboard players operation Global mai_scratch0 /= c4 Constant\nscoreboard players operation Global mai_scratch1 /= c4 Constant\nscoreboard players operation Global mai_scratch2 /= c4 Constant\nscoreboard players operation @s _vel_0 = Global mai_scratch0\nscoreboard players operation @s _vel_1 = Global mai_scratch1\nscoreboard players operation @s _vel_2 = Global mai_scratch2\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2"
+  ],
+  [
+   "data/tornado/function/line048/execute4.mcfunction",
+   "scoreboard players set @e[type=minecraft:llama_spit,tag=Spit] _age 1\nsummon minecraft:llama_spit ~ ~ ~ {\"Tags\":[\"Spit\"],}\nscoreboard players add @e[type=minecraft:llama_spit,tag=Spit] _age 1\nexecute as @e[type=minecraft:llama_spit,tag=Spit,limit=1,scores={_age=1}] run function tornado:line049/execute3"
+  ],
+  [
+   "data/tornado/function/line034/execute5.mcfunction",
+   "scoreboard players set Global i 1\nexecute if score Global i <= c30 Constant run function tornado:line035/for002\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation @s _pos_0 += @s _v_0\nscoreboard players operation @s _pos_1 += @s _v_1\nscoreboard players operation @s _pos_2 += @s _v_2\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nscoreboard players set Global Param0 -10\nscoreboard players set Global Param1 11\nfunction tornado:randint\nscoreboard players set Global Param0 -10\nscoreboard players set Global Param1 11\nfunction tornado:randint\nscoreboard players operation @s _v_0 += Global ReturnValue\nscoreboard players operation @s _v_1 += c0 Constant\nscoreboard players operation @s _v_2 += Global ReturnValue"
+  ],
+  [
+   "data/tornado/function/line059/execute6.mcfunction",
+   "data modify entity @s Air set value 1s\ndata modify entity @s Air set value 0s\nscoreboard players add @s age 1\nexecute if score @s age matches 20.. run kill @s"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"tornado:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"tornado:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 107,\n        \"description\": \"Transform structures into other structures\",\n        \"min_format\": [\n            107,\n            1\n        ],\n        \"max_format\": [\n            107,\n            1\n        ]\n    }\n}"
+  ]
+ ]
+}

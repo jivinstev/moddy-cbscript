@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/item_modifiers_m15.cbscript",
+ "ok": false,
+ "namespace": "item_modifiers_m15",
+ "error": "Syntax error at line 5 column 22. Unexpected push symbol \"push\" in state 220.",
+ "log": [
+  "Syntax error at line 5 column 22. Unexpected push symbol \"push\" in state 220."
+ ],
+ "files": []
+}

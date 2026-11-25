@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/item_modifiers_m07.cbscript",
+ "ok": false,
+ "namespace": "item_modifiers_m07",
+ "error": "Syntax error at line 7 column 38. Unexpected reset symbol \"reset\" in state 688.",
+ "log": [
+  "Syntax error at line 7 column 38. Unexpected reset symbol \"reset\" in state 688."
+ ],
+ "files": []
+}

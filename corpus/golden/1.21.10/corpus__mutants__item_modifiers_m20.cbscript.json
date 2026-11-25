@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/item_modifiers_m20.cbscript",
+ "ok": false,
+ "namespace": "item_modifiers_m20",
+ "error": "Syntax error at line 5 column 34. Unexpected EQUALS symbol \"=\" in state 688.",
+ "log": [
+  "Syntax error at line 5 column 34. Unexpected EQUALS symbol \"=\" in state 688."
+ ],
+ "files": []
+}

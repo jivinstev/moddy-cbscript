@@ -1,0 +1,55 @@
+{
+ "id": "corpus/programs/item_modifiers.cbscript",
+ "ok": true,
+ "namespace": "item_modifiers",
+ "error": null,
+ "log": [
+  "Warning: an item modifier's \"conditions\" list is not read on this Minecraft: write one \"condition\": {\"type\": \"minecraft:...\", ...} (several: {\"type\": \"minecraft:all_of\", \"terms\": [...]})."
+ ],
+ "files": [
+  [
+   "data/item_modifiers/function/reset.mcfunction",
+   "data modify storage item_modifiers:global args set value {}\ndata modify storage item_modifiers stack set value []\ngamerule max_command_sequence_length 1000000000\nsay item modifiers"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"item_modifiers:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 121,\n        \"description\": \"Item modifiers in each loot-function shape (26.3 renames function to type)\",\n        \"min_format\": [\n            121,\n            0\n        ],\n        \"max_format\": [\n            121,\n            0\n        ]\n    }\n}"
+  ],
+  [
+   "data/item_modifiers/item_modifier/plain.json",
+   "{\"type\":\"minecraft:set_count\",\"count\":3}"
+  ],
+  [
+   "data/item_modifiers/item_modifier/already_typed.json",
+   "{\"type\":\"minecraft:set_count\",\"count\":1}"
+  ],
+  [
+   "data/item_modifiers/item_modifier/both_keys.json",
+   "{\"function\":\"minecraft:set_count\",\"type\":\"minecraft:set_count\",\"count\":1}"
+  ],
+  [
+   "data/item_modifiers/item_modifier/with_conditions.json",
+   "{\"type\":\"minecraft:set_damage\",\"damage\":0.5,\"conditions\":[{\"condition\":\"minecraft:random_chance\",\"chance\":0.25}]}"
+  ],
+  [
+   "data/item_modifiers/item_modifier/not_json.json",
+   "{\"function\":\"minecraft:set_count\",\"count\":2b}"
+  ],
+  [
+   "data/item_modifiers/item_modifier/unicode_name.json",
+   "{\"type\":\"minecraft:set_name\",\"name\":{\"text\":\"Été ☃\",\"italic\":false},\"nested\":{\"function\":\"kept\"}}"
+  ],
+  [
+   "data/item_modifiers/item_modifier/big_numbers.json",
+   "{\"type\":\"minecraft:set_count\",\"count\":100000000000000000000,\"z\":-0.0}"
+  ]
+ ]
+}

@@ -1,0 +1,54 @@
+# mutant of corpus/programs/switches.cbscript: replace token 'end' with 'as' on line 9
+dir "."
+desc "Numeric switches"
+
+reset
+	x = 3
+	switch x
+		case 1
+			/say one
+		as
+		case 2 to 4
+			/say two to four
+			/say second
+		end
+		case 5
+			x = 1
+			y = 2
+		end
+	end
+	switch x + 1
+		case 0
+			/say zero
+		end
+	end
+	switch x
+		case 1
+			/say a
+		end
+		case 2
+			/say b
+		end
+		case 3
+			/say c
+		end
+		case 4
+			/say d
+		end
+		case 5
+			/say e
+		end
+		case 6
+			/say f
+		end
+		case 7
+			/say g
+		end
+		case 8
+			/say h
+		end
+		case 9
+			/say $(macro) i
+		end
+	end
+end

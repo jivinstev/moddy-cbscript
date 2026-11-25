@@ -1,0 +1,10 @@
+{
+ "id": "Scripts/archived 1.15 scripts/stardew_fishing.cbscript",
+ "ok": false,
+ "namespace": "stardew_fishing",
+ "error": "Syntax error at line 1 column 4. Unexpected COLON symbol \":\" in state 75.",
+ "log": [
+  "Syntax error at line 1 column 4. Unexpected COLON symbol \":\" in state 75."
+ ],
+ "files": []
+}

@@ -1,0 +1,25 @@
+{
+ "id": "corpus/mutants/selectors_m21.cbscript",
+ "ok": true,
+ "namespace": "selectors_m21",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/selectors_m21/function/reset.mcfunction",
+   "data modify storage selectors_m21:global args set value {}\ndata modify storage selectors_m21 stack set value []\ngamerule max_command_sequence_length 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"selectors_m21:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 101,\n        \"description\": \"No Description\",\n        \"min_format\": [\n            101,\n            1\n        ],\n        \"max_format\": [\n            101,\n            1\n        ]\n    }\n}"
+  ]
+ ]
+}

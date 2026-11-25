@@ -1,0 +1,33 @@
+{
+ "id": "corpus/mutants/item_modifiers_m11.cbscript",
+ "ok": true,
+ "namespace": "item_modifiers_m11",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/item_modifiers_m11/function/reset.mcfunction",
+   "data modify storage item_modifiers_m11:global args set value {}\ndata modify storage item_modifiers_m11 stack set value []\ngamerule maxCommandChainLength 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"item_modifiers_m11:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"Item modifiers in each loot-function shape (26.3 renames function to type)\"\n    }\n}"
+  ],
+  [
+   "data/item_modifiers_m11/item_modifier/plain.json",
+   "{\"function\":\"minecraft:set_count\",\"count\":3}"
+  ],
+  [
+   "data/item_modifiers_m11/item_modifier/already_typed.json",
+   "{\"type\":\"minecraft:set_count\",\"count\":1}"
+  ]
+ ]
+}

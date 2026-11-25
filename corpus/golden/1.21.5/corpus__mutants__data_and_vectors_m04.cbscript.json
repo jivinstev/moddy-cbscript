@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/data_and_vectors_m04.cbscript",
+ "ok": false,
+ "namespace": "data_and_vectors_m04",
+ "error": "Syntax error at line 63 column 17. Unexpected DOLLAR symbol \"$\" in state 8.",
+ "log": [
+  "Syntax error at line 63 column 17. Unexpected DOLLAR symbol \"$\" in state 8."
+ ],
+ "files": []
+}

@@ -1,0 +1,9 @@
+dir "."
+reset
+	with
+		$(a) = "text"
+		$(b) = 5
+	do
+		/say $(a) $(b)
+	end
+end

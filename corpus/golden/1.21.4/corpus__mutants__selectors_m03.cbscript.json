@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/selectors_m03.cbscript",
+ "ok": false,
+ "namespace": "selectors_m03",
+ "error": "Syntax error at line 37 column 30. Unexpected at symbol \"at\" in state 104.",
+ "log": [
+  "Syntax error at line 37 column 30. Unexpected at symbol \"at\" in state 104."
+ ],
+ "files": []
+}

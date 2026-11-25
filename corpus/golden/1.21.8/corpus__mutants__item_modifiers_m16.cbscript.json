@@ -1,0 +1,53 @@
+{
+ "id": "corpus/mutants/item_modifiers_m16.cbscript",
+ "ok": true,
+ "namespace": "item_modifiers_m16",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/item_modifiers_m16/function/reset.mcfunction",
+   "data modify storage item_modifiers_m16:global args set value {}\ndata modify storage item_modifiers_m16 stack set value []\ngamerule maxCommandChainLength 1000000000\nsay item modifiers"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"item_modifiers_m16:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"No Description\"\n    }\n}"
+  ],
+  [
+   "data/item_modifiers_m16/item_modifier/plain.json",
+   "{\"function\":\"minecraft:set_count\",\"count\":3}"
+  ],
+  [
+   "data/item_modifiers_m16/item_modifier/already_typed.json",
+   "{\"type\":\"minecraft:set_count\",\"count\":1}"
+  ],
+  [
+   "data/item_modifiers_m16/item_modifier/both_keys.json",
+   "{\"function\":\"minecraft:set_count\",\"type\":\"minecraft:set_count\",\"count\":1}"
+  ],
+  [
+   "data/item_modifiers_m16/item_modifier/with_conditions.json",
+   "{\"function\":\"minecraft:set_damage\",\"damage\":0.5,\"conditions\":[{\"condition\":\"minecraft:random_chance\",\"chance\":0.25}]}"
+  ],
+  [
+   "data/item_modifiers_m16/item_modifier/not_json.json",
+   "{\"function\":\"minecraft:set_count\",\"count\":2b}"
+  ],
+  [
+   "data/item_modifiers_m16/item_modifier/unicode_name.json",
+   "{\"function\":\"minecraft:set_name\",\"name\":{\"text\":\"Été ☃\",\"italic\":false},\"nested\":{\"function\":\"kept\"}}"
+  ],
+  [
+   "data/item_modifiers_m16/item_modifier/big_numbers.json",
+   "{\"function\":\"minecraft:set_count\",\"count\":100000000000000000000,\"z\":-0.0}"
+  ]
+ ]
+}

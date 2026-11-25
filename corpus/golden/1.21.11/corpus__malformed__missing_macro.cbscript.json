@@ -1,0 +1,13 @@
+{
+ "id": "corpus/malformed/missing_macro.cbscript",
+ "ok": false,
+ "namespace": "missing_macro",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Line 3: macro \"nothere\" does not exist",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}
