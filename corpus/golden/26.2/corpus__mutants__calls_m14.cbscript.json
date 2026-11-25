@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/calls_m14.cbscript",
+ "ok": false,
+ "namespace": "calls_m14",
+ "error": "Syntax error at line 88 column 12. Unexpected ID symbol \"a\" in state 779.",
+ "log": [
+  "Syntax error at line 88 column 12. Unexpected ID symbol \"a\" in state 779."
+ ],
+ "files": []
+}

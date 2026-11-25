@@ -1,0 +1,29 @@
+{
+ "id": "corpus/mutants/expressions_m19.cbscript",
+ "ok": true,
+ "namespace": "expressions_m19",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/expressions_m19/function/reset.mcfunction",
+   "data modify storage expressions_m19:global args set value {}\ndata modify storage expressions_m19 stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add q dummy\nscoreboard objectives add p dummy\nscoreboard objectives add h dummy\nscoreboard objectives add g dummy\nscoreboard objectives add x dummy\nscoreboard objectives add f dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add Param1 dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add e dummy\nscoreboard objectives add d dummy\nscoreboard objectives add deaths dummy\nscoreboard objectives add kills dummy\nscoreboard objectives add hp dummy\nscoreboard objectives add c dummy\nscoreboard objectives add b dummy\nscoreboard objectives add a dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c0 Constant 0\nscoreboard players set minus Constant -1\nscoreboard players set c7 Constant 7\nscoreboard players set c2 Constant 2\nscoreboard players set c3 Constant 3\nscoreboard objectives add _scratch1 dummy\nscoreboard objectives add _scratch0 dummy\nscoreboard players set Global a 1\nscoreboard players set Global b 2\nscoreboard players operation Global _scratch0 = Global b\nscoreboard players operation Global _scratch0 *= c3 Constant\nscoreboard players operation Global c = Global a\nscoreboard players operation Global c += Global _scratch0\nscoreboard players set Global _scratch0 4\nscoreboard players operation Global _scratch0 /= c2 Constant\nscoreboard players operation Global _scratch0 %= c7 Constant\nscoreboard players operation Global c -= Global _scratch0\nscoreboard players operation Global c = Global a\nscoreboard players operation Global c += Global b\nscoreboard players operation Global _scratch0 = Global c\nscoreboard players operation Global _scratch0 -= Global a\nscoreboard players operation Global c *= Global _scratch0\nscoreboard players operation Global c = Global a\nscoreboard players operation Global c *= minus Constant\nscoreboard players operation Global c = Global a\nscoreboard players add Global c 3\nscoreboard players operation Global c *= minus Constant\nscoreboard players operation Global _scratch0 = Global a\nscoreboard players operation Global _scratch1 = Global _scratch0\nscoreboard players operation Global _scratch0 *= Global _scratch1\nscoreboard players operation Global _scratch0 *= Global _scratch1\nscoreboard players operation Global c = Global _scratch0\nscoreboard players add Global c 5\nscoreboard players add Global c 5\nscoreboard players operation Global c *= Global a\nscoreboard players operation Global c /= c2 Constant\nscoreboard players operation Global c %= c3 Constant\nscoreboard players add Global c 1\nscoreboard players remove Global c 1\nscoreboard players set Global c 31\nscoreboard players add Global c 5\nscoreboard players add Global c 7\nscoreboard players remove Global c 16\nscoreboard players operation Global _scratch0 = @s hp\nscoreboard players add Global _scratch0 1\nscoreboard players operation @s hp = Global _scratch0\nscoreboard players add @a kills 1\nscoreboard players operation @p deaths -= @s deaths\nscoreboard players set Global d 10000\nscoreboard players set Global d 10000\nscoreboard players set Global Param0 1\nscoreboard players set Global Param1 2\nfunction expressions_m19:add\nscoreboard players operation Global e = Global ReturnValue\nscoreboard players set Global Param0 3\nfunction expressions_m19:method_like\nscoreboard players operation Global f = Global ReturnValue\nscoreboard players set Global x 5\nscoreboard players operation Global x += Global x\nscoreboard players add Global x 3\nscoreboard players operation Global x *= c3 Constant\nscoreboard players operation Global x *= c3 Constant\nscoreboard players operation Global x -= c0 Constant\nscoreboard players remove Global x 4\nscoreboard players set Global g 21\nscoreboard players set Global h 21\nscoreboard players operation Global h *= c2 Constant"
+  ],
+  [
+   "data/expressions_m19/function/add.mcfunction",
+   "scoreboard players operation Global q = Global Param1\nscoreboard players operation Global p = Global Param0\nscoreboard players operation Global ReturnValue = Global p\nscoreboard players operation Global ReturnValue += Global q"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"expressions_m19:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 107,\n        \"description\": \"Scalar expressions\",\n        \"min_format\": [\n            107,\n            1\n        ],\n        \"max_format\": [\n            107,\n            1\n        ]\n    }\n}"
+  ]
+ ]
+}
