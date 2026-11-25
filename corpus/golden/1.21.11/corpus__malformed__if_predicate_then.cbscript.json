@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/if_predicate_then.cbscript",
+ "ok": false,
+ "namespace": "if_predicate_then",
+ "error": "Syntax error at line 36 column 12. Unexpected then symbol \"then\" in state 568.",
+ "log": [
+  "Syntax error at line 36 column 12. Unexpected then symbol \"then\" in state 568."
+ ],
+ "files": []
+}

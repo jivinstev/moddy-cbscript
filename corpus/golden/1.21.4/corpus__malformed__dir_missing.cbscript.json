@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/dir_missing.cbscript",
+ "ok": false,
+ "namespace": "dir_missing",
+ "error": "Syntax error at line 1 column 1. Unexpected desc symbol \"desc\" in state 0.",
+ "log": [
+  "Syntax error at line 1 column 1. Unexpected desc symbol \"desc\" in state 0."
+ ],
+ "files": []
+}

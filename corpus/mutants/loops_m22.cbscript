@@ -1,0 +1,36 @@
+# mutant of corpus/programs/loops.cbscript: replace token 'end' with '@s' on line 31
+dir "."
+desc "Loops"
+
+reset
+	for i = 1 to 10
+		/say $i
+		total += i
+	end
+	for j = 10 to 0 by -2
+		total -= j
+	end
+	for k = 0 to 9 by 3
+		total += k
+	end
+	step = 2
+	for m = 0 to 20 by step
+		total += m
+	end
+	for $x in $range(3)
+		/say compile time $x
+	end
+	for $a, $b in [(1, 2), (3, 4)]
+		/say pair $a $b
+	end
+	for $p, $q, $r in [(1, 2, 3)]
+		/say triple $p $q $r
+	end
+	for @pl in @a
+		@pl.visits += 1
+		/say @pl
+	@s
+	for $s in ["a", "b"]
+		/say $s
+	end
+end

@@ -1,0 +1,25 @@
+{
+ "id": "corpus/mutants/grammar_gaps_m02.cbscript",
+ "ok": true,
+ "namespace": "grammar_gaps_m02",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/grammar_gaps_m02/function/reset.mcfunction",
+   "data modify storage grammar_gaps_m02:global args set value {}\ndata modify storage grammar_gaps_m02 stack set value []\ngamerule maxCommandChainLength 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"grammar_gaps_m02:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 88,\n        \"description\": \"Productions the other programs do not reach\",\n        \"min_format\": [\n            88,\n            0\n        ],\n        \"max_format\": [\n            88,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}

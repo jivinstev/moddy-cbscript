@@ -1,0 +1,25 @@
+{
+ "id": "corpus/programs/no_desc.cbscript",
+ "ok": true,
+ "namespace": "no_desc",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/no_desc/function/reset.mcfunction",
+   "data modify storage no_desc:global args set value {}\ndata modify storage no_desc stack set value []\ngamerule maxCommandChainLength 1000000000\nsay no desc"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"no_desc:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

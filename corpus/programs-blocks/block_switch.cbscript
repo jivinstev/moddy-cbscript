@@ -1,0 +1,55 @@
+dir "."
+desc "Block switches (read blocks.json)"
+
+define block_tag ores
+	coal_ore
+	iron_ore
+end
+
+reset
+	switch block
+		case stone
+			/say stone $block_name
+		end
+		case oak_stairs[facing=north]
+			/say $block_state $block_id
+		end
+		case ores
+			/say ore $falling_block_nbt
+		end
+	end
+	switch block at ~ ~-1 ~
+		case grass_block
+			/say grass
+		end
+		default
+			/say other $block_name
+		end
+	end
+	switch block_data
+		case farmland[moisture=7]
+			/say wet
+		end
+		case *
+			x = 1
+		end
+	end
+	id = 5
+	switch block id
+		case stone
+			/say stone by id
+		end
+		case dirt
+			/say dirt by id
+		end
+	end
+	switch block_data id
+		case redstone_wire[power=15]
+			/say powered
+		end
+	end
+	$nb = $get_num_blocks()
+	/say $nb
+	$ns = $get_num_block_states()
+	/say $ns
+end

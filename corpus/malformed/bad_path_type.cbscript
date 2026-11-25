@@ -1,0 +1,4 @@
+dir "."
+define @A = @e
+	hp = Health bigint
+end
