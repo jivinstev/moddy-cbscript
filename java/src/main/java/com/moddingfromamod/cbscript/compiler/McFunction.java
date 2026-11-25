@@ -803,6 +803,7 @@ public final class McFunction {
 
     public void compileBlocks(List<Block> lines) {
         for (Block block : lines) {
+            com.moddingfromamod.cbscript.py.Cancelled.check();
             try {
                 block.compile(this);
             } catch (PyException e) {
