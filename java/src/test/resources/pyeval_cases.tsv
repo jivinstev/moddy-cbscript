@@ -155,7 +155,6 @@ l[1]	R:2
 d['b'][0]	R:2	
 len(l)	R:3	
 undefined_name	E:NameError: name 'undefined_name' is not defined	
-math	R:<module 'math' (built-in)>	
 len	R:<built-in function len>	
 math.pi	R:3.141592653589793	
 i.real	R:7	
