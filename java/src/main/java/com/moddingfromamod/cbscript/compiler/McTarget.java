@@ -9,6 +9,7 @@ public final class McTarget {
 
     /** pack_format per release, newest first; a version takes the first row it reaches: {since, {major, minor}}. */
     private static final int[][][] PACK_FORMATS = {
+            {{1, 21, 11}, {94, 1}},
             {{1, 21, 9}, {88, 0}},
             {{1, 21, 7}, {81}},
             {{1, 21, 6}, {80}},
@@ -118,8 +119,9 @@ public final class McTarget {
         return pack;
     }
 
+    /** 1.21.11 moved game rules into a registry with snake_case ids; the one rule the compiler writes itself. */
     public String maxChainRule() {
-        return "maxCommandChainLength";
+        return atLeast(1, 21, 11) ? "max_command_sequence_length" : "maxCommandChainLength";
     }
 
     /** Entity NBT fields the target names differently: old -> {new, numeric suffix of its type}. */
