@@ -1,0 +1,4 @@
+dir "."
+reset
+	$print(1 / 0)
+end

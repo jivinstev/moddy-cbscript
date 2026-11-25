@@ -1,0 +1,29 @@
+{
+ "id": "corpus/malformed/no_reset_section.cbscript",
+ "ok": true,
+ "namespace": "no_reset_section",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/no_reset_section/function/tick.mcfunction",
+   "scoreboard players add Global x 1"
+  ],
+  [
+   "data/no_reset_section/function/reset.mcfunction",
+   "data modify storage no_reset_section:global args set value {}\ndata modify storage no_reset_section stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add x dummy"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"no_reset_section:tick\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"no_reset_section:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

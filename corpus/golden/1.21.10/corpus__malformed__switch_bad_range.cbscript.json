@@ -1,0 +1,13 @@
+{
+ "id": "corpus/malformed/switch_bad_range.cbscript",
+ "ok": false,
+ "namespace": "switch_bad_range",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> ValueError: \"case 3-1\" has invalid range at line 4",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

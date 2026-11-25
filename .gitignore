@@ -7,3 +7,4 @@ parsetab.py
 .venv/
 parser.out
 Scripts/datapacks/
+java/build/

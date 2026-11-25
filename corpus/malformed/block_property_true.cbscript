@@ -1,0 +1,19 @@
+dir "."
+desc "Block switch case properties"
+
+reset
+	switch block
+		case oak_stairs[half=top, shape=straight]
+			/say top
+		end
+		case repeater[facing=north, delay=2]
+			/say rep
+		end
+		case lever[facing=2]
+			/say lever
+		end
+		case note_block[note=3, powered=true]
+			/say note
+		end
+	end
+end

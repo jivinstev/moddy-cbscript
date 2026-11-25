@@ -1,0 +1,33 @@
+{
+ "id": "Scripts/archived 1.16 scripts/cbscript116test.cbscript",
+ "ok": true,
+ "namespace": "cbscript116test",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/cbscript116test/function/reset.mcfunction",
+   "data modify storage cbscript116test:global args set value {}\ndata modify storage cbscript116test stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add prev_y dummy\nscoreboard objectives add mai_scratch0 dummy\ntellraw @a [\"\",{\"text\":\"1.16 Test Script Reloaded\"}]"
+  ],
+  [
+   "data/cbscript116test/function/main.mcfunction",
+   "execute as @a run function cbscript116test:line011/execute1"
+  ],
+  [
+   "data/cbscript116test/function/line011/execute1.mcfunction",
+   "execute store result score Global mai_scratch0 run data get entity @s Pos[1] 10000\nexecute if score Global mai_scratch0 > @s prev_y run tellraw @s [\"\",{\"text\":\"Going up!\"}]\nexecute store result score @s prev_y run data get entity @s Pos[1] 10000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"cbscript116test:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"cbscript116test:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 88,\n        \"description\": \"1.16 Test Script\",\n        \"min_format\": [\n            88,\n            0\n        ],\n        \"max_format\": [\n            88,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}

@@ -1,0 +1,189 @@
+{
+ "id": "Scripts/archived 1.18 scripts/minedas_touch.cbscript",
+ "ok": true,
+ "namespace": "minedas_touch",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/minedas_touch/function/sqrt.mcfunction",
+   "scoreboard players operation Global _x = Global Param0\nscoreboard players set Global sqr_scratch0 1\nexecute if score Global _x matches 0.. if score Global _x matches ..19310 run function minedas_touch:line003/execute1\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 19311.. if score Global _x matches ..1705544 run function minedas_touch:line003/else2\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 1705545.. if score Global _x matches ..39400514 run function minedas_touch:line003/else3\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 39400515.. if score Global _x matches ..455779650 run function minedas_touch:line003/else4\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 455779651.. if score Global _x matches ..2147483647 run function minedas_touch:line003/else5\nscoreboard players operation Global sqr_scratch0 = Global _x\nscoreboard players operation Global sqr_scratch0 /= sqrt y\nscoreboard players operation sqrt y += Global sqr_scratch0\nscoreboard players operation sqrt y /= c2 Constant\nscoreboard players operation Global sqr_scratch0 = sqrt y\nscoreboard players operation Global sqr_scratch0 *= sqrt y\nexecute if score Global sqr_scratch0 > Global _x run scoreboard players remove sqrt y 1\nscoreboard players operation Global ReturnValue = sqrt y"
+  ],
+  [
+   "data/minedas_touch/function/line003/execute1.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 4095\nscoreboard players set sqrt y -594039\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 149\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/line003/else2.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 903167\nscoreboard players set sqrt y -1568669636\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 1857\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/line003/else3.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c141 Constant\nscoreboard players add Global sqr_scratch1 224767\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 10425\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/line003/else4.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c7775 Constant\nscoreboard players add Global sqr_scratch1 60419\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 39184\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/line003/else5.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c100000 Constant\nscoreboard players add Global sqr_scratch1 26111\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 91181"
+  ],
+  [
+   "data/minedas_touch/function/abs.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global abs_scratch0 1\nexecute if score Global n matches ..-1 run function minedas_touch:line025/execute6\nexecute if score Global abs_scratch0 matches 1.. run scoreboard players operation Global ReturnValue = Global n"
+  ],
+  [
+   "data/minedas_touch/function/line025/execute6.mcfunction",
+   "scoreboard players operation Global ReturnValue = Global n\nscoreboard players operation Global ReturnValue *= minus Constant\nscoreboard players set Global abs_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/sin.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c360 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 181.. run function minedas_touch:line035/execute7\nscoreboard players operation Global ReturnValue = Global _sin_angle\nscoreboard players operation Global ReturnValue *= c4000 Constant\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global ReturnValue *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global sin_scratch1 = Global _sin_angle\nscoreboard players operation Global sin_scratch1 *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 40500\nscoreboard players operation Global sin_scratch0 -= Global sin_scratch1\nscoreboard players operation Global ReturnValue /= Global sin_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/minedas_touch/function/line035/execute7.mcfunction",
+   "scoreboard players remove Global _sin_angle 180\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/minedas_touch/function/sin_precise.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c36000 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 18001.. run function minedas_touch:line048/execute8\nscoreboard players set Global sin2_scratch0 18000\nscoreboard players operation Global sin2_scratch0 -= Global _sin_angle\nscoreboard players operation Global _angle_sq = Global _sin_angle\nscoreboard players operation Global _angle_sq *= Global sin2_scratch0\nscoreboard players operation Global _angle_sq /= c100 Constant\nscoreboard players operation Global ReturnValue = Global _angle_sq\nscoreboard players operation Global ReturnValue *= c4 Constant\nscoreboard players operation Global ReturnValue *= c100 Constant\nscoreboard players set Global sin2_scratch0 4050000\nscoreboard players operation Global sin2_scratch0 -= Global _angle_sq\nscoreboard players operation Global ReturnValue /= Global sin2_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/minedas_touch/function/line048/execute8.mcfunction",
+   "scoreboard players remove Global _sin_angle 18000\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/minedas_touch/function/cos.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos_scratch0 = Global _cos_angle\nscoreboard players add Global cos_scratch0 90\nscoreboard players operation Global Param0 = Global cos_scratch0\nfunction minedas_touch:sin"
+  ],
+  [
+   "data/minedas_touch/function/cos_precise.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos2_scratch0 = Global _cos_angle\nscoreboard players add Global cos2_scratch0 9000\nscoreboard players operation Global Param0 = Global cos2_scratch0\nfunction minedas_touch:sin_precise"
+  ],
+  [
+   "data/minedas_touch/function/sign.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global sig_scratch0 1\nexecute if score Global n matches 1.. run function minedas_touch:line068/execute9\nexecute if score Global sig_scratch0 matches 1.. if score Global n matches ..-1 run function minedas_touch:line068/else10\nexecute if score Global sig_scratch0 matches 1.. run scoreboard players set Global ReturnValue 0"
+  ],
+  [
+   "data/minedas_touch/function/line068/execute9.mcfunction",
+   "scoreboard players set Global ReturnValue 1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/line068/else10.mcfunction",
+   "scoreboard players set Global ReturnValue -1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/reset.mcfunction",
+   "data modify storage minedas_touch:global args set value {}\ndata modify storage minedas_touch stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add z_d dummy\nscoreboard objectives add z_ad dummy\nscoreboard objectives add y_d dummy\nscoreboard objectives add y_ad dummy\nscoreboard objectives add x_d dummy\nscoreboard objectives add x_ad dummy\nscoreboard objectives add Param2 dummy\nscoreboard objectives add Param1 dummy\nscoreboard objectives add fz dummy\nscoreboard objectives add iz dummy\nscoreboard objectives add fy dummy\nscoreboard objectives add iy dummy\nscoreboard objectives add fx dummy\nscoreboard objectives add ix dummy\nscoreboard objectives add debug_cursor dummy\nscoreboard objectives add z_dz dummy\nscoreboard objectives add z_dy dummy\nscoreboard objectives add z_dx dummy\nscoreboard objectives add zcomp dummy\nscoreboard objectives add y_dz dummy\nscoreboard objectives add y_dy dummy\nscoreboard objectives add y_dx dummy\nscoreboard objectives add ycomp dummy\nscoreboard objectives add x_dz dummy\nscoreboard objectives add x_dy dummy\nscoreboard objectives add x_dx dummy\nscoreboard objectives add xcomp dummy\nscoreboard objectives add distsq dummy\nscoreboard objectives add z dummy\nscoreboard objectives add x dummy\nscoreboard objectives add step dummy\nscoreboard objectives add adz dummy\nscoreboard objectives add ady dummy\nscoreboard objectives add adx dummy\nscoreboard objectives add dz dummy\nscoreboard objectives add dy dummy\nscoreboard objectives add dx dummy\nscoreboard objectives add z2 dummy\nscoreboard objectives add y2 dummy\nscoreboard objectives add x2 dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add z1 dummy\nscoreboard objectives add y1 dummy\nscoreboard objectives add x1 dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add _cos_angle dummy\nscoreboard objectives add _angle_sq dummy\nscoreboard objectives add mult dummy\nscoreboard objectives add _sin_angle dummy\nscoreboard objectives add n dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add y dummy\nscoreboard objectives add _x dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c10000 Constant 10000\nscoreboard players set c28 Constant 28\nscoreboard players set c4 Constant 4\nscoreboard players set c100 Constant 100\nscoreboard players set c36000 Constant 36000\nscoreboard players set c4000 Constant 4000\nscoreboard players set c360 Constant 360\nscoreboard players set minus Constant -1\nscoreboard players set c2 Constant 2\nscoreboard players set c100000 Constant 100000\nscoreboard players set c7775 Constant 7775\nscoreboard players set c141 Constant 141\nscoreboard objectives add mov_scratch0 dummy\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nscoreboard objectives add sig_scratch0 dummy\nscoreboard objectives add cos2_scratch0 dummy\nscoreboard objectives add cos_scratch0 dummy\nscoreboard objectives add sin2_scratch0 dummy\nscoreboard objectives add sin_scratch1 dummy\nscoreboard objectives add sin_scratch0 dummy\nscoreboard objectives add abs_scratch0 dummy\nscoreboard objectives add sqr_scratch1 dummy\nscoreboard objectives add sqr_scratch0 dummy"
+  ],
+  [
+   "data/minedas_touch/function/main.mcfunction",
+   "#\tas @Player[gamemode=!spectator] at @s eyes\n#\t\t/gamerule doTileDrops false\n#\t\tfor $d in $range(0, 501)\n#\t\t\t$forward = $d / 100.0\n#\t\t\tat ^ ^ ^$forward do mine_block()\n#\t\tend\n#\t\t/gamerule doTileDrops true\n#\t\t/effect give @s night_vision 100 0 true\n#\tend\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nexecute as @a[gamemode=!spectator] run function minedas_touch:line026/execute27"
+  ],
+  [
+   "data/minedas_touch/function/line048/for011.mcfunction",
+   "execute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global x = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global y = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global z = 0-0-0-0-C1 _pos_2\nscoreboard players operation Global distsq = Global x\nscoreboard players operation Global distsq -= Global x1\nscoreboard players operation Global distsq /= c100 Constant\nscoreboard players operation Global mai_scratch0 = Global distsq\nscoreboard players operation Global distsq *= Global mai_scratch0\nscoreboard players operation Global mai_scratch0 = Global y\nscoreboard players operation Global mai_scratch0 -= Global y1\nscoreboard players operation Global mai_scratch0 /= c100 Constant\nscoreboard players operation Global mai_scratch1 = Global mai_scratch0\nscoreboard players operation Global mai_scratch0 *= Global mai_scratch1\nscoreboard players operation Global distsq += Global mai_scratch0\nscoreboard players operation Global mai_scratch0 = Global z\nscoreboard players operation Global mai_scratch0 -= Global z1\nscoreboard players operation Global mai_scratch0 /= c100 Constant\nscoreboard players operation Global mai_scratch1 = Global mai_scratch0\nscoreboard players operation Global mai_scratch0 *= Global mai_scratch1\nscoreboard players operation Global distsq += Global mai_scratch0\nscoreboard players set Global mai_scratch1 10000\nscoreboard players operation Global mai_scratch1 /= c100 Constant\nscoreboard players operation Global mai_scratch1 *= c28 Constant\nscoreboard players set Global mai_scratch2 10000\nscoreboard players operation Global mai_scratch2 /= c100 Constant\nscoreboard players operation Global mai_scratch1 *= Global mai_scratch2\nscoreboard players set Global mai_scratch0 1\nexecute if score Global distsq <= Global mai_scratch1 run function minedas_touch:line052/execute26\nexecute if score Global mai_scratch0 matches 1.. run scoreboard players set Global step 100\nscoreboard players add Global step 1\nexecute if score Global step <= c100 Constant run function minedas_touch:line048/for011"
+  ],
+  [
+   "data/minedas_touch/function/line059/execute12.mcfunction",
+   "scoreboard players set Global xcomp 1000000000\nscoreboard players set Global x_dx 1000000000\nscoreboard players set Global x_dy 1000000000\nscoreboard players set Global x_dz 1000000000\nscoreboard players set Global mai_scratch2 0"
+  ],
+  [
+   "data/minedas_touch/function/line066/execute13.mcfunction",
+   "scoreboard players set Global mai_scratch3 10000\nscoreboard players add Global mai_scratch3 1\nscoreboard players operation Global xcomp -= Global mai_scratch3"
+  ],
+  [
+   "data/minedas_touch/function/line059/else14.mcfunction",
+   "scoreboard players operation Global mai_scratch3 = Global x\nscoreboard players operation Global mai_scratch3 %= c10000 Constant\nscoreboard players set Global xcomp 10000\nscoreboard players operation Global xcomp -= Global mai_scratch3\nexecute if score Global dx matches ..-1 run function minedas_touch:line066/execute13\nscoreboard players operation Global x_dx = Global xcomp\nscoreboard players operation Global x_dy = Global xcomp\nscoreboard players operation Global x_dy *= Global dy\nscoreboard players operation Global x_dy /= Global dx\nscoreboard players operation Global x_dz = Global xcomp\nscoreboard players operation Global x_dz *= Global dz\nscoreboard players operation Global x_dz /= Global dx"
+  ],
+  [
+   "data/minedas_touch/function/line075/execute15.mcfunction",
+   "scoreboard players set Global ycomp 1000000000\nscoreboard players set Global y_dx 1000000000\nscoreboard players set Global y_dy 1000000000\nscoreboard players set Global y_dz 1000000000\nscoreboard players set Global mai_scratch2 0"
+  ],
+  [
+   "data/minedas_touch/function/line082/execute16.mcfunction",
+   "scoreboard players set Global mai_scratch3 10000\nscoreboard players add Global mai_scratch3 1\nscoreboard players operation Global ycomp -= Global mai_scratch3"
+  ],
+  [
+   "data/minedas_touch/function/line075/else17.mcfunction",
+   "scoreboard players operation Global mai_scratch3 = Global y\nscoreboard players operation Global mai_scratch3 %= c10000 Constant\nscoreboard players set Global ycomp 10000\nscoreboard players operation Global ycomp -= Global mai_scratch3\nexecute if score Global dy matches ..-1 run function minedas_touch:line082/execute16\nscoreboard players operation Global y_dx = Global ycomp\nscoreboard players operation Global y_dx *= Global dx\nscoreboard players operation Global y_dx /= Global dy\nscoreboard players operation Global y_dy = Global ycomp\nscoreboard players operation Global y_dz = Global ycomp\nscoreboard players operation Global y_dz *= Global dz\nscoreboard players operation Global y_dz /= Global dy"
+  ],
+  [
+   "data/minedas_touch/function/line091/execute18.mcfunction",
+   "scoreboard players set Global zcomp 1000000000\nscoreboard players set Global z_dx 1000000000\nscoreboard players set Global z_dy 1000000000\nscoreboard players set Global z_dz 1000000000\nscoreboard players set Global mai_scratch2 0"
+  ],
+  [
+   "data/minedas_touch/function/line099/execute19.mcfunction",
+   "scoreboard players set Global mai_scratch3 10000\nscoreboard players add Global mai_scratch3 1\nscoreboard players operation Global zcomp -= Global mai_scratch3"
+  ],
+  [
+   "data/minedas_touch/function/line091/else20.mcfunction",
+   "scoreboard players operation Global mai_scratch3 = Global z\nscoreboard players operation Global mai_scratch3 %= c10000 Constant\nscoreboard players set Global zcomp 10000\nscoreboard players operation Global zcomp -= Global mai_scratch3\nexecute if score Global dz matches ..-1 run function minedas_touch:line099/execute19\nscoreboard players operation Global z_dx = Global zcomp\nscoreboard players operation Global z_dx *= Global dx\nscoreboard players operation Global z_dx /= Global dz\nscoreboard players operation Global z_dy = Global zcomp\nscoreboard players operation Global z_dy *= Global dy\nscoreboard players operation Global z_dy /= Global dz\nscoreboard players operation Global z_dz = Global zcomp"
+  ],
+  [
+   "data/minedas_touch/function/line109/execute21.mcfunction",
+   "execute at 0-0-0-0-C1 run particle minecraft:bubble\ntitle @a times 0 10 0\ntitle @a title [\"\"]\nscoreboard players operation Global ix = Global x\nscoreboard players operation Global ix /= c10000 Constant\nscoreboard players operation Global fx = Global x\nscoreboard players operation Global fx %= c10000 Constant\nscoreboard players operation Global iy = Global y\nscoreboard players operation Global iy /= c10000 Constant\nscoreboard players operation Global fy = Global y\nscoreboard players operation Global fy %= c10000 Constant\nscoreboard players operation Global iz = Global z\nscoreboard players operation Global iz /= c10000 Constant\nscoreboard players operation Global fz = Global z\nscoreboard players operation Global fz %= c10000 Constant\ntitle @a actionbar [\"\",{\"text\":\"#\"},{\"score\":{\"name\":\"Global\",\"objective\":\"step\"}},{\"text\":\" pos: \"},{\"score\":{\"name\":\"Global\",\"objective\":\"ix\"}},{\"text\":\".\"},{\"score\":{\"name\":\"Global\",\"objective\":\"fx\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"iy\"}},{\"text\":\".\"},{\"score\":{\"name\":\"Global\",\"objective\":\"fy\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"iz\"}},{\"text\":\".\"},{\"score\":{\"name\":\"Global\",\"objective\":\"fz\"}},{\"text\":\" comps: \"},{\"score\":{\"name\":\"Global\",\"objective\":\"xcomp\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"ycomp\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"zcomp\"}}]"
+  ],
+  [
+   "data/minedas_touch/function/line108/execute22.mcfunction",
+   "execute store result score Global mai_scratch2 run data get entity @s SelectedItemSlot 1\nscoreboard players add Global mai_scratch2 1\nexecute if score Global mai_scratch2 = Global step run function minedas_touch:line109/execute21"
+  ],
+  [
+   "data/minedas_touch/function/line129/execute23.mcfunction",
+   "scoreboard players operation Global Param0 = Global x_dx\nscoreboard players operation Global Param1 = Global y_dx\nscoreboard players operation Global Param2 = Global z_dx\nfunction minedas_touch:move_along_smallest\nscoreboard players set Global mai_scratch3 0"
+  ],
+  [
+   "data/minedas_touch/function/line129/else24.mcfunction",
+   "scoreboard players operation Global Param0 = Global x_dy\nscoreboard players operation Global Param1 = Global y_dy\nscoreboard players operation Global Param2 = Global z_dy\nfunction minedas_touch:move_along_smallest\nscoreboard players set Global mai_scratch3 0"
+  ],
+  [
+   "data/minedas_touch/function/line129/else25.mcfunction",
+   "scoreboard players operation Global Param0 = Global x_dz\nscoreboard players operation Global Param1 = Global y_dz\nscoreboard players operation Global Param2 = Global z_dz\nfunction minedas_touch:move_along_smallest"
+  ],
+  [
+   "data/minedas_touch/function/line052/execute26.mcfunction",
+   "execute at 0-0-0-0-C1 run function minedas_touch:mine_block\nscoreboard players set Global mai_scratch2 1\nexecute if score Global dx matches 0 run function minedas_touch:line059/execute12\nexecute if score Global mai_scratch2 matches 1.. run function minedas_touch:line059/else14\nscoreboard players set Global mai_scratch2 1\nexecute if score Global dy matches 0 run function minedas_touch:line075/execute15\nexecute if score Global mai_scratch2 matches 1.. run function minedas_touch:line075/else17\nscoreboard players set Global mai_scratch2 1\nexecute if score Global dz matches 0 run function minedas_touch:line091/execute18\nexecute if score Global mai_scratch2 matches 1.. run function minedas_touch:line091/else20\nexecute if score Global debug_cursor matches 1.. run function minedas_touch:line108/execute22\n# Use the most sensitive axis to determine which dimension\n# has the smallest step (since the step will always be largest\n# along that axis)\nscoreboard players set Global mai_scratch3 1\nexecute if score Global adx > Global ady if score Global adx > Global adz run function minedas_touch:line129/execute23\nexecute if score Global mai_scratch3 matches 1.. if score Global ady > Global adz run function minedas_touch:line129/else24\nexecute if score Global mai_scratch3 matches 1.. run function minedas_touch:line129/else25\nscoreboard players set Global mai_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/line026/execute27.mcfunction",
+   "execute at @s anchored eyes run tp 0-0-0-0-C1 ^ ^ ^\nexecute store result entity 0-0-0-0-C1 Rotation[1] float 0.0001 run data get entity @s Rotation[1] 10000\nexecute store result entity 0-0-0-0-C1 Rotation[0] float 0.0001 run data get entity @s Rotation[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global x1 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global y1 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global z1 = 0-0-0-0-C1 _pos_2\nexecute as 0-0-0-0-C1 at @s run tp @s ^ ^ ^1\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global x2 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global y2 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global z2 = 0-0-0-0-C1 _pos_2\nscoreboard players operation Global mai_scratch0 = Global x2\nscoreboard players operation Global mai_scratch1 = Global y2\nscoreboard players operation Global mai_scratch2 = Global z2\nscoreboard players operation Global mai_scratch0 -= Global x1\nscoreboard players operation Global mai_scratch1 -= Global y1\nscoreboard players operation Global mai_scratch2 -= Global z1\nscoreboard players operation Global dx = Global mai_scratch0\nscoreboard players operation Global dy = Global mai_scratch1\nscoreboard players operation Global dz = Global mai_scratch2\nscoreboard players operation Global Param0 = Global dx\nfunction minedas_touch:abs\nscoreboard players operation Global adx = Global ReturnValue\nscoreboard players operation Global Param0 = Global dy\nfunction minedas_touch:abs\nscoreboard players operation Global ady = Global ReturnValue\nscoreboard players operation Global Param0 = Global dz\nfunction minedas_touch:abs\nscoreboard players operation Global adz = Global ReturnValue\nexecute at @s anchored eyes run tp 0-0-0-0-C1 ^ ^ ^\nscoreboard players set Global step 1\nexecute if score Global step <= c100 Constant run function minedas_touch:line048/for011"
+  ],
+  [
+   "data/minedas_touch/function/move_along_smallest.mcfunction",
+   "scoreboard players operation Global z_d = Global Param2\nscoreboard players operation Global y_d = Global Param1\nscoreboard players operation Global x_d = Global Param0\nscoreboard players operation Global Param0 = Global x_d\nfunction minedas_touch:abs\nscoreboard players operation Global x_ad = Global ReturnValue\nscoreboard players operation Global Param0 = Global y_d\nfunction minedas_touch:abs\nscoreboard players operation Global y_ad = Global ReturnValue\nscoreboard players operation Global Param0 = Global z_d\nfunction minedas_touch:abs\nscoreboard players operation Global z_ad = Global ReturnValue\nscoreboard players set Global mov_scratch0 1\nexecute if score Global x_ad < Global y_ad if score Global x_ad < Global z_ad run function minedas_touch:line148/execute28\nexecute if score Global mov_scratch0 matches 1.. if score Global y_ad < Global z_ad run function minedas_touch:line148/else29\nexecute if score Global mov_scratch0 matches 1.. run function minedas_touch:line148/else30"
+  ],
+  [
+   "data/minedas_touch/function/line148/execute28.mcfunction",
+   "execute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation 0-0-0-0-C1 _pos_0 += Global x_dx\nscoreboard players operation 0-0-0-0-C1 _pos_1 += Global x_dy\nscoreboard players operation 0-0-0-0-C1 _pos_2 += Global x_dz\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nscoreboard players set Global mov_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/line148/else29.mcfunction",
+   "execute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation 0-0-0-0-C1 _pos_0 += Global y_dx\nscoreboard players operation 0-0-0-0-C1 _pos_1 += Global y_dy\nscoreboard players operation 0-0-0-0-C1 _pos_2 += Global y_dz\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nscoreboard players set Global mov_scratch0 0"
+  ],
+  [
+   "data/minedas_touch/function/line148/else30.mcfunction",
+   "execute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation 0-0-0-0-C1 _pos_0 += Global z_dx\nscoreboard players operation 0-0-0-0-C1 _pos_1 += Global z_dy\nscoreboard players operation 0-0-0-0-C1 _pos_2 += Global z_dz\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2"
+  ],
+  [
+   "data/minedas_touch/function/mine_block.mcfunction",
+   "execute unless block ~ ~ ~ #minedas_touch:unmineable run setblock ~ ~ ~ air destroy"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"minedas_touch:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"minedas_touch:reset\"\n    ]\n}"
+  ],
+  [
+   "data/minedas_touch/tags/block/unmineable.json",
+   "{\n    \"values\": [\n        \"minecraft:water\",\n        \"minecraft:bubble_column\",\n        \"minecraft:lava\",\n        \"minecraft:air\",\n        \"minecraft:cave_air\",\n        \"minecraft:nether_portal\",\n        \"minecraft:end_portal\",\n        \"minecraft:end_portal_frame\",\n        \"minecraft:end_gateway\",\n        \"minecraft:bedrock\",\n        \"minecraft:obsidian\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"Automatically mine the blocks in front of you\"\n    }\n}"
+  ]
+ ]
+}
