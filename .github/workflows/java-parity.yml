@@ -12,7 +12,9 @@ on:
 
 jobs:
   goldens:
-    runs-on: ubuntu-latest
+    # Pinned: the goldens (and the evaluator's math cases) are CPython on glibc 2.39 / x86-64 with FMA, whose libm the
+    # Java evaluator reproduces bit for bit (java/THIRD_PARTY.md). Move this together with a golden regeneration.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
