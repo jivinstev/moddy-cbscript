@@ -1,0 +1,5 @@
+dir "."
+reset
+	move @s ~	~ ~
+	move @s ~1 ~ ~
+end

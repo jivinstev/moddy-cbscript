@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/nonexistent_identifier.cbscript",
+ "ok": false,
+ "namespace": "nonexistent_identifier",
+ "error": "Syntax error at line 3 column 6. Unexpected ID symbol \"xistent\" in state 8.",
+ "log": [
+  "Syntax error at line 3 column 6. Unexpected ID symbol \"xistent\" in state 8."
+ ],
+ "files": []
+}

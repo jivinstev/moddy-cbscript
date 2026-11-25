@@ -1,0 +1,57 @@
+{
+ "id": "Scripts/archived 1.18 scripts/perf.cbscript",
+ "ok": true,
+ "namespace": "perf",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/perf/function/reset.mcfunction",
+   "data modify storage perf:global args set value {}\ndata modify storage perf stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add j dummy\nscoreboard objectives add count dummy\nscoreboard objectives add i dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c100 Constant 100\nscoreboard players set c10000 Constant 10000\nscoreboard players set c90 Constant 90\nscoreboard players set c10 Constant 10"
+  ],
+  [
+   "data/perf/function/test.mcfunction",
+   "kill @e[type=minecraft:marker]\nscoreboard players set Global i 1\nexecute if score Global i <= c10 Constant run function perf:line015/for001\nscoreboard players set Global i 1\nexecute if score Global i <= c90 Constant run function perf:line019/for002\ntellraw @a [\"\",{\"text\":\"Test A: All entities on each command\"}]\nscoreboard players set Global count 0\nscoreboard players set Global i 1\nexecute if score Global i <= c10000 Constant run function perf:line026/for003\ntellraw @a [\"\",{\"text\":\"Test A Complete\"}]\ntellraw @a [\"\",{\"text\":\"Test B: Tests for individual entities\"}]\nscoreboard players set Global count 0\nscoreboard players set Global i 1\nexecute if score Global i <= c10000 Constant run function perf:line035/for005\ntellraw @a [\"\",{\"text\":\"Test B Complete\"}]\nkill @e[type=minecraft:marker]"
+  ],
+  [
+   "data/perf/function/line015/for001.mcfunction",
+   "summon minecraft:marker ~ ~ ~ {\"Tags\":[\"yes\"]}\nscoreboard players add Global i 1\nexecute if score Global i <= c10 Constant run function perf:line015/for001"
+  ],
+  [
+   "data/perf/function/line019/for002.mcfunction",
+   "summon minecraft:marker ~ ~ ~\nscoreboard players add Global i 1\nexecute if score Global i <= c90 Constant run function perf:line019/for002"
+  ],
+  [
+   "data/perf/function/line026/for003.mcfunction",
+   "scoreboard players set Global j 1\nexecute if score Global j <= c100 Constant run function perf:line027/for004\nscoreboard players add Global i 1\nexecute if score Global i <= c10000 Constant run function perf:line026/for003"
+  ],
+  [
+   "data/perf/function/line027/for004.mcfunction",
+   "execute if entity @e[type=minecraft:marker,tag=yes] run scoreboard players add Global count 1\nscoreboard players add Global j 1\nexecute if score Global j <= c100 Constant run function perf:line027/for004"
+  ],
+  [
+   "data/perf/function/line035/for005.mcfunction",
+   "execute as @e[type=minecraft:marker,tag=yes] run function perf:line036/execute7\nscoreboard players add Global i 1\nexecute if score Global i <= c10000 Constant run function perf:line035/for005"
+  ],
+  [
+   "data/perf/function/line037/for006.mcfunction",
+   "execute if entity @s[tag=yes] run scoreboard players add Global count 1\nscoreboard players add Global j 1\nexecute if score Global j <= c100 Constant run function perf:line037/for006"
+  ],
+  [
+   "data/perf/function/line036/execute7.mcfunction",
+   "scoreboard players set Global j 1\nexecute if score Global j <= c100 Constant run function perf:line037/for006"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"perf:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"Test perf question\"\n    }\n}"
+  ]
+ ]
+}

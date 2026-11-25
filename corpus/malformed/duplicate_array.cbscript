@@ -1,0 +1,5 @@
+dir "."
+array a[3]
+array a[4]
+reset
+end

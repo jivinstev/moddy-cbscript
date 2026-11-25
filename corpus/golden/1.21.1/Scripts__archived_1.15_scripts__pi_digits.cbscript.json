@@ -1,0 +1,37 @@
+{
+ "id": "Scripts/archived 1.15 scripts/pi_digits.cbscript",
+ "ok": true,
+ "namespace": "pi_digits",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/pi_digits/function/reset.mcfunction",
+   "data modify storage pi_digits:global args set value {}\ndata modify storage pi_digits stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add xp dummy\nscoreboard objectives add kp dummy\nscoreboard objectives add tp dummy\nscoreboard objectives add mp dummy\nscoreboard objectives add rp dummy\nscoreboard objectives add qp dummy\nscoreboard objectives add x dummy\nscoreboard objectives add m dummy\nscoreboard objectives add k dummy\nscoreboard objectives add t dummy\nscoreboard objectives add r dummy\nscoreboard objectives add q dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c7 Constant 7\nscoreboard players set c2 Constant 2\nscoreboard players set c3 Constant 3\nscoreboard players set c10 Constant 10\nscoreboard players set c4 Constant 4\nscoreboard objectives add mai_scratch5 dummy\nscoreboard objectives add mai_scratch4 dummy\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nscoreboard players set Global q 1\nscoreboard players set Global r 0\nscoreboard players set Global t 1\nscoreboard players set Global k 1\nscoreboard players set Global m 3\nscoreboard players set Global x 3"
+  ],
+  [
+   "data/pi_digits/function/main.mcfunction",
+   "scoreboard players operation Global mai_scratch1 = Global q\nscoreboard players operation Global mai_scratch1 *= c4 Constant\nscoreboard players operation Global mai_scratch1 += Global r\nscoreboard players operation Global mai_scratch1 -= Global t\nscoreboard players operation Global mai_scratch2 = Global m\nscoreboard players operation Global mai_scratch2 *= Global t\nscoreboard players set Global mai_scratch0 1\nexecute if score Global mai_scratch1 < Global mai_scratch2 run function pi_digits:line016/execute1\nexecute if score Global mai_scratch0 matches 1.. run function pi_digits:line016/else2"
+  ],
+  [
+   "data/pi_digits/function/line016/execute1.mcfunction",
+   "tellraw @a [\"\",{\"score\":{\"name\":\"Global\",\"objective\":\"m\"}}]\nscoreboard players operation Global qp = Global q\nscoreboard players operation Global rp = Global r\nscoreboard players operation Global mp = Global m\nscoreboard players operation Global q *= c10 Constant\nscoreboard players operation Global mai_scratch3 = Global mp\nscoreboard players operation Global mai_scratch3 *= Global t\nscoreboard players operation Global mai_scratch4 = Global rp\nscoreboard players operation Global mai_scratch4 -= Global mai_scratch3\nscoreboard players operation Global r = Global mai_scratch4\nscoreboard players operation Global r *= c10 Constant\nscoreboard players operation Global mai_scratch3 = Global qp\nscoreboard players operation Global mai_scratch3 *= c3 Constant\nscoreboard players operation Global mai_scratch3 += Global rp\nscoreboard players operation Global m = Global mai_scratch3\nscoreboard players operation Global m *= c10 Constant\nscoreboard players operation Global m /= Global t\nscoreboard players operation Global mai_scratch5 = Global mp\nscoreboard players operation Global mai_scratch5 *= c10 Constant\nscoreboard players operation Global m -= Global mai_scratch5\nscoreboard players set Global mai_scratch0 0"
+  ],
+  [
+   "data/pi_digits/function/line016/else2.mcfunction",
+   "scoreboard players operation Global qp = Global q\nscoreboard players operation Global rp = Global r\nscoreboard players operation Global tp = Global t\nscoreboard players operation Global kp = Global k\nscoreboard players operation Global mp = Global m\nscoreboard players operation Global xp = Global x\nscoreboard players operation Global q *= Global kp\nscoreboard players operation Global r = Global qp\nscoreboard players operation Global r *= c2 Constant\nscoreboard players operation Global r += Global rp\nscoreboard players operation Global r *= Global xp\nscoreboard players operation Global t *= Global xp\nscoreboard players add Global k 1\nscoreboard players operation Global mai_scratch5 = Global kp\nscoreboard players operation Global mai_scratch5 *= c7 Constant\nscoreboard players add Global mai_scratch5 2\nscoreboard players operation Global m = Global qp\nscoreboard players operation Global m *= Global mai_scratch5\nscoreboard players operation Global mai_scratch5 = Global rp\nscoreboard players operation Global mai_scratch5 *= Global xp\nscoreboard players operation Global m += Global mai_scratch5\nscoreboard players operation Global mai_scratch5 = Global tp\nscoreboard players operation Global mai_scratch5 *= Global xp\nscoreboard players operation Global m /= Global mai_scratch5\nscoreboard players add Global x 2"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"pi_digits:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"pi_digits:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"Automatically mine the blocks in front of you\"\n    }\n}"
+  ]
+ ]
+}

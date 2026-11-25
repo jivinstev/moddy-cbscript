@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/calls_m11.cbscript",
+ "ok": false,
+ "namespace": "calls_m11",
+ "error": "Syntax error at line 60 column 12. Unexpected ATID symbol \"Q\" in state 1123.",
+ "log": [
+  "Syntax error at line 60 column 12. Unexpected ATID symbol \"Q\" in state 1123."
+ ],
+ "files": []
+}

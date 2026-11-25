@@ -1,0 +1,8 @@
+dir "."
+define @U : 1-2-3-4-0xff (@e[type=marker])
+end
+reset
+	as @U do x = 1
+	as @U[5] do x = 2
+	id = &@U
+end

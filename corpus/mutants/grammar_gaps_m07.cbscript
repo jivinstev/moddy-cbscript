@@ -1,0 +1,44 @@
+# mutant of corpus/programs/grammar_gaps.cbscript: insert ')' before '=' on line 27
+dir "."
+desc "Productions the other programs do not reach"
+
+$p, $q = (1, 2)
+$print($p)
+$empty = {}
+$val = 9
+
+macro $openparen(
+	/say macro with an open paren
+end
+
+define @Indexed = @e[type=marker]
+	create {"Tags": ["indexed"]}
+end
+
+define @Bare = @e[type=pig]
+end
+
+reset
+	$openparen(
+	if block ~ ~ ~ oak_log[axis=y, waterlogged=no] then x = 1
+	if block ~ ~ ~ repeater[delay=2, facing=north] then x = 2
+	if block ~ ~ ~ repeater[facing=east] then x = 3
+	if block ~ ~ ~ repeater[facing=2, delay=1] then x = 4
+	if block ~ ~ ~ repeater[facing=2] then x = 5
+	if block ~ ~ ~ repeater[delay) =$val, facing=south] then x = 6
+	as @a[] do x = 7
+	as @a[tag=a and tag=b] do x = 8
+	x = -0b11
+	@s.{neg} = {b: -0b11, h: -0x1f, d: -12}
+	as @e[level=-0b1..2] do x = 10
+	define @Inner = @e[type=cow]
+	end
+	as @Inner do x = 9
+	create @Indexed[2] ~ ~ ~
+	create @Indexed[3]
+	create @Bare[4] ~ ~1 ~
+	<v> = here (100)
+	@s.{facingdata} = {facing: 1}
+	@s.{data} = {flag: false, flag2: true, arr: [B;], arr2: [L; $val, 2], arr3: [I; 1, 2,], typed: 1.5d, neg: -2b}
+	/say $p $q $empty
+end

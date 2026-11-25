@@ -1,0 +1,45 @@
+{
+ "id": "corpus/mutants/selectors_m11.cbscript",
+ "ok": true,
+ "namespace": "selectors_m11",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/selectors_m11/function/array_arr_get.mcfunction",
+   "execute if score @s arrIdx matches 0 run scoreboard players operation @s arrVal = @s arr0\nexecute if score @s arrIdx matches 1 run scoreboard players operation @s arrVal = @s arr1\nexecute if score @s arrIdx matches 2 run scoreboard players operation @s arrVal = @s arr2"
+  ],
+  [
+   "data/selectors_m11/function/array_arr_set.mcfunction",
+   "execute if score @s arrIdx matches 0 run scoreboard players operation @s arr0 = @s arrVal\nexecute if score @s arrIdx matches 1 run scoreboard players operation @s arr1 = @s arrVal\nexecute if score @s arrIdx matches 2 run scoreboard players operation @s arr2 = @s arrVal"
+  ],
+  [
+   "data/selectors_m11/function/speak.mcfunction",
+   "say I am a zombie\ndata modify entity @s Health set value 0.5f"
+  ],
+  [
+   "data/selectors_m11/function/reset.mcfunction",
+   "data modify storage selectors_m11:global args set value {}\ndata modify storage selectors_m11 stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add is_burning dummy\nscoreboard objectives add z dummy\nscoreboard objectives add y dummy\nscoreboard objectives add dead dummy\nscoreboard objectives add alive dummy\nscoreboard objectives add hp dummy\nscoreboard objectives add hits dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add _v_2 dummy\nscoreboard objectives add _v_1 dummy\nscoreboard objectives add _v_0 dummy\nscoreboard objectives add x dummy\nscoreboard objectives add arrVal dummy\nscoreboard objectives add arr2 dummy\nscoreboard objectives add arr1 dummy\nscoreboard objectives add arr0 dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c1 Constant 1\nscoreboard objectives add _scratch0 dummy\nsummon minecraft:zombie ~ ~ ~ {\"Tags\":[\"undead\"],\"Health\":20.0f}\nsummon minecraft:zombie ~ ~1 ~ {\"Tags\":[\"undead\"],\"Health\":20.0f}\nexecute as @e[type=minecraft:zombie,tag=undead] run function selectors_m11:speak\nexecute as @e[type=minecraft:zombie,tag=undead] run function selectors_m11:speak\ndata modify entity @e[type=minecraft:zombie,tag=undead,limit=1] Health set value 0.3f\nexecute store result score Global x run data get entity @e[type=minecraft:zombie,tag=undead,limit=1] Health 10\nexecute store result score @e[type=minecraft:zombie,tag=undead,limit=1] _pos_0 run data get entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[0] 100\nexecute store result score @e[type=minecraft:zombie,tag=undead,limit=1] _pos_1 run data get entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[1] 100\nexecute store result score @e[type=minecraft:zombie,tag=undead,limit=1] _pos_2 run data get entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[2] 100\nscoreboard players operation Global _v_0 = @e[type=minecraft:zombie,tag=undead,limit=1] _pos_0\nscoreboard players operation Global _v_1 = @e[type=minecraft:zombie,tag=undead,limit=1] _pos_1\nscoreboard players operation Global _v_2 = @e[type=minecraft:zombie,tag=undead,limit=1] _pos_2\nscoreboard players set @e[type=minecraft:zombie,tag=undead,limit=1] _pos_0 1\nscoreboard players set @e[type=minecraft:zombie,tag=undead,limit=1] _pos_1 2\nscoreboard players set @e[type=minecraft:zombie,tag=undead,limit=1] _pos_2 3\nexecute store result entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[0] double 0.01 run scoreboard players get @e[type=minecraft:zombie,tag=undead,limit=1] _pos_0\nexecute store result entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[1] double 0.01 run scoreboard players get @e[type=minecraft:zombie,tag=undead,limit=1] _pos_1\nexecute store result entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[2] double 0.01 run scoreboard players get @e[type=minecraft:zombie,tag=undead,limit=1] _pos_2\nexecute store result score @e[type=minecraft:zombie,tag=undead,limit=1] _pos_0 run data get entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[0] 100\nexecute store result score @e[type=minecraft:zombie,tag=undead,limit=1] _pos_1 run data get entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[1] 100\nexecute store result score @e[type=minecraft:zombie,tag=undead,limit=1] _pos_2 run data get entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[2] 100\nscoreboard players operation @e[type=minecraft:zombie,tag=undead,limit=1] _pos_0 += c1 Constant\nscoreboard players operation @e[type=minecraft:zombie,tag=undead,limit=1] _pos_1 += c1 Constant\nscoreboard players operation @e[type=minecraft:zombie,tag=undead,limit=1] _pos_2 += c1 Constant\nexecute store result entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[0] double 0.01 run scoreboard players get @e[type=minecraft:zombie,tag=undead,limit=1] _pos_0\nexecute store result entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[1] double 0.01 run scoreboard players get @e[type=minecraft:zombie,tag=undead,limit=1] _pos_1\nexecute store result entity @e[type=minecraft:zombie,tag=undead,limit=1] Pos[2] double 0.01 run scoreboard players get @e[type=minecraft:zombie,tag=undead,limit=1] _pos_2\nexecute as @e[type=minecraft:zombie,tag=undead,limit=1] run function selectors_m11:line038/execute1\n# complex\nexecute as @e[type=!minecraft:player,type=!minecraft:item,tag=a,tag=!b,distance=..5,level=1..,x_rotation=-90..90,sort=nearest,limit=2] run scoreboard players set Global hits 1\n# scores\nexecute as @e[scores={hp=3..9,alive=1..,dead=..0}] run scoreboard players set Global hits 1\n# scores2\nexecute as @e[scores={x=1,y=3..,z=..3}] run scoreboard players set Global hits 1\n# parts\nexecute as @e[gamemode=survival,gamemode=!creative,name=Bob,team=,nbt={\"OnGround\":1b}] run scoreboard players set Global hits 1\n# short\nexecute as @e[type=minecraft:armor_stand,limit=1] run scoreboard players set Global hits 1\n# player\nexecute as @a run scoreboard players set Global hits 1\n# defined player\nexecute as @a run scoreboard players set Global hits 1\n# pred in selector\nexecute as @e[scores={is_burning=1..}] run scoreboard players set Global hits 1\nexecute at @s run tp @s ~ ~1 ~\nexecute as @a at @s run tp @s ~1 ~ ~\ntellraw @a [\"\",{\"text\":\"Hello \"},{\"text\":\"world\",\"color\":\"red\"},{\"text\":\" and \"},{\"text\":\"click\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/say hi\"}},{\"text\":\" and \"},{\"score\":{\"name\":\"Global\",\"objective\":\"score\"}},{\"text\":\" and \"},{\"score\":{\"name\":\"@s\",\"objective\":\"score\"}},{\"text\":\" and \"},{\"selector\":\"@s\"}]\ntitle @a title [\"\",{\"text\":\"Title text\"}]\ntitle @a subtitle [\"\",{\"text\":\"Sub\"}]\ntitle @a actionbar [\"\",{\"text\":\"Bar\"}]\ntitle @a times 10 70 20\ntitle @a title [\"\",{\"text\":\"Timed\"}]"
+  ],
+  [
+   "data/selectors_m11/function/line038/execute1.mcfunction",
+   "execute store result score Global _scratch0 run data get entity @s Health 10\nscoreboard players add Global _scratch0 1\nexecute store result entity @s Health float 0.1 run scoreboard players get Global _scratch0"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"selectors_m11:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"Selector definitions\"\n    }\n}"
+  ],
+  [
+   "data/selectors_m11/predicate/is_burning.json",
+   "{\"condition\":\"minecraft:entity_properties\",\"entity\":\"this\",\"predicate\":{\"flags\":{\"is_on_fire\":true}}}"
+  ]
+ ]
+}

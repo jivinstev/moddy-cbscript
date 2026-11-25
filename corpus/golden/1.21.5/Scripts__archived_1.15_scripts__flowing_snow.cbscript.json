@@ -1,0 +1,15 @@
+{
+ "id": "Scripts/archived 1.15 scripts/flowing_snow.cbscript",
+ "ok": false,
+ "namespace": "flowing_snow",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 54",
+  "Unable to compile execute block contents at line 52",
+  "Error compiling block at line 52",
+  "Unable to compile function \"update_level\" at line 51",
+  "Error compiling block at line 13"
+ ],
+ "files": []
+}
