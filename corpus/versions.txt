@@ -3,6 +3,7 @@
 # 1.21.9+ writes min_format/max_format (mc/1.21.10).
 # 1.21.11 renames the chain-length game rule (mc/1.21.11).
 # 26.1 is format 101.1 (mc/26.1.2).
+# 26.2 is format 107.1 (mc/26.2-ladder).
 1.21.1
 1.21.4
 1.21.5
@@ -10,3 +11,4 @@
 1.21.10
 1.21.11
 26.1.2
+26.2

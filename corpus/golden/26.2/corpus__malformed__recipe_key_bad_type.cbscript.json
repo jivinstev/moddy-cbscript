@@ -1,0 +1,10 @@
+{
+ "id": "corpus/malformed/recipe_key_bad_type.cbscript",
+ "ok": false,
+ "namespace": "recipe_key_bad_type",
+ "error": "Syntax error at line 5 column 7. Unexpected block symbol \"block\" in state 1004.",
+ "log": [
+  "Syntax error at line 5 column 7. Unexpected block symbol \"block\" in state 1004."
+ ],
+ "files": []
+}

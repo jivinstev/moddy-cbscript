@@ -9,6 +9,7 @@ public final class McTarget {
 
     /** pack_format per release, newest first; a version takes the first row it reaches: {since, {major, minor}}. */
     private static final int[][][] PACK_FORMATS = {
+            {{26, 2}, {107, 1}},
             {{26, 1}, {101, 1}},
             {{1, 21, 11}, {94, 1}},
             {{1, 21, 9}, {88, 0}},

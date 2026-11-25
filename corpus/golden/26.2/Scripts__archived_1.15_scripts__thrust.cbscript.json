@@ -1,0 +1,85 @@
+{
+ "id": "Scripts/archived 1.15 scripts/thrust.cbscript",
+ "ok": true,
+ "namespace": "thrust",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/thrust/function/on_creeper_damage.mcfunction",
+   "execute if score @s lockout matches 1.. run function thrust:line034/execute2"
+  ],
+  [
+   "data/thrust/function/line045/execute1.mcfunction",
+   "scoreboard players operation @s _pos_0 = Global _old_pos_0\nscoreboard players operation @s _pos_1 = Global _old_pos_1\nscoreboard players operation @s _pos_2 = Global _old_pos_2\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run tp @a[tag=current] ~ ~ ~"
+  ],
+  [
+   "data/thrust/function/line034/execute2.mcfunction",
+   "advancement revoke @s only thrust:thrust_damage\neffect clear @s resistance\ntag @a remove current\ntag @s add current\nscoreboard players operation Global _old_pos_0 = @s _old_pos_0\nscoreboard players operation Global _old_pos_1 = @s _old_pos_1\nscoreboard players operation Global _old_pos_2 = @s _old_pos_2\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nexecute as 0-0-0-0-C1 run function thrust:line045/execute1\nscoreboard players set @s lockout 0"
+  ],
+  [
+   "data/thrust/function/reset.mcfunction",
+   "data modify storage thrust:global args set value {}\ndata modify storage thrust stack set value []\ngamerule max_command_sequence_length 1000000000\nscoreboard objectives add _delta_2 dummy\nscoreboard objectives add _delta_1 dummy\nscoreboard objectives add _delta_0 dummy\nscoreboard objectives add was_on_ground dummy\nscoreboard objectives add player dummy\nscoreboard objectives add _vel_2 dummy\nscoreboard objectives add _vel_1 dummy\nscoreboard objectives add _vel_0 dummy\nscoreboard objectives add _aim_2 dummy\nscoreboard objectives add _aim_1 dummy\nscoreboard objectives add _aim_0 dummy\nscoreboard objectives add id dummy\nscoreboard objectives add _unique dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add _id dummy\nscoreboard objectives add motion dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add _old_pos_2 dummy\nscoreboard objectives add _old_pos_1 dummy\nscoreboard objectives add _old_pos_0 dummy\nscoreboard objectives add lockout dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c5 Constant 5\nscoreboard players set c3 Constant 3\nscoreboard objectives add arm_scratch4 dummy\nscoreboard objectives add arm_scratch3 dummy\nscoreboard objectives add arm_scratch2 dummy\nscoreboard objectives add arm_scratch1 dummy\nscoreboard objectives add arm_scratch0 dummy\nscoreboard objectives add thrust minecraft.used:minecraft.carrot_on_a_stick"
+  ],
+  [
+   "data/thrust/function/main.mcfunction",
+   "function thrust:armor_stand_thrust\n#explosion_thrust()\nscoreboard players set @a thrust 0"
+  ],
+  [
+   "data/thrust/function/explosion_thrust.mcfunction",
+   "execute as @a if score @s thrust matches 1.. unless score @s lockout matches 1.. run function thrust:line067/execute3"
+  ],
+  [
+   "data/thrust/function/line067/execute3.mcfunction",
+   "scoreboard players set @s lockout 1\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation @s _old_pos_0 = @s _pos_0\nscoreboard players operation @s _old_pos_1 = @s _pos_1\nscoreboard players operation @s _old_pos_2 = @s _pos_2\nexecute at @s run tp @s ~ 300 ~\neffect give @s resistance 1 4 true\nexecute at @s anchored eyes positioned ^ ^ ^-0.1 run summon creeper ~ ~ ~ {Fuse:0s, ignited:1b, powered:1b}"
+  ],
+  [
+   "data/thrust/function/armor_stand_thrust.mcfunction",
+   "scoreboard players set @a arm_scratch0 0\nexecute as @a run function thrust:for10_ln80"
+  ],
+  [
+   "data/thrust/function/line091/execute4.mcfunction",
+   "scoreboard players operation Global arm_scratch1 = Global _aim_0\nscoreboard players operation Global arm_scratch2 = Global _aim_1\nscoreboard players operation Global arm_scratch3 = Global _aim_2\nscoreboard players operation Global arm_scratch1 *= c3 Constant\nscoreboard players operation Global arm_scratch2 *= c3 Constant\nscoreboard players operation Global arm_scratch3 *= c3 Constant\nscoreboard players operation @s _vel_0 = Global arm_scratch1\nscoreboard players operation @s _vel_1 = Global arm_scratch2\nscoreboard players operation @s _vel_2 = Global arm_scratch3\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2\nscoreboard players operation @s player = Global id"
+  ],
+  [
+   "data/thrust/function/line081/execute5.mcfunction",
+   "scoreboard players operation Global _id = @s motion\nexecute as @e[type=minecraft:armor_stand,tag=Motion] if score @s _id = Global _id run kill @s\nscoreboard players set @e[type=minecraft:armor_stand,tag=Motion] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"Tags\":[\"Motion\"],\"Invulnerable\":1,\"Invisible\":1}\nscoreboard players add @e[type=minecraft:armor_stand,tag=Motion] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:armor_stand,tag=Motion,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s motion run scoreboard players get @e[type=minecraft:armor_stand,tag=Motion,limit=1,scores={_age=1}] _id\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation @s _old_pos_0 = @s _pos_0\nscoreboard players operation @s _old_pos_1 = @s _pos_1\nscoreboard players operation @s _old_pos_2 = @s _pos_2\nexecute at @s run function thrust:get_aim\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global id run scoreboard players get @s _id\nscoreboard players operation Global _id = @s motion\nexecute as @e[type=minecraft:armor_stand,tag=Motion] if score @s _id = Global _id run function thrust:line091/execute4"
+  ],
+  [
+   "data/thrust/function/line097/execute6.mcfunction",
+   "scoreboard players operation Global _id = @s motion\nexecute as @e[type=minecraft:armor_stand,tag=Motion] if score @s _id = Global _id run kill @s\nscoreboard players set @s motion 0"
+  ],
+  [
+   "data/thrust/function/line108/execute7.mcfunction",
+   "tp @a[limit=1,scores={arm_scratch0=1..}] 0 0 0\ntp @a[limit=1,scores={arm_scratch0=1..}] ~ ~ ~"
+  ],
+  [
+   "data/thrust/function/line113/execute8.mcfunction",
+   "kill @s\nscoreboard players set @a[limit=1,scores={arm_scratch0=1..}] motion 0"
+  ],
+  [
+   "data/thrust/function/line105/execute9.mcfunction",
+   "scoreboard players operation Global arm_scratch2 = Global _delta_0\nscoreboard players operation Global arm_scratch3 = Global _delta_1\nscoreboard players operation Global arm_scratch4 = Global _delta_2\nscoreboard players operation Global arm_scratch2 *= c5 Constant\nscoreboard players operation Global arm_scratch3 *= c5 Constant\nscoreboard players operation Global arm_scratch4 *= c5 Constant\nexecute store result score @s _vel_0 run data get entity @s Motion[0] 10000\nexecute store result score @s _vel_1 run data get entity @s Motion[1] 10000\nexecute store result score @s _vel_2 run data get entity @s Motion[2] 10000\nscoreboard players operation @s _vel_0 += Global arm_scratch2\nscoreboard players operation @s _vel_1 += Global arm_scratch3\nscoreboard players operation @s _vel_2 += Global arm_scratch4\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2\nexecute at @s run function thrust:line108/execute7\nexecute store result score Global arm_scratch2 run data get entity @s OnGround 1\nexecute if score Global arm_scratch2 matches 1.. run function thrust:line113/execute8"
+  ],
+  [
+   "data/thrust/function/for10_ln80.mcfunction",
+   "scoreboard players set @s arm_scratch0 1\nexecute if score @s thrust matches 1.. at @s run function thrust:line081/execute5\nexecute store result score Global arm_scratch1 run data get entity @s OnGround 1\nexecute if score Global arm_scratch1 matches 1.. unless score @s was_on_ground matches 1.. if score @s motion matches 1.. run function thrust:line097/execute6\nexecute store result score @s was_on_ground run data get entity @s OnGround 1\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global arm_scratch2 = @s _pos_0\nscoreboard players operation Global arm_scratch3 = @s _pos_1\nscoreboard players operation Global arm_scratch4 = @s _pos_2\nscoreboard players operation Global arm_scratch2 -= @s _old_pos_0\nscoreboard players operation Global arm_scratch3 -= @s _old_pos_1\nscoreboard players operation Global arm_scratch4 -= @s _old_pos_2\nscoreboard players operation Global _delta_0 = Global arm_scratch2\nscoreboard players operation Global _delta_1 = Global arm_scratch3\nscoreboard players operation Global _delta_2 = Global arm_scratch4\nscoreboard players operation Global _id = @s motion\nexecute as @e[type=minecraft:armor_stand,tag=Motion] if score @s _id = Global _id run function thrust:line105/execute9\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation @s _old_pos_0 = @s _pos_0\nscoreboard players operation @s _old_pos_1 = @s _pos_1\nscoreboard players operation @s _old_pos_2 = @s _pos_2\nscoreboard players set @s arm_scratch0 0"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"thrust:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"thrust:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 107,\n        \"description\": \"Test thrust using fake physics objects.\",\n        \"min_format\": [\n            107,\n            1\n        ],\n        \"max_format\": [\n            107,\n            1\n        ]\n    }\n}"
+  ],
+  [
+   "data/thrust/advancement/thrust_damage.json",
+   "{\"criteria\":{\"creeper_damage\":{\"trigger\":\"minecraft:entity_hurt_player\",\"conditions\":{\"damage\":{\"source_entity\":{\"type\":\"minecraft:creeper\"}}}}},\"rewards\":{\"function\":\"thrust:on_creeper_damage\"}}"
+  ]
+ ]
+}
