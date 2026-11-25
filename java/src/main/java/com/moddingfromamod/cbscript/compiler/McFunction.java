@@ -153,9 +153,9 @@ public final class McFunction {
                     if (iftype.equals("unless")) {
                         throw Ctx.compileError("Vector equality may not be used with \"unless\"");
                     }
-                    Ast.VectorVar[] pair = (Ast.VectorVar[]) c.value();
-                    Ast.VectorVar v1 = pair[0];
-                    Ast.VectorVar v2 = pair[1];
+                    Object[] pair = (Object[]) c.value();
+                    Ast.VectorVar v1 = (Ast.VectorVar) pair[0];
+                    Ast.VectorVar v2 = (Ast.VectorVar) pair[1];
                     if (v1.type().equals("VAR_CONST") && v2.type().equals("VAR_CONST")) {
                         PyObject val1 = ((Ast.Value) v1.content()).getValue(this);
                         PyObject val2 = ((Ast.Value) v2.content()).getValue(this);

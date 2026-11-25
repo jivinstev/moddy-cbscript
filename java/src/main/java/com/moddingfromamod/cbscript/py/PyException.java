@@ -87,6 +87,9 @@ public class PyException extends RuntimeException {
                 || t == Character.PARAGRAPH_SEPARATOR || t == Character.SPACE_SEPARATOR);
     }
 
+    /** What a 3.12+ traceback appends to the last line ("Did you mean: ...?"), or null. */
+    public String tracebackNote;
+
     /** {@code str(e)}. */
     public String str() {
         return pyStr;
@@ -107,6 +110,8 @@ public class PyException extends RuntimeException {
         }
         return switch (name) {
             case "Exception" -> !type.equals("SystemExit") && !type.equals("KeyboardInterrupt");
+            case "ValueError" -> type.equals("JSONDecodeError");
+            case "RuntimeError" -> type.equals("RecursionError");
             case "LookupError" -> type.equals("KeyError") || type.equals("IndexError");
             case "ArithmeticError" -> type.equals("ZeroDivisionError") || type.equals("OverflowError");
             case "OSError" -> type.equals("FileNotFoundError");

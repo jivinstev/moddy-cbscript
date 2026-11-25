@@ -1189,7 +1189,9 @@ public final class Blocks {
                 throw Ctx.compileError("Line " + line + ": macro \"" + macro + "\" does not exist");
             }
             if (args.size() != m.params().size()) {
-                throw new PyException("NameError", "name 'macro' is not defined");
+                PyException e = new PyException("NameError", "name 'macro' is not defined");
+                e.tracebackNote = ". Did you mean: 'self.macro'?";
+                throw e;
             }
             Environment env = f.cloneEnvironment(null);
             for (int p = 0; p < m.params().size(); p++) {

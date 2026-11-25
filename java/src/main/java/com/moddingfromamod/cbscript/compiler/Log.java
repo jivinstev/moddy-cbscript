@@ -47,7 +47,8 @@ public final class Log {
             first = false;
             b.append("Traceback (most recent call last):\n  File \"<cbscript>\", in compile\n");
             String msg = x.str();
-            b.append(x.tracebackName()).append(msg.isEmpty() ? "" : ": " + msg).append('\n');
+            b.append(x.tracebackName()).append(msg.isEmpty() ? "" : ": " + msg)
+                    .append(x.tracebackNote == null ? "" : x.tracebackNote).append('\n');
         }
         return b.toString();
     }

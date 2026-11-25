@@ -26,6 +26,10 @@ jobs:
           git diff --exit-code -- java/src/main/resources/com/moddingfromamod/cbscript/parser_tables.txt
       - name: Every grammar production is in the corpus
         run: python tools/corpus_coverage.py --strict
+      - name: Expression-evaluator cases are current
+        run: |
+          python tools/pyeval_cases.py
+          git diff --exit-code -- java/src/test/resources/pyeval_cases.tsv
       - name: Goldens are current
         run: python tools/corpus_golden.py --check
 

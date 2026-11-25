@@ -63,6 +63,11 @@ and every output file's name, order and bytes.
   `@x[5]`) is reproduced for `PYTHONHASHSEED=0`, which the golden generator sets; a bound method's address is
   never compared.
 
+## Third-party code
+
+The compile-time `math` functions are a port of glibc's (CPython calls glibc's libm, which is not correctly rounded,
+so nothing else reproduces Python's last bit). Part of that code is LGPL-2.1-or-later; see `java/THIRD_PARTY.md`.
+
 ## Keeping them in step
 
 A change to the language or its output lands in Python and Java in the same PR, with corpus cases, and the goldens
