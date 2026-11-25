@@ -1,0 +1,16 @@
+{
+ "id": "Scripts/archived 1.15 scripts/wireframe4d.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "wireframe4d",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 172",
+  "Unable to compile execute block contents at line 171",
+  "Error compiling block at line 171",
+  "Unable to compile function \"show\" at line 170",
+  "Error compiling block at line 147"
+ ],
+ "files": []
+}

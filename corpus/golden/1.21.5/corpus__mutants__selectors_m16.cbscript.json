@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/selectors_m16.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "selectors_m16",
+ "error": "Syntax error at line 3 column 6. Unexpected FLOAT symbol \"1.5\" in state 460.",
+ "log": [
+  "Syntax error at line 3 column 6. Unexpected FLOAT symbol \"1.5\" in state 460."
+ ],
+ "files": []
+}

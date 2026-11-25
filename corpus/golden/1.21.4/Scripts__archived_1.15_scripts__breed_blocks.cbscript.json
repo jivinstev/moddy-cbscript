@@ -1,0 +1,28 @@
+{
+ "id": "Scripts/archived 1.15 scripts/breed_blocks.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "breed_blocks",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 261",
+  "Unable to compile else block contents at line execute",
+  "Error compiling block at line 254",
+  "Unable to compile execute block contents at line 229",
+  "Error compiling block at line 229",
+  "Unable to compile execute block contents at line 225",
+  "Error compiling block at line 225",
+  "Unable to compile execute block contents at line 204",
+  "Error compiling block at line 204",
+  "Unable to compile execute block contents at line 175",
+  "Error compiling block at line 175",
+  "Unable to compile for block contents at line 174",
+  "Error compiling block at line 174",
+  "Unable to compile python for block contents at line 171",
+  "Error compiling block at line 171",
+  "Unable to compile clock \"main\" at line 147",
+  "Error compiling block at line 147"
+ ],
+ "files": []
+}

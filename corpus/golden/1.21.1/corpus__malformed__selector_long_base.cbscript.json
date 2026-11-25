@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/selector_long_base.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "selector_long_base",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Tried to create selector with base name @xyz",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

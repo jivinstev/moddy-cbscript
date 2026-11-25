@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/conditions_m14.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "conditions_m14",
+ "error": "Syntax error at line 2 column 2. Unexpected end symbol \"end\" in state 90.",
+ "log": [
+  "Syntax error at line 2 column 2. Unexpected end symbol \"end\" in state 90."
+ ],
+ "files": []
+}

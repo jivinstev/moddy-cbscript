@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/selector_array_without_selector.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "selector_array_without_selector",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Tried to use selector-based array arr without a selector.",
+  "Error compiling block at line 6",
+  "Unable to compile reset section at line 5",
+  "Error compiling block at line 5"
+ ],
+ "files": []
+}

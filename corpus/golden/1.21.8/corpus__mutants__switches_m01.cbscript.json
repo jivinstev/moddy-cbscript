@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/switches_m01.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "switches_m01",
+ "error": "Syntax error at line 42 column 3. Unexpected case symbol \"case\" in state 738.",
+ "log": [
+  "Syntax error at line 42 column 3. Unexpected case symbol \"case\" in state 738."
+ ],
+ "files": []
+}

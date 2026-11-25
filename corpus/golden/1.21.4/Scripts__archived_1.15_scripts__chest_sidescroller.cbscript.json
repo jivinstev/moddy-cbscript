@@ -1,0 +1,24 @@
+{
+ "id": "Scripts/archived 1.15 scripts/chest_sidescroller.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "chest_sidescroller",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 174",
+  "Unable to compile execute block contents at line 173",
+  "Error compiling block at line 173",
+  "Unable to compile execute block contents at line 167",
+  "Error compiling block at line 167",
+  "Unable to compile execute block contents at line 166",
+  "Error compiling block at line 166",
+  "Unable to compile execute block contents at line 163",
+  "Error compiling block at line 163",
+  "Unable to compile execute block contents at line 142",
+  "Error compiling block at line 142",
+  "Unable to compile function \"world_screen\" at line 139",
+  "Error compiling block at line 139"
+ ],
+ "files": []
+}

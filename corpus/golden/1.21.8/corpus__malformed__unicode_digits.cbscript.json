@@ -1,0 +1,26 @@
+{
+ "id": "corpus/malformed/unicode_digits.cbscript",
+ "version": "1.21.8",
+ "ok": true,
+ "namespace": "unicode_digits",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/unicode_digits/function/reset.mcfunction",
+   "data modify storage unicode_digits:global args set value {}\ndata modify storage unicode_digits stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add x dummy\nscoreboard players set Global x 3\nsay done"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"unicode_digits:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "id": "Scripts/archived 1.15 scripts/minecraft_earth.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "minecraft_earth",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: 'str' object has no attribute 'copy_from'",
+  "Error compiling block at line 151",
+  "Unable to compile python for block contents at line 150",
+  "Error compiling block at line 150",
+  "Unable to compile python for block contents at line 149",
+  "Error compiling block at line 149",
+  "Unable to compile python for block contents at line 148",
+  "Error compiling block at line 148",
+  "Unable to compile execute block contents at line 147",
+  "Error compiling block at line 147",
+  "Unable to compile reset section at line 138",
+  "Error compiling block at line 138"
+ ],
+ "files": []
+}

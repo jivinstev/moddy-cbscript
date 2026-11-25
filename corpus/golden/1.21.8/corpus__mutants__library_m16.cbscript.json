@@ -1,0 +1,13 @@
+{
+ "id": "corpus/mutants/library_m16.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "library_m16",
+ "error": "Compile failed — see log.",
+ "log": [
+  "name 'x9' is not defined",
+  "Could not evaluate python expression \"[[1,2,3][-1],x6,[1,2]+[3],[0]*3,[1,2,3].index(2),[1,1,2].count(1),x7,x8,x9]\" at line 24",
+  "Error compiling block at line 24"
+ ],
+ "files": []
+}

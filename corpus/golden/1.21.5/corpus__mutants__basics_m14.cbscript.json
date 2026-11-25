@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/basics_m14.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "basics_m14",
+ "error": "Syntax error at line 8 column 1. Unexpected COMMAND symbol \"/say reset\" in state 134.",
+ "log": [
+  "Syntax error at line 8 column 1. Unexpected COMMAND symbol \"/say reset\" in state 134."
+ ],
+ "files": []
+}

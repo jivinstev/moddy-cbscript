@@ -1,0 +1,11 @@
+{
+ "id": "Scripts/archived 1.15 scripts/zerog.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "zerog",
+ "error": "Syntax error at line 9 column 8. Unexpected COLON symbol \":\" in state 708.",
+ "log": [
+  "Syntax error at line 9 column 8. Unexpected COLON symbol \":\" in state 708."
+ ],
+ "files": []
+}

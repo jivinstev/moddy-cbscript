@@ -1,0 +1,11 @@
+{
+ "id": "corpus/malformed/selector_name_equals.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "selector_name_equals",
+ "error": "Syntax error at line 38 column 103. Unexpected EQUALS symbol \"=\" in state 490.",
+ "log": [
+  "Syntax error at line 38 column 103. Unexpected EQUALS symbol \"=\" in state 490."
+ ],
+ "files": []
+}

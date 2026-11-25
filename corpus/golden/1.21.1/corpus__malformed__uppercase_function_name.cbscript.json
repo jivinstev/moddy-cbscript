@@ -1,0 +1,12 @@
+{
+ "id": "corpus/malformed/uppercase_function_name.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "uppercase_function_name",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Unable to parse script.",
+  "\"BadName\" is not a valid mcfunction name."
+ ],
+ "files": []
+}

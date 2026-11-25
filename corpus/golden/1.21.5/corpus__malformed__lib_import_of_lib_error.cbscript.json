@@ -1,0 +1,26 @@
+{
+ "id": "corpus/malformed/lib_import_of_lib_error.cbscript",
+ "version": "1.21.5",
+ "ok": true,
+ "namespace": "lib_import_of_lib_error",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/lib_import_of_lib_error/function/reset.mcfunction",
+   "data modify storage lib_import_of_lib_error:global args set value {}\ndata modify storage lib_import_of_lib_error stack set value []\ngamerule maxCommandChainLength 1000000000\nsummon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\ndata modify entity @e Health set value 3.0f"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"lib_import_of_lib_error:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

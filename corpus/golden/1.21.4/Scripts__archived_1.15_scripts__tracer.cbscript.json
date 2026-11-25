@@ -1,0 +1,11 @@
+{
+ "id": "Scripts/archived 1.15 scripts/tracer.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "tracer",
+ "error": "Syntax error at line 1 column 4. Unexpected COLON symbol \":\" in state 75.",
+ "log": [
+  "Syntax error at line 1 column 4. Unexpected COLON symbol \":\" in state 75."
+ ],
+ "files": []
+}

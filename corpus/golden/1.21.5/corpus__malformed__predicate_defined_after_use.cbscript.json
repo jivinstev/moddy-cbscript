@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/predicate_defined_after_use.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "predicate_defined_after_use",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Predicate \"my_pred\" does not exist",
+  "Error compiling block at line 52",
+  "Unable to compile reset section at line 9",
+  "Error compiling block at line 9"
+ ],
+ "files": []
+}

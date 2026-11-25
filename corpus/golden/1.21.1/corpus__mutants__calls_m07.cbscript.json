@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/calls_m07.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "calls_m07",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

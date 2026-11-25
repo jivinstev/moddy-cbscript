@@ -1,0 +1,20 @@
+{
+ "id": "Scripts/archived 1.18 scripts/atari.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "atari",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: 'str' object has no attribute 'copy_from'",
+  "Error compiling block at line 821",
+  "Unable to compile for block contents at line 809",
+  "Error compiling block at line 809",
+  "Unable to compile for block contents at line 807",
+  "Error compiling block at line 807",
+  "Unable to compile execute block contents at line 805",
+  "Error compiling block at line 805",
+  "Unable to compile function \"read_whole_rom\" at line 804",
+  "Error compiling block at line 804"
+ ],
+ "files": []
+}

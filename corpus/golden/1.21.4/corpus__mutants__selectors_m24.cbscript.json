@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/selectors_m24.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "selectors_m24",
+ "error": "Syntax error at line 23 column 7. Unexpected EQUALS symbol \"=\" in state 57.",
+ "log": [
+  "Syntax error at line 23 column 7. Unexpected EQUALS symbol \"=\" in state 57."
+ ],
+ "files": []
+}

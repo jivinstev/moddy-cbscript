@@ -1,0 +1,12 @@
+{
+ "id": "corpus/mutants/execute_items_m11.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "execute_items_m11",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Warning: Unknown argument for execute on: \"spouse\" at line 63",
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

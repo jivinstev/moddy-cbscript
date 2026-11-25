@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/calls_m23.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "calls_m23",
+ "error": "Syntax error at line 35 column 12. Unexpected ID symbol \"v\" in state 914.",
+ "log": [
+  "Syntax error at line 35 column 12. Unexpected ID symbol \"v\" in state 914."
+ ],
+ "files": []
+}

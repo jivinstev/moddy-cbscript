@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/undefined_array.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "undefined_array",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Tried to use undefined array nope",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

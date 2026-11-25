@@ -1,0 +1,11 @@
+{
+ "id": "Scripts/archived 1.15 scripts/Atari.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "atari",
+ "error": "Syntax error at line 1078 column 5. Unexpected push symbol \"push\" in state 407.",
+ "log": [
+  "Syntax error at line 1078 column 5. Unexpected push symbol \"push\" in state 407."
+ ],
+ "files": []
+}

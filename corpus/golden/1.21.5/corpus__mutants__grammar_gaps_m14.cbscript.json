@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/grammar_gaps_m14.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "grammar_gaps_m14",
+ "error": "Syntax error at line 37 column 18. Unexpected with symbol \"with\" in state 839.",
+ "log": [
+  "Syntax error at line 37 column 18. Unexpected with symbol \"with\" in state 839."
+ ],
+ "files": []
+}

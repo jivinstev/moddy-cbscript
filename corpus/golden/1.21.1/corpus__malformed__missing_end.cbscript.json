@@ -1,0 +1,11 @@
+{
+ "id": "corpus/malformed/missing_end.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "missing_end",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

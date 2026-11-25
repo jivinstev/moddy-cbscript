@@ -1,0 +1,15 @@
+{
+ "id": "corpus/malformed/two_as_in_chain.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "two_as_in_chain",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Execute chain may only contain a single \"as\" clause.",
+  "<traceback> TypeError: can only concatenate str (not \"NoneType\") to str",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

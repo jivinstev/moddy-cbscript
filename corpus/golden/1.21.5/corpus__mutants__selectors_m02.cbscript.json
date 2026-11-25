@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/selectors_m02.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "selectors_m02",
+ "error": "Syntax error at line 36 column 31. Unexpected LCURLY symbol \"{\" in state 221.",
+ "log": [
+  "Syntax error at line 36 column 31. Unexpected LCURLY symbol \"{\" in state 221."
+ ],
+ "files": []
+}

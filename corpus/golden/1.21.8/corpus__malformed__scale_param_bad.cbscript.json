@@ -1,0 +1,11 @@
+{
+ "id": "corpus/malformed/scale_param_bad.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "scale_param_bad",
+ "error": "Syntax error at line 2 column 7. Unexpected ID symbol \"abc\" in state 675.",
+ "log": [
+  "Syntax error at line 2 column 7. Unexpected ID symbol \"abc\" in state 675."
+ ],
+ "files": []
+}

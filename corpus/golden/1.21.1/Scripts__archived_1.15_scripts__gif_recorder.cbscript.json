@@ -1,0 +1,11 @@
+{
+ "id": "Scripts/archived 1.15 scripts/gif_recorder.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "gif_recorder",
+ "error": "Syntax error at line 236 column 14. Unexpected DECIMAL symbol \"128\" in state 8.",
+ "log": [
+  "Syntax error at line 236 column 14. Unexpected DECIMAL symbol \"128\" in state 8."
+ ],
+ "files": []
+}

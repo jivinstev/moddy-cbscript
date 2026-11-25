@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/definitions_m04.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "definitions_m04",
+ "error": "Syntax error at line 33 column 2. Unexpected NORMSTRING symbol \"\"criteria\"\" in state 685.",
+ "log": [
+  "Syntax error at line 33 column 2. Unexpected NORMSTRING symbol \"\"criteria\"\" in state 685."
+ ],
+ "files": []
+}

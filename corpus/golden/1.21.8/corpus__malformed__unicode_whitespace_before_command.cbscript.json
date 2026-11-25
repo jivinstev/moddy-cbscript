@@ -1,0 +1,26 @@
+{
+ "id": "corpus/malformed/unicode_whitespace_before_command.cbscript",
+ "version": "1.21.8",
+ "ok": true,
+ "namespace": "unicode_whitespace_before_command",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/unicode_whitespace_before_command/function/reset.mcfunction",
+   "data modify storage unicode_whitespace_before_command:global args set value {}\ndata modify storage unicode_whitespace_before_command stack set value []\ngamerule maxCommandChainLength 1000000000\nsay nbsp before\nsay ideographic space"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"unicode_whitespace_before_command:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

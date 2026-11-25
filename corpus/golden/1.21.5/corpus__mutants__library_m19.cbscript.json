@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/library_m19.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "library_m19",
+ "error": "Syntax error at line 30 column 2. Unexpected define symbol \"define\" in state 56.",
+ "log": [
+  "Syntax error at line 30 column 2. Unexpected define symbol \"define\" in state 56."
+ ],
+ "files": []
+}

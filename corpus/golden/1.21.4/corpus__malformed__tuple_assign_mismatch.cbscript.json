@@ -1,0 +1,12 @@
+{
+ "id": "corpus/malformed/tuple_assign_mismatch.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "tuple_assign_mismatch",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Expected 2 values for tuple expression at line 2, got 3",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

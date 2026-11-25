@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/array_out_of_bounds.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "array_out_of_bounds",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Index 7 for \"array a[0 to 3]\" is out of bounds.",
+  "Error compiling block at line 4",
+  "Unable to compile reset section at line 3",
+  "Error compiling block at line 3"
+ ],
+ "files": []
+}

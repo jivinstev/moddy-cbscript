@@ -1,0 +1,11 @@
+{
+ "id": "corpus/malformed/if_then_newline.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "if_then_newline",
+ "error": "Syntax error at line 10 column 15. Unexpected NEWLINE symbol \"\\n\" in state 601.",
+ "log": [
+  "Syntax error at line 10 column 15. Unexpected NEWLINE symbol \"\\n\" in state 601."
+ ],
+ "files": []
+}

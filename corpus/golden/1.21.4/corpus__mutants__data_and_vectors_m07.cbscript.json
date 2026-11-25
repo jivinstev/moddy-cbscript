@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/data_and_vectors_m07.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "data_and_vectors_m07",
+ "error": "Syntax error at line 38 column 7. Unexpected RBRACK symbol \"]\" in state 17.",
+ "log": [
+  "Syntax error at line 38 column 7. Unexpected RBRACK symbol \"]\" in state 17."
+ ],
+ "files": []
+}

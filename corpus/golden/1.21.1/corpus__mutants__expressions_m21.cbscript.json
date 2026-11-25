@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/expressions_m21.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "expressions_m21",
+ "error": "Syntax error at line 20 column 3. Unexpected SEMICOLON symbol \";\" in state 408.",
+ "log": [
+  "Syntax error at line 20 column 3. Unexpected SEMICOLON symbol \";\" in state 408."
+ ],
+ "files": []
+}

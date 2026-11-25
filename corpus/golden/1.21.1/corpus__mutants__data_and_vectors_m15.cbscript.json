@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/data_and_vectors_m15.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "data_and_vectors_m15",
+ "error": "Syntax error at line 55 column 2. Unexpected LT symbol \"<\" in state 143.",
+ "log": [
+  "Syntax error at line 55 column 2. Unexpected LT symbol \"<\" in state 143."
+ ],
+ "files": []
+}

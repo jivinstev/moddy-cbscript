@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/calls_m24.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "calls_m24",
+ "error": "Syntax error at line 96 column 12. Unexpected create symbol \"create\" in state 446.",
+ "log": [
+  "Syntax error at line 96 column 12. Unexpected create symbol \"create\" in state 446."
+ ],
+ "files": []
+}

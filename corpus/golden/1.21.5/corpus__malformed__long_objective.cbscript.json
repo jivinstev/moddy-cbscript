@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/long_objective.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "long_objective",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Cannot create objective \"this_name_is_far_too_long\", name is 25 characters (max is 16)",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

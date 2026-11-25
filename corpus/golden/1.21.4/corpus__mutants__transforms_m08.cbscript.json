@@ -1,0 +1,12 @@
+{
+ "id": "corpus/mutants/transforms_m08.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "transforms_m08",
+ "error": "Syntax error at line 61 column 9. Unexpected NORMSTRING symbol \"\"[open](https://example.com/page) [run](/say hi) [suggest](//say hi) [fn](call welcome) {GDone\"\" in state 419.",
+ "log": [
+  "Illegal character \"@\" was skipped at line 61",
+  "Syntax error at line 61 column 9. Unexpected NORMSTRING symbol \"\"[open](https://example.com/page) [run](/say hi) [suggest](//say hi) [fn](call welcome) {GDone\"\" in state 419."
+ ],
+ "files": []
+}

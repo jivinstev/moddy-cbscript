@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/loops_m13.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "loops_m13",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

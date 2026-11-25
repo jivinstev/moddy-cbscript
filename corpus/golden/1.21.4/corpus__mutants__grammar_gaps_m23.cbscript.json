@@ -1,0 +1,16 @@
+{
+ "id": "corpus/mutants/grammar_gaps_m23.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "grammar_gaps_m23",
+ "error": "Compile failed — see log.",
+ "log": [
+  "1",
+  "Unable to create @Bare, no entity type is defined.",
+  "<traceback> Exception: Error creating entity at line 39",
+  "Error compiling block at line 39",
+  "Unable to compile reset section at line 21",
+  "Error compiling block at line 21"
+ ],
+ "files": []
+}

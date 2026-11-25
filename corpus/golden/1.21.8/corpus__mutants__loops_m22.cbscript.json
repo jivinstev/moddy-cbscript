@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/loops_m22.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "loops_m22",
+ "error": "Syntax error at line 32 column 4. Unexpected NEWLINE symbol \"\\n\" in state 414.",
+ "log": [
+  "Syntax error at line 32 column 4. Unexpected NEWLINE symbol \"\\n\" in state 414."
+ ],
+ "files": []
+}

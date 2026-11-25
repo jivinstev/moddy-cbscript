@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/data_and_vectors_m09.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "data_and_vectors_m09",
+ "error": "Syntax error at line 18 column 14. Unexpected function symbol \"function\" in state 615.",
+ "log": [
+  "Syntax error at line 18 column 14. Unexpected function symbol \"function\" in state 615."
+ ],
+ "files": []
+}

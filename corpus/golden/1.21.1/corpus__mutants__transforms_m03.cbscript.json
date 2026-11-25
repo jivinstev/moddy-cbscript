@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/transforms_m03.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "transforms_m03",
+ "error": "Syntax error at line 15 column 7. Unexpected ATID symbol \"s\" in state 408.",
+ "log": [
+  "Syntax error at line 15 column 7. Unexpected ATID symbol \"s\" in state 408."
+ ],
+ "files": []
+}

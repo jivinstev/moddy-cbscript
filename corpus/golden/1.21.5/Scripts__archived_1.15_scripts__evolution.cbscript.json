@@ -1,0 +1,18 @@
+{
+ "id": "Scripts/archived 1.15 scripts/evolution.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "evolution",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: 'str' object has no attribute 'copy_from'",
+  "Error compiling block at line 99",
+  "Unable to compile python for block contents at line 97",
+  "Error compiling block at line 97",
+  "Unable to compile python for block contents at line 92",
+  "Error compiling block at line 92",
+  "Unable to compile function \"initialize\" at line 91",
+  "Error compiling block at line 75"
+ ],
+ "files": []
+}

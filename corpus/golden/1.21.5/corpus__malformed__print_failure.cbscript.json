@@ -1,0 +1,17 @@
+{
+ "id": "corpus/malformed/print_failure.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "print_failure",
+ "error": "Compile failed — see log.",
+ "log": [
+  "division by zero",
+  "<traceback> ZeroDivisionError: division by zero",
+  "<traceback> CompileError.CompileError: Could not evaluate python expression \"1/0\" at line 3",
+  "<traceback> Exception: Unable to get print value at line 3. Exception: \"Could not evaluate python expression \"1/0\" at line 3\"",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

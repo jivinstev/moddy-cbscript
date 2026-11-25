@@ -1,0 +1,15 @@
+{
+ "id": "corpus/malformed/import_missing_py.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "import_missing_py",
+ "error": "Unexpected compiler error: FileNotFoundError(2, 'No such file or directory')",
+ "log": [
+  "[Errno 2] No such file or directory: 'helpers.py'",
+  "Unable to open \"helpers.py\"",
+  "Importing file \"helpers\" failed at line 3:",
+  "Unable to open \"helpers.py\"",
+  "Error compiling block at line 3"
+ ],
+ "files": []
+}

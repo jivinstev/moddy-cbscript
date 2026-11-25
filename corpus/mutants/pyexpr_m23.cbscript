@@ -1,0 +1,30 @@
+# mutant of corpus/programs/pyexpr.cbscript: truncate before line 30
+dir "."
+desc "Compile-time Python expressions"
+
+$i = 7
+$f = 2.5
+$s = "text"
+$l = [1, 2, 3]
+$t = (4, 5)
+$d = {"a": 1, "b": [2, 3]}
+$e = []
+$neg = -3
+$total = $i + $f
+$prod = $i * $i
+$div = $i / 2
+$idiv = $"i // 2"
+$mod = $i % 3
+$pow = $i ** 2
+$cmp = $i == 7
+$ne = $i != 7
+$le = $i <= 7
+$ge = $i >= 8
+$lt = $i < 1
+$gt = $i > 1
+$both = $i > 1 and $i < 10
+$either = $i < 1 or $i > 5
+$idx = $l[1]
+$didx = $d["b"][0]
+$len = $len($l)
+$rng = $list($range(2, 10, 3))

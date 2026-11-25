@@ -1,0 +1,11 @@
+{
+ "id": "corpus/malformed/import_bad_type.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "import_bad_type",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Unable to parse script."
+ ],
+ "files": []
+}

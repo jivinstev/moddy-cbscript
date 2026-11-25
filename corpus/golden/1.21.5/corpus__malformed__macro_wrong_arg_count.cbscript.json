@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/macro_wrong_arg_count.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "macro_wrong_arg_count",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> NameError: name 'macro' is not defined. Did you mean: 'self.macro'?",
+  "Error compiling block at line 6",
+  "Unable to compile reset section at line 5",
+  "Error compiling block at line 5"
+ ],
+ "files": []
+}

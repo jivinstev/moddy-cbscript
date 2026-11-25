@@ -1,0 +1,17 @@
+{
+ "id": "corpus/malformed/python_if_error_in_body.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "python_if_error_in_body",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Tried to use undefined array nope",
+  "<traceback> CompileError.CompileError: Tried to use undefined array nope",
+  "<traceback> CompileError.CompileError: Error compiling block at line 4",
+  "<traceback> AttributeError: 'CompileError' object has no attribute 'message'",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

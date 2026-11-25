@@ -1,0 +1,22 @@
+{
+ "id": "Scripts/archived 1.15 scripts/glass_pipes.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "glass_pipes",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 51",
+  "Unable to compile while block contents at line 42",
+  "Error compiling block at line 42",
+  "Unable to compile else block contents at line execute",
+  "Error compiling block at line 32",
+  "Unable to compile execute block contents at line 31",
+  "Error compiling block at line 31",
+  "Unable to compile execute block contents at line 18",
+  "Error compiling block at line 18",
+  "Unable to compile function \"pick_dir\" at line 17",
+  "Error compiling block at line 16"
+ ],
+ "files": []
+}

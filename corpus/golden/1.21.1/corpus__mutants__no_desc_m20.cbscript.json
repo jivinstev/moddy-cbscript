@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/no_desc_m20.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "no_desc_m20",
+ "error": "Syntax error at line 3 column 5. Unexpected EQUALS symbol \"=\" in state 75.",
+ "log": [
+  "Syntax error at line 3 column 5. Unexpected EQUALS symbol \"=\" in state 75."
+ ],
+ "files": []
+}

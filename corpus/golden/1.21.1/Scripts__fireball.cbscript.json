@@ -1,0 +1,46 @@
+{
+ "id": "Scripts/fireball.cbscript",
+ "version": "1.21.1",
+ "ok": true,
+ "namespace": "fireball",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/fireball/function/give.mcfunction",
+   "give @s snowball[minecraft:custom_name='{\"text\":\"Fireball\",\"color\":\"red\",\"bold\":true,\"italic\":false}',minecraft:custom_data={fireball:1b},minecraft:enchantment_glint_override=true] 16\ntellraw @s {\"text\":\"You got 16 Fireballs! Throw them at monsters. 🔥\",\"color\":\"gold\"}"
+  ],
+  [
+   "data/fireball/function/greet.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"🔥 Fireball pack loaded! \",\"color\":\"gold\",\"bold\":true},{\"text\":\"[ Click here for Fireballs ]\",\"color\":\"red\",\"bold\":true,\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function fireball:give\"},\"hoverEvent\":{\"action\":\"show_text\",\"contents\":{\"text\":\"Get 16 Mario-style fireballs\",\"color\":\"yellow\"}}}]\ntellraw @s {\"text\":\"(or type this yourself: /function fireball:give )\",\"color\":\"gray\",\"italic\":true}"
+  ],
+  [
+   "data/fireball/function/reset.mcfunction",
+   "data modify storage fireball:global args set value {}\ndata modify storage fireball stack set value []\ngamerule maxCommandChainLength 1000000000\nexecute as @a run function fireball:greet"
+  ],
+  [
+   "data/fireball/function/tick.mcfunction",
+   "# Greet each player once. A load-time tellraw @a reaches NOBODY in singleplayer,\n# because the pack loads a beat before the player finishes joining the world.\nexecute as @a[tag=!fireball_greeted] run function fireball:line033/execute1\n# A thrown Fireball snowball carries our custom_data. Tag it 'fb' once so the\n# block below can act on it every tick. (NBT match lives in a raw command so we\n# don't lean on the selector parser for deep component paths.)\nexecute as @e[type=minecraft:snowball,tag=!fb,nbt={Item:{components:{\"minecraft:custom_data\":{fireball:1b}}}}] run tag @s add fb\nexecute as @e[type=minecraft:snowball,tag=fb] at @s run function fireball:line043/execute2"
+  ],
+  [
+   "data/fireball/function/line033/execute1.mcfunction",
+   "tag @s add fireball_greeted\nfunction fireball:greet"
+  ],
+  [
+   "data/fireball/function/line043/execute2.mcfunction",
+   "# The Mario look: a little jet of flame and smoke trailing the fireball.\nparticle minecraft:flame ~ ~ ~ 0.15 0.15 0.15 0.02 12 force\nparticle minecraft:smoke ~ ~ ~ 0.1 0.1 0.1 0.01 4\n# Anything it touches (within ~1.8 blocks) catches fire and takes damage.\n# Excludes the snowball itself, dropped items, players and XP orbs. Both run\n# per-entity via 'execute as' because /damage only accepts a SINGLE target.\nexecute as @e[distance=..1.8,type=!minecraft:snowball,type=!minecraft:item,type=!minecraft:player,type=!minecraft:experience_orb] run data merge entity @s {Fire:100s}\nexecute as @e[distance=..1.8,type=!minecraft:snowball,type=!minecraft:item,type=!minecraft:player,type=!minecraft:experience_orb] run damage @s 4 minecraft:on_fire"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"fireball:tick\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"fireball:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"Mario-style fireballs: throw a renamed snowball to burn and hurt monsters\"\n    }\n}"
+  ]
+ ]
+}

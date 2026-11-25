@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/definitions_m05.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "definitions_m05",
+ "error": "Syntax error at line 67 column 1. Unexpected FLOAT symbol \"1.5\" in state 738.",
+ "log": [
+  "Syntax error at line 67 column 1. Unexpected FLOAT symbol \"1.5\" in state 738."
+ ],
+ "files": []
+}

@@ -1,0 +1,94 @@
+{
+ "id": "corpus/mutants/definitions_m15.cbscript",
+ "version": "1.21.1",
+ "ok": true,
+ "namespace": "definitions_m15",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/definitions_m15/function/array_scores_get.mcfunction",
+   "execute if score Global scoresIdx matches 0 run scoreboard players operation Global scoresVal = Global scores0\nexecute if score Global scoresIdx matches 1 run scoreboard players operation Global scoresVal = Global scores1\nexecute if score Global scoresIdx matches 2 run scoreboard players operation Global scoresVal = Global scores2\nexecute if score Global scoresIdx matches 3..4 run function definitions_m15:line47/arrayget3-4_1"
+  ],
+  [
+   "data/definitions_m15/function/line47/arrayget3-4_1.mcfunction",
+   "execute if score Global scoresIdx matches 3 run scoreboard players operation Global scoresVal = Global scores3\nexecute if score Global scoresIdx matches 4 run scoreboard players operation Global scoresVal = Global scores4"
+  ],
+  [
+   "data/definitions_m15/function/array_scores_set.mcfunction",
+   "execute if score Global scoresIdx matches 0 run scoreboard players operation Global scores0 = Global scoresVal\nexecute if score Global scoresIdx matches 1 run scoreboard players operation Global scores1 = Global scoresVal\nexecute if score Global scoresIdx matches 2 run scoreboard players operation Global scores2 = Global scoresVal\nexecute if score Global scoresIdx matches 3..4 run function definitions_m15:line47/arrayset3-4_2"
+  ],
+  [
+   "data/definitions_m15/function/line47/arrayset3-4_2.mcfunction",
+   "execute if score Global scoresIdx matches 3 run scoreboard players operation Global scores3 = Global scoresVal\nexecute if score Global scoresIdx matches 4 run scoreboard players operation Global scores4 = Global scoresVal"
+  ],
+  [
+   "data/definitions_m15/function/array_ranged_get.mcfunction",
+   "execute if score Global rangedIdx matches 2 run scoreboard players operation Global rangedVal = Global ranged2\nexecute if score Global rangedIdx matches 3 run scoreboard players operation Global rangedVal = Global ranged3\nexecute if score Global rangedIdx matches 4 run scoreboard players operation Global rangedVal = Global ranged4\nexecute if score Global rangedIdx matches 5 run scoreboard players operation Global rangedVal = Global ranged5"
+  ],
+  [
+   "data/definitions_m15/function/array_ranged_set.mcfunction",
+   "execute if score Global rangedIdx matches 2 run scoreboard players operation Global ranged2 = Global rangedVal\nexecute if score Global rangedIdx matches 3 run scoreboard players operation Global ranged3 = Global rangedVal\nexecute if score Global rangedIdx matches 4 run scoreboard players operation Global ranged4 = Global rangedVal\nexecute if score Global rangedIdx matches 5 run scoreboard players operation Global ranged5 = Global rangedVal"
+  ],
+  [
+   "data/definitions_m15/function/welcome.mcfunction",
+   "say welcome"
+  ],
+  [
+   "data/definitions_m15/function/reset.mcfunction",
+   "data modify storage definitions_m15:global args set value {}\ndata modify storage definitions_m15 stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add sneaking dummy\nscoreboard objectives add y dummy\nscoreboard objectives add scoresIdx dummy\nscoreboard objectives add i dummy\nscoreboard objectives add x dummy\nscoreboard objectives add rangedVal dummy\nscoreboard objectives add ranged5 dummy\nscoreboard objectives add ranged4 dummy\nscoreboard objectives add ranged3 dummy\nscoreboard objectives add ranged2 dummy\nscoreboard objectives add scoresVal dummy\nscoreboard objectives add scores4 dummy\nscoreboard objectives add scores3 dummy\nscoreboard objectives add scores2 dummy\nscoreboard objectives add scores1 dummy\nscoreboard objectives add scores0 dummy\nscoreboard players set Global scores2 7\nexecute store result score Global x run scoreboard players get Global scores2\nexecute store result score Global ranged3 run scoreboard players get Global x\nscoreboard players set Global i 1\nscoreboard players operation Global scoresIdx = Global i\nscoreboard players set Global scoresVal 4\nfunction definitions_m15:array_scores_set\nscoreboard players operation Global scoresIdx = Global i\nfunction definitions_m15:array_scores_get\nexecute store result score Global y run scoreboard players get Global scoresVal\nscoreboard players set Global scores3 1\nexecute as @e[type=#definitions_m15:hostile] run scoreboard players set Global x 1\nexecute as @e[type=!minecraft:hostile] run scoreboard players set Global x 2\nexecute if entity @s[scores={sneaking=1..}] run scoreboard players set Global x 3\nexecute if predicate definitions_m15:sneaking run scoreboard players set Global x 4"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"definitions_m15:reset\"\n    ]\n}"
+  ],
+  [
+   "data/definitions_m15/tags/block/soft.json",
+   "{\n    \"values\": [\n        \"minecraft:sand\",\n        \"minecraft:gravel\"\n    ]\n}"
+  ],
+  [
+   "data/definitions_m15/tags/item/gems.json",
+   "{\n    \"values\": [\n        \"minecraft:diamond\",\n        \"minecraft:emerald\"\n    ]\n}"
+  ],
+  [
+   "data/definitions_m15/tags/entity_type/hostile.json",
+   "{\n    \"values\": [\n        \"minecraft:zombie\",\n        \"minecraft:skeleton\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"Tags, recipes, advancements, loot tables, predicates, item modifiers, arrays\"\n    }\n}"
+  ],
+  [
+   "data/definitions_m15/recipe/shaped1.json",
+   "{\n    \"type\": \"minecraft:crafting_shaped\",\n    \"group\": \"definitions_m15\",\n    \"pattern\": [\n        \"#S#\",\n        \" S \"\n    ],\n    \"key\": {\n        \"S\": {\n            \"item\": \"minecraft:stick\"\n        },\n        \"G\": {\n            \"tag\": \"definitions_m15:gems\"\n        },\n        \"W\": {\n            \"tag\": \"minecraft:planks\"\n        }\n    },\n    \"result\": {\n        \"item\": \"minecraft:diamond_sword\",\n        \"count\": 1\n    }\n}"
+  ],
+  [
+   "data/definitions_m15/advancement/first_join.json",
+   "{\"criteria\":{\"tick\":{\"trigger\":\"minecraft:tick\"}},\"rewards\":{\"function\":\"definitions:welcome\"}}"
+  ],
+  [
+   "data/definitions/loot_table/blocks/my_block.json",
+   "{\"pools\":[{\"rolls\":1,\"entries\":[{\"type\":\"minecraft:item\",\"name\":\"minecraft:stone\"}]}]}"
+  ],
+  [
+   "data/other/loot_table/blocks/named_block.json",
+   "{\"pools\":[]}"
+  ],
+  [
+   "data/definitions_m15/predicate/sneaking.json",
+   "{\"condition\":\"minecraft:entity_properties\",\"entity\":\"this\",\"predicate\":{\"flags\":{\"is_sneaking\":true}}}"
+  ],
+  [
+   "data/definitions_m15/item_modifier/set_name.json",
+   "{\"function\":\"minecraft:set_name\",\"name\":{\"text\":\"Named\",\"color\":\"gold\"}}"
+  ],
+  [
+   "data/definitions_m15/item_modifier/counted.json",
+   "{\"function\":\"minecraft:set_count\",\"count\":2,\"conditions\":[{\"condition\":\"minecraft:random_chance\",\"chance\":0.5}]}"
+  ]
+ ]
+}

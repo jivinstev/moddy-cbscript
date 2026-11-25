@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/expressions_m06.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "expressions_m06",
+ "error": "Syntax error at line 41 column 1. Unexpected function symbol \"function\" in state 738.",
+ "log": [
+  "Syntax error at line 41 column 1. Unexpected function symbol \"function\" in state 738."
+ ],
+ "files": []
+}

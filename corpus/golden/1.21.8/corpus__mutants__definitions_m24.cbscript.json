@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/definitions_m24.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "definitions_m24",
+ "error": "Syntax error at line 63 column 23. Unexpected ID symbol \"x\" in state 366.",
+ "log": [
+  "Syntax error at line 63 column 23. Unexpected ID symbol \"x\" in state 366."
+ ],
+ "files": []
+}

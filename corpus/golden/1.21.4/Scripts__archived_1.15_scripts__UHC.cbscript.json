@@ -1,0 +1,130 @@
+{
+ "id": "Scripts/archived 1.15 scripts/UHC.cbscript",
+ "version": "1.21.4",
+ "ok": true,
+ "namespace": "uhc",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/uhc/function/reset.mcfunction",
+   "data modify storage uhc:global args set value {}\ndata modify storage uhc stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add test_remain dummy\nscoreboard objectives add episode dummy\nscoreboard objectives add seconds_left dummy\nscoreboard objectives add episode_remain dummy\nscoreboard objectives add second_remainder dummy\nscoreboard objectives add test_commands dummy\nscoreboard objectives add timer dummy\nscoreboard objectives add i dummy\nscoreboard objectives add team_size dummy\nscoreboard objectives add running dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c40 Constant 40\nscoreboard players set cm20 Constant -20\nscoreboard players set c24000 Constant 24000\nscoreboard players set c20 Constant 20\nscoreboard objectives add health health\nscoreboard objectives add deaths deathCount\nscoreboard objectives setdisplay list health\ngamerule naturalRegeneration false\nteam add aqua\nteam modify aqua color aqua\nteam add blue\nteam modify blue color blue\nteam add gold\nteam modify gold color gold\nteam add green\nteam modify green color green\nteam add light_purple\nteam modify light_purple color light_purple\nteam add red\nteam modify red color red\nteam add yellow\nteam modify yellow color yellow\nteam add dark_aqua\nteam modify dark_aqua color dark_aqua\nteam add dark_green\nteam modify dark_green color dark_green\nteam add dark_purple\nteam modify dark_purple color dark_purple\nteam add dark_red\nteam modify dark_red color dark_red\nscoreboard players set Global running 0"
+  ],
+  [
+   "data/uhc/function/options.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Team Size: \",\"color\":\"red\"},{\"text\":\" \",\"color\":\"white\"},{\"text\":\"[1]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function uhc:team_size_1\"},\"color\":\"white\"},{\"text\":\" \",\"color\":\"white\"},{\"text\":\"[2]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function uhc:team_size_2\"},\"color\":\"white\"},{\"text\":\" \",\"color\":\"white\"},{\"text\":\"[3]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function uhc:team_size_3\"},\"color\":\"white\"},{\"text\":\" \",\"color\":\"white\"},{\"text\":\"[4]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/function uhc:team_size_4\"},\"color\":\"white\"}]"
+  ],
+  [
+   "data/uhc/function/team_size_1.mcfunction",
+   "scoreboard players set Global team_size 1"
+  ],
+  [
+   "data/uhc/function/team_size_2.mcfunction",
+   "scoreboard players set Global team_size 2"
+  ],
+  [
+   "data/uhc/function/team_size_3.mcfunction",
+   "scoreboard players set Global team_size 3"
+  ],
+  [
+   "data/uhc/function/team_size_4.mcfunction",
+   "scoreboard players set Global team_size 4"
+  ],
+  [
+   "data/uhc/function/randomize.mcfunction",
+   "team leave @a\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for001\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for002\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for003\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for004\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for005\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for006\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for007\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for008\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for009\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for010\nscoreboard players set Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for011\ntellraw @a [\"\",{\"text\":\"Teams have been randomized!\"}]"
+  ],
+  [
+   "data/uhc/function/line045/for001.mcfunction",
+   "team join aqua @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for001"
+  ],
+  [
+   "data/uhc/function/line045/for002.mcfunction",
+   "team join blue @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for002"
+  ],
+  [
+   "data/uhc/function/line045/for003.mcfunction",
+   "team join gold @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for003"
+  ],
+  [
+   "data/uhc/function/line045/for004.mcfunction",
+   "team join green @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for004"
+  ],
+  [
+   "data/uhc/function/line045/for005.mcfunction",
+   "team join light_purple @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for005"
+  ],
+  [
+   "data/uhc/function/line045/for006.mcfunction",
+   "team join red @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for006"
+  ],
+  [
+   "data/uhc/function/line045/for007.mcfunction",
+   "team join yellow @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for007"
+  ],
+  [
+   "data/uhc/function/line045/for008.mcfunction",
+   "team join dark_aqua @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for008"
+  ],
+  [
+   "data/uhc/function/line045/for009.mcfunction",
+   "team join dark_green @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for009"
+  ],
+  [
+   "data/uhc/function/line045/for010.mcfunction",
+   "team join dark_purple @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for010"
+  ],
+  [
+   "data/uhc/function/line045/for011.mcfunction",
+   "team join dark_red @r[team=]\nscoreboard players add Global i 1\nexecute if score Global i <= Global team_size run function uhc:line045/for011"
+  ],
+  [
+   "data/uhc/function/spread.mcfunction",
+   "worldborder set 1600\nspreadplayers 0 0 300 800 true @a\neffect give @a minecraft:instant_health 1 10\neffect give @a minecraft:saturation 1 10\nclear @a"
+  ],
+  [
+   "data/uhc/function/start.mcfunction",
+   "scoreboard players set Global running 1\nscoreboard players set Global timer -200\nscoreboard players set Global test_commands 0\nscoreboard players set @a deaths 0"
+  ],
+  [
+   "data/uhc/function/test_start.mcfunction",
+   "scoreboard players set Global running 1\nscoreboard players set Global timer -200\nscoreboard players set Global test_commands 1\nscoreboard players set @a deaths 0"
+  ],
+  [
+   "data/uhc/function/main.mcfunction",
+   "execute if score Global running matches 1.. run function uhc:line075/execute16"
+  ],
+  [
+   "data/uhc/function/line079/execute12.mcfunction",
+   "scoreboard players operation Global seconds_left = Global timer\nscoreboard players operation Global seconds_left /= cm20 Constant\ntellraw @a [\"\",{\"text\":\"Game starts in \"},{\"score\":{\"name\":\"Global\",\"objective\":\"seconds_left\",\"color\":\"red\",\"bold\":true}},{\"text\":\"!\"}]"
+  ],
+  [
+   "data/uhc/function/line083/execute13.mcfunction",
+   "tellraw @a [\"\",{\"text\":\"Go! UHC Begins!\",\"color\":\"red\",\"bold\":true}]\ntime set day\ngamerule doDaylightCycle true\nexecute unless score Global test_commands matches 1.. run worldborder set 1 10800\nexecute if score Global test_commands matches 1.. run worldborder set 1 20"
+  ],
+  [
+   "data/uhc/function/line095/execute14.mcfunction",
+   "scoreboard players operation Global episode = Global timer\nscoreboard players operation Global episode /= c24000 Constant\ntellraw @a [\"\",{\"text\":\"MARKER:\",\"color\":\"red\",\"bold\":true},{\"text\":\" End of episode \"},{\"score\":{\"name\":\"Global\",\"objective\":\"episode\"}},{\"text\":\"!\"}]"
+  ],
+  [
+   "data/uhc/function/line100/execute15.mcfunction",
+   "scoreboard players operation Global episode = Global timer\nscoreboard players operation Global episode /= c40 Constant\ntellraw @a [\"\",{\"text\":\"TEST MARKER:\",\"color\":\"red\",\"bold\":true},{\"text\":\" End of episode \"},{\"score\":{\"name\":\"Global\",\"objective\":\"episode\"}},{\"text\":\"!\"}]"
+  ],
+  [
+   "data/uhc/function/line075/execute16.mcfunction",
+   "scoreboard players operation Global second_remainder = Global timer\nscoreboard players operation Global second_remainder %= c20 Constant\nscoreboard players operation Global episode_remain = Global timer\nscoreboard players operation Global episode_remain %= c24000 Constant\nexecute if score Global timer matches ..-1 if score Global second_remainder matches 0 run function uhc:line079/execute12\nexecute if score Global timer matches 0 run function uhc:line083/execute13\nexecute if score Global timer matches 1.. if score Global episode_remain matches 0 run function uhc:line095/execute14\nscoreboard players operation Global test_remain = Global timer\nscoreboard players operation Global test_remain %= c40 Constant\nexecute if score Global test_commands matches 1.. if score Global timer matches 1.. if score Global test_remain matches 0 run function uhc:line100/execute15\nscoreboard players add Global timer 1\ngamemode spectator @a[scores={deaths=1..}]\nscoreboard players set @a[gamemode=spectator] deaths 0"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"uhc:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"uhc:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"UHC Datapack\"\n    }\n}"
+  ]
+ ]
+}

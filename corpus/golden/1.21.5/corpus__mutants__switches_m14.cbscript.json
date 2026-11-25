@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/switches_m14.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "switches_m14",
+ "error": "Syntax error at line 25 column 9. Unexpected ID symbol \"x\" in state 446.",
+ "log": [
+  "Syntax error at line 25 column 9. Unexpected ID symbol \"x\" in state 446."
+ ],
+ "files": []
+}

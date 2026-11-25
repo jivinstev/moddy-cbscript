@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/pyexpr_m10.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "pyexpr_m10",
+ "error": "Syntax error at line 95 column 5. Unexpected with symbol \"with\" in state 411.",
+ "log": [
+  "Syntax error at line 95 column 5. Unexpected with symbol \"with\" in state 411."
+ ],
+ "files": []
+}

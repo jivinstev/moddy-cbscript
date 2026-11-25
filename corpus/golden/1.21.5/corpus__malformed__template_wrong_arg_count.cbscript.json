@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/template_wrong_arg_count.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "template_wrong_arg_count",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> ValueError: Tried to call template function \"t\" with 2 template arguments (1 expected) at line 6",
+  "Error compiling block at line 6",
+  "Unable to compile reset section at line 5",
+  "Error compiling block at line 5"
+ ],
+ "files": []
+}

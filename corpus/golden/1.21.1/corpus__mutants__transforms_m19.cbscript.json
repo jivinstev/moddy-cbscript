@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/transforms_m19.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "transforms_m19",
+ "error": "Syntax error at line 65 column 1. Unexpected not symbol \"not\" in state 92.",
+ "log": [
+  "Syntax error at line 65 column 1. Unexpected not symbol \"not\" in state 92."
+ ],
+ "files": []
+}

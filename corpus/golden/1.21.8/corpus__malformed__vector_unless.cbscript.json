@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/vector_unless.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "vector_unless",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Vector equality may not be used with \"unless\"",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

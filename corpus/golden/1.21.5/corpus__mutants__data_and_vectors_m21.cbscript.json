@@ -1,0 +1,14 @@
+{
+ "id": "corpus/mutants/data_and_vectors_m21.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "data_and_vectors_m21",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Tried to create selector with base name @",
+  "Error compiling block at line 45",
+  "Unable to compile reset section at line 16",
+  "Error compiling block at line 16"
+ ],
+ "files": []
+}

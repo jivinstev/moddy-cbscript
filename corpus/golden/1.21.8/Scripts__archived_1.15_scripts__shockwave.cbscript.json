@@ -1,0 +1,14 @@
+{
+ "id": "Scripts/archived 1.15 scripts/shockwave.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "shockwave",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> FileNotFoundError: [Errno 2] No such file or directory: 'blocks.json'",
+  "Error compiling block at line 22",
+  "Unable to compile function \"create_waveblock\" at line 21",
+  "Error compiling block at line 21"
+ ],
+ "files": []
+}

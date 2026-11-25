@@ -1,0 +1,14 @@
+{
+ "id": "Scripts/archived 1.15 scripts/chess.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "chess",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 499",
+  "Unable to compile function \"concede\" at line 496",
+  "Error compiling block at line 426"
+ ],
+ "files": []
+}

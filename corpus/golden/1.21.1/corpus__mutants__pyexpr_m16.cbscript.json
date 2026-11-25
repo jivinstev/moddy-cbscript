@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/pyexpr_m16.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "pyexpr_m16",
+ "error": "Syntax error at line 85 column 9. Unexpected RPAREN symbol \")\" in state 62.",
+ "log": [
+  "Syntax error at line 85 column 9. Unexpected RPAREN symbol \")\" in state 62."
+ ],
+ "files": []
+}

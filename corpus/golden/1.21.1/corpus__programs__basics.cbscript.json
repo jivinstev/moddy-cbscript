@@ -1,0 +1,38 @@
+{
+ "id": "corpus/programs/basics.cbscript",
+ "version": "1.21.1",
+ "ok": true,
+ "namespace": "basics",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/basics/function/reset.mcfunction",
+   "data modify storage basics:global args set value {}\ndata modify storage basics stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add Param0 dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add amount dummy\nscoreboard objectives add count dummy\nscoreboard objectives add score dummy\nsay reset\nscoreboard players set Global score 0\nscoreboard players set Global count 5"
+  ],
+  [
+   "data/basics/function/tick.mcfunction",
+   "scoreboard players add Global score 1\nexecute if score Global score matches 101.. run scoreboard players set Global score 0"
+  ],
+  [
+   "data/basics/function/add_points.mcfunction",
+   "scoreboard players operation Global amount = Global Param0\nscoreboard players operation Global score += Global amount\nscoreboard players operation Global ReturnValue = Global score"
+  ],
+  [
+   "data/basics/function/no_params.mcfunction",
+   "say no params"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"basics:tick\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"basics:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"Basics: reset, clock, function, macro, template\"\n    }\n}"
+  ]
+ ]
+}

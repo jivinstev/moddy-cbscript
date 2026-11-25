@@ -1,0 +1,4 @@
+dir "."
+reset
+	align q do x = 1
+end

@@ -1,0 +1,11 @@
+{
+ "id": "Scripts/archived 1.15 scripts/test2.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "test2",
+ "error": "Syntax error at line 1 column 4. Unexpected COLON symbol \":\" in state 75.",
+ "log": [
+  "Syntax error at line 1 column 4. Unexpected COLON symbol \":\" in state 75."
+ ],
+ "files": []
+}

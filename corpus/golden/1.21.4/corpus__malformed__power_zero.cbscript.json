@@ -1,0 +1,15 @@
+{
+ "id": "corpus/malformed/power_zero.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "power_zero",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Powers less than 1 are not supported",
+  "<traceback> AttributeError: 'NoneType' object has no attribute 'get_const_value'",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

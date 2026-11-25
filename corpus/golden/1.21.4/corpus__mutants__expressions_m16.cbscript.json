@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/expressions_m16.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "expressions_m16",
+ "error": "Syntax error at line 16 column 8. Unexpected NEWLINE symbol \"\\n\" in state 7.",
+ "log": [
+  "Syntax error at line 16 column 8. Unexpected NEWLINE symbol \"\\n\" in state 7."
+ ],
+ "files": []
+}

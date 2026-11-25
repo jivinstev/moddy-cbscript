@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/import_missing_cblib.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "import_missing_cblib",
+ "error": "Unexpected compiler error: FileNotFoundError(2, 'No such file or directory')",
+ "log": [
+  "<traceback> FileNotFoundError: [Errno 2] No such file or directory: '<sandbox>/nothere.cblib'",
+  "Importing file \"nothere\" failed at line 3:",
+  "[Errno 2] No such file or directory: '<sandbox>/nothere.cblib'",
+  "Error compiling block at line 3"
+ ],
+ "files": []
+}

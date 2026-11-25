@@ -1,0 +1,14 @@
+{
+ "id": "Scripts/archived 1.15 scripts/tetris_test.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "tetris_test",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 263",
+  "Unable to compile function \"spawn_shape\" at line 259",
+  "Error compiling block at line 259"
+ ],
+ "files": []
+}

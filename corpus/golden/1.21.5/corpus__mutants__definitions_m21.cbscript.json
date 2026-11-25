@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/definitions_m21.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "definitions_m21",
+ "error": "Syntax error at line 29 column 1. Unexpected LT symbol \"<\" in state 1245.",
+ "log": [
+  "Syntax error at line 29 column 1. Unexpected LT symbol \"<\" in state 1245."
+ ],
+ "files": []
+}

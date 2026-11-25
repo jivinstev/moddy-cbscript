@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/loops_m08.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "loops_m08",
+ "error": "Syntax error at line 17 column 2. Unexpected DOT symbol \".\" in state 92.",
+ "log": [
+  "Syntax error at line 17 column 2. Unexpected DOT symbol \".\" in state 92."
+ ],
+ "files": []
+}

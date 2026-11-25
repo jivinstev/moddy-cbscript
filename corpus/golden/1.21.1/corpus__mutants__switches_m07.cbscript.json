@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/switches_m07.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "switches_m07",
+ "error": "Syntax error at line 24 column 2. Unexpected switch symbol \"switch\" in state 1044.",
+ "log": [
+  "Syntax error at line 24 column 2. Unexpected switch symbol \"switch\" in state 1044."
+ ],
+ "files": []
+}

@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/expressions_m08.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "expressions_m08",
+ "error": "Syntax error at line 41 column 17. Unexpected or symbol \"or\" in state 545.",
+ "log": [
+  "Syntax error at line 41 column 17. Unexpected or symbol \"or\" in state 545."
+ ],
+ "files": []
+}

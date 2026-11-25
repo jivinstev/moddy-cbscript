@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/loops_m01.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "loops_m01",
+ "error": "Syntax error at line 21 column 2. Unexpected for symbol \"for\" in state 143.",
+ "log": [
+  "Syntax error at line 21 column 2. Unexpected for symbol \"for\" in state 143."
+ ],
+ "files": []
+}

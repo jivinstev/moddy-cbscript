@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/loops_m17.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "loops_m17",
+ "error": "Syntax error at line 13 column 17. Unexpected TILDEEMPTY symbol \"~\" in state 8.",
+ "log": [
+  "Syntax error at line 13 column 17. Unexpected TILDEEMPTY symbol \"~\" in state 8."
+ ],
+ "files": []
+}

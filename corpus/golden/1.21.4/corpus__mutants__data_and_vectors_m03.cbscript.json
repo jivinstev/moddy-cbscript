@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/data_and_vectors_m03.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "data_and_vectors_m03",
+ "error": "Syntax error at line 33 column 17. Unexpected then symbol \"then\" in state 822.",
+ "log": [
+  "Syntax error at line 33 column 17. Unexpected then symbol \"then\" in state 822."
+ ],
+ "files": []
+}

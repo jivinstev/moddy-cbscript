@@ -1,0 +1,14 @@
+{
+ "id": "Scripts/archived 1.15 scripts/sethbling_golem.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "sethbling_golem",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> FileNotFoundError: [Errno 2] No such file or directory: 'blocks.json'",
+  "Error compiling block at line 284",
+  "Unable to compile function \"create_projectile\" at line 283",
+  "Error compiling block at line 283"
+ ],
+ "files": []
+}

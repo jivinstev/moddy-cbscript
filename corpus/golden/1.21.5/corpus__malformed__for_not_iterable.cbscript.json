@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/for_not_iterable.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "for_not_iterable",
+ "error": "Compile failed — see log.",
+ "log": [
+  "\"5\" in \"for\" block at line 3 is not an iterable set.",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

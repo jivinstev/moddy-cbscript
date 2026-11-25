@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/grammar_gaps_m13.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "grammar_gaps_m13",
+ "error": "Syntax error at line 27 column 13. Unexpected as symbol \"as\" in state 322.",
+ "log": [
+  "Syntax error at line 27 column 13. Unexpected as symbol \"as\" in state 322."
+ ],
+ "files": []
+}

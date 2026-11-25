@@ -1,0 +1,18 @@
+{
+ "id": "Scripts/archived 1.15 scripts/watermill.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "watermill",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 91",
+  "Unable to compile execute block contents at line 86",
+  "Error compiling block at line 86",
+  "Unable to compile execute block contents at line 85",
+  "Error compiling block at line 85",
+  "Unable to compile clock \"main\" at line 51",
+  "Error compiling block at line 51"
+ ],
+ "files": []
+}

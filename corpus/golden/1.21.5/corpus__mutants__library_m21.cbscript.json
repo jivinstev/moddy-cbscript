@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/library_m21.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "library_m21",
+ "error": "Syntax error at line 62 column 6. Unexpected DIVIDE symbol \"/\" in state 433.",
+ "log": [
+  "Syntax error at line 62 column 6. Unexpected DIVIDE symbol \"/\" in state 433."
+ ],
+ "files": []
+}

@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/switches_m23.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "switches_m23",
+ "error": "Syntax error at line 38 column 3. Unexpected DECIMAL symbol \"1\" in state 1044.",
+ "log": [
+  "Syntax error at line 38 column 3. Unexpected DECIMAL symbol \"1\" in state 1044."
+ ],
+ "files": []
+}

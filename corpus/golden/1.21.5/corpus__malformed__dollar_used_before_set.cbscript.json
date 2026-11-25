@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/dollar_used_before_set.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "dollar_used_before_set",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> ValueError: invalid literal for int() with base 10: '$value'",
+  "Error compiling block at line 33",
+  "Unable to compile reset section at line 4",
+  "Error compiling block at line 4"
+ ],
+ "files": []
+}

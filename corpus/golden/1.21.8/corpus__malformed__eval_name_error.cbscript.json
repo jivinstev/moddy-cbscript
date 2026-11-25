@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/eval_name_error.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "eval_name_error",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> ValueError: invalid literal for int() with base 10: '$undefined_thing'",
+  "Error compiling block at line 4",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

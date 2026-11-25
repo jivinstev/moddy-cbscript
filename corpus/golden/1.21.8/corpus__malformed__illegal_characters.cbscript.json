@@ -1,0 +1,12 @@
+{
+ "id": "corpus/malformed/illegal_characters.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "illegal_characters",
+ "error": "Syntax error at line 3 column 10. Unexpected DECIMAL symbol \"2\" in state 8.",
+ "log": [
+  "Illegal character \"?\" was skipped at line 3",
+  "Syntax error at line 3 column 10. Unexpected DECIMAL symbol \"2\" in state 8."
+ ],
+ "files": []
+}

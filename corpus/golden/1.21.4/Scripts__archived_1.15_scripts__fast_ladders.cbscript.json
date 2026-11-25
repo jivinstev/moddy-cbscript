@@ -1,0 +1,34 @@
+{
+ "id": "Scripts/archived 1.15 scripts/fast_ladders.cbscript",
+ "version": "1.21.4",
+ "ok": true,
+ "namespace": "fast_ladders",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/fast_ladders/function/reset.mcfunction",
+   "data modify storage fast_ladders:global args set value {}\ndata modify storage fast_ladders stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add dy dummy\nscoreboard objectives add prev_y dummy\nscoreboard objectives add mai_scratch0 dummy"
+  ],
+  [
+   "data/fast_ladders/function/main.mcfunction",
+   "execute as @a at @s run function fast_ladders:line011/execute1"
+  ],
+  [
+   "data/fast_ladders/function/line011/execute1.mcfunction",
+   "execute store result score Global mai_scratch0 run data get entity @s Pos[1] 10000\nscoreboard players operation Global mai_scratch0 -= @s prev_y\nscoreboard players operation @s dy = Global mai_scratch0\nexecute if score @s dy matches ..-1 if block ~ ~ ~ minecraft:ladder[facing=east] if block ~ ~-1 ~ minecraft:ladder[facing=east] at @s positioned ~ ~-0.3 ~ run tp @s ~ ~ ~\nexecute if score @s dy matches 1.. if block ~ ~ ~ minecraft:ladder[facing=east] if block ~ ~1 ~ minecraft:ladder[facing=east] if block ~ ~2 ~ minecraft:ladder[facing=east] at @s positioned ~ ~0.3 ~ run tp @s ~ ~ ~\nexecute if score @s dy matches ..-1 if block ~ ~ ~ minecraft:ladder[facing=west] if block ~ ~-1 ~ minecraft:ladder[facing=west] at @s positioned ~ ~-0.3 ~ run tp @s ~ ~ ~\nexecute if score @s dy matches 1.. if block ~ ~ ~ minecraft:ladder[facing=west] if block ~ ~1 ~ minecraft:ladder[facing=west] if block ~ ~2 ~ minecraft:ladder[facing=west] at @s positioned ~ ~0.3 ~ run tp @s ~ ~ ~\nexecute if score @s dy matches ..-1 if block ~ ~ ~ minecraft:ladder[facing=north] if block ~ ~-1 ~ minecraft:ladder[facing=north] at @s positioned ~ ~-0.3 ~ run tp @s ~ ~ ~\nexecute if score @s dy matches 1.. if block ~ ~ ~ minecraft:ladder[facing=north] if block ~ ~1 ~ minecraft:ladder[facing=north] if block ~ ~2 ~ minecraft:ladder[facing=north] at @s positioned ~ ~0.3 ~ run tp @s ~ ~ ~\nexecute if score @s dy matches ..-1 if block ~ ~ ~ minecraft:ladder[facing=south] if block ~ ~-1 ~ minecraft:ladder[facing=south] at @s positioned ~ ~-0.3 ~ run tp @s ~ ~ ~\nexecute if score @s dy matches 1.. if block ~ ~ ~ minecraft:ladder[facing=south] if block ~ ~1 ~ minecraft:ladder[facing=south] if block ~ ~2 ~ minecraft:ladder[facing=south] at @s positioned ~ ~0.3 ~ run tp @s ~ ~ ~\nexecute store result score @s prev_y run data get entity @s Pos[1] 10000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"fast_ladders:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"fast_ladders:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"Make ladders go fast.\"\n    }\n}"
+  ]
+ ]
+}

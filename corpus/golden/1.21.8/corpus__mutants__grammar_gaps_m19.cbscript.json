@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/grammar_gaps_m19.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "grammar_gaps_m19",
+ "error": "Syntax error at line 42 column 11. Unexpected EQUALS symbol \"=\" in state 904.",
+ "log": [
+  "Syntax error at line 42 column 11. Unexpected EQUALS symbol \"=\" in state 904."
+ ],
+ "files": []
+}

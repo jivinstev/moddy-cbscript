@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/switches_m06.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "switches_m06",
+ "error": "Syntax error at line 31 column 1. Unexpected COMMAND symbol \"/say b\" in state 1044.",
+ "log": [
+  "Syntax error at line 31 column 1. Unexpected COMMAND symbol \"/say b\" in state 1044."
+ ],
+ "files": []
+}

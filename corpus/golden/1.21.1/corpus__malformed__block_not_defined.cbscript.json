@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/block_not_defined.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "block_not_defined",
+ "error": "Compile failed — see log.",
+ "log": [
+  "[Nope] is not defined.",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

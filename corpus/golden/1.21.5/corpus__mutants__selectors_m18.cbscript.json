@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/selectors_m18.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "selectors_m18",
+ "error": "Syntax error at line 43 column 2. Unexpected by symbol \"by\" in state 92.",
+ "log": [
+  "Syntax error at line 43 column 2. Unexpected by symbol \"by\" in state 92."
+ ],
+ "files": []
+}

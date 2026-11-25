@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/conditions_m08.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "conditions_m08",
+ "error": "Syntax error at line 71 column 2. Unexpected if symbol \"if\" in state 143.",
+ "log": [
+  "Syntax error at line 71 column 2. Unexpected if symbol \"if\" in state 143."
+ ],
+ "files": []
+}

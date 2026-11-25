@@ -1,0 +1,6 @@
+dir "."
+define @T = @e[tag=x]
+end
+reset
+	create @T
+end

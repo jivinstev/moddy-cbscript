@@ -1,0 +1,30 @@
+{
+ "id": "corpus/programs-blocks/block_switch_props.cbscript",
+ "version": "1.21.5",
+ "ok": true,
+ "namespace": "block_switch_props",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/block_switch_props/function/reset.mcfunction",
+   "data modify storage block_switch_props:global args set value {}\ndata modify storage block_switch_props stack set value []\ngamerule maxCommandChainLength 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"block_switch_props:reset\"\n    ]\n}"
+  ],
+  [
+   "data/block_switch_props/tags/block/switch_1.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"Block switch case properties\"\n    }\n}"
+  ]
+ ]
+}

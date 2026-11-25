@@ -1,0 +1,28 @@
+{
+ "id": "corpus/malformed/attribute_unknown.cbscript",
+ "version": "1.21.1",
+ "ok": true,
+ "namespace": "attribute_unknown",
+ "error": null,
+ "log": [
+  "Warning: \"minecraft:scale\" should be \"minecraft:generic.scale\" on this Minecraft — the other spelling makes the whole FUNCTION fail to load while the pack still reports as enabled. Corrected."
+ ],
+ "files": [
+  [
+   "data/attribute_unknown/function/reset.mcfunction",
+   "data modify storage attribute_unknown:global args set value {}\ndata modify storage attribute_unknown stack set value []\ngamerule maxCommandChainLength 1000000000\nattribute @s somemod:spookiness base set 3\nattribute @s minecraft:generic.scale base set 2\nattribute @s minecraft:generic.scale base set 2"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"attribute_unknown:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

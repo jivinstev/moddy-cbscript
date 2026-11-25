@@ -1,0 +1,17 @@
+{
+ "id": "corpus/malformed/template_error_in_body.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "template_error_in_body",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Tried to use undefined array nope",
+  "<traceback> CompileError.CompileError: Tried to use undefined array nope",
+  "<traceback> CompileError.CompileError: Error compiling block at line 3",
+  "<traceback> AttributeError: 'CompileError' object has no attribute 'message'",
+  "Error compiling block at line 6",
+  "Unable to compile reset section at line 5",
+  "Error compiling block at line 5"
+ ],
+ "files": []
+}

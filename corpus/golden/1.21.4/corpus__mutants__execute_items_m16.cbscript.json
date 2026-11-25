@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/execute_items_m16.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "execute_items_m16",
+ "error": "Syntax error at line 57 column 2. Unexpected then symbol \"then\" in state 92.",
+ "log": [
+  "Syntax error at line 57 column 2. Unexpected then symbol \"then\" in state 92."
+ ],
+ "files": []
+}

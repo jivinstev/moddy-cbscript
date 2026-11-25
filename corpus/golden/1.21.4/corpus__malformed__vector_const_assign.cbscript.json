@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/vector_const_assign.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "vector_const_assign",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Cannot set the value of a constant.",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

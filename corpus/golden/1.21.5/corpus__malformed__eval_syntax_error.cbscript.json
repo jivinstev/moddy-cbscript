@@ -1,0 +1,13 @@
+{
+ "id": "corpus/malformed/eval_syntax_error.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "eval_syntax_error",
+ "error": "Compile failed — see log.",
+ "log": [
+  "unexpected character after line continuation character (<string>, line 1)",
+  "Could not evaluate python expression \"f'{1 + 1} and {\\\"x\\\"}'\" at line 44",
+  "Error compiling block at line 44"
+ ],
+ "files": []
+}

@@ -1,0 +1,50 @@
+# The Java compiler must stay byte-for-byte in step with the Python one (README, "Two compilers").
+#
+#   goldens: the committed parser tables and corpus goldens are what the Python compiler produces now, and every
+#            grammar production is exercised by the corpus;
+#   java:    on JDK 21 and 25, the Java compiler matches every golden for every target version in corpus/versions.txt.
+name: java-parity
+
+on:
+  pull_request:
+  push:
+    branches: [master, 'mc/**']
+
+jobs:
+  goldens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Python compiler's dependencies
+        run: pip install ply==3.11 pyyaml
+      - name: Parser tables are current
+        run: |
+          python tools/export_parser_tables.py
+          git diff --exit-code -- java/src/main/resources/com/moddingfromamod/cbscript/parser_tables.txt
+      - name: Every grammar production is in the corpus
+        run: python tools/corpus_coverage.py --strict
+      - name: Goldens are current
+        run: python tools/corpus_golden.py --check
+
+  java:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        jdk: ['21', '25']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.jdk }}
+      - name: Build, unit tests, corpus differential
+        run: java/build.sh test
+      - uses: actions/upload-artifact@v4
+        if: matrix.jdk == '21'
+        with:
+          name: moddy-cbscript-jar
+          path: java/build/moddy-cbscript.jar

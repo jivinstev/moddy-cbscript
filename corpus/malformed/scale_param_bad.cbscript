@@ -1,0 +1,4 @@
+dir "."
+scale abc
+reset
+end

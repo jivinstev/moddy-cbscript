@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/conditions_m11.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "conditions_m11",
+ "error": "Syntax error at line 81 column 2. Unexpected POWER symbol \"^\" in state 92.",
+ "log": [
+  "Syntax error at line 81 column 2. Unexpected POWER symbol \"^\" in state 92."
+ ],
+ "files": []
+}

@@ -1,0 +1,11 @@
+{
+ "id": "corpus/malformed/as_create_with_others.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "as_create_with_others",
+ "error": "Syntax error at line 5 column 15. Unexpected at symbol \"at\" in state 646.",
+ "log": [
+  "Syntax error at line 5 column 15. Unexpected at symbol \"at\" in state 646."
+ ],
+ "files": []
+}

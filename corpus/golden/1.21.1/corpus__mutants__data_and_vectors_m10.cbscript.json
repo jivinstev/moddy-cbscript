@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/data_and_vectors_m10.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "data_and_vectors_m10",
+ "error": "Syntax error at line 12 column 1. Unexpected define symbol \"define\" in state 889.",
+ "log": [
+  "Syntax error at line 12 column 1. Unexpected define symbol \"define\" in state 889."
+ ],
+ "files": []
+}

@@ -1,0 +1,246 @@
+{
+ "id": "Scripts/transform_demo.cbscript",
+ "version": "1.21.4",
+ "ok": true,
+ "namespace": "transform_demo",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/transform_demo/function/sqrt.mcfunction",
+   "scoreboard players operation Global _x = Global Param0\nscoreboard players set Global sqr_scratch0 1\nexecute if score Global _x matches 0.. if score Global _x matches ..19310 run function transform_demo:line003/execute1\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 19311.. if score Global _x matches ..1705544 run function transform_demo:line003/else2\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 1705545.. if score Global _x matches ..39400514 run function transform_demo:line003/else3\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 39400515.. if score Global _x matches ..455779650 run function transform_demo:line003/else4\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 455779651.. if score Global _x matches ..2147483647 run function transform_demo:line003/else5\nscoreboard players operation Global sqr_scratch0 = Global _x\nscoreboard players operation Global sqr_scratch0 /= sqrt y\nscoreboard players operation sqrt y += Global sqr_scratch0\nscoreboard players operation sqrt y /= c2 Constant\nscoreboard players operation Global sqr_scratch0 = sqrt y\nscoreboard players operation Global sqr_scratch0 *= sqrt y\nexecute if score Global sqr_scratch0 > Global _x run scoreboard players remove sqrt y 1\nscoreboard players operation Global ReturnValue = sqrt y"
+  ],
+  [
+   "data/transform_demo/function/line003/execute1.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 4095\nscoreboard players set sqrt y -594039\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 149\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/line003/else2.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 903167\nscoreboard players set sqrt y -1568669636\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 1857\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/line003/else3.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c141 Constant\nscoreboard players add Global sqr_scratch1 224767\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 10425\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/line003/else4.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c7775 Constant\nscoreboard players add Global sqr_scratch1 60419\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 39184\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/line003/else5.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c100000 Constant\nscoreboard players add Global sqr_scratch1 26111\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 91181"
+  ],
+  [
+   "data/transform_demo/function/abs.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global abs_scratch0 1\nexecute if score Global n matches ..-1 run function transform_demo:line025/execute6\nexecute if score Global abs_scratch0 matches 1.. run scoreboard players operation Global ReturnValue = Global n"
+  ],
+  [
+   "data/transform_demo/function/line025/execute6.mcfunction",
+   "scoreboard players operation Global ReturnValue = Global n\nscoreboard players operation Global ReturnValue *= minus Constant\nscoreboard players set Global abs_scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/sin.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c360 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 181.. run function transform_demo:line035/execute7\nscoreboard players operation Global ReturnValue = Global _sin_angle\nscoreboard players operation Global ReturnValue *= c4000 Constant\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global ReturnValue *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global sin_scratch1 = Global _sin_angle\nscoreboard players operation Global sin_scratch1 *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 40500\nscoreboard players operation Global sin_scratch0 -= Global sin_scratch1\nscoreboard players operation Global ReturnValue /= Global sin_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/transform_demo/function/line035/execute7.mcfunction",
+   "scoreboard players remove Global _sin_angle 180\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/transform_demo/function/sin_precise.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c36000 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 18001.. run function transform_demo:line048/execute8\nscoreboard players set Global sin2_scratch0 18000\nscoreboard players operation Global sin2_scratch0 -= Global _sin_angle\nscoreboard players operation Global _angle_sq = Global _sin_angle\nscoreboard players operation Global _angle_sq *= Global sin2_scratch0\nscoreboard players operation Global _angle_sq /= c100 Constant\nscoreboard players operation Global ReturnValue = Global _angle_sq\nscoreboard players operation Global ReturnValue *= c4 Constant\nscoreboard players operation Global ReturnValue *= c100 Constant\nscoreboard players set Global sin2_scratch0 4050000\nscoreboard players operation Global sin2_scratch0 -= Global _angle_sq\nscoreboard players operation Global ReturnValue /= Global sin2_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/transform_demo/function/line048/execute8.mcfunction",
+   "scoreboard players remove Global _sin_angle 18000\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/transform_demo/function/cos.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos_scratch0 = Global _cos_angle\nscoreboard players add Global cos_scratch0 90\nscoreboard players operation Global Param0 = Global cos_scratch0\nfunction transform_demo:sin"
+  ],
+  [
+   "data/transform_demo/function/cos_precise.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos2_scratch0 = Global _cos_angle\nscoreboard players add Global cos2_scratch0 9000\nscoreboard players operation Global Param0 = Global cos2_scratch0\nfunction transform_demo:sin_precise"
+  ],
+  [
+   "data/transform_demo/function/sign.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global sig_scratch0 1\nexecute if score Global n matches 1.. run function transform_demo:line068/execute9\nexecute if score Global sig_scratch0 matches 1.. if score Global n matches ..-1 run function transform_demo:line068/else10\nexecute if score Global sig_scratch0 matches 1.. run scoreboard players set Global ReturnValue 0"
+  ],
+  [
+   "data/transform_demo/function/line068/execute9.mcfunction",
+   "scoreboard players set Global ReturnValue 1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/line068/else10.mcfunction",
+   "scoreboard players set Global ReturnValue -1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/reset.mcfunction",
+   "data modify storage transform_demo:global args set value {}\ndata modify storage transform_demo stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add delta dummy\nscoreboard objectives add frame dummy\nscoreboard objectives add val dummy\nscoreboard objectives add base dummy\nscoreboard objectives add idx dummy\nscoreboard objectives add age dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add row dummy\nscoreboard objectives add col dummy\nscoreboard objectives add rot_anim dummy\nscoreboard objectives add anim dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add _cos_angle dummy\nscoreboard objectives add _angle_sq dummy\nscoreboard objectives add mult dummy\nscoreboard objectives add _sin_angle dummy\nscoreboard objectives add n dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add y dummy\nscoreboard objectives add _x dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c12 Constant 12\nscoreboard players set c0 Constant 0\nscoreboard players set c10 Constant 10\nscoreboard players set c15 Constant 15\nscoreboard players set c150 Constant 150\nscoreboard players set c50 Constant 50\nscoreboard players set c5000 Constant 5000\nscoreboard players set c3 Constant 3\nscoreboard players set c4 Constant 4\nscoreboard players set c100 Constant 100\nscoreboard players set c36000 Constant 36000\nscoreboard players set c4000 Constant 4000\nscoreboard players set c360 Constant 360\nscoreboard players set minus Constant -1\nscoreboard players set c2 Constant 2\nscoreboard players set c100000 Constant 100000\nscoreboard players set c7775 Constant 7775\nscoreboard players set c141 Constant 141\nscoreboard objectives add tic_scratch13 dummy\nscoreboard objectives add tic_scratch12 dummy\nscoreboard objectives add tic_scratch11 dummy\nscoreboard objectives add tic_scratch10 dummy\nscoreboard objectives add tic_scratch9 dummy\nscoreboard objectives add tic_scratch8 dummy\nscoreboard objectives add tic_scratch7 dummy\nscoreboard objectives add tic_scratch6 dummy\nscoreboard objectives add tic_scratch5 dummy\nscoreboard objectives add tic_scratch4 dummy\nscoreboard objectives add tic_scratch3 dummy\nscoreboard objectives add tic_scratch2 dummy\nscoreboard objectives add tic_scratch1 dummy\nscoreboard objectives add tic_scratch0 dummy\nscoreboard objectives add _scratch2 dummy\nscoreboard objectives add _scratch1 dummy\nscoreboard objectives add _scratch0 dummy\nscoreboard objectives add sig_scratch0 dummy\nscoreboard objectives add cos2_scratch0 dummy\nscoreboard objectives add cos_scratch0 dummy\nscoreboard objectives add sin2_scratch0 dummy\nscoreboard objectives add sin_scratch1 dummy\nscoreboard objectives add sin_scratch0 dummy\nscoreboard objectives add abs_scratch0 dummy\nscoreboard objectives add sqr_scratch1 dummy\nscoreboard objectives add sqr_scratch0 dummy\nscoreboard players set Global anim 0\nscoreboard players set Global rot_anim 0\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nkill @e[type=minecraft:block_display]\nscoreboard players set Global col 0\nexecute if score Global col <= c3 Constant run function transform_demo:line028/for011\nsummon minecraft:block_display -10 57 0 {block_state:{Name:\"minecraft:command_block\",Count:0b}, interpolation_duration: 0, teleport_duration: 1, Tags:[\"rot_trans\"]}"
+  ],
+  [
+   "data/transform_demo/function/line028/for011.mcfunction",
+   "scoreboard players set Global row 0\nexecute if score Global row <= c2 Constant run function transform_demo:line029/for012\nscoreboard players add Global col 1\nexecute if score Global col <= c3 Constant run function transform_demo:line028/for011"
+  ],
+  [
+   "data/transform_demo/function/line029/for012.mcfunction",
+   "scoreboard players operation Global _scratch0 = Global col\nscoreboard players operation Global _scratch0 *= c5000 Constant\nscoreboard players operation Global _scratch1 = Global row\nscoreboard players operation Global _scratch1 *= c5000 Constant\nscoreboard players set Global _scratch2 67000\nscoreboard players operation Global _scratch2 -= Global _scratch1\nscoreboard players operation 0-0-0-0-C1 _pos_0 = Global _scratch0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = Global _scratch2\nscoreboard players set 0-0-0-0-C1 _pos_2 0\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.001 run scoreboard players get 0-0-0-0-C1 _pos_2\nexecute at 0-0-0-0-C1 run summon minecraft:block_display ~ ~ ~ {block_state:{Name:\"minecraft:command_block\",Count:0b}, interpolation_duration: 0, teleport_duration: 1, Tags:[\"transform_demo\"]}\nscoreboard players add @e[type=minecraft:block_display,tag=transform_demo] age 1\nexecute as @e[type=minecraft:block_display,tag=transform_demo,scores={age=1}] run function transform_demo:line036/execute14\nscoreboard players add Global row 1\nexecute if score Global row <= c2 Constant run function transform_demo:line029/for012"
+  ],
+  [
+   "data/transform_demo/function/line041/execute13.mcfunction",
+   "scoreboard players set @s base 1000\nscoreboard players set Global _scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/line036/execute14.mcfunction",
+   "scoreboard players operation @s row = Global row\nscoreboard players operation @s col = Global col\nscoreboard players operation Global _scratch0 = Global row\nscoreboard players operation Global _scratch0 *= c4 Constant\nscoreboard players operation Global _scratch1 = Global col\nscoreboard players operation Global _scratch1 += Global _scratch0\nscoreboard players operation @s idx = Global _scratch1\nscoreboard players set Global _scratch0 1\nexecute if score Global col = Global row run function transform_demo:line041/execute13\nexecute if score Global _scratch0 matches 1.. run scoreboard players set @s base 0"
+  ],
+  [
+   "data/transform_demo/function/tick.mcfunction",
+   "scoreboard players add Global anim 1\nexecute as @e[type=minecraft:block_display,tag=transform_demo] run function transform_demo:line056/execute20\nexecute if score Global anim matches 110.. run scoreboard players set Global anim 0\nexecute as @e[type=minecraft:block_display,tag=rot_trans,limit=1] run function transform_demo:line088/execute47"
+  ],
+  [
+   "data/transform_demo/function/line061/execute15.mcfunction",
+   "# Grow\nscoreboard players operation Global frame = Global anim\nscoreboard players operation Global val = Global frame\nscoreboard players operation Global val *= c50 Constant\nscoreboard players operation Global val += @s base\nscoreboard players set Global tic_scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/line061/else16.mcfunction",
+   "# Shrink\nscoreboard players operation Global frame = Global anim\nscoreboard players remove Global frame 30\nscoreboard players operation Global tic_scratch1 = Global frame\nscoreboard players operation Global tic_scratch1 *= c100 Constant\nscoreboard players set Global val 1000\nscoreboard players operation Global val -= Global tic_scratch1\nscoreboard players operation Global val += @s base\nscoreboard players set Global tic_scratch0 0"
+  ],
+  [
+   "data/transform_demo/function/line061/else17.mcfunction",
+   "# Restore\nscoreboard players operation Global frame = Global anim\nscoreboard players remove Global frame 80\nscoreboard players operation Global tic_scratch1 = Global frame\nscoreboard players operation Global tic_scratch1 *= c150 Constant\nscoreboard players operation Global val = Global tic_scratch1\nscoreboard players remove Global val 3000\nscoreboard players operation Global val += @s base"
+  ],
+  [
+   "data/transform_demo/function/line075/execute18.mcfunction",
+   "data modify storage transform_demo:global transformation set value [1f,0f,0f,0f,0f,1f,0f,0f,0f,0f,1f,0f,0f,0f,0f,1f]\n$execute store result storage transform_demo:global transformation[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global transformation\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line057/with019.mcfunction",
+   "scoreboard players set Global val 1000000000\nscoreboard players set Global tic_scratch0 1\nexecute if score Global anim matches ..20 run function transform_demo:line061/execute15\nexecute if score Global tic_scratch0 matches 1.. if score Global anim matches 30.. if score Global anim matches ..70 run function transform_demo:line061/else16\nexecute if score Global tic_scratch0 matches 1.. if score Global anim matches 80.. if score Global anim matches ..100 run function transform_demo:line061/else17\nexecute if score Global val matches ..999999999 run function transform_demo:line075/execute18 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line056/execute20.mcfunction",
+   "execute store result storage transform_demo:global args.idx int 1 run scoreboard players get @s idx\nfunction transform_demo:line057/with019"
+  ],
+  [
+   "data/transform_demo/function/line089/execute21.mcfunction",
+   "data modify storage transform_demo:global rot_trans set value [1f,0f,0f,0f,0f,1f,0f,0f,0f,0f,1f,0f,0f,0f,0f,1f]\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line110/with022.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute23.mcfunction",
+   "scoreboard players set Global delta 1168\nscoreboard players remove Global delta 1000\nscoreboard players operation Global tic_scratch0 = Global delta\nscoreboard players operation Global tic_scratch0 *= Global frame\nscoreboard players operation Global tic_scratch0 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch0\nscoreboard players add Global val 1000\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with022 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with024.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute25.mcfunction",
+   "scoreboard players set Global delta -914\nscoreboard players operation Global delta -= c0 Constant\nscoreboard players operation Global tic_scratch2 = Global delta\nscoreboard players operation Global tic_scratch2 *= Global frame\nscoreboard players operation Global tic_scratch2 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch2\nscoreboard players operation Global val += c0 Constant\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with024 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with026.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute27.mcfunction",
+   "scoreboard players set Global delta 223\nscoreboard players operation Global delta -= c0 Constant\nscoreboard players operation Global tic_scratch3 = Global delta\nscoreboard players operation Global tic_scratch3 *= Global frame\nscoreboard players operation Global tic_scratch3 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch3\nscoreboard players operation Global val += c0 Constant\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with026 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with028.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute29.mcfunction",
+   "scoreboard players set Global delta -239\nscoreboard players operation Global delta -= c0 Constant\nscoreboard players operation Global tic_scratch4 = Global delta\nscoreboard players operation Global tic_scratch4 *= Global frame\nscoreboard players operation Global tic_scratch4 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch4\nscoreboard players operation Global val += c0 Constant\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with028 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with030.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute31.mcfunction",
+   "scoreboard players set Global delta 787\nscoreboard players operation Global delta -= c0 Constant\nscoreboard players operation Global tic_scratch5 = Global delta\nscoreboard players operation Global tic_scratch5 *= Global frame\nscoreboard players operation Global tic_scratch5 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch5\nscoreboard players operation Global val += c0 Constant\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with030 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with032.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute33.mcfunction",
+   "scoreboard players set Global delta 756\nscoreboard players remove Global delta 1000\nscoreboard players operation Global tic_scratch6 = Global delta\nscoreboard players operation Global tic_scratch6 *= Global frame\nscoreboard players operation Global tic_scratch6 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch6\nscoreboard players add Global val 1000\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with032 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with034.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute35.mcfunction",
+   "scoreboard players set Global delta -1028\nscoreboard players operation Global delta -= c0 Constant\nscoreboard players operation Global tic_scratch7 = Global delta\nscoreboard players operation Global tic_scratch7 *= Global frame\nscoreboard players operation Global tic_scratch7 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch7\nscoreboard players operation Global val += c0 Constant\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with034 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with036.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute37.mcfunction",
+   "scoreboard players set Global delta -258\nscoreboard players operation Global delta -= c0 Constant\nscoreboard players operation Global tic_scratch8 = Global delta\nscoreboard players operation Global tic_scratch8 *= Global frame\nscoreboard players operation Global tic_scratch8 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch8\nscoreboard players operation Global val += c0 Constant\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with036 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with038.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute39.mcfunction",
+   "scoreboard players set Global delta 514\nscoreboard players operation Global delta -= c0 Constant\nscoreboard players operation Global tic_scratch9 = Global delta\nscoreboard players operation Global tic_scratch9 *= Global frame\nscoreboard players operation Global tic_scratch9 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch9\nscoreboard players operation Global val += c0 Constant\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with038 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with040.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute41.mcfunction",
+   "scoreboard players set Global delta 916\nscoreboard players operation Global delta -= c0 Constant\nscoreboard players operation Global tic_scratch10 = Global delta\nscoreboard players operation Global tic_scratch10 *= Global frame\nscoreboard players operation Global tic_scratch10 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch10\nscoreboard players operation Global val += c0 Constant\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with040 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with042.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute43.mcfunction",
+   "scoreboard players set Global delta 1069\nscoreboard players remove Global delta 1000\nscoreboard players operation Global tic_scratch11 = Global delta\nscoreboard players operation Global tic_scratch11 *= Global frame\nscoreboard players operation Global tic_scratch11 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch11\nscoreboard players add Global val 1000\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with042 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line110/with044.mcfunction",
+   "$execute store result storage transform_demo:global rot_trans[$(idx)] float 0.001 run scoreboard players get Global val\ndata modify entity @s transformation set from storage transform_demo:global rot_trans\ndata modify entity @s start_interpolation set value 0b"
+  ],
+  [
+   "data/transform_demo/function/line103/execute45.mcfunction",
+   "scoreboard players set Global delta -1250\nscoreboard players operation Global delta -= c0 Constant\nscoreboard players operation Global tic_scratch12 = Global delta\nscoreboard players operation Global tic_scratch12 *= Global frame\nscoreboard players operation Global tic_scratch12 /= c10 Constant\nscoreboard players operation Global val = Global tic_scratch12\nscoreboard players operation Global val += c0 Constant\nexecute store result storage transform_demo:global args.idx int 1 run scoreboard players get Global idx\nfunction transform_demo:line110/with044 with storage transform_demo:global args"
+  ],
+  [
+   "data/transform_demo/function/line099/execute46.mcfunction",
+   "execute if score Global idx matches 0 run function transform_demo:line103/execute23\nexecute if score Global idx matches 1 run function transform_demo:line103/execute25\nexecute if score Global idx matches 2 run function transform_demo:line103/execute27\nexecute if score Global idx matches 3 run function transform_demo:line103/execute29\nexecute if score Global idx matches 4 run function transform_demo:line103/execute31\nexecute if score Global idx matches 5 run function transform_demo:line103/execute33\nexecute if score Global idx matches 6 run function transform_demo:line103/execute35\nexecute if score Global idx matches 7 run function transform_demo:line103/execute37\nexecute if score Global idx matches 8 run function transform_demo:line103/execute39\nexecute if score Global idx matches 9 run function transform_demo:line103/execute41\nexecute if score Global idx matches 10 run function transform_demo:line103/execute43\nexecute if score Global idx matches 11 run function transform_demo:line103/execute45"
+  ],
+  [
+   "data/transform_demo/function/line088/execute47.mcfunction",
+   "execute if score Global rot_anim matches ..0 run function transform_demo:line089/execute21\nscoreboard players add Global rot_anim 1\nscoreboard players operation Global idx = Global rot_anim\nscoreboard players operation Global idx /= c15 Constant\nscoreboard players operation Global frame = Global rot_anim\nscoreboard players operation Global frame %= c15 Constant\nexecute if score Global frame matches ..10 run function transform_demo:line099/execute46\nscoreboard players set Global tic_scratch13 15\nscoreboard players operation Global tic_scratch13 *= c12 Constant\nscoreboard players add Global tic_scratch13 55\nexecute if score Global rot_anim >= Global tic_scratch13 run scoreboard players set Global rot_anim -20"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"transform_demo:tick\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"transform_demo:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"Demonstrates transform parameters\"\n    }\n}"
+  ]
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "id": "Scripts/archived 1.15 scripts/pickpocket.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "pickpocket",
+ "error": "Compile failed — see log.",
+ "log": [
+  "component syntax: HandItems/ArmorItems are gone since 1.21.5 and are silently ignored: write equipment:{mainhand:{…},offhand:{…},head:{…},chest:{…},legs:{…},feet:{…}} (a path: equipment.mainhand), or item replace entity @s weapon.mainhand with …",
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 118",
+  "Unable to compile execute block contents at line 109",
+  "Error compiling block at line 109",
+  "Unable to compile execute block contents at line 104",
+  "Error compiling block at line 104",
+  "Unable to compile for block contents at line 80",
+  "Error compiling block at line 80",
+  "Unable to compile clock \"main\" at line 31",
+  "Error compiling block at line 31"
+ ],
+ "files": []
+}

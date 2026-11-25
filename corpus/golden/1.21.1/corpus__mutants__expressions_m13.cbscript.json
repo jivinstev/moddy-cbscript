@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/expressions_m13.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "expressions_m13",
+ "error": "Syntax error at line 15 column 4. Unexpected PLUS symbol \"+\" in state 408.",
+ "log": [
+  "Syntax error at line 15 column 4. Unexpected PLUS symbol \"+\" in state 408."
+ ],
+ "files": []
+}

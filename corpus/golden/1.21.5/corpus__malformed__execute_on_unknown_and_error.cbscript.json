@@ -1,0 +1,12 @@
+{
+ "id": "corpus/malformed/execute_on_unknown_and_error.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "execute_on_unknown_and_error",
+ "error": "Syntax error at line 4 column 6. Unexpected EQUALS symbol \"=\" in state 591.",
+ "log": [
+  "Warning: Unknown argument for execute on: \"nothing\" at line 3",
+  "Syntax error at line 4 column 6. Unexpected EQUALS symbol \"=\" in state 591."
+ ],
+ "files": []
+}

@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/execute_items_m10.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "execute_items_m10",
+ "error": "Syntax error at line 34 column 2. Unexpected at symbol \"at\" in state 143.",
+ "log": [
+  "Syntax error at line 34 column 2. Unexpected at symbol \"at\" in state 143."
+ ],
+ "files": []
+}

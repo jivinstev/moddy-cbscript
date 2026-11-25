@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/pyexpr_m15.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "pyexpr_m15",
+ "error": "Syntax error at line 32 column 12. Unexpected DOLLAR symbol \"$\" in state 292.",
+ "log": [
+  "Syntax error at line 32 column 12. Unexpected DOLLAR symbol \"$\" in state 292."
+ ],
+ "files": []
+}

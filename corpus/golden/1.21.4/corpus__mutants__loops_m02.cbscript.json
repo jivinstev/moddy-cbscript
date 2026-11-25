@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/loops_m02.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "loops_m02",
+ "error": "Syntax error at line 10 column 17. Unexpected by symbol \"by\" in state 1015.",
+ "log": [
+  "Syntax error at line 10 column 17. Unexpected by symbol \"by\" in state 1015."
+ ],
+ "files": []
+}

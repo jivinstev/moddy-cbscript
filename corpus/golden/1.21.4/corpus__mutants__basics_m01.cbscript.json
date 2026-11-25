@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/basics_m01.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "basics_m01",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

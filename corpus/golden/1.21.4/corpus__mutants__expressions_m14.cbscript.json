@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/expressions_m14.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "expressions_m14",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

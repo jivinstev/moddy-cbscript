@@ -1,0 +1,42 @@
+{
+ "id": "Scripts/archived 1.15 scripts/nether_portal_block.cbscript",
+ "version": "1.21.5",
+ "ok": true,
+ "namespace": "nether_portal_block",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/nether_portal_block/function/reset.mcfunction",
+   "data modify storage nether_portal_block:global args set value {}\ndata modify storage nether_portal_block stack set value []\ngamerule maxCommandChainLength 1000000000\ntellraw @a [\"\",{\"text\":\"[Create Nether Portal Block]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function nether_portal_block:create_block\"}}]\ntellraw @a [\"\",{\"text\":\"[Kill Portal Blocks]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function nether_portal_block:destroy_blocks\"}}]"
+  ],
+  [
+   "data/nether_portal_block/function/create_block.mcfunction",
+   "execute align xyz run function nether_portal_block:line029/execute1"
+  ],
+  [
+   "data/nether_portal_block/function/line029/execute1.mcfunction",
+   "summon minecraft:armor_stand ~0.5 ~ ~0.124 {\"Tags\":[\"PortalFacePos\",\"NewPortalFacePos\"],\"Marker\":1b,\"Invisible\":1b,\"Invulnerable\":1b,\"NoGravity\":1b,\"Passengers\":[{\"id\":\"falling_block\",\"Time\":1b,\"NoGravity\":1b,\"BlockState\":{\"Name\":\"nether_portal\",\"Properties\":{\"axis\":\"x\"}},\"Tags\":[\"PortalFace\",\"NewPortalFace\"]}]}\nsummon minecraft:armor_stand ~0.5 ~ ~0.876 {\"Tags\":[\"PortalFacePos\",\"NewPortalFacePos\"],\"Marker\":1b,\"Invisible\":1b,\"Invulnerable\":1b,\"NoGravity\":1b,\"Passengers\":[{\"id\":\"falling_block\",\"Time\":1b,\"NoGravity\":1b,\"BlockState\":{\"Name\":\"nether_portal\",\"Properties\":{\"axis\":\"x\"}},\"Tags\":[\"PortalFace\",\"NewPortalFace\"]}]}\nsummon minecraft:armor_stand ~0.124 ~ ~0.5 {\"Tags\":[\"PortalFacePos\",\"NewPortalFacePos\"],\"Marker\":1b,\"Invisible\":1b,\"Invulnerable\":1b,\"NoGravity\":1b,\"Passengers\":[{\"id\":\"falling_block\",\"Time\":1b,\"NoGravity\":1b,\"BlockState\":{\"Name\":\"nether_portal\",\"Properties\":{\"axis\":\"z\"}},\"Tags\":[\"PortalFace\",\"NewPortalFace\"]}]}\nsummon minecraft:armor_stand ~0.876 ~ ~0.5 {\"Tags\":[\"PortalFacePos\",\"NewPortalFacePos\"],\"Marker\":1b,\"Invisible\":1b,\"Invulnerable\":1b,\"NoGravity\":1b,\"Passengers\":[{\"id\":\"falling_block\",\"Time\":1b,\"NoGravity\":1b,\"BlockState\":{\"Name\":\"nether_portal\",\"Properties\":{\"axis\":\"z\"}},\"Tags\":[\"PortalFace\",\"NewPortalFace\"]}]}\nsummon minecraft:armor_stand ~0.5 ~ ~0.5 {\"Tags\":[\"PortalObsidianPos\",\"NewPortalObsidianPos\"],\"Marker\":1b,\"Invisible\":1b,\"Invulnerable\":1b,\"NoGravity\":1b,\"Passengers\":[{\"id\":\"falling_block\",\"Time\":1b,\"NoGravity\":1b,\"BlockState\":{\"Name\":\"obsidian\"},\"Tags\":[\"PortalObsidian\",\"NewPortalObsidian\"]}]}"
+  ],
+  [
+   "data/nether_portal_block/function/destroy_blocks.mcfunction",
+   "kill @e[type=minecraft:armor_stand]\nkill @e[type=minecraft:falling_block,tag=PortalFace]\nkill @e[type=minecraft:armor_stand]\nkill @e[type=minecraft:falling_block,tag=PortalObsidian]"
+  ],
+  [
+   "data/nether_portal_block/function/main.mcfunction",
+   "execute as @e[type=minecraft:falling_block,tag=PortalFace] run data modify entity @s Time set value 1b\nexecute as @e[type=minecraft:falling_block,tag=PortalObsidian] run data modify entity @s Time set value 1b"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"nether_portal_block:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"nether_portal_block:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"Nether portal cubes\"\n    }\n}"
+  ]
+ ]
+}

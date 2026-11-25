@@ -1,0 +1,26 @@
+{
+ "id": "corpus/malformed/tab_after_tilde.cbscript",
+ "version": "1.21.5",
+ "ok": true,
+ "namespace": "tab_after_tilde",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/tab_after_tilde/function/reset.mcfunction",
+   "data modify storage tab_after_tilde:global args set value {}\ndata modify storage tab_after_tilde stack set value []\ngamerule maxCommandChainLength 1000000000\nexecute at @s run tp @s ~ ~ ~\nexecute at @s run tp @s ~1 ~ ~"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"tab_after_tilde:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

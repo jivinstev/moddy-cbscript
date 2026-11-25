@@ -1,0 +1,34 @@
+{
+ "id": "Scripts/archived 1.15 scripts/test_json_objects.cbscript",
+ "version": "1.21.1",
+ "ok": true,
+ "namespace": "test_json_objects",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/test_json_objects/function/reset.mcfunction",
+   "data modify storage test_json_objects:global args set value {}\ndata modify storage test_json_objects stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add _scratch0 dummy\nsummon creeper ~ ~ ~\nscoreboard players set Global _scratch0 1\nexecute if entity @e[type=#test_json_objects:test] run function test_json_objects:line010/execute1\nexecute if score Global _scratch0 matches 1.. run say entity_tag fail"
+  ],
+  [
+   "data/test_json_objects/function/line010/execute1.mcfunction",
+   "say entity_tag pass\nscoreboard players set Global _scratch0 0"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"test_json_objects:reset\"\n    ]\n}"
+  ],
+  [
+   "data/test_json_objects/tags/entity_type/test.json",
+   "{\n    \"values\": [\n        \"minecraft:creeper\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"Test compiling json objects\"\n    }\n}"
+  ]
+ ]
+}

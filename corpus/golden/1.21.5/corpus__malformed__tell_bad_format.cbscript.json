@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/tell_bad_format.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "tell_bad_format",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Unexpected formatting character {Q in tell command",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

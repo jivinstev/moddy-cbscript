@@ -1,0 +1,15 @@
+{
+ "id": "corpus/malformed/create_unknown.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "create_unknown",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Unable to create unknown entity: @Nope",
+  "<traceback> Exception: Error creating entity at line 3",
+  "Error compiling block at line 3",
+  "Unable to compile reset section at line 2",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

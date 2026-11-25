@@ -1,0 +1,11 @@
+{
+ "id": "corpus/mutants/definitions_m07.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "definitions_m07",
+ "error": "Syntax error at line 3 column 6. Unexpected NOT symbol \"!\" in state 460.",
+ "log": [
+  "Syntax error at line 3 column 6. Unexpected NOT symbol \"!\" in state 460."
+ ],
+ "files": []
+}

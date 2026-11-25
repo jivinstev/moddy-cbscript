@@ -1,0 +1,11 @@
+{
+ "id": "Scripts/archived 1.15 scripts/colored_slime_blocks.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "colored_slime_blocks",
+ "error": "Syntax error at line 312 column 46. Unexpected false symbol \"false\" in state 1096.",
+ "log": [
+  "Syntax error at line 312 column 46. Unexpected false symbol \"false\" in state 1096."
+ ],
+ "files": []
+}

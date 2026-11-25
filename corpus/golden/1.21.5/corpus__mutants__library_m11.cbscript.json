@@ -1,0 +1,26 @@
+{
+ "id": "corpus/mutants/library_m11.cbscript",
+ "version": "1.21.5",
+ "ok": true,
+ "namespace": "library_m11",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/library_m11/function/reset.mcfunction",
+   "data modify storage library_m11:global args set value {}\ndata modify storage library_m11 stack set value []\ngamerule maxCommandChainLength 1000000000"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"library_m11:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"Compile-time library: builtins, math, str/list/dict methods, number formatting\"\n    }\n}"
+  ]
+ ]
+}

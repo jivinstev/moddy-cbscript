@@ -1,0 +1,26 @@
+{
+ "id": "corpus/malformed/unicode_text.cbscript",
+ "version": "1.21.1",
+ "ok": true,
+ "namespace": "unicode_text",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/unicode_text/function/reset.mcfunction",
+   "data modify storage unicode_text:global args set value {}\ndata modify storage unicode_text stack set value []\ngamerule maxCommandChainLength 1000000000\nsay ünïcödé ☃ 𝄞\ntellraw @a [\"\",{\"text\":\"héllo ☃\"}]"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"unicode_text:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"\\u00dcn\\u00efc\\u00f6d\\u00e9 \\u2603 \\ud834\\udd1e\"\n    }\n}"
+  ]
+ ]
+}

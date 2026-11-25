@@ -1,0 +1,17 @@
+{
+ "id": "Scripts/archived 1.15 scripts/tetris.cbscript",
+ "version": "1.21.5",
+ "ok": false,
+ "namespace": "tetris",
+ "error": "Compile failed — see log.",
+ "log": [
+  "component syntax: HandItems/ArmorItems are gone since 1.21.5 and are silently ignored: write equipment:{mainhand:{…},offhand:{…},head:{…},chest:{…},legs:{…},feet:{…}} (a path: equipment.mainhand), or item replace entity @s weapon.mainhand with …",
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 389",
+  "Unable to compile execute block contents at line 388",
+  "Error compiling block at line 388",
+  "Unable to compile function \"spawn_shape\" at line 370",
+  "Error compiling block at line 370"
+ ],
+ "files": []
+}

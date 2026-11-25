@@ -1,0 +1,55 @@
+{
+ "id": "corpus/mutants/transforms_m11.cbscript",
+ "version": "1.21.5",
+ "ok": true,
+ "namespace": "transforms_m11",
+ "error": null,
+ "log": [
+  "Warning: \"minecraft:generic.scale\" should be \"minecraft:scale\" on this Minecraft — the other spelling makes the whole FUNCTION fail to load while the pack still reports as enabled. Corrected.",
+  "Warning: \"generic.scale\" should be \"scale\" on this Minecraft — the other spelling makes the whole FUNCTION fail to load while the pack still reports as enabled. Corrected.",
+  "Warning: \"generic.max_health\" should be \"max_health\" on this Minecraft — the other spelling makes the whole FUNCTION fail to load while the pack still reports as enabled. Corrected.",
+  "Warning: \"minecraft:generic.attack_damage\" should be \"minecraft:attack_damage\" on this Minecraft — the other spelling makes the whole FUNCTION fail to load while the pack still reports as enabled. Corrected.",
+  "Warning: \"minecraft:generic.max_health\" should be \"minecraft:max_health\" on this Minecraft — the other spelling makes the whole FUNCTION fail to load while the pack still reports as enabled. Corrected.",
+  "Warning: \"player.block_interaction_range\" should be \"block_interaction_range\" on this Minecraft — the other spelling makes the whole FUNCTION fail to load while the pack still reports as enabled. Corrected.",
+  "component syntax: \"minecraft:attribute_modifiers={modifiers:[{type:\"attack_damage\",id:\"a:b\",amount:3,operation:\"add_value\",slot:\"mainhand\"}],show_in_tooltip:false}\" is the pre-1.21.5 spelling; wrote \"minecraft:attribute_modifiers=[{type:\"attack_damage\",id:\"a:b\",amount:3,operation:\"add_value\",slot:\"mainhand\"}],minecraft:tooltip_display={hidden_components:[\"minecraft:attribute_modifiers\"]}\"",
+  "component syntax: \"dyed_color={rgb:5}\" is the pre-1.21.5 spelling; wrote \"dyed_color=5\"",
+  "component syntax: \"custom_name='{\"text\":\"W\"}'\" is the pre-1.21.5 spelling; wrote \"custom_name={\"text\":\"W\"}\"",
+  "component syntax: HandItems/ArmorItems are gone since 1.21.5 and are silently ignored: write equipment:{mainhand:{…},offhand:{…},head:{…},chest:{…},legs:{…},feet:{…}} (a path: equipment.mainhand), or item replace entity @s weapon.mainhand with …",
+  "component syntax: \"minecraft:dyed_color={rgb:9857238}\" is the pre-1.21.5 spelling; wrote \"minecraft:dyed_color=9857238\"",
+  "component syntax: \"dyed_color={rgb:5,show_in_tooltip:false}\" is the pre-1.21.5 spelling; wrote \"dyed_color=5\"",
+  "component syntax: \"minecraft:custom_name='{\"text\":\"Wand\",\"italic\":false}'\" is the pre-1.21.5 spelling; wrote \"minecraft:custom_name={\"text\":\"Wand\",\"italic\":false}\"",
+  "component syntax: \"item_name='\"Plain\"'\" is the pre-1.21.5 spelling; wrote \"item_name=\"Plain\"\"",
+  "component syntax: \"custom_name='{\"text\":\"Moddy\\'s\"}'\" is the pre-1.21.5 spelling; wrote \"custom_name={\"text\":\"Moddy's\"}\"",
+  "component syntax: \"lore=['{\"text\":\"a\"}','{\"text\":\"b, c\"}']\" is the pre-1.21.5 spelling; wrote \"lore=[{\"text\":\"a\"},{\"text\":\"b, c\"}]\"",
+  "component syntax: \"attribute_modifiers={modifiers:[]}\" is the pre-1.21.5 spelling; wrote \"attribute_modifiers=[]\"",
+  "component syntax: \"minecraft:enchantments={levels:{\"minecraft:efficiency\":5,\"minecraft:fortune\":3}}\" is the pre-1.21.5 spelling; wrote \"minecraft:enchantments={\"minecraft:efficiency\":5,\"minecraft:fortune\":3}\"",
+  "component syntax: \"stored_enchantments={levels:{\"minecraft:mending\":1},show_in_tooltip:false}\" is the pre-1.21.5 spelling; wrote \"stored_enchantments={\"minecraft:mending\":1},minecraft:tooltip_display={hidden_components:[\"minecraft:stored_enchantments\"]}\"",
+  "Warning: \"FallDistance\" should be \"fall_distance\" (a double, e.g. fall_distance:0d) on this Minecraft — nbt={...} matching is case- and type-sensitive and the old form matches nothing. Corrected.",
+  "Warning: \"falldistance\" should be \"fall_distance\" (a double, e.g. fall_distance:0d) on this Minecraft — nbt={...} matching is case- and type-sensitive and the old form matches nothing. Corrected.",
+  "Warning: \"fall_distance\" should be \"fall_distance\" (a double, e.g. fall_distance:0d) on this Minecraft — nbt={...} matching is case- and type-sensitive and the old form matches nothing. Corrected.",
+  "Warning: \"onground\" should be \"OnGround\" — vanilla NBT field names are CamelCase and nbt={...} matching is case-sensitive, so the lower-case form matches nothing and the rule never fires. Corrected.",
+  "Warning: \"invulnerable\" should be \"Invulnerable\" — vanilla NBT field names are CamelCase and nbt={...} matching is case-sensitive, so the lower-case form matches nothing and the rule never fires. Corrected."
+ ],
+ "files": [
+  [
+   "data/transforms_m11/function/reset.mcfunction",
+   "data modify storage transforms_m11:global args set value {}\ndata modify storage transforms_m11 stack set value []\ngamerule maxCommandChainLength 1000000000\nattribute @s somemod:spookiness base set 3\nattribute @s minecraft:scale base set 2.0\nattribute @s scale base set 2.0\nattribute Dev max_health base set 40\nattribute @e[tag=boss,limit=1] minecraft:attack_damage base set 12\nsummon zombie ~ ~ ~ {attributes:[{id:\"minecraft:max_health\",base:300},{id:\"minecraft:scale\",base:3.0}]}\nsummon item ~ ~ ~ {Item:{id:\"minecraft:scale\",Count:1b}}\nsay the scale of this attribute is enormous\ngive @s minecraft:scale\nattribute @s\nattribute @s minecraft:scale base set 2.0\nattribute @s block_interaction_range base set 6\nattribute Dev max_health base set 40\nsummon zombie ~ ~ ~ {attributes:[{id:\"minecraft:scale\",base:2.0}]}\nattribute @s scale base set 2.0\nsummon zombie ~ ~ ~ {attributes:[{id:\"minecraft:max_health\",base:300},{id:\"minecraft:scale\",base:3.0}]}\nattribute @s block_interaction_range base set 6\nsummon zombie ~ ~ ~ {attributes:[{id:\"minecraft:scale\",base:2.0}]}\ngive @s stick[minecraft:attribute_modifiers=[{type:\"attack_damage\",id:\"a:b\",amount:3,operation:\"add_value\",slot:\"mainhand\"}],minecraft:tooltip_display={hidden_components:[\"minecraft:attribute_modifiers\"]}] 1\ngive @s stick[dyed_color=5,custom_name={\"text\":\"W\"},lore=[{\"text\":\"a\"}],attribute_modifiers=[]] 1\ngive @s stick[custom_name='Wand'] 1\ngive @s x[dyed_color=5,custom_name={\"text\":\"W\"}] 1\ngive @s bow[minecraft:enchantments={\"minecraft:power\":5}] 1\nsummon zombie ~ ~ ~ {HandItems:[{id:\"minecraft:iron_sword\",count:1},{}]}\ngive @s leather_helmet[minecraft:dyed_color=9857238] 1\ngive @s x[dyed_color=5]\ngive @s stick[minecraft:custom_name={\"text\":\"Wand\",\"italic\":false}] 1\ngive @s stick[item_name=\"Plain\"] 1\ngive @s stick[custom_name={\"text\":\"Moddy's\"}] 1\ngive @s stick[lore=[{\"text\":\"a\"},{\"text\":\"b, c\"}]] 1\ngive @s stick[minecraft:attribute_modifiers=[{type:\"attack_damage\",id:\"a:b\",amount:3,operation:\"add_value\",slot:\"mainhand\"}],minecraft:tooltip_display={hidden_components:[\"minecraft:attribute_modifiers\"]}] 1\ngive @s diamond_pickaxe[minecraft:enchantments={\"minecraft:efficiency\":5,\"minecraft:fortune\":3}] 1\ngive @s x[attribute_modifiers=[]]\ngive @s enchanted_book[stored_enchantments={\"minecraft:mending\":1},minecraft:tooltip_display={hidden_components:[\"minecraft:stored_enchantments\"]}]\ngive @s leather_helmet[minecraft:dyed_color=9857238] 1\ngive @s x[dyed_color=5]\ngive @s stick[minecraft:custom_name={\"text\":\"Wand\",\"italic\":false}] 1\ngive @s stick[item_name=\"Plain\"] 1\ngive @s stick[custom_name={\"text\":\"Moddy's\"}] 1\ngive @s stick[lore=[{\"text\":\"a\"},{\"text\":\"b, c\"}]] 1\ngive @s x[attribute_modifiers=[]]\ngive @s diamond_pickaxe[minecraft:enchantments={\"minecraft:efficiency\":5,\"minecraft:fortune\":3}] 1\ngive @s enchanted_book[stored_enchantments={\"minecraft:mending\":1},minecraft:tooltip_display={hidden_components:[\"minecraft:stored_enchantments\"]}]\ndata modify entity @s HandItems[0] set value {}\nexecute as @e[nbt={fall_distance:0d}] run say match\nexecute as @e[nbt={fall_distance:0d}] run say match\nexecute as @e[nbt={fall_distance:0d}] run say match\nexecute as @e[nbt={fall_distance:0d}] run say match\nexecute as @e[nbt={fall_distance:0d}] run say match\nexecute as @e[nbt={fall_distance:2.5d}] run say match\nexecute as @e[nbt={fall_distance:2.5d}] run say match\nexecute as @e[nbt={fall_distance:0.5}] run say match\nexecute as @e[nbt={OnGround:1b,fall_distance:0d}] run say match\nexecute as @e[nbt={OnGround:1b,fall_distance:0d}] run say match\ntellraw @a [\"\",{\"text\":\"open\",\"click_event\":{\"action\":\"open_url\",\"url\":\"https://example.com/page\"}},{\"text\":\" \"},{\"text\":\"run\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/say hi\"}},{\"text\":\" \"},{\"text\":\"suggest\",\"click_event\":{\"action\":\"suggest_command\",\"command\":\"/say hi\"}},{\"text\":\" \"},{\"text\":\"fn\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function transforms_m11:welcome\"}},{\"text\":\" \"},{\"text\":\"Done\",\"color\":\"green\"}]\nattribute @s minecraft:max_health base set 40\nsummon zombie ~ ~ ~ {attributes:[{id:\"minecraft:max_health\",base:300},{id:\"scale\",base:2}]}\nexecute if entity @s[nbt={OnGround:1b,Invulnerable:1b,fall_distance:2.5d}] run say x"
+  ],
+  [
+   "data/transforms_m11/function/welcome.mcfunction",
+   "say welcome"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"transforms_m11:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"Version transforms (nbt case, attribute ids, component syntax)\"\n    }\n}"
+  ]
+ ]
+}

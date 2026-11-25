@@ -1,0 +1,26 @@
+{
+ "id": "corpus/malformed/attribute_unknown.cbscript",
+ "version": "1.21.4",
+ "ok": true,
+ "namespace": "attribute_unknown",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/attribute_unknown/function/reset.mcfunction",
+   "data modify storage attribute_unknown:global args set value {}\ndata modify storage attribute_unknown stack set value []\ngamerule maxCommandChainLength 1000000000\nattribute @s somemod:spookiness base set 3\nattribute @s minecraft:scale base set 2\nattribute @s minecraft:scale base set 2"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"attribute_unknown:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

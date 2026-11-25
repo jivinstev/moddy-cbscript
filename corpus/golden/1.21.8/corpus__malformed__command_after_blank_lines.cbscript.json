@@ -1,0 +1,11 @@
+{
+ "id": "corpus/malformed/command_after_blank_lines.cbscript",
+ "version": "1.21.8",
+ "ok": false,
+ "namespace": "command_after_blank_lines",
+ "error": "Syntax error at line 6 column 6. Unexpected EQUALS symbol \"=\" in state 591.",
+ "log": [
+  "Syntax error at line 6 column 6. Unexpected EQUALS symbol \"=\" in state 591."
+ ],
+ "files": []
+}

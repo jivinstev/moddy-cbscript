@@ -1,0 +1,13 @@
+{
+ "id": "corpus/malformed/tuple_assign_not_tuple.cbscript",
+ "version": "1.21.4",
+ "ok": false,
+ "namespace": "tuple_assign_not_tuple",
+ "error": "Compile failed — see log.",
+ "log": [
+  "object of type 'int' has no len()",
+  "Expression at line 2 is not a tuple.",
+  "Error compiling block at line 2"
+ ],
+ "files": []
+}

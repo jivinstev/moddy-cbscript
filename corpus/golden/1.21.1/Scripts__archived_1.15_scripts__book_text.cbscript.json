@@ -1,0 +1,18 @@
+{
+ "id": "Scripts/archived 1.15 scripts/book_text.cbscript",
+ "version": "1.21.1",
+ "ok": false,
+ "namespace": "book_text",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 22",
+  "Unable to compile python for block contents at line 21",
+  "Error compiling block at line 21",
+  "Unable to compile for block contents at line 20",
+  "Error compiling block at line 20",
+  "Unable to compile clock \"main\" at line 19",
+  "Error compiling block at line 19"
+ ],
+ "files": []
+}
