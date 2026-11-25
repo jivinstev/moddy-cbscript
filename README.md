@@ -37,6 +37,22 @@ java/build.sh test                      # Java unit tests + the differential aga
 See [`JAVA_PORT.md`](JAVA_PORT.md) for how the port is built, what is compared, and its documented boundary (it
 does not run `import name.py` Python files, and it refuses `$"..."` expressions that reach outside the compiler).
 
+# Third-party code
+
+The original CBScript code is SethBling's and is used here by his permission (`NOTICE.md`). Beyond that, nothing
+written by someone else is copied, ported, translated or closely paraphrased into this repository unless its licence
+is on the allow-list in [`tools/licence-rules.json`](tools/licence-rules.json): MIT, BSD-2-Clause, BSD-3-Clause,
+Apache-2.0, MPL-2.0, ISC, Zlib, the Unlicense, CC0 / public domain, and Sun's fdlibm notice (SunPro). Anything else
+(the GPL family, EPL, CC BY-SA / NC / ND, "all rights reserved", no licence, code of unknown origin, a Stack Overflow <!-- licence-scan: allow names the licences this policy refuses -->
+answer) stops the work and goes to the maintainers **before** it is committed: a C library's maths routines are the
+usual trap. Reading such code to understand a problem is fine; writing ours from it is a port. **Pushing a branch to
+this repository publishes it.**
+
+What we keep under an allowed licence, or by a recorded permission, has a row in [`THIRD_PARTY.md`](THIRD_PARTY.md),
+and its notice travels with it. `tools/licence-scan.py` checks this in CI ([`licence.yml`](.github/workflows/licence.yml))
+and at commit and push once `./tools/git-hooks/install.sh` has been run in a clone. A line that only names a licence
+carries `licence-scan: allow <reason>`.
+
 # Installation and Requirements
 
 The Python CBScript compiler requires python 3 (the Java one, above, needs only a JDK). In order to run it via the run.cmd file, you'll need the Python "py launcher", which comes with newer installations of Python, and can be used to launch a specific version. You'll need to install the Python dependencies with

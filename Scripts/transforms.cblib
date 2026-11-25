@@ -101,7 +101,7 @@ function transpose_matrix_multiply()
     end
 end
 
-# Source for the math: https://math.stackexchange.com/questions/2213165/find-shortest-distance-between-lines-in-3d
+# Source for the math: https://math.stackexchange.com/questions/2213165/find-shortest-distance-between-lines-in-3d  (licence-scan: allow cites the derivation of a formula, implemented here; no code from the answer)
 function get_closest_points_on_edges(o1x, o1y, o1z, d1x, d1y, d1z, o2x, o2y, o2z, d2x, d2y, d2z)
     # Cross the two directions to get the normal
     nx = (d1y * d2z - d1z * d2y) / $Precision
