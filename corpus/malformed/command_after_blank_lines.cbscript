@@ -1,0 +1,7 @@
+dir "."
+reset
+
+
+	/say after blanks
+	x = = 2
+end

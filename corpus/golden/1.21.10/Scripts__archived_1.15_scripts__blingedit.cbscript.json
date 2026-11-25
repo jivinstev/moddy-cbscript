@@ -1,0 +1,1117 @@
+{
+ "id": "Scripts/archived 1.15 scripts/blingedit.cbscript",
+ "ok": true,
+ "namespace": "blingedit",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/blingedit/function/reset.mcfunction",
+   "data modify storage blingedit:global args set value {}\ndata modify storage blingedit stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add _vel_2 dummy\nscoreboard objectives add _vel_1 dummy\nscoreboard objectives add _vel_0 dummy\nscoreboard objectives add _movement_2 dummy\nscoreboard objectives add _movement_1 dummy\nscoreboard objectives add _movement_0 dummy\nscoreboard objectives add _moving_pos_2 dummy\nscoreboard objectives add _moving_pos_1 dummy\nscoreboard objectives add _moving_pos_0 dummy\nscoreboard objectives add vol dummy\nscoreboard objectives add corner_exists dummy\nscoreboard objectives add grid_display dummy\nscoreboard objectives add disp_plugins dummy\nscoreboard objectives add prev_edit dummy\nscoreboard objectives add carrot_on_stick dummy\nscoreboard objectives add holding_item dummy\nscoreboard objectives add found_player dummy\nscoreboard objectives add edit dummy\nscoreboard objectives add feedback dummy\nscoreboard objectives add tick dummy\nscoreboard objectives add tile_drops dummy\nscoreboard objectives add p_ymax dummy\nscoreboard objectives add p_zmax dummy\nscoreboard objectives add p_zmin dummy\nscoreboard objectives add p_ymin dummy\nscoreboard objectives add p_xmax dummy\nscoreboard objectives add p_xmin dummy\nscoreboard objectives add sum dummy\nscoreboard objectives add ez dummy\nscoreboard objectives add ey dummy\nscoreboard objectives add ex dummy\nscoreboard objectives add tell_actions dummy\nscoreboard objectives add move_dest dummy\nscoreboard objectives add current dummy\nscoreboard objectives add highlighted dummy\nscoreboard objectives add d2 dummy\nscoreboard objectives add tca2 dummy\nscoreboard objectives add delta2 dummy\nscoreboard objectives add tca dummy\nscoreboard objectives add _delta_2 dummy\nscoreboard objectives add _delta_1 dummy\nscoreboard objectives add _delta_0 dummy\nscoreboard objectives add highlight dummy\nscoreboard objectives add looking dummy\nscoreboard objectives add _look_2 dummy\nscoreboard objectives add _look_1 dummy\nscoreboard objectives add _look_0 dummy\nscoreboard objectives add _start_pos_2 dummy\nscoreboard objectives add _start_pos_1 dummy\nscoreboard objectives add _start_pos_0 dummy\nscoreboard objectives add count dummy\nscoreboard objectives add can_cancel dummy\nscoreboard objectives add handled dummy\nscoreboard objectives add dest_dz dummy\nscoreboard objectives add dest_dy dummy\nscoreboard objectives add dest_dx dummy\nscoreboard objectives add skip dummy\nscoreboard objectives add _offset_2 dummy\nscoreboard objectives add _offset_1 dummy\nscoreboard objectives add _offset_0 dummy\nscoreboard objectives add flipped_z dummy\nscoreboard objectives add flipped_x dummy\nscoreboard objectives add dest_start_z dummy\nscoreboard objectives add dest_start_x dummy\nscoreboard objectives add dest_start_y dummy\nscoreboard objectives add rotation dummy\nscoreboard objectives add step_dz dummy\nscoreboard objectives add end_dz dummy\nscoreboard objectives add start_dz dummy\nscoreboard objectives add step_dy dummy\nscoreboard objectives add end_dy dummy\nscoreboard objectives add start_dy dummy\nscoreboard objectives add step_dx dummy\nscoreboard objectives add end_dx dummy\nscoreboard objectives add start_dx dummy\nscoreboard objectives add size_z dummy\nscoreboard objectives add size_y dummy\nscoreboard objectives add size_x dummy\nscoreboard objectives add can_do dummy\nscoreboard objectives add okay_rotation dummy\nscoreboard objectives add center_y dummy\nscoreboard objectives add edit_zmax dummy\nscoreboard objectives add edit_ymax dummy\nscoreboard objectives add edit_xmax dummy\nscoreboard objectives add edit_zmin dummy\nscoreboard objectives add edit_ymin dummy\nscoreboard objectives add edit_xmin dummy\nscoreboard objectives add _move_by_2 dummy\nscoreboard objectives add _move_by_1 dummy\nscoreboard objectives add _move_by_0 dummy\nscoreboard objectives add from_display dummy\nscoreboard objectives add moving dummy\nscoreboard objectives add center_z dummy\nscoreboard objectives add center_x dummy\nscoreboard objectives add bottom_center dummy\nscoreboard objectives add _dpos_2 dummy\nscoreboard objectives add _dpos_1 dummy\nscoreboard objectives add _dpos_0 dummy\nscoreboard objectives add _center_2 dummy\nscoreboard objectives add _center_1 dummy\nscoreboard objectives add _center_0 dummy\nscoreboard objectives add dy dummy\nscoreboard objectives add tz dummy\nscoreboard objectives add ty dummy\nscoreboard objectives add tx dummy\nscoreboard objectives add rz dummy\nscoreboard objectives add Param1 dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add rx dummy\nscoreboard objectives add replace dummy\nscoreboard objectives add percent dummy\nscoreboard objectives add random_replace dummy\nscoreboard objectives add replaced_blocks dummy\nscoreboard objectives add loaded dummy\nscoreboard objectives add rz2 dummy\nscoreboard objectives add ry2 dummy\nscoreboard objectives add rx2 dummy\nscoreboard objectives add rz1 dummy\nscoreboard objectives add ry1 dummy\nscoreboard objectives add rx1 dummy\nscoreboard objectives add has_rand dummy\nscoreboard objectives add _rand_max_2 dummy\nscoreboard objectives add _rand_max_1 dummy\nscoreboard objectives add _rand_max_0 dummy\nscoreboard objectives add _rand_min_2 dummy\nscoreboard objectives add _rand_min_1 dummy\nscoreboard objectives add _rand_min_0 dummy\nscoreboard objectives add prime_plugins dummy\nscoreboard objectives add state dummy\nscoreboard objectives add plugin_can_run dummy\nscoreboard objectives add dz dummy\nscoreboard objectives add dx dummy\nscoreboard objectives add z_offset dummy\nscoreboard objectives add x_offset dummy\nscoreboard objectives add mod dummy\nscoreboard objectives add sz dummy\nscoreboard objectives add sy dummy\nscoreboard objectives add sx dummy\nscoreboard objectives add cz dummy\nscoreboard objectives add cy dummy\nscoreboard objectives add cx dummy\nscoreboard objectives add clone_flip_z dummy\nscoreboard objectives add clone_flip_x dummy\nscoreboard objectives add to_display dummy\nscoreboard objectives add clone_rotation dummy\nscoreboard objectives add ry dummy\nscoreboard objectives add clone_in_place dummy\nscoreboard objectives add clone_air dummy\nscoreboard objectives add _dest_max_2 dummy\nscoreboard objectives add _dest_max_1 dummy\nscoreboard objectives add _dest_max_0 dummy\nscoreboard objectives add dest_zmax dummy\nscoreboard objectives add dest_ymax dummy\nscoreboard objectives add dest_xmax dummy\nscoreboard objectives add _dest_min_2 dummy\nscoreboard objectives add _dest_min_1 dummy\nscoreboard objectives add _dest_min_0 dummy\nscoreboard objectives add z dummy\nscoreboard objectives add y dummy\nscoreboard objectives add x dummy\nscoreboard objectives add dest_zmin dummy\nscoreboard objectives add dest_ymin dummy\nscoreboard objectives add dest_xmin dummy\nscoreboard objectives add type dummy\nscoreboard objectives add first dummy\nscoreboard objectives add has_dest_box dummy\nscoreboard objectives add player dummy\nscoreboard objectives add box_size_z dummy\nscoreboard objectives add box_size_y dummy\nscoreboard objectives add box_size_x dummy\nscoreboard objectives add box_center_z dummy\nscoreboard objectives add box_center_y dummy\nscoreboard objectives add box_center_x dummy\nscoreboard objectives add box_zmax dummy\nscoreboard objectives add box_ymax dummy\nscoreboard objectives add box_xmax dummy\nscoreboard objectives add box_zmin dummy\nscoreboard objectives add box_ymin dummy\nscoreboard objectives add box_xmin dummy\nscoreboard objectives add _size_2 dummy\nscoreboard objectives add _size_1 dummy\nscoreboard objectives add _size_0 dummy\nscoreboard objectives add _max_2 dummy\nscoreboard objectives add _max_1 dummy\nscoreboard objectives add _max_0 dummy\nscoreboard objectives add _min_2 dummy\nscoreboard objectives add _min_1 dummy\nscoreboard objectives add _min_0 dummy\nscoreboard objectives add zmax dummy\nscoreboard objectives add zmin dummy\nscoreboard objectives add ymax dummy\nscoreboard objectives add ymin dummy\nscoreboard objectives add xmax dummy\nscoreboard objectives add xmin dummy\nscoreboard objectives add z2 dummy\nscoreboard objectives add y2 dummy\nscoreboard objectives add x2 dummy\nscoreboard objectives add pick2 dummy\nscoreboard objectives add z1 dummy\nscoreboard objectives add y1 dummy\nscoreboard objectives add x1 dummy\nscoreboard objectives add pick1 dummy\nscoreboard objectives add has_box dummy\nscoreboard objectives add cursor_range dummy\nscoreboard objectives add i dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add _cursor_2 dummy\nscoreboard objectives add _cursor_1 dummy\nscoreboard objectives add _cursor_0 dummy\nscoreboard objectives add cursor_inside dummy\nscoreboard objectives add step dummy\nscoreboard objectives add cursor_current dummy\nscoreboard objectives add raycast_select dummy\nscoreboard objectives add particles dummy\nscoreboard objectives add flip_z dummy\nscoreboard objectives add lh dummy\nscoreboard objectives add flip_x dummy\nscoreboard objectives add left_handed dummy\nscoreboard objectives add kill dummy\nscoreboard objectives add click_detector dummy\nscoreboard objectives add id dummy\nscoreboard objectives add click_pos dummy\nscoreboard objectives add _id dummy\nscoreboard objectives add _unique dummy\nscoreboard objectives add enable_click dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add _random_seed dummy\nscoreboard objectives add _rand_min dummy\nscoreboard objectives add _rand_max dummy\nscoreboard objectives add _rand_range dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c1075 Constant 1075\nscoreboard players set cm175 Constant -175\nscoreboard players set c450 Constant 450\nscoreboard players set c500 Constant 500\nscoreboard players set minus Constant -1\nscoreboard players set c0 Constant 0\nscoreboard players set c100 Constant 100\nscoreboard players set c360 Constant 360\nscoreboard players set c1 Constant 1\nscoreboard players set c10000 Constant 10000\nscoreboard players set c2 Constant 2\nscoreboard players set c1000 Constant 1000\nscoreboard players set c256 Constant 256\nscoreboard players set c1664525 Constant 1664525\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nscoreboard objectives add cli2_scratch3 dummy\nscoreboard objectives add cli2_scratch2 dummy\nscoreboard objectives add cli2_scratch1 dummy\nscoreboard objectives add cli2_scratch0 dummy\nscoreboard objectives add cor_scratch3 dummy\nscoreboard objectives add cor_scratch2 dummy\nscoreboard objectives add cor_scratch1 dummy\nscoreboard objectives add cor_scratch0 dummy\nscoreboard objectives add per3_scratch0 dummy\nscoreboard objectives add del_scratch0 dummy\nscoreboard objectives add per2_scratch2 dummy\nscoreboard objectives add per2_scratch1 dummy\nscoreboard objectives add per2_scratch0 dummy\nscoreboard objectives add clo9_scratch0 dummy\nscoreboard objectives add clo8_scratch3 dummy\nscoreboard objectives add clo8_scratch2 dummy\nscoreboard objectives add clo8_scratch1 dummy\nscoreboard objectives add clo8_scratch0 dummy\nscoreboard objectives add con_scratch3 dummy\nscoreboard objectives add con_scratch2 dummy\nscoreboard objectives add con_scratch1 dummy\nscoreboard objectives add con_scratch0 dummy\nscoreboard objectives add clo7_scratch5 dummy\nscoreboard objectives add clo7_scratch4 dummy\nscoreboard objectives add clo7_scratch3 dummy\nscoreboard objectives add clo7_scratch2 dummy\nscoreboard objectives add clo7_scratch1 dummy\nscoreboard objectives add clo7_scratch0 dummy\nscoreboard objectives add fil_scratch6 dummy\nscoreboard objectives add fil_scratch5 dummy\nscoreboard objectives add fil_scratch4 dummy\nscoreboard objectives add fil_scratch3 dummy\nscoreboard objectives add fil_scratch2 dummy\nscoreboard objectives add fil_scratch1 dummy\nscoreboard objectives add fil_scratch0 dummy\nscoreboard objectives add sto_scratch3 dummy\nscoreboard objectives add sto_scratch2 dummy\nscoreboard objectives add sto_scratch1 dummy\nscoreboard objectives add sto_scratch0 dummy\nscoreboard objectives add rot_scratch2 dummy\nscoreboard objectives add rot_scratch1 dummy\nscoreboard objectives add rot_scratch0 dummy\nscoreboard objectives add clo6_scratch0 dummy\nscoreboard objectives add clo5_scratch0 dummy\nscoreboard objectives add inv_scratch0 dummy\nscoreboard objectives add tog_scratch0 dummy\nscoreboard objectives add get2_scratch2 dummy\nscoreboard objectives add get2_scratch1 dummy\nscoreboard objectives add get2_scratch0 dummy\nscoreboard objectives add get_scratch0 dummy\nscoreboard objectives add clo_scratch0 dummy\nscoreboard objectives add rep_scratch0 dummy\nscoreboard players set @e[type=minecraft:marker] _age 1\nsummon minecraft:marker ~ ~ ~\nscoreboard players add @e[type=minecraft:marker] _age 1\nexecute as @e[type=minecraft:marker,limit=1,scores={_age=1}] run function blingedit:line004/execute1\nteam add no_collision\nteam modify no_collision collisionRule never\nscoreboard objectives add right_clicked minecraft.custom:minecraft.talked_to_villager\ngamerule maxCommandChainLength 1000000000\nteam add source\nteam modify source color red\nteam modify source collisionRule never\nteam add moving\nteam modify moving color yellow\nteam modify moving collisionRule never\nteam add highlight\nteam modify highlight color blue\nteam modify highlight collisionRule never\nteam add dest\nteam modify dest color green\nteam modify dest collisionRule never\nexecute store result score Global feedback run gamerule sendCommandFeedback\ngamerule maxCommandChainLength 1000000000\nbossbar add progress \"Progress\"\nbossbar set progress max 100\nscoreboard objectives remove used_carrot\nscoreboard objectives add used_carrot minecraft.used:minecraft.carrot_on_a_stick\nsay Loaded BlingEdit v1.0.6 by SethBling"
+  ],
+  [
+   "data/blingedit/function/line004/execute1.mcfunction",
+   "execute store result score Global _random_seed run data get entity @s UUID[0] 0.00001\nkill @s"
+  ],
+  [
+   "data/blingedit/function/randint.mcfunction",
+   "scoreboard players operation Global _rand_max = Global Param1\nscoreboard players operation Global _rand_min = Global Param0\nscoreboard players operation Global _rand_range = Global _rand_max\nscoreboard players operation Global _rand_range -= Global _rand_min\nscoreboard players operation Global _random_seed *= c1664525 Constant\nscoreboard players add Global _random_seed 1013904223\nscoreboard players operation Global ReturnValue = Global _random_seed\nscoreboard players operation Global ReturnValue /= c256 Constant\nscoreboard players operation Global ReturnValue %= Global _rand_range\nscoreboard players operation Global ReturnValue += Global _rand_min"
+  ],
+  [
+   "data/blingedit/function/click_advancement_reward.mcfunction",
+   "advancement revoke @s only blingedit:damage_click_detector\nfunction blingedit:destroy_click\nexecute if score @s enable_click matches 1.. run function blingedit:line025/execute2"
+  ],
+  [
+   "data/blingedit/function/line025/execute2.mcfunction",
+   "function blingedit:create_click\nfunction blingedit:left_click_callback"
+  ],
+  [
+   "data/blingedit/function/enable_click.mcfunction",
+   "execute unless score @s enable_click matches 1.. run function blingedit:line044/execute3"
+  ],
+  [
+   "data/blingedit/function/line044/execute3.mcfunction",
+   "scoreboard players set @s enable_click 1\nfunction blingedit:create_click"
+  ],
+  [
+   "data/blingedit/function/create_click.mcfunction",
+   "execute at @s anchored eyes positioned ^ ^ ^1 run function blingedit:line051/execute5\nexecute as @e[type=minecraft:wandering_trader,tag=NewClickDetector] run function blingedit:line060/execute6\nscoreboard players operation @s click_detector = Global id"
+  ],
+  [
+   "data/blingedit/function/line053/execute4.mcfunction",
+   "tp @s ~ ~-1 ~\ndata modify entity @s Air set value 0s\ndata modify entity @s Air set value 1s"
+  ],
+  [
+   "data/blingedit/function/line051/execute5.mcfunction",
+   "scoreboard players set @e[type=minecraft:area_effect_cloud,tag=ClickPos] _age 1\nsummon minecraft:area_effect_cloud ~ ~1000 ~ {\"Tags\":[\"ClickPos\"],\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"Passengers\":[{\"id\":\"minecraft:wandering_trader\",\"Tags\":[\"ClickDetector\",\"NewClickDetector\"],\"NoAI\":1,\"Silent\":1,\"Offers\":{}}]}\nscoreboard players add @e[type=minecraft:area_effect_cloud,tag=ClickPos] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:area_effect_cloud,tag=ClickPos,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s click_pos run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=ClickPos,limit=1,scores={_age=1}] _id\nscoreboard players operation Global _id = @s click_pos\nexecute as @e[type=minecraft:area_effect_cloud,tag=ClickPos] if score @s _id = Global _id run function blingedit:line053/execute4"
+  ],
+  [
+   "data/blingedit/function/line060/execute6.mcfunction",
+   "tag @s remove NewClickDetector\neffect give @s invisibility 1 0 true\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global id run scoreboard players get @s _id\nteam join no_collision"
+  ],
+  [
+   "data/blingedit/function/disable_click.mcfunction",
+   "scoreboard players set @s enable_click 0\nfunction blingedit:destroy_click"
+  ],
+  [
+   "data/blingedit/function/destroy_click.mcfunction",
+   "scoreboard players operation Global _id = @s click_pos\nexecute as @e[type=minecraft:area_effect_cloud,tag=ClickPos] if score @s _id = Global _id run function blingedit:line075/execute7\nscoreboard players operation Global _id = @s click_detector\nexecute as @e[type=minecraft:wandering_trader,tag=ClickDetector] if score @s _id = Global _id run function blingedit:line080/execute8\nscoreboard players set @s click_pos 0\nscoreboard players set @s click_detector 0"
+  ],
+  [
+   "data/blingedit/function/line075/execute7.mcfunction",
+   "scoreboard players set @s kill 1\ntp @s ~ -200 ~\nkill @s"
+  ],
+  [
+   "data/blingedit/function/line080/execute8.mcfunction",
+   "scoreboard players set @s kill 1\ntp @s ~ -200 ~\nkill @s"
+  ],
+  [
+   "data/blingedit/function/left_right_click_clock.mcfunction",
+   "execute as @a run function blingedit:line098/execute12\nexecute as @e[type=minecraft:wandering_trader,tag=ClickDetector] run function blingedit:line114/execute13"
+  ],
+  [
+   "data/blingedit/function/line101/execute9.mcfunction",
+   "tp @s ~ ~-1 ~\ndata merge entity @s {Air:0s}\ndata merge entity @s {Air:1s}"
+  ],
+  [
+   "data/blingedit/function/line100/execute10.mcfunction",
+   "scoreboard players operation Global _id = @s click_pos\nexecute as @e[type=minecraft:area_effect_cloud,tag=ClickPos] if score @s _id = Global _id run function blingedit:line101/execute9"
+  ],
+  [
+   "data/blingedit/function/line099/execute11.mcfunction",
+   "execute at @s anchored eyes positioned ^ ^ ^1 run function blingedit:line100/execute10\nexecute if score @s right_clicked matches 1.. run function blingedit:right_click_callback"
+  ],
+  [
+   "data/blingedit/function/line098/execute12.mcfunction",
+   "execute if score @s enable_click matches 1.. run function blingedit:line099/execute11\nscoreboard players set @s right_clicked 0"
+  ],
+  [
+   "data/blingedit/function/line114/execute13.mcfunction",
+   "effect give @s invisibility 1 0 true\ndata modify entity @s AbsorptionAmount set value 100.0f"
+  ],
+  [
+   "data/blingedit/function/left_click_callback.mcfunction",
+   "function blingedit:click"
+  ],
+  [
+   "data/blingedit/function/right_click_callback.mcfunction",
+   "function blingedit:click"
+  ],
+  [
+   "data/blingedit/function/replace_items.mcfunction",
+   "scoreboard players set Global rep_scratch0 1\nexecute if score @s left_handed matches 1.. run function blingedit:line040/execute14\nexecute if score Global rep_scratch0 matches 1.. run function blingedit:line040/else15"
+  ],
+  [
+   "data/blingedit/function/line040/execute14.mcfunction",
+   "replaceitem entity @s weapon.offhand diamond_sword\nreplaceitem entity @s weapon.mainhand shield\nscoreboard players set Global rep_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/line040/else15.mcfunction",
+   "replaceitem entity @s weapon.mainhand diamond_sword\nreplaceitem entity @s weapon.offhand shield"
+  ],
+  [
+   "data/blingedit/function/clone_flip_horizontal.mcfunction",
+   "execute if score Global flip_x matches 1.. run function blingedit:line051/execute16\nexecute if score Global flip_z matches 1.. run function blingedit:line057/execute17"
+  ],
+  [
+   "data/blingedit/function/line051/execute16.mcfunction",
+   "scoreboard players operation Global lh = @s left_handed\nexecute if score Global lh matches 1.. run scoreboard players set @s left_handed 0\nexecute unless score Global lh matches 1.. run scoreboard players set @s left_handed 1\nfunction blingedit:replace_items"
+  ],
+  [
+   "data/blingedit/function/line057/execute17.mcfunction",
+   "scoreboard players operation Global lh = @s left_handed\nexecute if score Global lh matches 1.. run scoreboard players set @s left_handed 0\nexecute unless score Global lh matches 1.. run scoreboard players set @s left_handed 1\nfunction blingedit:replace_items\nexecute store result score Global clo_scratch0 run data get entity @s Rotation[0] 10000\nscoreboard players add Global clo_scratch0 180000\nexecute store result entity @s Rotation[0] float 0.0001 run scoreboard players get Global clo_scratch0"
+  ],
+  [
+   "data/blingedit/function/tell_actions.mcfunction",
+   "tellraw @s [\"\"]\ntellraw @s [\"\",{\"text\":\"BlingEdit: \"},{\"text\":\"[Options]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:options\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Help]\",\"click_event\":{\"action\":\"open_url\",\"url\":\"https://docs.google.com/document/d/13jC-XnCvyyaTaVWAqNc3Gyqu6JEOWAa-xGfhFC8AU50/edit?usp=sharing\"},\"color\":\"blue\"}]\ntellraw @s [\"\",{\"text\":\"Move \"},{\"text\":\"Box\",\"color\":\"red\"},{\"text\":\": \",\"color\":\"gray\"},{\"text\":\"[Up]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_up\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Down]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_down\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Left]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_left\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Right]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_right\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Forward]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_forward\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Backward]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_backward\"},\"color\":\"aqua\"}]\ntellraw @s [\"\",{\"text\":\"Actions: \"},{\"text\":\"[Clone]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:clone\"},\"color\":\"green\"},{\"text\":\" \",\"color\":\"green\"},{\"text\":\"[Fill]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:fill\"},\"color\":\"gold\"},{\"text\":\" \",\"color\":\"gold\"},{\"text\":\"[Replace]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:replace\"},\"color\":\"yellow\"},{\"text\":\" \",\"color\":\"yellow\"},{\"text\":\"[Random]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:randomize_menu\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Plugin]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:list_plugins\"},\"color\":\"light_purple\"},{\"text\":\"   \",\"color\":\"light_purple\"},{\"text\":\"[Delete]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:delete\"},\"color\":\"red\"}]"
+  ],
+  [
+   "data/blingedit/function/options.mcfunction",
+   "tellraw @s [\"\"]\ntellraw @s [\"\",{\"text\":\"BlingEdit Options:\"}]\ntellraw @s [\"\",{\"text\":\"Region Particle Outline: \"},{\"text\":\"[On]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:particles_on\"},\"color\":\"green\"},{\"text\":\" \",\"color\":\"green\"},{\"text\":\"[Off]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:particles_off\"},\"color\":\"red\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/particles_on.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Region Outline Particles \"},{\"text\":\"enabled\",\"color\":\"green\"},{\"text\":\".\"}]\nscoreboard players set @s particles 1\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/particles_off.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Region Outline Particles \"},{\"text\":\"disabled\",\"color\":\"red\"}]\nscoreboard players set @s particles 0\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/get_cursor_position.mcfunction",
+   "execute if score @s raycast_select matches 1.. run function blingedit:line102/execute22\nexecute if score Global i matches 5 run scoreboard players set Global i 5\nexecute unless score @s raycast_select matches 1.. run function blingedit:line135/execute27"
+  ],
+  [
+   "data/blingedit/function/line113/while18.mcfunction",
+   "execute as 0-0-0-0-C1 at @s run tp @s ^ ^ ^0.2\nscoreboard players add Global step 1\nexecute if score Global step matches ..249 at 0-0-0-0-C1 if block ~ ~ ~ #blingedit:cursor_continue run function blingedit:line113/while18"
+  ],
+  [
+   "data/blingedit/function/line112/execute19.mcfunction",
+   "execute if score Global step matches ..249 at 0-0-0-0-C1 if block ~ ~ ~ #blingedit:cursor_continue run function blingedit:line113/while18\nscoreboard players set Global get_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/line118/while20.mcfunction",
+   "execute as 0-0-0-0-C1 at @s run tp @s ^ ^ ^0.2\nscoreboard players add Global step 1\nexecute if score Global step matches ..249 at 0-0-0-0-C1 if block ^ ^ ^0.2 #blingedit:cursor_continue run function blingedit:line118/while20"
+  ],
+  [
+   "data/blingedit/function/line106/execute21.mcfunction",
+   "execute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\ntp 0-0-0-0-C1 @s\nexecute as 0-0-0-0-C1 at @s run tp @s ~ ~1.6 ~\nscoreboard players set Global step 0\nscoreboard players set Global get_scratch0 1\nexecute if score @s cursor_inside matches 1.. run function blingedit:line112/execute19\nexecute if score Global get_scratch0 matches 1.. if score Global step matches ..249 at 0-0-0-0-C1 if block ^ ^ ^0.2 #blingedit:cursor_continue run function blingedit:line118/while20\nexecute at 0-0-0-0-C1 align xyz positioned ~0.5 ~ ~0.5 run tp 0-0-0-0-C1 ~ ~ ~\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global _cursor_0 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global _cursor_1 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global _cursor_2 = 0-0-0-0-C1 _pos_2"
+  ],
+  [
+   "data/blingedit/function/line102/execute22.mcfunction",
+   "scoreboard players set @a cursor_current 0\nscoreboard players set @s cursor_current 1\nexecute at @s run function blingedit:line106/execute21"
+  ],
+  [
+   "data/blingedit/function/line137/execute23.mcfunction",
+   "scoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result score Global _cursor_0 run data get entity @e[limit=1,scores={_age=1}] Pos[0] 10000\nexecute store result score Global _cursor_1 run data get entity @e[limit=1,scores={_age=1}] Pos[1] 10000\nexecute store result score Global _cursor_2 run data get entity @e[limit=1,scores={_age=1}] Pos[2] 10000\nkill @e[scores={_age=1}]"
+  ],
+  [
+   "data/blingedit/function/line142/execute24.mcfunction",
+   "scoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result score Global _cursor_0 run data get entity @e[limit=1,scores={_age=1}] Pos[0] 10000\nexecute store result score Global _cursor_1 run data get entity @e[limit=1,scores={_age=1}] Pos[1] 10000\nexecute store result score Global _cursor_2 run data get entity @e[limit=1,scores={_age=1}] Pos[2] 10000\nkill @e[scores={_age=1}]"
+  ],
+  [
+   "data/blingedit/function/line147/execute25.mcfunction",
+   "scoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result score Global _cursor_0 run data get entity @e[limit=1,scores={_age=1}] Pos[0] 10000\nexecute store result score Global _cursor_1 run data get entity @e[limit=1,scores={_age=1}] Pos[1] 10000\nexecute store result score Global _cursor_2 run data get entity @e[limit=1,scores={_age=1}] Pos[2] 10000\nkill @e[scores={_age=1}]"
+  ],
+  [
+   "data/blingedit/function/line152/execute26.mcfunction",
+   "scoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result score Global _cursor_0 run data get entity @e[limit=1,scores={_age=1}] Pos[0] 10000\nexecute store result score Global _cursor_1 run data get entity @e[limit=1,scores={_age=1}] Pos[1] 10000\nexecute store result score Global _cursor_2 run data get entity @e[limit=1,scores={_age=1}] Pos[2] 10000\nkill @e[scores={_age=1}]"
+  ],
+  [
+   "data/blingedit/function/line135/execute27.mcfunction",
+   "execute if score @s cursor_range matches 5 at @s positioned ~ ~1.6 ~ positioned ^ ^ ^5 align xyz positioned ~0.5 ~ ~0.5 run function blingedit:line137/execute23\nexecute if score @s cursor_range matches 10 at @s positioned ~ ~1.6 ~ positioned ^ ^ ^10 align xyz positioned ~0.5 ~ ~0.5 run function blingedit:line142/execute24\nexecute if score @s cursor_range matches 15 at @s positioned ~ ~1.6 ~ positioned ^ ^ ^15 align xyz positioned ~0.5 ~ ~0.5 run function blingedit:line147/execute25\nexecute if score @s cursor_range matches 20 at @s positioned ~ ~1.6 ~ positioned ^ ^ ^20 align xyz positioned ~0.5 ~ ~0.5 run function blingedit:line152/execute26"
+  ],
+  [
+   "data/blingedit/function/cursor_range_5.mcfunction",
+   "scoreboard players set @s cursor_range 5\ntellraw @s [\"\",{\"text\":\"Set cursor range to \"},{\"text\":\"5\",\"color\":\"green\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/cursor_range_10.mcfunction",
+   "scoreboard players set @s cursor_range 10\ntellraw @s [\"\",{\"text\":\"Set cursor range to \"},{\"text\":\"10\",\"color\":\"green\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/cursor_range_15.mcfunction",
+   "scoreboard players set @s cursor_range 15\ntellraw @s [\"\",{\"text\":\"Set cursor range to \"},{\"text\":\"15\",\"color\":\"green\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/cursor_range_20.mcfunction",
+   "scoreboard players set @s cursor_range 20\ntellraw @s [\"\",{\"text\":\"Set cursor range to \"},{\"text\":\"20\",\"color\":\"green\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/cursor_inside.mcfunction",
+   "scoreboard players set @s cursor_inside 1\ntellraw @s [\"\",{\"text\":\"Set cursor raycast to stop \"},{\"text\":\"Inside Blocks\",\"color\":\"green\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/cursor_before.mcfunction",
+   "scoreboard players set @s cursor_inside 0\ntellraw @s [\"\",{\"text\":\"Set cursor raycast to stop just \"},{\"text\":\"Before Blocks\",\"color\":\"green\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/get_minmax.mcfunction",
+   "scoreboard players set Global has_box -1\nscoreboard players operation Global _id = @s pick1\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run function blingedit:line198/execute28\nscoreboard players operation Global _id = @s pick2\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run function blingedit:line202/execute29\nexecute if score Global x1 < Global x2 run function blingedit:line207/execute30\nexecute if score Global x1 >= Global x2 run function blingedit:line211/execute31\nexecute if score Global y1 < Global y2 run function blingedit:line215/execute32\nexecute if score Global y1 >= Global y2 run function blingedit:line219/execute33\nexecute if score Global z1 < Global z2 run function blingedit:line223/execute34\nexecute if score Global z1 >= Global z2 run function blingedit:line227/execute35\nscoreboard players operation Global _min_0 = Global xmin\nscoreboard players operation Global _min_1 = Global ymin\nscoreboard players operation Global _min_2 = Global zmin\nscoreboard players operation Global _max_0 = Global xmax\nscoreboard players operation Global _max_1 = Global ymax\nscoreboard players operation Global _max_2 = Global zmax\nscoreboard players operation Global get2_scratch0 = Global _max_0\nscoreboard players operation Global get2_scratch1 = Global _max_1\nscoreboard players operation Global get2_scratch2 = Global _max_2\nscoreboard players operation Global get2_scratch0 -= Global _min_0\nscoreboard players operation Global get2_scratch1 -= Global _min_1\nscoreboard players operation Global get2_scratch2 -= Global _min_2\nscoreboard players operation Global _size_0 = Global get2_scratch0\nscoreboard players operation Global _size_1 = Global get2_scratch1\nscoreboard players operation Global _size_2 = Global get2_scratch2\nscoreboard players operation Global get2_scratch0 = Global _min_0\nscoreboard players operation Global get2_scratch1 = Global _min_1\nscoreboard players operation Global get2_scratch2 = Global _min_2\nscoreboard players operation Global get2_scratch0 /= c1000 Constant\nscoreboard players operation Global get2_scratch1 /= c1000 Constant\nscoreboard players operation Global get2_scratch2 /= c1000 Constant\nscoreboard players operation Global box_xmin = Global get2_scratch0\nscoreboard players operation Global box_ymin = Global get2_scratch1\nscoreboard players operation Global box_zmin = Global get2_scratch2\nscoreboard players operation Global get2_scratch0 = Global _max_0\nscoreboard players operation Global get2_scratch1 = Global _max_1\nscoreboard players operation Global get2_scratch2 = Global _max_2\nscoreboard players operation Global get2_scratch0 /= c1000 Constant\nscoreboard players operation Global get2_scratch1 /= c1000 Constant\nscoreboard players operation Global get2_scratch2 /= c1000 Constant\nscoreboard players operation Global box_xmax = Global get2_scratch0\nscoreboard players operation Global box_ymax = Global get2_scratch1\nscoreboard players operation Global box_zmax = Global get2_scratch2\nscoreboard players operation Global get2_scratch0 = Global _min_0\nscoreboard players operation Global get2_scratch1 = Global _min_1\nscoreboard players operation Global get2_scratch2 = Global _min_2\nscoreboard players operation Global get2_scratch0 += Global _max_0\nscoreboard players operation Global get2_scratch1 += Global _max_1\nscoreboard players operation Global get2_scratch2 += Global _max_2\nscoreboard players operation Global get2_scratch0 /= c2 Constant\nscoreboard players operation Global get2_scratch1 /= c2 Constant\nscoreboard players operation Global get2_scratch2 /= c2 Constant\nscoreboard players operation Global get2_scratch0 /= c10000 Constant\nscoreboard players operation Global get2_scratch1 /= c10000 Constant\nscoreboard players operation Global get2_scratch2 /= c10000 Constant\nscoreboard players operation Global box_center_x = Global get2_scratch0\nscoreboard players operation Global box_center_y = Global get2_scratch1\nscoreboard players operation Global box_center_z = Global get2_scratch2\nscoreboard players operation Global get2_scratch0 = Global _size_0\nscoreboard players operation Global get2_scratch1 = Global _size_1\nscoreboard players operation Global get2_scratch2 = Global _size_2\nscoreboard players operation Global get2_scratch0 /= c10000 Constant\nscoreboard players operation Global get2_scratch1 /= c10000 Constant\nscoreboard players operation Global get2_scratch2 /= c10000 Constant\nscoreboard players operation Global get2_scratch0 += c1 Constant\nscoreboard players operation Global get2_scratch1 += c1 Constant\nscoreboard players operation Global get2_scratch2 += c1 Constant\nscoreboard players operation Global box_size_x = Global get2_scratch0\nscoreboard players operation Global box_size_y = Global get2_scratch1\nscoreboard players operation Global box_size_z = Global get2_scratch2"
+  ],
+  [
+   "data/blingedit/function/line198/execute28.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global x1 = @s _pos_0\nscoreboard players operation Global y1 = @s _pos_1\nscoreboard players operation Global z1 = @s _pos_2\nscoreboard players add Global has_box 1"
+  ],
+  [
+   "data/blingedit/function/line202/execute29.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global x2 = @s _pos_0\nscoreboard players operation Global y2 = @s _pos_1\nscoreboard players operation Global z2 = @s _pos_2\nscoreboard players add Global has_box 1"
+  ],
+  [
+   "data/blingedit/function/line207/execute30.mcfunction",
+   "scoreboard players operation Global xmin = Global x1\nscoreboard players operation Global xmax = Global x2"
+  ],
+  [
+   "data/blingedit/function/line211/execute31.mcfunction",
+   "scoreboard players operation Global xmin = Global x2\nscoreboard players operation Global xmax = Global x1"
+  ],
+  [
+   "data/blingedit/function/line215/execute32.mcfunction",
+   "scoreboard players operation Global ymin = Global y1\nscoreboard players operation Global ymax = Global y2"
+  ],
+  [
+   "data/blingedit/function/line219/execute33.mcfunction",
+   "scoreboard players operation Global ymin = Global y2\nscoreboard players operation Global ymax = Global y1"
+  ],
+  [
+   "data/blingedit/function/line223/execute34.mcfunction",
+   "scoreboard players operation Global zmin = Global z1\nscoreboard players operation Global zmax = Global z2"
+  ],
+  [
+   "data/blingedit/function/line227/execute35.mcfunction",
+   "scoreboard players operation Global zmin = Global z2\nscoreboard players operation Global zmax = Global z1"
+  ],
+  [
+   "data/blingedit/function/get_dest_minmax.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nscoreboard players set Global has_dest_box 0\nscoreboard players set Global first 1\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type matches 2 run function blingedit:line247/execute37\nscoreboard players operation Global _dest_min_0 = Global dest_xmin\nscoreboard players operation Global _dest_min_1 = Global dest_ymin\nscoreboard players operation Global _dest_min_2 = Global dest_zmin\nscoreboard players set Global first 1\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type matches 2 run function blingedit:line262/execute39\nscoreboard players operation Global _dest_max_0 = Global dest_xmax\nscoreboard players operation Global _dest_max_1 = Global dest_ymax\nscoreboard players operation Global _dest_max_2 = Global dest_zmax"
+  ],
+  [
+   "data/blingedit/function/line248/execute36.mcfunction",
+   "scoreboard players set Global has_dest_box 1\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global dest_xmin = @s _pos_0\nscoreboard players operation Global dest_ymin = @s _pos_1\nscoreboard players operation Global dest_zmin = @s _pos_2\nscoreboard players set Global first 0"
+  ],
+  [
+   "data/blingedit/function/line247/execute37.mcfunction",
+   "execute if score Global first matches 1.. run function blingedit:line248/execute36\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global x = @s _pos_0\nscoreboard players operation Global y = @s _pos_1\nscoreboard players operation Global z = @s _pos_2\nexecute if score Global x < Global dest_xmin run scoreboard players operation Global dest_xmin = Global x\nexecute if score Global y < Global dest_ymin run scoreboard players operation Global dest_ymin = Global y\nexecute if score Global z < Global dest_zmin run scoreboard players operation Global dest_zmin = Global z"
+  ],
+  [
+   "data/blingedit/function/line263/execute38.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global dest_xmax = @s _pos_0\nscoreboard players operation Global dest_ymax = @s _pos_1\nscoreboard players operation Global dest_zmax = @s _pos_2\nscoreboard players set Global first 0"
+  ],
+  [
+   "data/blingedit/function/line262/execute39.mcfunction",
+   "execute if score Global first matches 1.. run function blingedit:line263/execute38\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global x = @s _pos_0\nscoreboard players operation Global y = @s _pos_1\nscoreboard players operation Global z = @s _pos_2\nexecute if score Global x > Global dest_xmax run scoreboard players operation Global dest_xmax = Global x\nexecute if score Global y > Global dest_ymax run scoreboard players operation Global dest_ymax = Global y\nexecute if score Global z > Global dest_zmax run scoreboard players operation Global dest_zmax = Global z"
+  ],
+  [
+   "data/blingedit/function/clone_air.mcfunction",
+   "scoreboard players set @s clone_air 1\ntellraw @s [\"\",{\"text\":\"Clone air: \"},{\"text\":\"Enabled\",\"color\":\"green\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/dont_clone_air.mcfunction",
+   "scoreboard players set @s clone_air 0\ntellraw @s [\"\",{\"text\":\"Clone air: \"},{\"text\":\"Disabled\",\"color\":\"red\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/toggle_clone_in_place.mcfunction",
+   "scoreboard players set Global tog_scratch0 1\nexecute if score @s clone_in_place matches 1.. run function blingedit:line291/execute40\nexecute if score Global tog_scratch0 matches 1.. run scoreboard players set @s clone_in_place 1\nfunction blingedit:cancel\nfunction blingedit:clone\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line291/execute40.mcfunction",
+   "scoreboard players set @s clone_in_place 0\nscoreboard players set Global tog_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/clone_flip_leftright.mcfunction",
+   "execute store result score Global ry run data get entity @s Rotation[0] 10000\nscoreboard players operation Global ry /= c10000 Constant\nscoreboard players operation Global ry += @s clone_rotation\nscoreboard players operation Global ry %= c360 Constant\nscoreboard players set Global flip_x 0\nscoreboard players set Global flip_z 0\nexecute if score Global ry matches ..44 run scoreboard players set Global flip_x 1\nexecute if score Global ry matches 45.. if score Global ry matches ..134 run scoreboard players set Global flip_z 1\nexecute if score Global ry matches 135.. if score Global ry matches ..224 run scoreboard players set Global flip_x 1\nexecute if score Global ry matches 225.. if score Global ry matches ..314 run scoreboard players set Global flip_z 1\nexecute if score Global ry matches 315.. run scoreboard players set Global flip_x 1\nfunction blingedit:invert_clone_flip\nscoreboard players operation Global _id = @s to_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run function blingedit:clone_flip_horizontal\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/clone_flip_frontback.mcfunction",
+   "execute store result score Global ry run data get entity @s Rotation[0] 10000\nscoreboard players operation Global ry /= c10000 Constant\nscoreboard players operation Global ry += @s clone_rotation\nscoreboard players operation Global ry %= c360 Constant\nscoreboard players set Global flip_x 0\nscoreboard players set Global flip_z 0\nexecute if score Global ry matches ..44 run scoreboard players set Global flip_z 1\nexecute if score Global ry matches 45.. if score Global ry matches ..134 run scoreboard players set Global flip_x 1\nexecute if score Global ry matches 135.. if score Global ry matches ..224 run scoreboard players set Global flip_z 1\nexecute if score Global ry matches 225.. if score Global ry matches ..314 run scoreboard players set Global flip_x 1\nexecute if score Global ry matches 315.. run scoreboard players set Global flip_z 1\nfunction blingedit:invert_clone_flip\nscoreboard players operation Global _id = @s to_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run function blingedit:clone_flip_horizontal\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/invert_clone_flip_x.mcfunction",
+   "execute if score Global flip_x matches 1.. run function blingedit:line362/execute42\nexecute if score Global flip_z matches 1.. run function blingedit:line369/execute44"
+  ],
+  [
+   "data/blingedit/function/line363/execute41.mcfunction",
+   "scoreboard players set @s clone_flip_x 0\nscoreboard players set Global inv_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/line362/execute42.mcfunction",
+   "scoreboard players set Global inv_scratch0 1\nexecute if score @s clone_flip_x matches 1.. run function blingedit:line363/execute41\nexecute if score Global inv_scratch0 matches 1.. run scoreboard players set @s clone_flip_x 1"
+  ],
+  [
+   "data/blingedit/function/line370/execute43.mcfunction",
+   "scoreboard players set @s clone_flip_z 0\nscoreboard players set Global inv_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/line369/execute44.mcfunction",
+   "scoreboard players set Global inv_scratch0 1\nexecute if score @s clone_flip_z matches 1.. run function blingedit:line370/execute43\nexecute if score Global inv_scratch0 matches 1.. run scoreboard players set @s clone_flip_z 1"
+  ],
+  [
+   "data/blingedit/function/clone_rotate_left.mcfunction",
+   "scoreboard players remove @s clone_rotation 90\nexecute if score @s clone_rotation matches ..-1 run scoreboard players add @s clone_rotation 360\nscoreboard players operation Global _id = @s to_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run function blingedit:line384/execute45\nfunction blingedit:rotate_dest_horizontal\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line384/execute45.mcfunction",
+   "execute store result score Global clo5_scratch0 run data get entity @s Rotation[0] 10000\nscoreboard players remove Global clo5_scratch0 90000\nexecute store result entity @s Rotation[0] float 0.0001 run scoreboard players get Global clo5_scratch0"
+  ],
+  [
+   "data/blingedit/function/clone_rotate_right.mcfunction",
+   "scoreboard players add @s clone_rotation 90\nexecute if score @s clone_rotation matches 360.. run scoreboard players remove @s clone_rotation 360\nscoreboard players operation Global _id = @s to_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run function blingedit:line397/execute46\nfunction blingedit:rotate_dest_horizontal\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line397/execute46.mcfunction",
+   "execute store result score Global clo6_scratch0 run data get entity @s Rotation[0] 10000\nscoreboard players add Global clo6_scratch0 90000\nexecute store result entity @s Rotation[0] float 0.0001 run scoreboard players get Global clo6_scratch0"
+  ],
+  [
+   "data/blingedit/function/rotate_dest_horizontal.mcfunction",
+   "function blingedit:get_dest_minmax\nscoreboard players operation Global clone_rotation = @s clone_rotation\nscoreboard players operation Global rot_scratch0 = Global _dest_min_0\nscoreboard players operation Global rot_scratch1 = Global _dest_min_1\nscoreboard players operation Global rot_scratch2 = Global _dest_min_2\nscoreboard players operation Global rot_scratch0 += Global _dest_max_0\nscoreboard players operation Global rot_scratch1 += Global _dest_max_1\nscoreboard players operation Global rot_scratch2 += Global _dest_max_2\nscoreboard players operation Global rot_scratch0 /= c2 Constant\nscoreboard players operation Global rot_scratch1 /= c2 Constant\nscoreboard players operation Global rot_scratch2 /= c2 Constant\nscoreboard players operation Global cx = Global rot_scratch0\nscoreboard players operation Global cy = Global rot_scratch1\nscoreboard players operation Global cz = Global rot_scratch2\nscoreboard players operation Global rot_scratch0 = Global _dest_max_0\nscoreboard players operation Global rot_scratch1 = Global _dest_max_1\nscoreboard players operation Global rot_scratch2 = Global _dest_max_2\nscoreboard players operation Global rot_scratch0 -= Global _dest_min_0\nscoreboard players operation Global rot_scratch1 -= Global _dest_min_1\nscoreboard players operation Global rot_scratch2 -= Global _dest_min_2\nscoreboard players operation Global sx = Global rot_scratch0\nscoreboard players operation Global sy = Global rot_scratch1\nscoreboard players operation Global sz = Global rot_scratch2\nscoreboard players operation Global mod = Global cx\nscoreboard players operation Global mod += Global cz\nscoreboard players operation Global mod %= c10000 Constant\nscoreboard players set Global x_offset 0\nscoreboard players set Global z_offset 0\nexecute unless score Global mod matches 0 run function blingedit:line416/execute47\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type matches 2 run function blingedit:line428/execute48"
+  ],
+  [
+   "data/blingedit/function/line416/execute47.mcfunction",
+   "scoreboard players set Global x_offset 500\nexecute if score Global clone_rotation matches 90 run scoreboard players set Global x_offset -500\nexecute if score Global clone_rotation matches 180 run scoreboard players set Global x_offset -500\nscoreboard players set Global z_offset 500\nexecute if score Global clone_rotation matches 180 run scoreboard players set Global z_offset -500\nexecute if score Global clone_rotation matches 270 run scoreboard players set Global z_offset -500"
+  ],
+  [
+   "data/blingedit/function/line428/execute48.mcfunction",
+   "scoreboard players operation Global dx = Global cx\nexecute store result score Global rot_scratch0 run data get entity @s Pos[0] 10000\nscoreboard players operation Global dx -= Global rot_scratch0\nscoreboard players operation Global dz = Global cz\nexecute store result score Global rot_scratch0 run data get entity @s Pos[2] 10000\nscoreboard players operation Global dz -= Global rot_scratch0\nscoreboard players operation Global rot_scratch0 = Global cx\nscoreboard players operation Global rot_scratch0 -= Global dz\nscoreboard players operation Global rot_scratch0 += Global x_offset\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get Global rot_scratch0\nscoreboard players operation Global rot_scratch0 = Global cz\nscoreboard players operation Global rot_scratch0 -= Global dx\nscoreboard players operation Global rot_scratch0 += Global z_offset\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get Global rot_scratch0"
+  ],
+  [
+   "data/blingedit/function/plugin_can_run.mcfunction",
+   "scoreboard players set Global plugin_can_run 0\nexecute if score @s state matches 3 run function blingedit:line439/execute49"
+  ],
+  [
+   "data/blingedit/function/line439/execute49.mcfunction",
+   "function blingedit:get_minmax\nexecute if score Global has_box matches 1.. run scoreboard players set Global plugin_can_run 1"
+  ],
+  [
+   "data/blingedit/function/list_plugins.mcfunction",
+   "scoreboard players set @s prime_plugins 1\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/randomize_menu.mcfunction",
+   "tellraw @s [\"\"]\ntellraw @s [\"\",{\"text\":\"Randomization Options:\",\"color\":\"dark_aqua\"}]\ntellraw @s [\"\",{\"text\":\"[Store Selected Region as Random Block Pool]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:store_random\"},\"color\":\"aqua\"}]\ntellraw @s [\"\",{\"text\":\"[Fill Selected Region from Random Block Pool]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:fill_random\"},\"color\":\"aqua\"}]\ntellraw @s [\"\",{\"text\":\"[Replace in Selected Region from Random Block Pool]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:replace_random\"},\"color\":\"aqua\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/store_random.mcfunction",
+   "execute unless score @s state matches 3 run tellraw @s [\"\",{\"text\":\"You can't store a region right now.\"}]\nexecute if score @s state matches 3 run function blingedit:line467/execute51\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line469/execute50.mcfunction",
+   "scoreboard players operation Global sto_scratch1 = Global _min_0\nscoreboard players operation Global sto_scratch2 = Global _min_1\nscoreboard players operation Global sto_scratch3 = Global _min_2\nscoreboard players operation Global sto_scratch1 /= c10000 Constant\nscoreboard players operation Global sto_scratch2 /= c10000 Constant\nscoreboard players operation Global sto_scratch3 /= c10000 Constant\nscoreboard players operation @s _rand_min_0 = Global sto_scratch1\nscoreboard players operation @s _rand_min_1 = Global sto_scratch2\nscoreboard players operation @s _rand_min_2 = Global sto_scratch3\nscoreboard players operation Global sto_scratch1 = Global _max_0\nscoreboard players operation Global sto_scratch2 = Global _max_1\nscoreboard players operation Global sto_scratch3 = Global _max_2\nscoreboard players operation Global sto_scratch1 /= c10000 Constant\nscoreboard players operation Global sto_scratch2 /= c10000 Constant\nscoreboard players operation Global sto_scratch3 /= c10000 Constant\nscoreboard players operation @s _rand_max_0 = Global sto_scratch1\nscoreboard players operation @s _rand_max_1 = Global sto_scratch2\nscoreboard players operation @s _rand_max_2 = Global sto_scratch3\nscoreboard players set @s has_rand 1\nscoreboard players operation Global rx1 = @s _rand_min_0\nscoreboard players operation Global ry1 = @s _rand_min_1\nscoreboard players operation Global rz1 = @s _rand_min_2\nscoreboard players operation Global rx2 = @s _rand_max_0\nscoreboard players operation Global ry2 = @s _rand_max_1\nscoreboard players operation Global rz2 = @s _rand_max_2\ntellraw @s [\"\",{\"text\":\"Random Block Pool region stored as (\"},{\"score\":{\"name\":\"Global\",\"objective\":\"rx1\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"ry1\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"rz1\"}},{\"text\":\") to (\"},{\"score\":{\"name\":\"Global\",\"objective\":\"rx2\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"ry2\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"rz2\"}},{\"text\":\")\"}]\nscoreboard players set Global sto_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/line467/execute51.mcfunction",
+   "function blingedit:get_minmax\nscoreboard players set Global sto_scratch0 1\nexecute if score Global has_box matches 1.. run function blingedit:line469/execute50\nexecute if score Global sto_scratch0 matches 1.. run tellraw @s [\"\",{\"text\":\"You don't currently have a region selected.\"}]"
+  ],
+  [
+   "data/blingedit/function/fill_random.mcfunction",
+   "scoreboard players set Global fil_scratch0 1\nexecute if score @s state matches 3 run function blingedit:line486/execute62\nexecute if score Global fil_scratch0 matches 1.. run tellraw @s [\"\",{\"text\":\"You can't store a region right now.\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line510/for052.mcfunction",
+   "scoreboard players operation Global percent = Global x\nscoreboard players operation Global percent -= Global xmin\nscoreboard players operation Global percent *= c100 Constant\nscoreboard players operation Global fil_scratch1 = Global xmax\nscoreboard players operation Global fil_scratch1 -= Global xmin\nscoreboard players operation Global percent /= Global fil_scratch1\nexecute store result bossbar progress value run scoreboard players get Global percent\nscoreboard players operation Global z = Global zmin\nexecute if score Global z <= Global zmax run function blingedit:line514/for053\nscoreboard players add Global x 10000\nexecute if score Global x <= Global xmax run function blingedit:line510/for052"
+  ],
+  [
+   "data/blingedit/function/line514/for053.mcfunction",
+   "scoreboard players operation Global y = Global ymin\nexecute if score Global y <= Global ymax run function blingedit:line515/for054\nscoreboard players add Global z 10000\nexecute if score Global z <= Global zmax run function blingedit:line514/for053"
+  ],
+  [
+   "data/blingedit/function/line515/for054.mcfunction",
+   "scoreboard players operation @s _pos_0 = Global x\nscoreboard players operation @s _pos_1 = Global y\nscoreboard players operation @s _pos_2 = Global z\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run function blingedit:line517/execute57\nscoreboard players add Global y 10000\nexecute if score Global y <= Global ymax run function blingedit:line515/for054"
+  ],
+  [
+   "data/blingedit/function/line518/execute55.mcfunction",
+   "scoreboard players set Global replace 0\nexecute if blocks ~ ~ ~ ~ ~ ~ 0 2 0 all run scoreboard players set Global replace 1\nscoreboard players set Global fil_scratch1 0"
+  ],
+  [
+   "data/blingedit/function/line524/execute56.mcfunction",
+   "scoreboard players operation Global Param0 = Global rx1\nscoreboard players operation Global fil_scratch1 = Global rx2\nscoreboard players add Global fil_scratch1 1\nscoreboard players operation Global Param1 = Global fil_scratch1\nfunction blingedit:randint\nscoreboard players operation Global rx = Global ReturnValue\nscoreboard players operation Global Param0 = Global ry1\nscoreboard players operation Global fil_scratch2 = Global ry2\nscoreboard players add Global fil_scratch2 1\nscoreboard players operation Global Param1 = Global fil_scratch2\nfunction blingedit:randint\nscoreboard players operation Global ry = Global ReturnValue\nscoreboard players operation Global Param0 = Global rz1\nscoreboard players operation Global fil_scratch3 = Global rz2\nscoreboard players add Global fil_scratch3 1\nscoreboard players operation Global Param1 = Global fil_scratch3\nfunction blingedit:randint\nscoreboard players operation Global rz = Global ReturnValue\nscoreboard players operation Global fil_scratch4 = Global rx\nscoreboard players operation Global fil_scratch5 = Global ry\nscoreboard players operation Global fil_scratch6 = Global rz\nscoreboard players operation Global fil_scratch4 *= c10000 Constant\nscoreboard players operation Global fil_scratch5 *= c10000 Constant\nscoreboard players operation Global fil_scratch6 *= c10000 Constant\nscoreboard players operation 0-0-0-0-C2 _pos_0 = Global fil_scratch4\nscoreboard players operation 0-0-0-0-C2 _pos_1 = Global fil_scratch5\nscoreboard players operation 0-0-0-0-C2 _pos_2 = Global fil_scratch6\nexecute store result entity 0-0-0-0-C2 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C2 _pos_0\nexecute store result entity 0-0-0-0-C2 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C2 _pos_1\nexecute store result entity 0-0-0-0-C2 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C2 _pos_2\nexecute store result score 0-0-0-0-C2 _pos_0 run data get entity 0-0-0-0-C2 Pos[0] 10000\nexecute store result score 0-0-0-0-C2 _pos_1 run data get entity 0-0-0-0-C2 Pos[1] 10000\nexecute store result score 0-0-0-0-C2 _pos_2 run data get entity 0-0-0-0-C2 Pos[2] 10000\nscoreboard players operation Global tx = 0-0-0-0-C2 _pos_0\nscoreboard players operation Global ty = 0-0-0-0-C2 _pos_1\nscoreboard players operation Global tz = 0-0-0-0-C2 _pos_2\nexecute at 0-0-0-0-C2 run clone ~ ~ ~ ~ ~ ~ 0 1 0\nscoreboard players add Global replaced_blocks 1\nclone 0 1 0 0 1 0 ~ ~ ~"
+  ],
+  [
+   "data/blingedit/function/line517/execute57.mcfunction",
+   "scoreboard players set Global fil_scratch1 1\nexecute if score Global random_replace matches 1.. run function blingedit:line518/execute55\nexecute if score Global fil_scratch1 matches 1.. run scoreboard players set Global replace 1\nexecute if score Global replace matches 1.. run function blingedit:line524/execute56"
+  ],
+  [
+   "data/blingedit/function/line509/execute58.mcfunction",
+   "scoreboard players operation Global x = Global xmin\nexecute if score Global x <= Global xmax run function blingedit:line510/for052\nkill @s"
+  ],
+  [
+   "data/blingedit/function/line495/execute59.mcfunction",
+   "scoreboard players set Global replaced_blocks 0\nscoreboard players operation Global rx1 = @s _rand_min_0\nscoreboard players operation Global ry1 = @s _rand_min_1\nscoreboard players operation Global rz1 = @s _rand_min_2\nscoreboard players operation Global rx2 = @s _rand_max_0\nscoreboard players operation Global ry2 = @s _rand_max_1\nscoreboard players operation Global rz2 = @s _rand_max_2\nscoreboard players operation Global _rand_min_0 = @s _rand_min_0\nscoreboard players operation Global _rand_min_1 = @s _rand_min_1\nscoreboard players operation Global _rand_min_2 = @s _rand_min_2\nscoreboard players operation Global random_replace = @s random_replace\nbossbar set progress players @s\nfunction blingedit:store_tile_drops\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nexecute unless entity 0-0-0-0-C2 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,194]}\nexecute as 0-0-0-0-C1 run function blingedit:line509/execute58\nfunction blingedit:restore_tile_drops"
+  ],
+  [
+   "data/blingedit/function/line493/execute60.mcfunction",
+   "function blingedit:get_minmax\nexecute if score Global has_box matches 1.. run function blingedit:line495/execute59"
+  ],
+  [
+   "data/blingedit/function/line490/execute61.mcfunction",
+   "function blingedit:check_loaded\nexecute if score Global loaded matches 1.. run function blingedit:line493/execute60"
+  ],
+  [
+   "data/blingedit/function/line486/execute62.mcfunction",
+   "execute unless score @s has_rand matches 1.. run tellraw @s [\"\",{\"text\":\"You haven't selected a region for a random block pool yet.\"}]\nexecute if score @s has_rand matches 1.. run function blingedit:line490/execute61\nscoreboard players set Global fil_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/replace_random.mcfunction",
+   "scoreboard players set @s state 10\ntellraw @s [\"\",{\"text\":\"Use \"},{\"text\":\"/setblock ~ ~ ~ <block>\",\"click_event\":{\"action\":\"suggest_command\",\"command\":\"/setblock ~ ~ ~ minecraft:\"},\"color\":\"gray\"},{\"text\":\" to pick the blocks to replace.\"}]\ntellraw @s [\"\",{\"text\":\"Or replace \"},{\"text\":\"[air]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:replace_random_air\"},\"color\":\"aqua\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/replace_random_air.mcfunction",
+   "setblock 0 2 0 air\nfunction blingedit:perform_random_replace\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/perform_random_replace.mcfunction",
+   "scoreboard players set @s random_replace 1\nscoreboard players set @s state 3\nfunction blingedit:fill_random\nscoreboard players set @s random_replace 0\ntellraw @s [\"\",{\"text\":\"Replaced \"},{\"score\":{\"name\":\"Global\",\"objective\":\"replaced_blocks\"}},{\"text\":\" blocks.\"}]"
+  ],
+  [
+   "data/blingedit/function/clone.mcfunction",
+   "scoreboard players set Global clo7_scratch0 1\nexecute if score @s state matches 3 run function blingedit:line581/execute71\nexecute if score Global clo7_scratch0 matches 1.. run tellraw @s [\"\",{\"text\":\"You can't clone a box right now.\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line594/execute63.mcfunction",
+   "scoreboard players operation Global _cursor_0 = Global _center_0\nscoreboard players operation Global _cursor_1 = Global _center_1\nscoreboard players operation Global _cursor_2 = Global _center_2"
+  ],
+  [
+   "data/blingedit/function/line610/execute64.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global moving run scoreboard players get @s _id\nscoreboard players set @s bottom_center 1"
+  ],
+  [
+   "data/blingedit/function/line605/execute65.mcfunction",
+   "scoreboard players set @s type 2\nscoreboard players operation Global clo7_scratch2 = Global _cursor_0\nscoreboard players operation Global clo7_scratch3 = Global _cursor_1\nscoreboard players operation Global clo7_scratch4 = Global _cursor_2\nscoreboard players operation Global clo7_scratch2 += Global _dpos_0\nscoreboard players operation Global clo7_scratch3 += Global _dpos_1\nscoreboard players operation Global clo7_scratch4 += Global _dpos_2\nscoreboard players operation @s _pos_0 = Global clo7_scratch2\nscoreboard players operation @s _pos_1 = Global clo7_scratch3\nscoreboard players operation @s _pos_2 = Global clo7_scratch4\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nteam join dest\nscoreboard players operation @s player = Global player\nexecute if score Global bottom_center matches 1.. run function blingedit:line610/execute64"
+  ],
+  [
+   "data/blingedit/function/line598/execute66.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global clo7_scratch1 = @s _pos_0\nscoreboard players operation Global clo7_scratch2 = @s _pos_1\nscoreboard players operation Global clo7_scratch3 = @s _pos_2\nscoreboard players operation Global clo7_scratch1 -= Global _center_0\nscoreboard players operation Global clo7_scratch2 -= Global _center_1\nscoreboard players operation Global clo7_scratch3 -= Global _center_2\nscoreboard players operation Global _dpos_0 = Global clo7_scratch1\nscoreboard players operation Global _dpos_1 = Global clo7_scratch2\nscoreboard players operation Global _dpos_2 = Global clo7_scratch3\nscoreboard players set Global bottom_center 0\nexecute store result score Global clo7_scratch1 run data get entity @s Pos[1] 10000\nexecute if score @s center_x matches 1.. if score @s center_z matches 1.. if score Global clo7_scratch1 = Global ymin run scoreboard players set Global bottom_center 1\nscoreboard players set @e[type=minecraft:magma_cube,tag=Corner] _age 1\nsummon minecraft:magma_cube ~ ~ ~ {\"CustomName\":\"\\\"Corner\\\"\",\"Tags\":[\"Corner\"],\"Glowing\":1b,\"NoGravity\":1b,\"NoAI\":1b,\"Invulnerable\":1b,\"Size\":1b,\"Silent\":1b,\"AbsorptionAmount\":100f}\nscoreboard players add @e[type=minecraft:magma_cube,tag=Corner] _age 1\nexecute as @e[type=minecraft:magma_cube,tag=Corner,limit=1,scores={_age=1}] run function blingedit:line605/execute65"
+  ],
+  [
+   "data/blingedit/function/line623/execute67.mcfunction",
+   "scoreboard players operation @s moving = Global moving\nscoreboard players set @s state 9\nfunction blingedit:enable_click"
+  ],
+  [
+   "data/blingedit/function/line630/execute68.mcfunction",
+   "replaceitem entity @s weapon.mainhand diamond_sword\nreplaceitem entity @s weapon.offhand shield\nreplaceitem entity @s armor.head player_head{SkullOwner:\"SethBling\"}\nteam join source"
+  ],
+  [
+   "data/blingedit/function/line637/execute69.mcfunction",
+   "replaceitem entity @s weapon.mainhand diamond_sword\nreplaceitem entity @s weapon.offhand shield\nreplaceitem entity @s armor.head player_head{SkullOwner:\"SethBling\"}\nteam join dest"
+  ],
+  [
+   "data/blingedit/function/line587/execute70.mcfunction",
+   "scoreboard players operation Global clo7_scratch1 = Global _max_0\nscoreboard players operation Global clo7_scratch2 = Global _max_1\nscoreboard players operation Global clo7_scratch3 = Global _max_2\nscoreboard players operation Global clo7_scratch1 -= Global _min_0\nscoreboard players operation Global clo7_scratch2 -= Global _min_1\nscoreboard players operation Global clo7_scratch3 -= Global _min_2\nscoreboard players operation Global dx = Global clo7_scratch1\nscoreboard players operation Global dy = Global clo7_scratch2\nscoreboard players operation Global dz = Global clo7_scratch3\nscoreboard players operation Global clo7_scratch1 = Global _max_0\nscoreboard players operation Global clo7_scratch2 = Global _max_1\nscoreboard players operation Global clo7_scratch3 = Global _max_2\nscoreboard players operation Global clo7_scratch1 += Global _min_0\nscoreboard players operation Global clo7_scratch2 += Global _min_1\nscoreboard players operation Global clo7_scratch3 += Global _min_2\nscoreboard players operation Global clo7_scratch1 /= c2 Constant\nscoreboard players operation Global clo7_scratch2 /= c2 Constant\nscoreboard players operation Global clo7_scratch3 /= c2 Constant\nscoreboard players operation Global _center_0 = Global clo7_scratch1\nscoreboard players operation Global _center_1 = Global clo7_scratch2\nscoreboard players operation Global _center_2 = Global clo7_scratch3\nscoreboard players operation Global clo7_scratch1 = Global _center_0\nscoreboard players operation Global clo7_scratch2 = Global _center_1\nscoreboard players operation Global clo7_scratch3 = Global _center_2\nscoreboard players operation Global clo7_scratch1 %= c10000 Constant\nscoreboard players operation Global clo7_scratch2 %= c10000 Constant\nscoreboard players operation Global clo7_scratch3 %= c10000 Constant\nscoreboard players set Global clo7_scratch4 10000\nscoreboard players operation Global clo7_scratch4 /= c2 Constant\nscoreboard players set Global clo7_scratch5 10000\nscoreboard players operation Global clo7_scratch5 /= c2 Constant\nscoreboard players operation Global clo7_scratch1 += Global clo7_scratch4\nscoreboard players operation Global clo7_scratch2 += c0 Constant\nscoreboard players operation Global clo7_scratch3 += Global clo7_scratch5\nscoreboard players operation Global _center_0 -= Global clo7_scratch1\nscoreboard players operation Global _center_1 -= Global clo7_scratch2\nscoreboard players operation Global _center_2 -= Global clo7_scratch3\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nfunction blingedit:get_cursor_position\nexecute if score @s clone_in_place matches 1.. run function blingedit:line594/execute63\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type matches 1 run function blingedit:line598/execute66\nexecute as @e[type=minecraft:magma_cube,tag=Corner] at @s run tp @s ~ ~ ~\nexecute if score @s clone_in_place matches 1.. run scoreboard players set @s state 8\nexecute unless score @s clone_in_place matches 1.. run function blingedit:line623/execute67\nscoreboard players set @e[type=minecraft:armor_stand,tag=CloneDisplay] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"CustomName\":\"\\\"CloneDisplay\\\"\",\"Tags\":[\"CloneDisplay\"],\"Glowing\":1b,\"NoGravity\":1b,\"NoAI\":1b,\"Silent\":1b,\"AbsorptionAmount\":100f,\"LeftHanded\":0b,\"Invulnerable\":1,\"ShowArms\":1b,\"Pose\":{\"LeftArm\":[-90f,0f,0f],\"RightArm\":[-90f,0f,0f]}}\nscoreboard players add @e[type=minecraft:armor_stand,tag=CloneDisplay] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:armor_stand,tag=CloneDisplay,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s from_display run scoreboard players get @e[type=minecraft:armor_stand,tag=CloneDisplay,limit=1,scores={_age=1}] _id\nscoreboard players operation Global _id = @s from_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run function blingedit:line630/execute68\nscoreboard players set @e[type=minecraft:armor_stand,tag=CloneDisplay] _age 1\nsummon minecraft:armor_stand ~ ~ ~ {\"CustomName\":\"\\\"CloneDisplay\\\"\",\"Tags\":[\"CloneDisplay\"],\"Glowing\":1b,\"NoGravity\":1b,\"NoAI\":1b,\"Silent\":1b,\"AbsorptionAmount\":100f,\"LeftHanded\":0b,\"Invulnerable\":1,\"ShowArms\":1b,\"Pose\":{\"LeftArm\":[-90f,0f,0f],\"RightArm\":[-90f,0f,0f]}}\nscoreboard players add @e[type=minecraft:armor_stand,tag=CloneDisplay] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:armor_stand,tag=CloneDisplay,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s to_display run scoreboard players get @e[type=minecraft:armor_stand,tag=CloneDisplay,limit=1,scores={_age=1}] _id\nscoreboard players operation Global _id = @s to_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run function blingedit:line637/execute69\nscoreboard players set @s clone_rotation 0\nscoreboard players set @s clone_flip_x 0\nscoreboard players set @s clone_flip_z 0\ntellraw @s [\"\"]\ntellraw @s [\"\",{\"text\":\"Move \"},{\"text\":\"Dest\",\"color\":\"blue\"},{\"text\":\": \",\"color\":\"gray\"},{\"text\":\"[Up]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_up\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Down]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_down\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Left]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_left\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Right]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_right\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Forward]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_forward\"},\"color\":\"aqua\"},{\"text\":\" \",\"color\":\"aqua\"},{\"text\":\"[Backward]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:move_backward\"},\"color\":\"aqua\"}]\ntellraw @s [\"\",{\"text\":\"Clone Options: \"},{\"text\":\"[Do Clone Air]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:clone_air\"},\"color\":\"dark_green\"},{\"text\":\" \",\"color\":\"dark_green\"},{\"text\":\"[Don't Clone Air]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:dont_clone_air\"},\"color\":\"dark_green\"}]\nexecute if score @s clone_in_place matches 1.. run tellraw @s [\"\",{\"text\":\"Clone In Place: \"},{\"text\":\"[Enabled]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:toggle_clone_in_place\"},\"color\":\"green\"}]\nexecute unless score @s clone_in_place matches 1.. run tellraw @s [\"\",{\"text\":\"Clone In Place: \"},{\"text\":\"[Disabled]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:toggle_clone_in_place\"},\"color\":\"red\"}]\ntellraw @s [\"\",{\"text\":\"Flip: \"},{\"text\":\"[Flip Left/Right]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:clone_flip_leftright\"},\"color\":\"dark_green\"},{\"text\":\" \",\"color\":\"dark_green\"},{\"text\":\"[Flip Front/Back]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:clone_flip_frontback\"},\"color\":\"dark_green\"}]\ntellraw @s [\"\",{\"text\":\"Rotate: \"},{\"text\":\"[Rotate Left]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:clone_rotate_left\"},\"color\":\"dark_green\"},{\"text\":\" \",\"color\":\"dark_green\"},{\"text\":\"[Rotate Right]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:clone_rotate_right\"},\"color\":\"dark_green\"}]\ntellraw @s [\"\",{\"text\":\"Actions: \"},{\"text\":\"[Confirm Clone]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:confirm_clone\"},\"color\":\"green\"},{\"text\":\" \",\"color\":\"green\"},{\"text\":\"[Clone&Repeat]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:clone_and_repeat\"},\"color\":\"green\"},{\"text\":\" \",\"color\":\"green\"},{\"text\":\"[Clone Brush]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:clone_brush\"},\"color\":\"green\"},{\"text\":\" \",\"color\":\"green\"},{\"text\":\"[Cancel]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:cancel\"},\"color\":\"green\"}]"
+  ],
+  [
+   "data/blingedit/function/line581/execute71.mcfunction",
+   "function blingedit:get_minmax\nexecute unless score Global has_box matches 1.. run tellraw @s [\"\",{\"text\":\"You don't currently have a region selected.\"}]\nexecute if score Global has_box matches 1.. run function blingedit:line587/execute70\nscoreboard players set Global clo7_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/confirm_clone.mcfunction",
+   "scoreboard players set Global con_scratch0 1\nexecute if score @s state matches 8 run function blingedit:line665/execute77\nexecute if score Global con_scratch0 matches 1.. run tellraw @s [\"\",{\"text\":\"You can't confirm a clone right now.\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line677/execute72.mcfunction",
+   "scoreboard players operation Global con_scratch1 = Global dest_xmin\nscoreboard players operation Global con_scratch1 += Global dest_xmax\nscoreboard players operation Global con_scratch1 /= c2 Constant\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get Global con_scratch1"
+  ],
+  [
+   "data/blingedit/function/line678/execute73.mcfunction",
+   "scoreboard players operation Global con_scratch1 = Global dest_ymin\nscoreboard players operation Global con_scratch1 += Global dest_ymax\nscoreboard players operation Global con_scratch1 /= c2 Constant\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get Global con_scratch1"
+  ],
+  [
+   "data/blingedit/function/line679/execute74.mcfunction",
+   "scoreboard players operation Global con_scratch1 = Global dest_zmin\nscoreboard players operation Global con_scratch1 += Global dest_zmax\nscoreboard players operation Global con_scratch1 /= c2 Constant\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get Global con_scratch1"
+  ],
+  [
+   "data/blingedit/function/line670/execute75.mcfunction",
+   "execute if score @s edit_xmin matches 1.. store result entity @s Pos[0] double 0.0001 run scoreboard players get Global dest_xmin\nexecute if score @s edit_ymin matches 1.. store result entity @s Pos[1] double 0.0001 run scoreboard players get Global dest_ymin\nexecute if score @s edit_zmin matches 1.. store result entity @s Pos[2] double 0.0001 run scoreboard players get Global dest_zmin\nexecute if score @s edit_xmax matches 1.. store result entity @s Pos[0] double 0.0001 run scoreboard players get Global dest_xmax\nexecute if score @s edit_ymax matches 1.. store result entity @s Pos[1] double 0.0001 run scoreboard players get Global dest_ymax\nexecute if score @s edit_zmax matches 1.. store result entity @s Pos[2] double 0.0001 run scoreboard players get Global dest_zmax\nexecute if score @s center_x matches 1.. run function blingedit:line677/execute72\nexecute if score @s center_y matches 1.. run function blingedit:line678/execute73\nexecute if score @s center_z matches 1.. run function blingedit:line679/execute74"
+  ],
+  [
+   "data/blingedit/function/line667/execute76.mcfunction",
+   "scoreboard players operation Global con_scratch1 = Global _dest_min_0\nscoreboard players operation Global con_scratch2 = Global _dest_min_1\nscoreboard players operation Global con_scratch3 = Global _dest_min_2\nscoreboard players operation Global con_scratch1 -= Global _min_0\nscoreboard players operation Global con_scratch2 -= Global _min_1\nscoreboard players operation Global con_scratch3 -= Global _min_2\nscoreboard players operation Global _move_by_0 = Global con_scratch1\nscoreboard players operation Global _move_by_1 = Global con_scratch2\nscoreboard players operation Global _move_by_2 = Global con_scratch3\nfunction blingedit:cancel\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type matches 1 run function blingedit:line670/execute75\nscoreboard players set @s state 3\nfunction blingedit:tell_actions"
+  ],
+  [
+   "data/blingedit/function/line665/execute77.mcfunction",
+   "function blingedit:perform_clone\nexecute if score Global loaded matches 1.. run function blingedit:line667/execute76\nscoreboard players set Global con_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/clone_and_repeat.mcfunction",
+   "scoreboard players set Global clo8_scratch0 1\nexecute if score @s state matches 8 run function blingedit:line692/execute81\nexecute if score Global clo8_scratch0 matches 1.. run tellraw @s [\"\",{\"text\":\"You can't confirm a clone right now.\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line701/execute78.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation @s _pos_0 += Global _move_by_0\nscoreboard players operation @s _pos_1 += Global _move_by_1\nscoreboard players operation @s _pos_2 += Global _move_by_2\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2"
+  ],
+  [
+   "data/blingedit/function/line699/execute79.mcfunction",
+   "scoreboard players operation Global clo8_scratch1 = Global _dest_min_0\nscoreboard players operation Global clo8_scratch2 = Global _dest_min_1\nscoreboard players operation Global clo8_scratch3 = Global _dest_min_2\nscoreboard players operation Global clo8_scratch1 -= Global _min_0\nscoreboard players operation Global clo8_scratch2 -= Global _min_1\nscoreboard players operation Global clo8_scratch3 -= Global _min_2\nscoreboard players operation Global _move_by_0 = Global clo8_scratch1\nscoreboard players operation Global _move_by_1 = Global clo8_scratch2\nscoreboard players operation Global _move_by_2 = Global clo8_scratch3\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player run function blingedit:line701/execute78"
+  ],
+  [
+   "data/blingedit/function/line697/execute80.mcfunction",
+   "function blingedit:perform_clone\nexecute if score Global loaded matches 1.. run function blingedit:line699/execute79"
+  ],
+  [
+   "data/blingedit/function/line692/execute81.mcfunction",
+   "scoreboard players set Global okay_rotation 1\nexecute if score @s clone_rotation matches 90 run scoreboard players set Global okay_rotation 0\nexecute if score @s clone_rotation matches 270 run scoreboard players set Global okay_rotation 0\nexecute if score Global okay_rotation matches 1.. run function blingedit:line697/execute80\nexecute unless score Global okay_rotation matches 1.. run tellraw @s [\"\",{\"text\":\"Clone and Repeat\",\"color\":\"green\"},{\"text\":\" is not implemented for perpendicular selections.\"}]\nscoreboard players set Global clo8_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/clone_brush.mcfunction",
+   "scoreboard players set Global can_do 0\nexecute if score @s state matches 8 run scoreboard players set Global can_do 1\nexecute if score @s state matches 9 run scoreboard players set Global can_do 1\nscoreboard players set Global clo9_scratch0 1\nexecute if score Global can_do matches 1.. run function blingedit:line721/execute83\nexecute if score Global clo9_scratch0 matches 1.. run tellraw @s [\"\",{\"text\":\"You can't confirm a clone right now.\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line724/execute82.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global moving run scoreboard players get @s _id"
+  ],
+  [
+   "data/blingedit/function/line721/execute83.mcfunction",
+   "scoreboard players set @s state 11\nfunction blingedit:enable_click\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type matches 2 if score @s bottom_center matches 1.. run function blingedit:line724/execute82\nscoreboard players operation @s moving = Global moving\ntellraw @s [\"\",{\"text\":\"Clone Brush activated. Click to paste at destination.\"}]\nscoreboard players set Global clo9_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/perform_clone.mcfunction",
+   "execute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nspreadplayers 0 0 1 1 false 0-0-0-0-C1\nsetblock 0 1 0 stone\nexecute store success score Global loaded run setblock 0 1 0 sandstone\nexecute unless score Global loaded matches 1.. run tellraw @s [\"\",{\"text\":\"Chunk 0,0 wasn't loaded. Try again (or use \"},{\"text\":\"/forceload add 0 0\",\"color\":\"aqua\"},{\"text\":\")\",\"color\":\"white\"}]\nexecute if score Global loaded matches 1.. run function blingedit:line746/execute105"
+  ],
+  [
+   "data/blingedit/function/line758/execute84.mcfunction",
+   "scoreboard players set Global start_dx 0\nscoreboard players operation Global end_dx = Global size_x\nscoreboard players set Global step_dx 10000"
+  ],
+  [
+   "data/blingedit/function/line763/execute85.mcfunction",
+   "scoreboard players operation Global start_dx = Global size_x\nscoreboard players set Global end_dx 0\nscoreboard players set Global step_dx -10000"
+  ],
+  [
+   "data/blingedit/function/line768/execute86.mcfunction",
+   "scoreboard players set Global start_dy 0\nscoreboard players operation Global end_dy = Global size_y\nscoreboard players set Global step_dy 10000"
+  ],
+  [
+   "data/blingedit/function/line773/execute87.mcfunction",
+   "scoreboard players operation Global start_dy = Global size_y\nscoreboard players set Global end_dy 0\nscoreboard players set Global step_dy -10000"
+  ],
+  [
+   "data/blingedit/function/line778/execute88.mcfunction",
+   "scoreboard players set Global start_dz 0\nscoreboard players operation Global end_dz = Global size_z\nscoreboard players set Global step_dz 10000"
+  ],
+  [
+   "data/blingedit/function/line783/execute89.mcfunction",
+   "scoreboard players operation Global start_dz = Global size_z\nscoreboard players set Global end_dz 0\nscoreboard players set Global step_dz -10000"
+  ],
+  [
+   "data/blingedit/function/line799/execute90.mcfunction",
+   "scoreboard players operation Global dest_start_x = Global dest_xmin\nscoreboard players operation Global dest_start_z = Global dest_zmin\nscoreboard players operation Global flipped_x = Global dest_xmax\nscoreboard players operation Global flipped_z = Global dest_zmax"
+  ],
+  [
+   "data/blingedit/function/line806/execute91.mcfunction",
+   "scoreboard players operation Global dest_start_x = Global dest_xmax\nscoreboard players operation Global dest_start_z = Global dest_zmin\nscoreboard players operation Global flipped_x = Global dest_xmin\nscoreboard players operation Global flipped_z = Global dest_zmax"
+  ],
+  [
+   "data/blingedit/function/line813/execute92.mcfunction",
+   "scoreboard players operation Global dest_start_x = Global dest_xmax\nscoreboard players operation Global dest_start_z = Global dest_zmax\nscoreboard players operation Global flipped_x = Global dest_xmin\nscoreboard players operation Global flipped_z = Global dest_zmin"
+  ],
+  [
+   "data/blingedit/function/line820/execute93.mcfunction",
+   "scoreboard players operation Global dest_start_x = Global dest_xmin\nscoreboard players operation Global dest_start_z = Global dest_zmax\nscoreboard players operation Global flipped_x = Global dest_xmax\nscoreboard players operation Global flipped_z = Global dest_zmin"
+  ],
+  [
+   "data/blingedit/function/line833/for094.mcfunction",
+   "scoreboard players operation Global percent = Global dx\nscoreboard players operation Global percent -= Global start_dx\nscoreboard players operation Global per2_scratch0 = Global end_dx\nscoreboard players operation Global per2_scratch0 -= Global start_dx\nscoreboard players operation Global per2_scratch0 /= c100 Constant\nscoreboard players operation Global percent /= Global per2_scratch0\nexecute store result bossbar progress value run scoreboard players get Global percent\nscoreboard players operation Global dy = Global start_dy\nexecute if score Global step_dy matches ..-1 if score Global dy >= Global end_dy run function blingedit:line836/for095\nexecute if score Global step_dy matches 1.. if score Global dy <= Global end_dy run function blingedit:line836/for095\nscoreboard players operation Global dx += Global step_dx\nexecute if score Global step_dx matches ..-1 if score Global dx >= Global end_dx run function blingedit:line833/for094\nexecute if score Global step_dx matches 1.. if score Global dx <= Global end_dx run function blingedit:line833/for094"
+  ],
+  [
+   "data/blingedit/function/line836/for095.mcfunction",
+   "scoreboard players operation Global dz = Global start_dz\nexecute if score Global step_dz matches ..-1 if score Global dz >= Global end_dz run function blingedit:line837/for096\nexecute if score Global step_dz matches 1.. if score Global dz <= Global end_dz run function blingedit:line837/for096\nscoreboard players operation Global dy += Global step_dy\nexecute if score Global step_dy matches ..-1 if score Global dy >= Global end_dy run function blingedit:line836/for095\nexecute if score Global step_dy matches 1.. if score Global dy <= Global end_dy run function blingedit:line836/for095"
+  ],
+  [
+   "data/blingedit/function/line837/for096.mcfunction",
+   "scoreboard players operation Global _offset_0 = Global dx\nscoreboard players operation Global _offset_1 = Global dy\nscoreboard players operation Global _offset_2 = Global dz\nscoreboard players operation Global per2_scratch0 = Global _min_0\nscoreboard players operation Global per2_scratch1 = Global _min_1\nscoreboard players operation Global per2_scratch2 = Global _min_2\nscoreboard players operation Global per2_scratch0 += Global _offset_0\nscoreboard players operation Global per2_scratch1 += Global _offset_1\nscoreboard players operation Global per2_scratch2 += Global _offset_2\nscoreboard players operation @s _pos_0 = Global per2_scratch0\nscoreboard players operation @s _pos_1 = Global per2_scratch1\nscoreboard players operation @s _pos_2 = Global per2_scratch2\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run function blingedit:line840/execute97\nexecute unless score Global skip matches 1.. run function blingedit:line848/execute102\nscoreboard players operation Global dz += Global step_dz\nexecute if score Global step_dz matches ..-1 if score Global dz >= Global end_dz run function blingedit:line837/for096\nexecute if score Global step_dz matches 1.. if score Global dz <= Global end_dz run function blingedit:line837/for096"
+  ],
+  [
+   "data/blingedit/function/line840/execute97.mcfunction",
+   "clone ~ ~ ~ ~ ~ ~ 0 1 0\nscoreboard players set Global skip 0\nexecute if block ~ ~ ~ minecraft:air unless score Global clone_air matches 1.. run scoreboard players set Global skip 1"
+  ],
+  [
+   "data/blingedit/function/line849/execute98.mcfunction",
+   "scoreboard players operation Global dest_dx = Global dx\nscoreboard players operation Global dest_dy = Global dy\nscoreboard players operation Global dest_dz = Global dz"
+  ],
+  [
+   "data/blingedit/function/line850/execute99.mcfunction",
+   "scoreboard players operation Global dest_dx = Global dz\nscoreboard players operation Global dest_dx *= minus Constant\nscoreboard players operation Global dest_dy = Global dy\nscoreboard players operation Global dest_dz = Global dx"
+  ],
+  [
+   "data/blingedit/function/line851/execute100.mcfunction",
+   "scoreboard players operation Global dest_dx = Global dx\nscoreboard players operation Global dest_dx *= minus Constant\nscoreboard players operation Global dest_dz = Global dz\nscoreboard players operation Global dest_dz *= minus Constant\nscoreboard players operation Global dest_dy = Global dy"
+  ],
+  [
+   "data/blingedit/function/line852/execute101.mcfunction",
+   "scoreboard players operation Global dest_dz = Global dx\nscoreboard players operation Global dest_dz *= minus Constant\nscoreboard players operation Global dest_dx = Global dz\nscoreboard players operation Global dest_dy = Global dy"
+  ],
+  [
+   "data/blingedit/function/line848/execute102.mcfunction",
+   "execute if score Global rotation matches 0 run function blingedit:line849/execute98\nexecute if score Global rotation matches 90 run function blingedit:line850/execute99\nexecute if score Global rotation matches 180 run function blingedit:line851/execute100\nexecute if score Global rotation matches 270 run function blingedit:line852/execute101\nexecute if score Global flip_x matches 1.. run scoreboard players operation Global dest_dx *= minus Constant\nexecute if score Global flip_z matches 1.. run scoreboard players operation Global dest_dz *= minus Constant\nscoreboard players operation Global per2_scratch0 = Global dest_start_x\nscoreboard players operation Global per2_scratch1 = Global dest_start_y\nscoreboard players operation Global per2_scratch2 = Global dest_start_z\nscoreboard players operation Global per2_scratch0 += Global dest_dx\nscoreboard players operation Global per2_scratch1 += Global dest_dy\nscoreboard players operation Global per2_scratch2 += Global dest_dz\nscoreboard players operation 0-0-0-0-C2 _pos_0 = Global per2_scratch0\nscoreboard players operation 0-0-0-0-C2 _pos_1 = Global per2_scratch1\nscoreboard players operation 0-0-0-0-C2 _pos_2 = Global per2_scratch2\nexecute store result entity 0-0-0-0-C2 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C2 _pos_0\nexecute store result entity 0-0-0-0-C2 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C2 _pos_1\nexecute store result entity 0-0-0-0-C2 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C2 _pos_2\nexecute at 0-0-0-0-C2 run clone 0 1 0 0 1 0 ~ ~ ~"
+  ],
+  [
+   "data/blingedit/function/line832/execute103.mcfunction",
+   "scoreboard players operation Global dx = Global start_dx\nexecute if score Global step_dx matches ..-1 if score Global dx >= Global end_dx run function blingedit:line833/for094\nexecute if score Global step_dx matches 1.. if score Global dx <= Global end_dx run function blingedit:line833/for094"
+  ],
+  [
+   "data/blingedit/function/line752/execute104.mcfunction",
+   "function blingedit:get_dest_minmax\nscoreboard players operation Global size_x = Global _size_0\nscoreboard players operation Global size_y = Global _size_1\nscoreboard players operation Global size_z = Global _size_2\nscoreboard players operation Global clone_air = @s clone_air\nexecute if score Global dest_xmin <= Global xmin run function blingedit:line758/execute84\nexecute if score Global dest_xmin > Global xmin run function blingedit:line763/execute85\nexecute if score Global dest_ymin <= Global ymin run function blingedit:line768/execute86\nexecute if score Global dest_ymin > Global ymin run function blingedit:line773/execute87\nexecute if score Global dest_zmin <= Global zmin run function blingedit:line778/execute88\nexecute if score Global dest_zmin > Global zmin run function blingedit:line783/execute89\nbossbar set progress players @s\nfunction blingedit:store_tile_drops\nscoreboard players set Global rotation 0\nscoreboard players operation Global rotation = @s clone_rotation\nscoreboard players operation Global flip_x = @s clone_flip_x\nscoreboard players operation Global flip_z = @s clone_flip_z\nscoreboard players operation Global dest_start_y = Global dest_ymin\nexecute if score Global rotation matches 0 run function blingedit:line799/execute90\nexecute if score Global rotation matches 90 run function blingedit:line806/execute91\nexecute if score Global rotation matches 180 run function blingedit:line813/execute92\nexecute if score Global rotation matches 270 run function blingedit:line820/execute93\nexecute if score Global flip_x matches 1.. run scoreboard players operation Global dest_start_x = Global flipped_x\nexecute if score Global flip_z matches 1.. run scoreboard players operation Global dest_start_z = Global flipped_z\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nexecute unless entity 0-0-0-0-C2 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,194]}\nexecute as 0-0-0-0-C1 run function blingedit:line832/execute103\nfunction blingedit:restore_tile_drops"
+  ],
+  [
+   "data/blingedit/function/line746/execute105.mcfunction",
+   "function blingedit:get_minmax\nexecute unless score Global has_box matches 1.. run tellraw @s [\"\",{\"text\":\"You don't currently have a region selected.\"}]\nexecute if score Global has_box matches 1.. run function blingedit:line752/execute104"
+  ],
+  [
+   "data/blingedit/function/cancel.mcfunction",
+   "scoreboard players set Global handled 0\nscoreboard players set Global can_cancel 0\nexecute if score @s state matches 8 run scoreboard players set Global can_cancel 1\nexecute if score @s state matches 9 run scoreboard players set Global can_cancel 1\nexecute if score @s state matches 11 run scoreboard players set Global can_cancel 1\nexecute if score Global can_cancel matches 1.. run function blingedit:line877/execute106\nexecute if score Global handled matches ..0 run tellraw @s [\"\",{\"text\":\"You can't cancel right now.\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line877/execute106.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type matches 2 run scoreboard players set @s player 0\nscoreboard players set @s state 3\nscoreboard players set @s moving 0\nfunction blingedit:tell_actions\nscoreboard players set Global handled 1"
+  ],
+  [
+   "data/blingedit/function/delete.mcfunction",
+   "function blingedit:get_minmax\nexecute if score Global has_box matches 1.. run function blingedit:line898/execute110\nexecute unless score Global has_box matches 1.. run tellraw @s [\"\",{\"text\":\"You must select a region first.\"}]\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/line903/for107.mcfunction",
+   "scoreboard players operation Global percent = Global x\nscoreboard players operation Global percent -= Global xmin\nscoreboard players operation Global percent *= c100 Constant\nscoreboard players operation Global del_scratch0 = Global xmax\nscoreboard players operation Global del_scratch0 -= Global xmin\nscoreboard players operation Global percent /= Global del_scratch0\nexecute store result bossbar progress value run scoreboard players get Global percent\nscoreboard players operation Global z = Global zmin\nexecute if score Global z <= Global zmax run function blingedit:line906/for108\nscoreboard players add Global x 10000\nexecute if score Global x <= Global xmax run function blingedit:line903/for107"
+  ],
+  [
+   "data/blingedit/function/line906/for108.mcfunction",
+   "scoreboard players operation Global y = Global ymax\nexecute if score Global y >= Global ymin run function blingedit:line907/for109\nscoreboard players add Global z 10000\nexecute if score Global z <= Global zmax run function blingedit:line906/for108"
+  ],
+  [
+   "data/blingedit/function/line907/for109.mcfunction",
+   "scoreboard players operation 0-0-0-0-C1 _pos_0 = Global x\nscoreboard players operation 0-0-0-0-C1 _pos_1 = Global y\nscoreboard players operation 0-0-0-0-C1 _pos_2 = Global z\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nexecute at 0-0-0-0-C1 run setblock ~ ~ ~ air\nscoreboard players remove Global y 10000\nexecute if score Global y >= Global ymin run function blingedit:line907/for109"
+  ],
+  [
+   "data/blingedit/function/line898/execute110.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Deleting \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_xmin\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_ymin\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_zmin\"}},{\"text\":\" to \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_xmax\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_ymax\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_zmax\"}}]\nbossbar set progress players @s\nfunction blingedit:store_tile_drops\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nscoreboard players operation Global x = Global xmin\nexecute if score Global x <= Global xmax run function blingedit:line903/for107\nfunction blingedit:restore_tile_drops"
+  ],
+  [
+   "data/blingedit/function/fill.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Use \"},{\"text\":\"/setblock ~ ~ ~ <block>\",\"click_event\":{\"action\":\"suggest_command\",\"command\":\"/setblock ~ ~ ~ minecraft:\"},\"color\":\"gray\"},{\"text\":\" to pick the filler block.\"}]\nscoreboard players set @s state 5\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/replace.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Use \"},{\"text\":\"/setblock ~ ~ ~ <block>\",\"click_event\":{\"action\":\"suggest_command\",\"command\":\"/setblock ~ ~ ~ minecraft:\"},\"color\":\"gray\"},{\"text\":\" to pick the block to be replaced.\"}]\ntellraw @s [\"\",{\"text\":\"Or pick \"},{\"text\":\"[air]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:replace1_air\"},\"color\":\"aqua\"}]\nscoreboard players set @s state 6\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/replace1_air.mcfunction",
+   "setblock ~ ~ ~ air\nfunction blingedit:tell_replace2\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/tell_replace2.mcfunction",
+   "function blingedit:check_loaded\nexecute if score Global loaded matches 1.. run function blingedit:line947/execute111\nexecute unless score Global loaded matches 1.. run tellraw @s [\"\",{\"text\":\"Chunk 0,0 wasn't loaded. Try again (or use \"},{\"text\":\"/forceload add 0 0\",\"color\":\"aqua\"},{\"text\":\")\",\"color\":\"white\"}]"
+  ],
+  [
+   "data/blingedit/function/line947/execute111.mcfunction",
+   "clone ~ ~ ~ ~ ~ ~ 0 2 0\nscoreboard players set @s state 7\nsetblock ~ ~ ~ air\ntellraw @s [\"\",{\"text\":\"Use \"},{\"text\":\"/setblock ~ ~ ~ <block>\",\"click_event\":{\"action\":\"suggest_command\",\"command\":\"/setblock ~ ~ ~ minecraft:\"},\"color\":\"gray\"},{\"text\":\" to pick the block they should be replaced with.\"}]\ntellraw @s [\"\",{\"text\":\"Or pick \"},{\"text\":\"[air]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:replace2_air\"},\"color\":\"aqua\"}]"
+  ],
+  [
+   "data/blingedit/function/replace2_air.mcfunction",
+   "setblock ~ ~ ~ air\nfunction blingedit:perform_replace\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/perform_replace.mcfunction",
+   "function blingedit:check_loaded\nexecute if score Global loaded matches 1.. run function blingedit:line968/execute118"
+  ],
+  [
+   "data/blingedit/function/line980/for112.mcfunction",
+   "scoreboard players operation Global percent = Global x\nscoreboard players operation Global percent -= Global xmin\nscoreboard players operation Global percent *= c100 Constant\nscoreboard players operation Global per3_scratch0 = Global xmax\nscoreboard players operation Global per3_scratch0 -= Global xmin\nscoreboard players operation Global percent /= Global per3_scratch0\nexecute store result bossbar progress value run scoreboard players get Global percent\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get Global x\nscoreboard players operation Global z = Global zmin\nexecute if score Global z <= Global zmax run function blingedit:line984/for113\nscoreboard players add Global x 10000\nexecute if score Global x <= Global xmax run function blingedit:line980/for112"
+  ],
+  [
+   "data/blingedit/function/line984/for113.mcfunction",
+   "execute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get Global z\nscoreboard players operation Global y = Global ymin\nexecute if score Global y <= Global ymax run function blingedit:line986/for114\nscoreboard players add Global z 10000\nexecute if score Global z <= Global zmax run function blingedit:line984/for113"
+  ],
+  [
+   "data/blingedit/function/line986/for114.mcfunction",
+   "execute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get Global y\nexecute at 0-0-0-0-C1 run function blingedit:line988/execute116\nscoreboard players add Global y 10000\nexecute if score Global y <= Global ymax run function blingedit:line986/for114"
+  ],
+  [
+   "data/blingedit/function/line991/execute115.mcfunction",
+   "scoreboard players add Global count 1\nclone 0 1 0 0 1 0 ~ ~ ~"
+  ],
+  [
+   "data/blingedit/function/line988/execute116.mcfunction",
+   "scoreboard players set Global replace 0\nexecute if blocks ~ ~ ~ ~ ~ ~ 0 2 0 all run scoreboard players set Global replace 1\nexecute if score Global replace matches 1.. run function blingedit:line991/execute115"
+  ],
+  [
+   "data/blingedit/function/line973/execute117.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Replacing \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_xmin\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_ymin\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_zmin\"}},{\"text\":\" to \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_xmax\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_ymax\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_zmax\"}}]\nbossbar set progress players @s\nfunction blingedit:store_tile_drops\nscoreboard players set Global count 0\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nscoreboard players operation Global x = Global xmin\nexecute if score Global x <= Global xmax run function blingedit:line980/for112\nfunction blingedit:restore_tile_drops\ntellraw @s [\"\",{\"text\":\"Replaced \"},{\"score\":{\"name\":\"Global\",\"objective\":\"count\"}},{\"text\":\" blocks.\"}]\nscoreboard players set @s state 3"
+  ],
+  [
+   "data/blingedit/function/line968/execute118.mcfunction",
+   "clone ~ ~ ~ ~ ~ ~ 0 1 0\nfunction blingedit:get_minmax\nexecute if score Global has_box matches 1.. run function blingedit:line973/execute117\nsetblock ~ ~ ~ air\nexecute unless score Global has_box matches 1.. run tellraw @s [\"\",{\"text\":\"You must select a box first.\"}]"
+  ],
+  [
+   "data/blingedit/function/move_up.mcfunction",
+   "scoreboard players set Global type 0\nexecute if score @s state matches 3 run scoreboard players set Global type 1\nexecute if score @s state matches 8 run scoreboard players set Global type 2\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type = Global type at @s run tp @s ~ ~1 ~\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/move_down.mcfunction",
+   "scoreboard players set Global type 0\nexecute if score @s state matches 3 run scoreboard players set Global type 1\nexecute if score @s state matches 8 run scoreboard players set Global type 2\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type = Global type at @s run tp @s ~ ~-1 ~\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/move_forward.mcfunction",
+   "scoreboard players set Global type 0\nexecute if score @s state matches 3 run scoreboard players set Global type 1\nexecute if score @s state matches 8 run scoreboard players set Global type 2\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nexecute store result score Global ry run data get entity @s Rotation[0] 10000\nscoreboard players operation Global ry /= c10000 Constant\nscoreboard players operation Global ry %= c360 Constant\nfunction blingedit:move_dir\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/move_backward.mcfunction",
+   "scoreboard players set Global type 0\nexecute if score @s state matches 3 run scoreboard players set Global type 1\nexecute if score @s state matches 8 run scoreboard players set Global type 2\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nexecute store result score Global ry run data get entity @s Rotation[0] 10000\nscoreboard players operation Global ry /= c10000 Constant\nscoreboard players add Global ry 180\nscoreboard players operation Global ry %= c360 Constant\nfunction blingedit:move_dir\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/move_left.mcfunction",
+   "scoreboard players set Global type 0\nexecute if score @s state matches 3 run scoreboard players set Global type 1\nexecute if score @s state matches 8 run scoreboard players set Global type 2\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nexecute store result score Global ry run data get entity @s Rotation[0] 10000\nscoreboard players operation Global ry /= c10000 Constant\nscoreboard players remove Global ry 90\nscoreboard players operation Global ry %= c360 Constant\nfunction blingedit:move_dir\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/move_right.mcfunction",
+   "scoreboard players set Global type 0\nexecute if score @s state matches 3 run scoreboard players set Global type 1\nexecute if score @s state matches 8 run scoreboard players set Global type 2\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nexecute store result score Global ry run data get entity @s Rotation[0] 10000\nscoreboard players operation Global ry /= c10000 Constant\nscoreboard players add Global ry 90\nscoreboard players operation Global ry %= c360 Constant\nfunction blingedit:move_dir\ngamerule sendCommandFeedback false"
+  ],
+  [
+   "data/blingedit/function/corner_target.mcfunction",
+   "scoreboard players operation Global type = Global Param0\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global player run scoreboard players get @s _id\nexecute at @s positioned ~ ~1.6 ~ run function blingedit:line1108/execute125"
+  ],
+  [
+   "data/blingedit/function/line1110/execute119.mcfunction",
+   "scoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result score Global _look_0 run data get entity @e[limit=1,scores={_age=1}] Pos[0] 10000\nexecute store result score Global _look_1 run data get entity @e[limit=1,scores={_age=1}] Pos[1] 10000\nexecute store result score Global _look_2 run data get entity @e[limit=1,scores={_age=1}] Pos[2] 10000\nkill @e[scores={_age=1}]\nscoreboard players operation Global _look_0 -= Global _start_pos_0\nscoreboard players operation Global _look_1 -= Global _start_pos_1\nscoreboard players operation Global _look_2 -= Global _start_pos_2"
+  ],
+  [
+   "data/blingedit/function/line1114/execute120.mcfunction",
+   "scoreboard players set @s highlight 0\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global cor_scratch0 = @s _pos_0\nscoreboard players operation Global cor_scratch1 = @s _pos_1\nscoreboard players operation Global cor_scratch2 = @s _pos_2\nscoreboard players operation Global cor_scratch0 += c0 Constant\nscoreboard players operation Global cor_scratch1 += c500 Constant\nscoreboard players operation Global cor_scratch2 += c0 Constant\nscoreboard players operation Global cor_scratch0 -= Global _start_pos_0\nscoreboard players operation Global cor_scratch1 -= Global _start_pos_1\nscoreboard players operation Global cor_scratch2 -= Global _start_pos_2\nscoreboard players operation Global _delta_0 = Global cor_scratch0\nscoreboard players operation Global _delta_1 = Global cor_scratch1\nscoreboard players operation Global _delta_2 = Global cor_scratch2\nscoreboard players operation Global cor_scratch0 = Global _delta_0\nscoreboard players operation Global cor_scratch0 *= Global _look_0\nscoreboard players operation Global cor_scratch1 = Global _delta_1\nscoreboard players operation Global cor_scratch1 *= Global _look_1\nscoreboard players operation Global cor_scratch2 = Global _delta_2\nscoreboard players operation Global cor_scratch2 *= Global _look_2\nscoreboard players operation Global cor_scratch0 += Global cor_scratch1\nscoreboard players operation Global cor_scratch0 += Global cor_scratch2\nscoreboard players operation Global tca = Global cor_scratch0\nscoreboard players operation Global tca /= c10000 Constant\nscoreboard players operation Global cor_scratch1 = Global _delta_0\nscoreboard players operation Global cor_scratch1 *= Global _delta_0\nscoreboard players operation Global cor_scratch2 = Global _delta_1\nscoreboard players operation Global cor_scratch2 *= Global _delta_1\nscoreboard players operation Global cor_scratch3 = Global _delta_2\nscoreboard players operation Global cor_scratch3 *= Global _delta_2\nscoreboard players operation Global cor_scratch1 += Global cor_scratch2\nscoreboard players operation Global cor_scratch1 += Global cor_scratch3\nscoreboard players operation Global delta2 = Global cor_scratch1\nscoreboard players operation Global delta2 /= c10000 Constant\nscoreboard players operation Global tca2 = Global tca\nscoreboard players operation Global tca2 *= Global tca\nscoreboard players operation Global tca2 /= c10000 Constant\nscoreboard players operation Global d2 = Global delta2\nscoreboard players operation Global d2 -= Global tca2\nexecute if score Global d2 matches ..1699 if score Global tca matches 1.. run scoreboard players set @s looking 1"
+  ],
+  [
+   "data/blingedit/function/line1129/execute121.mcfunction",
+   "team join highlight\nscoreboard players set @s highlighted 1\nscoreboard players set Global cor_scratch2 0"
+  ],
+  [
+   "data/blingedit/function/line1129/else122.mcfunction",
+   "team join source\nscoreboard players set @s highlighted 0\nscoreboard players set Global cor_scratch2 0"
+  ],
+  [
+   "data/blingedit/function/line1129/else123.mcfunction",
+   "team join dest\nscoreboard players set @s highlighted 0"
+  ],
+  [
+   "data/blingedit/function/line1128/execute124.mcfunction",
+   "scoreboard players set Global cor_scratch2 1\nexecute if score @s highlight matches 1.. run function blingedit:line1129/execute121\nexecute if score Global cor_scratch2 matches 1.. if score Global type matches 1 run function blingedit:line1129/else122\nexecute if score Global cor_scratch2 matches 1.. if score Global type matches 2 run function blingedit:line1129/else123"
+  ],
+  [
+   "data/blingedit/function/line1108/execute125.mcfunction",
+   "scoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result score Global _start_pos_0 run data get entity @e[limit=1,scores={_age=1}] Pos[0] 10000\nexecute store result score Global _start_pos_1 run data get entity @e[limit=1,scores={_age=1}] Pos[1] 10000\nexecute store result score Global _start_pos_2 run data get entity @e[limit=1,scores={_age=1}] Pos[2] 10000\nkill @e[scores={_age=1}]\nexecute positioned ^ ^ ^1 run function blingedit:line1110/execute119\nscoreboard players set @e[type=minecraft:magma_cube,tag=Corner] looking 0\nexecute as @e[type=minecraft:magma_cube,tag=Corner,distance=..30] if score @s player = Global player if score @s type = Global type run function blingedit:line1114/execute120\nexecute as @e[type=minecraft:magma_cube,tag=Corner,sort=nearest,limit=1,scores={looking=1..}] run scoreboard players set @s highlight 1\nexecute as @e[type=minecraft:magma_cube,tag=Corner,distance=..30] if score @s player = Global player if score @s type = Global type run function blingedit:line1128/execute124"
+  ],
+  [
+   "data/blingedit/function/click.mcfunction",
+   "scoreboard players set @a current 0\nscoreboard players set @s current 1\nscoreboard players set Global move_dest 0\nexecute if score @s state matches 9 run scoreboard players set Global move_dest 1\nexecute if score @s state matches 11 run scoreboard players set Global move_dest 1\nscoreboard players set Global cli2_scratch0 1\nexecute if score @s state matches 3 run function blingedit:line1160/execute127\nexecute if score Global cli2_scratch0 matches 1.. if score @s state matches 4 run function blingedit:line1160/else131\nexecute if score Global cli2_scratch0 matches 1.. if score @s state matches 8 run function blingedit:line1160/else133\nexecute if score Global cli2_scratch0 matches 1.. if score Global move_dest matches 1.. run function blingedit:line1160/else135\nexecute if score Global cli2_scratch0 matches 1.. if score @s state matches 1 run function blingedit:line1160/else144"
+  ],
+  [
+   "data/blingedit/function/line1161/execute126.mcfunction",
+   "team join moving\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @a[limit=1,scores={current=1..}] moving run scoreboard players get @s _id\nscoreboard players set @a[limit=1,scores={current=1..}] state 4"
+  ],
+  [
+   "data/blingedit/function/line1160/execute127.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @a[limit=1,scores={current=1..}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = @a[limit=1,scores={current=1..}] _id if score @s type matches 1 if score @s highlighted matches 1.. run function blingedit:line1161/execute126\nscoreboard players set Global cli2_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/line1175/execute128.mcfunction",
+   "scoreboard players operation Global cli2_scratch1 = Global x\nscoreboard players operation Global cli2_scratch2 = Global y\nscoreboard players operation Global cli2_scratch3 = Global z\nscoreboard players operation Global cli2_scratch1 /= c10000 Constant\nscoreboard players operation Global cli2_scratch2 /= c10000 Constant\nscoreboard players operation Global cli2_scratch3 /= c10000 Constant\nscoreboard players operation Global tx = Global cli2_scratch1\nscoreboard players operation Global ty = Global cli2_scratch2\nscoreboard players operation Global tz = Global cli2_scratch3\ntellraw @a[limit=1,scores={current=1..}] [\"\",{\"text\":\"2nd corner at \"},{\"score\":{\"name\":\"Global\",\"objective\":\"tx\",\"color\":\"red\"}},{\"text\":\", \",\"color\":\"red\"},{\"score\":{\"name\":\"Global\",\"objective\":\"ty\",\"color\":\"red\"}},{\"text\":\", \",\"color\":\"red\"},{\"score\":{\"name\":\"Global\",\"objective\":\"tz\",\"color\":\"red\"}}]\nexecute as @a[limit=1,scores={current=1..}] run function blingedit:tell_actions\nscoreboard players set @a[limit=1,scores={current=1..}] tell_actions 0"
+  ],
+  [
+   "data/blingedit/function/line1171/execute129.mcfunction",
+   "team join source\nscoreboard players set @a[limit=1,scores={current=1..}] state 3\nscoreboard players set @a[limit=1,scores={current=1..}] moving 0\nexecute if score @a[limit=1,scores={current=1..}] tell_actions matches 1.. run function blingedit:line1175/execute128"
+  ],
+  [
+   "data/blingedit/function/line1170/execute130.mcfunction",
+   "scoreboard players operation Global _id = @s moving\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run function blingedit:line1171/execute129"
+  ],
+  [
+   "data/blingedit/function/line1160/else131.mcfunction",
+   "function blingedit:get_cursor_position\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nscoreboard players operation 0-0-0-0-C1 _pos_0 = Global _cursor_0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = Global _cursor_1\nscoreboard players operation 0-0-0-0-C1 _pos_2 = Global _cursor_2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nexecute at 0-0-0-0-C1 run function blingedit:line1170/execute130\nscoreboard players set Global cli2_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/line1184/execute132.mcfunction",
+   "team join moving\nscoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @a[limit=1,scores={current=1..}] moving run scoreboard players get @s _id\nscoreboard players set @a[limit=1,scores={current=1..}] state 9"
+  ],
+  [
+   "data/blingedit/function/line1160/else133.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @a[limit=1,scores={current=1..}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = @a[limit=1,scores={current=1..}] _id if score @s type matches 2 if score @s highlighted matches 1.. run function blingedit:line1184/execute132\nscoreboard players set Global cli2_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/line1190/execute134.mcfunction",
+   "scoreboard players operation Global _id = @s moving\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run team join dest\nscoreboard players set @s moving 0\nscoreboard players set @s state 8"
+  ],
+  [
+   "data/blingedit/function/line1160/else135.mcfunction",
+   "execute if score @s state matches 9 run function blingedit:line1190/execute134\nexecute if score @s state matches 11 run function blingedit:perform_clone\nscoreboard players set Global cli2_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/line1205/execute136.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global cli2_scratch1 = @s _pos_0\nscoreboard players operation Global cli2_scratch2 = @s _pos_1\nscoreboard players operation Global cli2_scratch3 = @s _pos_2\nscoreboard players operation Global cli2_scratch1 /= c10000 Constant\nscoreboard players operation Global cli2_scratch2 /= c10000 Constant\nscoreboard players operation Global cli2_scratch3 /= c10000 Constant\nscoreboard players operation Global x = Global cli2_scratch1\nscoreboard players operation Global y = Global cli2_scratch2\nscoreboard players operation Global z = Global cli2_scratch3\ntellraw @a[limit=1,scores={current=1..}] [\"\",{\"text\":\"1st corner at \"},{\"score\":{\"name\":\"Global\",\"objective\":\"x\",\"color\":\"red\"}},{\"text\":\", \",\"color\":\"red\"},{\"score\":{\"name\":\"Global\",\"objective\":\"y\",\"color\":\"red\"}},{\"text\":\", \",\"color\":\"red\"},{\"score\":{\"name\":\"Global\",\"objective\":\"z\",\"color\":\"red\"}}]"
+  ],
+  [
+   "data/blingedit/function/line1213/execute137.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @a[limit=1,scores={current=1..}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s player run scoreboard players get @a[limit=1,scores={current=1..}] _id\nscoreboard players set @s type 1\nteam join moving\nscoreboard players set @s edit_xmax 1\nscoreboard players set @s edit_ymax 1\nscoreboard players set @s edit_zmax 1"
+  ],
+  [
+   "data/blingedit/function/line1223/for138.mcfunction",
+   "scoreboard players set Global ey -1\nexecute if score Global ey <= c1 Constant run function blingedit:line1224/for139\nscoreboard players add Global ex 1\nexecute if score Global ex <= c1 Constant run function blingedit:line1223/for138"
+  ],
+  [
+   "data/blingedit/function/line1224/for139.mcfunction",
+   "scoreboard players set Global ez -1\nexecute if score Global ez <= c1 Constant run function blingedit:line1225/for140\nscoreboard players add Global ey 1\nexecute if score Global ey <= c1 Constant run function blingedit:line1224/for139"
+  ],
+  [
+   "data/blingedit/function/line1225/for140.mcfunction",
+   "scoreboard players set Global skip 0\nscoreboard players operation Global cli2_scratch1 = Global ex\nscoreboard players operation Global cli2_scratch1 += Global ey\nscoreboard players operation Global cli2_scratch1 += Global ez\nscoreboard players operation Global Param0 = Global cli2_scratch1\nfunction blingedit:abs\nscoreboard players operation Global sum = Global ReturnValue\nscoreboard players set Global skip 0\nexecute if score Global ex matches -1 if score Global ey matches -1 if score Global ez matches -1 run scoreboard players set Global skip 1\nexecute if score Global ex matches 1 if score Global ey matches 1 if score Global ez matches 1 run scoreboard players set Global skip 1\nexecute if score Global ex matches 0 if score Global ey matches 0 if score Global ez matches 0 run scoreboard players set Global skip 1\nexecute if score Global skip matches ..0 run function blingedit:line1234/execute142\nscoreboard players add Global ez 1\nexecute if score Global ez <= c1 Constant run function blingedit:line1225/for140"
+  ],
+  [
+   "data/blingedit/function/line1235/execute141.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @a[limit=1,scores={current=1..}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s player run scoreboard players get @a[limit=1,scores={current=1..}] _id\nscoreboard players set @s type 1\nteam join source\nexecute if score Global ex matches -1 run scoreboard players set @s edit_xmin 1\nexecute if score Global ex matches 0 run scoreboard players set @s center_x 1\nexecute if score Global ex matches 1 run scoreboard players set @s edit_xmax 1\nexecute if score Global ey matches -1 run scoreboard players set @s edit_ymin 1\nexecute if score Global ey matches 0 run scoreboard players set @s center_y 1\nexecute if score Global ey matches 1 run scoreboard players set @s edit_ymax 1\nexecute if score Global ez matches -1 run scoreboard players set @s edit_zmin 1\nexecute if score Global ez matches 0 run scoreboard players set @s center_z 1\nexecute if score Global ez matches 1 run scoreboard players set @s edit_zmax 1"
+  ],
+  [
+   "data/blingedit/function/line1234/execute142.mcfunction",
+   "scoreboard players set @e[type=minecraft:magma_cube,tag=Corner] _age 1\nsummon minecraft:magma_cube ~ ~ ~ {\"CustomName\":\"\\\"Corner\\\"\",\"Tags\":[\"Corner\"],\"Glowing\":1b,\"NoGravity\":1b,\"NoAI\":1b,\"Invulnerable\":1b,\"Size\":1b,\"Silent\":1b,\"AbsorptionAmount\":100f}\nscoreboard players add @e[type=minecraft:magma_cube,tag=Corner] _age 1\nexecute as @e[type=minecraft:magma_cube,tag=Corner,limit=1,scores={_age=1}] run function blingedit:line1235/execute141"
+  ],
+  [
+   "data/blingedit/function/line1204/execute143.mcfunction",
+   "scoreboard players operation Global _id = @s pick1\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run function blingedit:line1205/execute136\nscoreboard players set @s state 4\nscoreboard players set @s tell_actions 1\nscoreboard players set @e[type=minecraft:magma_cube,tag=Corner] _age 1\nsummon minecraft:magma_cube ~ ~ ~ {\"CustomName\":\"\\\"Corner\\\"\",\"Tags\":[\"Corner\"],\"Glowing\":1b,\"NoGravity\":1b,\"NoAI\":1b,\"Invulnerable\":1b,\"Size\":1b,\"Silent\":1b,\"AbsorptionAmount\":100f}\nscoreboard players add @e[type=minecraft:magma_cube,tag=Corner] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:magma_cube,tag=Corner,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s pick2 run scoreboard players get @e[type=minecraft:magma_cube,tag=Corner,limit=1,scores={_age=1}] _id\nscoreboard players operation Global _id = @s pick2\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run function blingedit:line1213/execute137\nscoreboard players operation @s moving = @a[limit=1,scores={current=1..}] pick2\nscoreboard players set Global ex -1\nexecute if score Global ex <= c1 Constant run function blingedit:line1223/for138\nexecute as @e[type=minecraft:magma_cube,tag=Corner] at @s run tp @s ~ ~ ~"
+  ],
+  [
+   "data/blingedit/function/line1160/else144.mcfunction",
+   "function blingedit:get_cursor_position\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nscoreboard players operation 0-0-0-0-C1 _pos_0 = Global _cursor_0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = Global _cursor_1\nscoreboard players operation 0-0-0-0-C1 _pos_2 = Global _cursor_2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nexecute at 0-0-0-0-C1 run function blingedit:line1204/execute143"
+  ],
+  [
+   "data/blingedit/function/move_dir.mcfunction",
+   "execute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global player if score @s type = Global type run function blingedit:line1263/execute145"
+  ],
+  [
+   "data/blingedit/function/line1263/execute145.mcfunction",
+   "execute if score Global ry matches ..44 at @s run tp @s ~ ~ ~1\nexecute if score Global ry matches 46.. if score Global ry matches ..134 at @s run tp @s ~-1 ~ ~\nexecute if score Global ry matches 135.. if score Global ry matches ..224 at @s run tp @s ~ ~ ~-1\nexecute if score Global ry matches 225.. if score Global ry matches ..314 at @s run tp @s ~1 ~ ~\nexecute if score Global ry matches 315.. at @s run tp @s ~ ~ ~1"
+  ],
+  [
+   "data/blingedit/function/check_loaded.mcfunction",
+   "setblock 0 1 0 stone\nexecute store success score Global loaded run setblock 0 1 0 sandstone\nexecute unless score Global loaded matches 1.. run tellraw @s [\"\",{\"text\":\"Chunk 0,0 wasn't loaded. Try again (or use \"},{\"text\":\"/forceload add 0 0\",\"click_event\":{\"action\":\"suggest_command\",\"command\":\"/forceload add 0 0\"},\"color\":\"aqua\",\"underlined\":true},{\"text\":\")\",\"color\":\"white\"}]"
+  ],
+  [
+   "data/blingedit/function/draw_particle_box.mcfunction",
+   "execute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nexecute as 0-0-0-0-C1 run function blingedit:line1324/execute149"
+  ],
+  [
+   "data/blingedit/function/line1326/for146.mcfunction",
+   "scoreboard players operation @s _pos_0 = Global x\nscoreboard players operation @s _pos_1 = Global p_ymin\nscoreboard players operation @s _pos_2 = Global p_zmin\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players operation @s _pos_0 = Global x\nscoreboard players operation @s _pos_1 = Global p_ymin\nscoreboard players operation @s _pos_2 = Global p_zmax\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players operation @s _pos_0 = Global x\nscoreboard players operation @s _pos_1 = Global p_ymax\nscoreboard players operation @s _pos_2 = Global p_zmin\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players operation @s _pos_0 = Global x\nscoreboard players operation @s _pos_1 = Global p_ymax\nscoreboard players operation @s _pos_2 = Global p_zmax\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players add Global x 200\nexecute if score Global x <= Global p_xmax run function blingedit:line1326/for146"
+  ],
+  [
+   "data/blingedit/function/line1344/for147.mcfunction",
+   "scoreboard players operation @s _pos_0 = Global p_xmin\nscoreboard players operation @s _pos_1 = Global p_ymin\nscoreboard players operation @s _pos_2 = Global z\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players operation @s _pos_0 = Global p_xmax\nscoreboard players operation @s _pos_1 = Global p_ymin\nscoreboard players operation @s _pos_2 = Global z\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players operation @s _pos_0 = Global p_xmin\nscoreboard players operation @s _pos_1 = Global p_ymax\nscoreboard players operation @s _pos_2 = Global z\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players operation @s _pos_0 = Global p_xmax\nscoreboard players operation @s _pos_1 = Global p_ymax\nscoreboard players operation @s _pos_2 = Global z\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players add Global z 200\nexecute if score Global z <= Global p_zmax run function blingedit:line1344/for147"
+  ],
+  [
+   "data/blingedit/function/line1362/for148.mcfunction",
+   "scoreboard players operation @s _pos_0 = Global p_xmin\nscoreboard players operation @s _pos_1 = Global y\nscoreboard players operation @s _pos_2 = Global p_zmin\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players operation @s _pos_0 = Global p_xmin\nscoreboard players operation @s _pos_1 = Global y\nscoreboard players operation @s _pos_2 = Global p_zmax\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players operation @s _pos_0 = Global p_xmax\nscoreboard players operation @s _pos_1 = Global y\nscoreboard players operation @s _pos_2 = Global p_zmin\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players operation @s _pos_0 = Global p_xmax\nscoreboard players operation @s _pos_1 = Global y\nscoreboard players operation @s _pos_2 = Global p_zmax\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2\nexecute at @s run particle fishing ~ ~ ~ 0 0 0 0 1 force\nscoreboard players add Global y 200\nexecute if score Global y <= Global p_ymax run function blingedit:line1362/for148"
+  ],
+  [
+   "data/blingedit/function/line1324/execute149.mcfunction",
+   "scoreboard players operation Global x = Global p_xmin\nexecute if score Global x <= Global p_xmax run function blingedit:line1326/for146\nscoreboard players operation Global z = Global p_zmin\nexecute if score Global z <= Global p_zmax run function blingedit:line1344/for147\nscoreboard players operation Global y = Global p_ymin\nexecute if score Global y <= Global p_ymax run function blingedit:line1362/for148"
+  ],
+  [
+   "data/blingedit/function/store_tile_drops.mcfunction",
+   "execute store result score Global tile_drops run gamerule doTileDrops\ngamerule doTileDrops false"
+  ],
+  [
+   "data/blingedit/function/restore_tile_drops.mcfunction",
+   "execute if score Global tile_drops matches 1.. run gamerule doTileDrops true\nexecute unless score Global tile_drops matches 1.. run gamerule doTileDrops false"
+  ],
+  [
+   "data/blingedit/function/main.mcfunction",
+   "scoreboard players add Global tick 1\nexecute if score Global feedback matches 1.. run gamerule sendCommandFeedback true\nexecute as @e[type=minecraft:item] at @s run function blingedit:line1404/execute155\nscoreboard players set @a mai_scratch0 0\nexecute as @a run function blingedit:for197_ln1440\nfunction blingedit:collect_garbage"
+  ],
+  [
+   "data/blingedit/function/line1422/execute150.mcfunction",
+   "scoreboard players set @s raycast_select 0\nscoreboard players set Global handled 1\ntellraw @s [\"\",{\"text\":\"Changed selection to: \"},{\"text\":\"Floating Cursor\",\"color\":\"yellow\"}]\ntellraw @s [\"\",{\"text\":\"Options: \"},{\"text\":\"[Range 5]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:cursor_range_5\"},\"color\":\"gold\"},{\"text\":\" \",\"color\":\"gold\"},{\"text\":\"[Range 10]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:cursor_range_10\"},\"color\":\"gold\"},{\"text\":\" \",\"color\":\"gold\"},{\"text\":\"[Range 15]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:cursor_range_15\"},\"color\":\"gold\"},{\"text\":\" \",\"color\":\"gold\"},{\"text\":\"[Range 20]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:cursor_range_20\"},\"color\":\"gold\"}]"
+  ],
+  [
+   "data/blingedit/function/line1428/execute151.mcfunction",
+   "scoreboard players set @s raycast_select 1\ntellraw @s [\"\",{\"text\":\"Changed selection to: \"},{\"text\":\"Raycast Cursor\",\"color\":\"yellow\"}]\ntellraw @s [\"\",{\"text\":\"Options: \"},{\"text\":\"[Select Inside Blocks]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:cursor_inside\"},\"color\":\"gold\"},{\"text\":\" \",\"color\":\"gold\"},{\"text\":\"[Select Before Blocks]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function blingedit:cursor_before\"},\"color\":\"gold\"}]"
+  ],
+  [
+   "data/blingedit/function/line1412/execute152.mcfunction",
+   "execute if score @s carrot_on_stick matches 1.. run replaceitem entity @s weapon.mainhand carrot_on_a_stick{display:{Name:\"{\\\"text\\\":\\\"BlingEdit\\\"}\"},Enchantments:[{lvl:5s,id:\"minecraft:sharpness\"}]} 1\nexecute unless score @s carrot_on_stick matches 1.. run replaceitem entity @s weapon.mainhand diamond_sword{display:{Name:\"{\\\"text\\\":\\\"BlingEdit\\\"}\"}} 1\nscoreboard players set Global found_player 1\nscoreboard players set Global handled 0\nexecute if score @s raycast_select matches 1.. run function blingedit:line1422/execute150\nexecute if score Global handled matches ..0 run function blingedit:line1428/execute151"
+  ],
+  [
+   "data/blingedit/function/line1409/execute153.mcfunction",
+   "scoreboard players set @s holding_item 1\nexecute unless entity @s[nbt={\"SelectedItem\":{}}] run scoreboard players set @s holding_item 0\nexecute unless score @s holding_item matches 1.. run function blingedit:line1412/execute152"
+  ],
+  [
+   "data/blingedit/function/line1406/execute154.mcfunction",
+   "scoreboard players set Global found_player 0\nexecute at @s as @a[sort=nearest,limit=1,distance=..5] if score @s edit matches 1.. run function blingedit:line1409/execute153\nkill @s"
+  ],
+  [
+   "data/blingedit/function/line1404/execute155.mcfunction",
+   "scoreboard players set @s[nbt={\"Item\":{\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"BlingEdit\\\"}\"}}}}] edit 1\nexecute if score @s edit matches 1.. run function blingedit:line1406/execute154"
+  ],
+  [
+   "data/blingedit/function/line1464/execute156.mcfunction",
+   "scoreboard players set @s prime_plugins 0\nscoreboard players set @s disp_plugins 1\ntellraw @s [\"\",{\"text\":\"Plugins:\",\"color\":\"dark_aqua\"}]"
+  ],
+  [
+   "data/blingedit/function/line1474/execute157.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @a[limit=1,scores={mai_scratch0=1..}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s player run scoreboard players get @a[limit=1,scores={mai_scratch0=1..}] _id\nteam join source\nscoreboard players set @s type 1\nscoreboard players set @s edit_xmin 1\nscoreboard players set @s edit_ymin 1\nscoreboard players set @s edit_zmin 1"
+  ],
+  [
+   "data/blingedit/function/line1472/execute158.mcfunction",
+   "scoreboard players set @e[type=minecraft:magma_cube,tag=Corner] _age 1\nsummon minecraft:magma_cube ~ ~ ~ {\"CustomName\":\"\\\"Corner\\\"\",\"Tags\":[\"Corner\"],\"Glowing\":1b,\"NoGravity\":1b,\"NoAI\":1b,\"Invulnerable\":1b,\"Size\":1b,\"Silent\":1b,\"AbsorptionAmount\":100f}\nscoreboard players add @e[type=minecraft:magma_cube,tag=Corner] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:magma_cube,tag=Corner,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s pick1 run scoreboard players get @e[type=minecraft:magma_cube,tag=Corner,limit=1,scores={_age=1}] _id\nscoreboard players operation Global _id = @s pick1\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run function blingedit:line1474/execute157"
+  ],
+  [
+   "data/blingedit/function/line1470/execute159.mcfunction",
+   "scoreboard players set @s state 1\nexecute at @s positioned ~ ~200 ~ run function blingedit:line1472/execute158\nfunction blingedit:enable_click"
+  ],
+  [
+   "data/blingedit/function/line1492/execute160.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @a[limit=1,scores={mai_scratch0=1..}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute if score @s player = @a[limit=1,scores={mai_scratch0=1..}] _id run scoreboard players set @s player 0"
+  ],
+  [
+   "data/blingedit/function/line1486/execute161.mcfunction",
+   "scoreboard players set @s pick1 0\nscoreboard players set @s pick2 0\nfunction blingedit:disable_click\nscoreboard players set @s moving 0\nscoreboard players set @s state 0\nexecute as @e[type=minecraft:magma_cube,tag=Corner] run function blingedit:line1492/execute160"
+  ],
+  [
+   "data/blingedit/function/line1510/execute162.mcfunction",
+   "scoreboard players operation Global mai_scratch1 = Global _dest_min_0\nscoreboard players operation Global mai_scratch2 = Global _dest_min_1\nscoreboard players operation Global mai_scratch3 = Global _dest_min_2\nscoreboard players operation Global mai_scratch1 -= c450 Constant\nscoreboard players operation Global mai_scratch2 -= cm175 Constant\nscoreboard players operation Global mai_scratch3 -= c450 Constant\nscoreboard players operation Global p_xmin = Global mai_scratch1\nscoreboard players operation Global p_ymin = Global mai_scratch2\nscoreboard players operation Global p_zmin = Global mai_scratch3\nscoreboard players operation Global mai_scratch1 = Global _dest_max_0\nscoreboard players operation Global mai_scratch2 = Global _dest_max_1\nscoreboard players operation Global mai_scratch3 = Global _dest_max_2\nscoreboard players operation Global mai_scratch1 += c450 Constant\nscoreboard players operation Global mai_scratch2 += c1075 Constant\nscoreboard players operation Global mai_scratch3 += c450 Constant\nscoreboard players operation Global p_xmax = Global mai_scratch1\nscoreboard players operation Global p_ymax = Global mai_scratch2\nscoreboard players operation Global p_zmax = Global mai_scratch3\nfunction blingedit:draw_particle_box"
+  ],
+  [
+   "data/blingedit/function/line1502/execute163.mcfunction",
+   "scoreboard players set @s grid_display 0\nscoreboard players operation Global mai_scratch1 = Global _min_0\nscoreboard players operation Global mai_scratch2 = Global _min_1\nscoreboard players operation Global mai_scratch3 = Global _min_2\nscoreboard players operation Global mai_scratch1 -= c450 Constant\nscoreboard players operation Global mai_scratch2 -= cm175 Constant\nscoreboard players operation Global mai_scratch3 -= c450 Constant\nscoreboard players operation Global p_xmin = Global mai_scratch1\nscoreboard players operation Global p_ymin = Global mai_scratch2\nscoreboard players operation Global p_zmin = Global mai_scratch3\nscoreboard players operation Global mai_scratch1 = Global _max_0\nscoreboard players operation Global mai_scratch2 = Global _max_1\nscoreboard players operation Global mai_scratch3 = Global _max_2\nscoreboard players operation Global mai_scratch1 += c450 Constant\nscoreboard players operation Global mai_scratch2 += c1075 Constant\nscoreboard players operation Global mai_scratch3 += c450 Constant\nscoreboard players operation Global p_xmax = Global mai_scratch1\nscoreboard players operation Global p_ymax = Global mai_scratch2\nscoreboard players operation Global p_zmax = Global mai_scratch3\nfunction blingedit:draw_particle_box\nfunction blingedit:get_dest_minmax\nexecute if score Global has_dest_box matches 1.. run function blingedit:line1510/execute162"
+  ],
+  [
+   "data/blingedit/function/line1500/execute164.mcfunction",
+   "scoreboard players add @s grid_display 1\nexecute if score @s grid_display matches 10.. run function blingedit:line1502/execute163"
+  ],
+  [
+   "data/blingedit/function/line1522/execute165.mcfunction",
+   "scoreboard players set Global corner_exists 1\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nscoreboard players operation 0-0-0-0-C1 _pos_0 = Global _cursor_0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = Global _cursor_1\nscoreboard players operation 0-0-0-0-C1 _pos_2 = Global _cursor_2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nexecute at 0-0-0-0-C1 run tp @s ~ ~ ~"
+  ],
+  [
+   "data/blingedit/function/line1531/execute166.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"BlingEdit doesn't work in peaceful mode.\"}]\nscoreboard players set @s state 0"
+  ],
+  [
+   "data/blingedit/function/line1519/execute167.mcfunction",
+   "function blingedit:get_cursor_position\nscoreboard players set Global corner_exists 0\nscoreboard players operation Global _id = @s pick1\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run function blingedit:line1522/execute165\nexecute if score Global corner_exists matches ..0 run function blingedit:line1531/execute166"
+  ],
+  [
+   "data/blingedit/function/line1538/execute168.mcfunction",
+   "scoreboard players operation Global vol = Global box_size_x\nscoreboard players operation Global vol *= Global box_size_y\nscoreboard players operation Global vol *= Global box_size_z\ntitle @s actionbar [\"\",{\"text\":\"Size: \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_size_x\",\"color\":\"gold\",\"bold\":true}},{\"text\":\"x\"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_size_y\",\"color\":\"gold\",\"bold\":true}},{\"text\":\"x\"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_size_z\",\"color\":\"gold\",\"bold\":true}},{\"text\":\" Volume: \"},{\"score\":{\"name\":\"Global\",\"objective\":\"vol\",\"color\":\"gold\",\"bold\":true}}]"
+  ],
+  [
+   "data/blingedit/function/line1545/execute169.mcfunction",
+   "scoreboard players operation Global _id = @s from_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run tp @s ~ ~ ~"
+  ],
+  [
+   "data/blingedit/function/line1550/execute170.mcfunction",
+   "scoreboard players operation Global _id = @s to_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run tp @s ~ ~ ~"
+  ],
+  [
+   "data/blingedit/function/line1544/execute171.mcfunction",
+   "execute at @s positioned ^7 ^6 ^10 run function blingedit:line1545/execute169\nexecute at @s positioned ^5 ^6 ^10 run function blingedit:line1550/execute170\nscoreboard players set Global mai_scratch1 0"
+  ],
+  [
+   "data/blingedit/function/line1544/else172.mcfunction",
+   "scoreboard players set @s from_display 0\nscoreboard players set @s to_display 0"
+  ],
+  [
+   "data/blingedit/function/line1565/execute173.mcfunction",
+   "tp @s ~ ~ ~\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global x = @s _pos_0\nscoreboard players operation Global y = @s _pos_1\nscoreboard players operation Global z = @s _pos_2\nscoreboard players set Global edit_xmin 0\nscoreboard players set Global edit_ymin 0\nscoreboard players set Global edit_zmin 0\nscoreboard players set Global edit_xmax 0\nscoreboard players set Global edit_ymax 0\nscoreboard players set Global edit_zmax 0\nexecute if score @s edit_xmin matches 1.. run scoreboard players set Global edit_xmin 1\nexecute if score @s edit_ymin matches 1.. run scoreboard players set Global edit_ymin 1\nexecute if score @s edit_zmin matches 1.. run scoreboard players set Global edit_zmin 1\nexecute if score @s edit_xmax matches 1.. run scoreboard players set Global edit_xmax 1\nexecute if score @s edit_ymax matches 1.. run scoreboard players set Global edit_ymax 1\nexecute if score @s edit_zmax matches 1.. run scoreboard players set Global edit_zmax 1"
+  ],
+  [
+   "data/blingedit/function/line1564/execute174.mcfunction",
+   "scoreboard players operation Global _id = @s moving\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run function blingedit:line1565/execute173"
+  ],
+  [
+   "data/blingedit/function/line1579/execute175.mcfunction",
+   "execute if score Global edit_xmin matches 1.. if score @s edit_xmin matches 1.. store result entity @s Pos[0] double 0.0001 run scoreboard players get Global x\nexecute if score Global edit_ymin matches 1.. if score @s edit_ymin matches 1.. store result entity @s Pos[1] double 0.0001 run scoreboard players get Global y\nexecute if score Global edit_zmin matches 1.. if score @s edit_zmin matches 1.. store result entity @s Pos[2] double 0.0001 run scoreboard players get Global z\nexecute if score Global edit_xmax matches 1.. if score @s edit_xmax matches 1.. store result entity @s Pos[0] double 0.0001 run scoreboard players get Global x\nexecute if score Global edit_ymax matches 1.. if score @s edit_ymax matches 1.. store result entity @s Pos[1] double 0.0001 run scoreboard players get Global y\nexecute if score Global edit_zmax matches 1.. if score @s edit_zmax matches 1.. store result entity @s Pos[2] double 0.0001 run scoreboard players get Global z"
+  ],
+  [
+   "data/blingedit/function/line1578/execute176.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @a[limit=1,scores={mai_scratch0=1..}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute if score @s player = @a[limit=1,scores={mai_scratch0=1..}] _id run function blingedit:line1579/execute175"
+  ],
+  [
+   "data/blingedit/function/line1591/execute177.mcfunction",
+   "scoreboard players operation Global mai_scratch1 = Global xmin\nscoreboard players operation Global mai_scratch1 += Global xmax\nscoreboard players operation Global mai_scratch1 /= c2 Constant\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get Global mai_scratch1"
+  ],
+  [
+   "data/blingedit/function/line1592/execute178.mcfunction",
+   "scoreboard players operation Global mai_scratch1 = Global ymin\nscoreboard players operation Global mai_scratch1 += Global ymax\nscoreboard players operation Global mai_scratch1 /= c2 Constant\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get Global mai_scratch1"
+  ],
+  [
+   "data/blingedit/function/line1593/execute179.mcfunction",
+   "scoreboard players operation Global mai_scratch1 = Global zmin\nscoreboard players operation Global mai_scratch1 += Global zmax\nscoreboard players operation Global mai_scratch1 /= c2 Constant\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get Global mai_scratch1"
+  ],
+  [
+   "data/blingedit/function/line1590/execute180.mcfunction",
+   "execute if score @s center_x matches 1.. run function blingedit:line1591/execute177\nexecute if score @s center_y matches 1.. run function blingedit:line1592/execute178\nexecute if score @s center_z matches 1.. run function blingedit:line1593/execute179"
+  ],
+  [
+   "data/blingedit/function/line1589/execute181.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @a[limit=1,scores={mai_scratch0=1..}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute if score @s player = @a[limit=1,scores={mai_scratch0=1..}] _id run function blingedit:line1590/execute180"
+  ],
+  [
+   "data/blingedit/function/line1560/execute182.mcfunction",
+   "function blingedit:get_cursor_position\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nscoreboard players operation 0-0-0-0-C1 _pos_0 = Global _cursor_0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = Global _cursor_1\nscoreboard players operation 0-0-0-0-C1 _pos_2 = Global _cursor_2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nexecute at 0-0-0-0-C1 run function blingedit:line1564/execute174\nexecute as @e[type=minecraft:magma_cube,tag=Corner] run function blingedit:line1578/execute176\nfunction blingedit:get_minmax\nexecute as @e[type=minecraft:magma_cube,tag=Corner] run function blingedit:line1589/execute181"
+  ],
+  [
+   "data/blingedit/function/line1598/execute183.mcfunction",
+   "scoreboard players set Global Param0 1\nfunction blingedit:corner_target"
+  ],
+  [
+   "data/blingedit/function/line1603/execute184.mcfunction",
+   "scoreboard players set Global Param0 2\nfunction blingedit:corner_target"
+  ],
+  [
+   "data/blingedit/function/line1616/execute185.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global _moving_pos_0 = @s _pos_0\nscoreboard players operation Global _moving_pos_1 = @s _pos_1\nscoreboard players operation Global _moving_pos_2 = @s _pos_2"
+  ],
+  [
+   "data/blingedit/function/line1621/execute186.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation @s _pos_0 += Global _movement_0\nscoreboard players operation @s _pos_1 += Global _movement_1\nscoreboard players operation @s _pos_2 += Global _movement_2\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2"
+  ],
+  [
+   "data/blingedit/function/line1615/execute187.mcfunction",
+   "scoreboard players operation Global _id = @s moving\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s _id = Global _id run function blingedit:line1616/execute185\nscoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result score Global _movement_0 run data get entity @e[limit=1,scores={_age=1}] Pos[0] 10000\nexecute store result score Global _movement_1 run data get entity @e[limit=1,scores={_age=1}] Pos[1] 10000\nexecute store result score Global _movement_2 run data get entity @e[limit=1,scores={_age=1}] Pos[2] 10000\nkill @e[scores={_age=1}]\nscoreboard players operation Global _movement_0 -= Global _moving_pos_0\nscoreboard players operation Global _movement_1 -= Global _moving_pos_1\nscoreboard players operation Global _movement_2 -= Global _moving_pos_2\nscoreboard players operation Global mai_scratch1 = Global _movement_0\nscoreboard players operation Global mai_scratch2 = Global _movement_1\nscoreboard players operation Global mai_scratch3 = Global _movement_2\nscoreboard players operation Global mai_scratch1 %= c1000 Constant\nscoreboard players operation Global mai_scratch2 %= c1000 Constant\nscoreboard players operation Global mai_scratch3 %= c1000 Constant\nscoreboard players operation Global _movement_0 -= Global mai_scratch1\nscoreboard players operation Global _movement_1 -= Global mai_scratch2\nscoreboard players operation Global _movement_2 -= Global mai_scratch3\nscoreboard players add Global _unique 1\nexecute unless score @a[limit=1,scores={mai_scratch0=1..}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = @a[limit=1,scores={mai_scratch0=1..}] _id if score @s type matches 2 run function blingedit:line1621/execute186"
+  ],
+  [
+   "data/blingedit/function/line1611/execute188.mcfunction",
+   "function blingedit:get_cursor_position\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nscoreboard players operation 0-0-0-0-C1 _pos_0 = Global _cursor_0\nscoreboard players operation 0-0-0-0-C1 _pos_1 = Global _cursor_1\nscoreboard players operation 0-0-0-0-C1 _pos_2 = Global _cursor_2\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nexecute at 0-0-0-0-C1 run function blingedit:line1615/execute187"
+  ],
+  [
+   "data/blingedit/function/line1640/for189.mcfunction",
+   "scoreboard players operation Global percent = Global x\nscoreboard players operation Global percent -= Global xmin\nscoreboard players operation Global percent *= c100 Constant\nscoreboard players operation Global mai_scratch1 = Global xmax\nscoreboard players operation Global mai_scratch1 -= Global xmin\nscoreboard players operation Global percent /= Global mai_scratch1\nexecute store result bossbar progress value run scoreboard players get Global percent\nscoreboard players operation Global z = Global zmin\nexecute if score Global z <= Global zmax run function blingedit:line1643/for190\nscoreboard players add Global x 10000\nexecute if score Global x <= Global xmax run function blingedit:line1640/for189"
+  ],
+  [
+   "data/blingedit/function/line1643/for190.mcfunction",
+   "scoreboard players operation Global y = Global ymin\nexecute if score Global y <= Global ymax run function blingedit:line1644/for191\nscoreboard players add Global z 10000\nexecute if score Global z <= Global zmax run function blingedit:line1643/for190"
+  ],
+  [
+   "data/blingedit/function/line1644/for191.mcfunction",
+   "scoreboard players operation 0-0-0-0-C1 _pos_0 = Global x\nscoreboard players operation 0-0-0-0-C1 _pos_1 = Global y\nscoreboard players operation 0-0-0-0-C1 _pos_2 = Global z\nexecute store result entity 0-0-0-0-C1 Pos[0] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_0\nexecute store result entity 0-0-0-0-C1 Pos[1] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_1\nexecute store result entity 0-0-0-0-C1 Pos[2] double 0.0001 run scoreboard players get 0-0-0-0-C1 _pos_2\nexecute at 0-0-0-0-C1 run clone 0 1 0 0 1 0 ~ ~ ~\nscoreboard players add Global y 10000\nexecute if score Global y <= Global ymax run function blingedit:line1644/for191"
+  ],
+  [
+   "data/blingedit/function/line1634/execute192.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Filling \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_xmin\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_ymin\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_zmin\"}},{\"text\":\" to \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_xmax\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_ymax\"}},{\"text\":\", \"},{\"score\":{\"name\":\"Global\",\"objective\":\"box_zmax\"}}]\nbossbar set progress players @s\nfunction blingedit:store_tile_drops\nexecute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nscoreboard players operation Global x = Global xmin\nexecute if score Global x <= Global xmax run function blingedit:line1640/for189\nfunction blingedit:restore_tile_drops\nscoreboard players set @s state 3"
+  ],
+  [
+   "data/blingedit/function/line1630/execute193.mcfunction",
+   "clone ~ ~ ~ ~ ~ ~ 0 1 0\nfunction blingedit:get_minmax\nexecute if score Global has_box matches 1.. run function blingedit:line1634/execute192\nsetblock ~ ~ ~ air\nexecute unless score Global has_box matches 1.. run tellraw @s [\"\",{\"text\":\"You must select a box first.\"}]"
+  ],
+  [
+   "data/blingedit/function/line1627/execute194.mcfunction",
+   "function blingedit:check_loaded\nexecute if score Global loaded matches 1.. run function blingedit:line1630/execute193"
+  ],
+  [
+   "data/blingedit/function/line1672/execute195.mcfunction",
+   "clone ~ ~ ~ ~ ~ ~ 0 2 0\nsetblock ~ ~ ~ air\nfunction blingedit:perform_random_replace"
+  ],
+  [
+   "data/blingedit/function/line1441/execute196.mcfunction",
+   "execute unless score @s cursor_range matches 0.. run scoreboard players set @s cursor_range 5\nexecute unless score @s cursor_inside matches 0.. run scoreboard players set @s cursor_inside 1\nexecute if score @s used_carrot matches 1.. run function blingedit:click\nscoreboard players set @s used_carrot 0\n# Make sure there's a value in edit\nexecute unless score @s edit matches 1.. run scoreboard players set @s edit 0\nscoreboard players operation @s prev_edit = @s edit\nscoreboard players set @s edit 0\nscoreboard players set @s[nbt={\"SelectedItem\":{\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"BlingEdit\\\"}\"}}}}] edit 1\nscoreboard players set @s carrot_on_stick 0\nscoreboard players set @s[nbt={\"SelectedItem\":{\"id\":\"minecraft:carrot_on_a_stick\"}}] carrot_on_stick 1\nscoreboard players set @s disp_plugins 0\nexecute if score @s prime_plugins matches 1.. run function blingedit:line1464/execute156\nexecute if score @s edit matches 1.. unless score @s prev_edit matches 1.. run function blingedit:line1470/execute159\nexecute if score @s prev_edit matches 1.. unless score @s edit matches 1.. run function blingedit:line1486/execute161\nfunction blingedit:get_minmax\nexecute if score Global has_box matches 1.. if score @s particles matches 1.. run function blingedit:line1500/execute164\nexecute if score @s state matches 1 run function blingedit:line1519/execute167\nfunction blingedit:get_minmax\nexecute if score Global has_box matches 1.. run function blingedit:line1538/execute168\nfunction blingedit:get_dest_minmax\nscoreboard players set Global mai_scratch1 1\nexecute if score Global has_dest_box matches 1.. run function blingedit:line1544/execute171\nexecute if score Global mai_scratch1 matches 1.. run function blingedit:line1544/else172\nexecute if score @s state matches 4 run function blingedit:line1560/execute182\nexecute if score @s state matches 3 run function blingedit:line1598/execute183\nexecute if score @s state matches 8 run function blingedit:line1603/execute184\nscoreboard players set Global move_dest 0\nexecute if score @s state matches 9 run scoreboard players set Global move_dest 1\nexecute if score @s state matches 11 run scoreboard players set Global move_dest 1\nexecute if score Global move_dest matches 1.. run function blingedit:line1611/execute188\nexecute if score @s state matches 5 at @s unless block ~ ~ ~ minecraft:air run function blingedit:line1627/execute194\nexecute if score @s state matches 6 at @s unless block ~ ~ ~ minecraft:air run function blingedit:tell_replace2\nexecute if score @s state matches 7 at @s unless block ~ ~ ~ minecraft:air run function blingedit:perform_replace\nexecute if score @s state matches 10 at @s unless block ~ ~ ~ minecraft:air run function blingedit:line1672/execute195"
+  ],
+  [
+   "data/blingedit/function/for197_ln1440.mcfunction",
+   "scoreboard players set @s mai_scratch0 1\nexecute at @s run function blingedit:line1441/execute196\nscoreboard players set @s mai_scratch0 0"
+  ],
+  [
+   "data/blingedit/function/collect_garbage.mcfunction",
+   "bossbar set progress players\nexecute store result bossbar progress value run scoreboard players set Global percent 0\nexecute as @e[type=minecraft:magma_cube,tag=Corner] run function blingedit:line1687/execute198\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] run function blingedit:line1694/execute199\nscoreboard players set @e[type=minecraft:magma_cube,tag=Corner] kill 1\nscoreboard players set @e[type=minecraft:armor_stand,tag=CloneDisplay] kill 1\nexecute as @a run function blingedit:line1703/execute201\nexecute as @e[scores={kill=1..}] at @s run function blingedit:line1718/execute202"
+  ],
+  [
+   "data/blingedit/function/line1687/execute198.mcfunction",
+   "data modify entity @s AbsorptionAmount set value 100.0f\nscoreboard players set @s _vel_0 0\nscoreboard players set @s _vel_1 0\nscoreboard players set @s _vel_2 0\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2\neffect give @s invisibility 1000000 0 true\nexecute at @s run tp @s ~ ~ ~"
+  ],
+  [
+   "data/blingedit/function/line1694/execute199.mcfunction",
+   "data modify entity @s AbsorptionAmount set value 100.0f\ndata modify entity @s Fire set value 0s\nscoreboard players set @s _vel_0 0\nscoreboard players set @s _vel_1 0\nscoreboard players set @s _vel_2 0\nexecute store result entity @s Motion[0] double 0.0001 run scoreboard players get @s _vel_0\nexecute store result entity @s Motion[1] double 0.0001 run scoreboard players get @s _vel_1\nexecute store result entity @s Motion[2] double 0.0001 run scoreboard players get @s _vel_2\nexecute at @s run tp @s ~ ~ ~"
+  ],
+  [
+   "data/blingedit/function/line1705/execute200.mcfunction",
+   "execute as @e[type=minecraft:magma_cube,tag=Corner] if score @s player = Global id run scoreboard players set @s kill 0\nscoreboard players operation Global _id = @s from_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run scoreboard players set @s kill 0\nscoreboard players operation Global _id = @s to_display\nexecute as @e[type=minecraft:armor_stand,tag=CloneDisplay] if score @s _id = Global _id run scoreboard players set @s kill 0"
+  ],
+  [
+   "data/blingedit/function/line1703/execute201.mcfunction",
+   "scoreboard players add Global _unique 1\nexecute unless score @s _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score Global id run scoreboard players get @s _id\nexecute at @s run function blingedit:line1705/execute200"
+  ],
+  [
+   "data/blingedit/function/line1718/execute202.mcfunction",
+   "execute at @s run tp @s ~ -100 ~\nkill @s"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"blingedit:left_right_click_clock\",\n        \"blingedit:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"blingedit:reset\"\n    ]\n}"
+  ],
+  [
+   "data/blingedit/tags/block/cursor_continue.json",
+   "{\n    \"values\": [\n        \"minecraft:air\",\n        \"minecraft:water\",\n        \"minecraft:cave_air\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 88,\n        \"description\": \"GUI for performing Minecraft world editing operations.\",\n        \"min_format\": [\n            88,\n            0\n        ],\n        \"max_format\": [\n            88,\n            0\n        ]\n    }\n}"
+  ],
+  [
+   "data/blingedit/advancement/damage_click_detector.json",
+   "{\"criteria\":{\"damage_click_detector\":{\"trigger\":\"minecraft:player_hurt_entity\",\"conditions\":{\"damage\":{\"entity\":{\"nbt\":\"{Tags:\\\"ClickDetector\\\"}\"}}}}},\"rewards\":{\"function\":\"blingedit:click_advancement_reward\"}}"
+  ]
+ ]
+}

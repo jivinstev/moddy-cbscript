@@ -1,0 +1,69 @@
+# mutant of corpus/programs/transforms.cbscript: replace token 'slot' with '-1' on line 36
+# Commands taken from the repository's test_*.py, so every version transform they test runs through a compile.
+dir "."
+desc "Version transforms (nbt case, attribute ids, component syntax)"
+
+reset
+	/attribute @s somemod:spookiness base set 3
+	/attribute @s minecraft:generic.scale base set 2.0
+	/attribute @s generic.scale base set 2.0
+	/attribute Dev generic.max_health base set 40
+	/attribute @e[tag=boss,limit=1] minecraft:generic.attack_damage base set 12
+	/summon zombie ~ ~ ~ {attributes:[{id:"minecraft:generic.max_health",base:300},{id:"minecraft:generic.scale",base:3.0}]}
+	/summon item ~ ~ ~ {Item:{id:"minecraft:scale",Count:1b}}
+	/say the scale of this attribute is enormous
+	/give @s minecraft:scale
+	/attribute @s
+	/attribute @s minecraft:scale base set 2.0
+	/attribute @s block_interaction_range base set 6
+	/attribute Dev max_health base set 40
+	/summon zombie ~ ~ ~ {attributes:[{id:"minecraft:scale",base:2.0}]}
+	/attribute @s scale base set 2.0
+	/summon zombie ~ ~ ~ {attributes:[{id:"minecraft:max_health",base:300},{id:"minecraft:scale",base:3.0}]}
+	/attribute @s player.block_interaction_range base set 6
+	/summon zombie ~ ~ ~ {attributes:[{id:"minecraft:generic.scale",base:2.0}]}
+	/give @s stick[minecraft:attribute_modifiers={modifiers:[{type:"attack_damage",id:"a:b",amount:3,operation:"add_value",slot:"mainhand"}],show_in_tooltip:false}] 1
+	/give @s stick[dyed_color=5,custom_name={"text":"W"},lore=[{"text":"a"}],attribute_modifiers=[]] 1
+	/give @s stick[custom_name='Wand'] 1
+	/give @s x[dyed_color={rgb:5},custom_name='{"text":"W"}'] 1
+	/give @s bow[minecraft:enchantments={"minecraft:power":5}] 1
+	/summon zombie ~ ~ ~ {HandItems:[{id:"minecraft:iron_sword",count:1},{}]}
+	/give @s leather_helmet[minecraft:dyed_color=9857238] 1
+	/give @s x[dyed_color=5]
+	/give @s stick[minecraft:custom_name={"text":"Wand","italic":false}] 1
+	/give @s stick[item_name="Plain"] 1
+	/give @s stick[custom_name={"text":"Moddy's"}] 1
+	/give @s stick[lore=[{"text":"a"},{"text":"b, c"}]] 1
+	/give @s stick[minecraft:attribute_modifiers=[{type:"attack_damage",id:"a:b",amount:3,operation:"add_value",-1:"mainhand"}],minecraft:tooltip_display={hidden_components:["minecraft:attribute_modifiers"]}] 1
+	/give @s x[attribute_modifiers=[]]
+	/give @s diamond_pickaxe[minecraft:enchantments={"minecraft:efficiency":5,"minecraft:fortune":3}] 1
+	/give @s enchanted_book[stored_enchantments={"minecraft:mending":1},minecraft:tooltip_display={hidden_components:["minecraft:stored_enchantments"]}]
+	/give @s leather_helmet[minecraft:dyed_color={rgb:9857238}] 1
+	/give @s x[dyed_color={rgb:5,show_in_tooltip:false}]
+	/give @s stick[minecraft:custom_name='{"text":"Wand","italic":false}'] 1
+	/give @s stick[item_name='"Plain"'] 1
+	/give @s stick[custom_name='{"text":"Moddy\'s"}'] 1
+	/give @s stick[lore=['{"text":"a"}','{"text":"b, c"}']] 1
+	/give @s x[attribute_modifiers={modifiers:[]}]
+	/give @s diamond_pickaxe[minecraft:enchantments={levels:{"minecraft:efficiency":5,"minecraft:fortune":3}}] 1
+	/give @s enchanted_book[stored_enchantments={levels:{"minecraft:mending":1},show_in_tooltip:false}]
+	/data modify entity @s HandItems[0] set value {}
+	/execute as @e[nbt={FallDistance:0f}] run say match
+	/execute as @e[nbt={fall_distance:0d}] run say match
+	/execute as @e[nbt={falldistance:0f}] run say match
+	/execute as @e[nbt={fall_distance:0f}] run say match
+	/execute as @e[nbt={FallDistance:0}] run say match
+	/execute as @e[nbt={FallDistance:2.5F}] run say match
+	/execute as @e[nbt={fall_distance:2.5d}] run say match
+	/execute as @e[nbt={fall_distance:0.5}] run say match
+	/execute as @e[nbt={onground:1b,FallDistance:0f}] run say match
+	/execute as @e[nbt={OnGround:1b,fall_distance:0d}] run say match
+	tell @a "[open](https://example.com/page) [run](/say hi) [suggest](//say hi) [fn](call welcome) {GDone"
+	/attribute @s minecraft:generic.max_health base set 40
+	/summon zombie ~ ~ ~ {attributes:[{id:"minecraft:max_health",base:300},{id:"scale",base:2}]}
+	/execute if entity @s[nbt={onground:1b, invulnerable:1b, FallDistance:2.5F}] run say x
+end
+
+function welcome()
+	/say welcome
+end

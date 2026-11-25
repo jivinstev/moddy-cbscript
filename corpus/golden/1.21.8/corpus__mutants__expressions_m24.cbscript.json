@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/expressions_m24.cbscript",
+ "ok": false,
+ "namespace": "expressions_m24",
+ "error": "Syntax error at line 35 column 11. Unexpected NEWLINE symbol \"\\n\" in state 7.",
+ "log": [
+  "Syntax error at line 35 column 11. Unexpected NEWLINE symbol \"\\n\" in state 7."
+ ],
+ "files": []
+}

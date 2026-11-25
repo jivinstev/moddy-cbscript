@@ -1,0 +1,33 @@
+{
+ "id": "Scripts/item_modifier_test.cbscript",
+ "ok": true,
+ "namespace": "item_modifier_test",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/item_modifier_test/function/reset.mcfunction",
+   "data modify storage item_modifier_test:global args set value {}\ndata modify storage item_modifier_test stack set value []\ngamerule maxCommandChainLength 1000000000\nexecute as @a[limit=1] run function item_modifier_test:line012/execute1"
+  ],
+  [
+   "data/item_modifier_test/function/line012/execute1.mcfunction",
+   "item replace entity @s hotbar.0 with minecraft:player_head 1\nitem modify entity @s hotbar.0 item_modifier_test:set_head"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"item_modifier_test:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 88,\n        \"description\": \"Test item modifiers\",\n        \"min_format\": [\n            88,\n            0\n        ],\n        \"max_format\": [\n            88,\n            0\n        ]\n    }\n}"
+  ],
+  [
+   "data/item_modifier_test/item_modifier/set_head.json",
+   "{\"function\":\"minecraft:fill_player_head\",\"entity\":\"this\"}"
+  ]
+ ]
+}

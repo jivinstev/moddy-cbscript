@@ -1,0 +1,25 @@
+{
+ "id": "corpus/mutants/no_desc_m18.cbscript",
+ "ok": true,
+ "namespace": "no_desc_m18",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/no_desc_m18/function/reset.mcfunction",
+   "data modify storage no_desc_m18:global args set value {}\ndata modify storage no_desc_m18 stack set value []\ngamerule maxCommandChainLength 1000000000\nsay no desc"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"no_desc_m18:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

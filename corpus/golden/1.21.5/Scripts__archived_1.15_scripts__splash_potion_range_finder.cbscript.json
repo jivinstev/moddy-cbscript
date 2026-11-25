@@ -1,0 +1,10 @@
+{
+ "id": "Scripts/archived 1.15 scripts/splash_potion_range_finder.cbscript",
+ "ok": false,
+ "namespace": "splash_potion_range_finder",
+ "error": "Syntax error at line 8 column 8. Unexpected COLON symbol \":\" in state 708.",
+ "log": [
+  "Syntax error at line 8 column 8. Unexpected COLON symbol \":\" in state 708."
+ ],
+ "files": []
+}
