@@ -1,0 +1,40 @@
+# mutant of corpus/programs/calls.cbscript: truncate before line 40
+dir "."
+desc "Calls, macros, templates, with, push/pop, define name, pointers"
+
+define @Thing = @e[type=armor_stand, tag=thing]
+	partner = @e[tag=partner, limit=1]
+	function poke(n)
+		/say poked $(nm)
+	end
+end
+
+owner: @e[tag=owner, limit=1]
+
+macro $twice($cmd)
+	/$cmd
+	/$cmd
+end
+
+macro $noargs()
+	/say no args
+end
+
+function tpl{$suffix}(val)
+	/say tpl $suffix
+	res = val
+end
+
+function recurse(depth)
+	if depth > 0
+		recurse(depth - 1)
+	end
+end
+
+function looped{$a}(v)
+	looped{$a}(v)
+end
+
+function counter()
+	/say counting
+	return 3

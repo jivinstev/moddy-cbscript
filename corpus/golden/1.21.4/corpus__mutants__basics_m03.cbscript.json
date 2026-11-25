@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/basics_m03.cbscript",
+ "ok": false,
+ "namespace": "basics_m03",
+ "error": "Syntax error at line 24 column 2. Unexpected else symbol \"else\" in state 899.",
+ "log": [
+  "Syntax error at line 24 column 2. Unexpected else symbol \"else\" in state 899."
+ ],
+ "files": []
+}

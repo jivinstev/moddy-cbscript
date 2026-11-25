@@ -1,0 +1,15 @@
+{
+ "id": "Scripts/archived 1.15 scripts/wireframe.cbscript",
+ "ok": false,
+ "namespace": "wireframe",
+ "error": "Compile failed — see log.",
+ "log": [
+  "<traceback> AttributeError: module 'collections' has no attribute 'Iterable'",
+  "Error compiling block at line 193",
+  "Unable to compile execute block contents at line 192",
+  "Error compiling block at line 192",
+  "Unable to compile function \"show\" at line 191",
+  "Error compiling block at line 168"
+ ],
+ "files": []
+}

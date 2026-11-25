@@ -1,0 +1,84 @@
+# mutant of corpus/programs/execute_items.cbscript: swap lines 53 and 54
+dir "."
+desc "Execute chains"
+
+define @Cow = @e[type=cow, tag=farm]
+end
+
+reset
+	as @a
+		/say as
+	end
+	as @a at @s
+		/say at
+	end
+	at @s
+		/say at only
+	end
+	at @s eyes
+		/say eyes
+	end
+	at @s feet ~ ~1 ~
+		/say feet coords
+	end
+	at ~ ~1 ~
+		/say coords
+	end
+	at eyes ^ ^ ^1
+		/say anchored local
+	end
+	at @s ~1 ~ ~
+		/say sel coords
+	end
+	at <1, 2, 3>
+		/say vector
+	end
+	at (100) <1, 2, 3>
+		/say scaled vector
+	end
+	facing ~ ~ ~1
+		/say facing coords
+	end
+	facing @p
+		/say facing entity
+	end
+	rotated @s
+		/say rotated
+	end
+	align xyz
+		/say align
+	end
+	in the_nether
+		/say nether
+	end
+		/say end
+	in the_end
+	end
+	in overworld
+		/say overworld
+	end
+	on vehicle
+		/say on
+	end
+	on spouse
+		/say unknown on
+	end
+	as @Cow
+		/say block as
+		/say two commands
+	end
+	as @a at @s
+		/say block
+	else
+		/say else branch
+	end
+	if x > 1
+		/execute say exec merged
+	end
+	as @Cow if @s[tag=x] unless @s[tag=y]
+		/say chain
+	end
+	as @a do x = 1
+	as @a then x += 2
+	as @a at @s do create @Cow
+end

@@ -1,0 +1,199 @@
+{
+ "id": "Scripts/archived 1.15 scripts/limbo.cbscript",
+ "ok": true,
+ "namespace": "limbo",
+ "error": null,
+ "log": [
+  "component syntax: HandItems/ArmorItems are gone since 1.21.5 and are silently ignored: write equipment:{mainhand:{…},offhand:{…},head:{…},chest:{…},legs:{…},feet:{…}} (a path: equipment.mainhand), or item replace entity @s weapon.mainhand with …"
+ ],
+ "files": [
+  [
+   "data/limbo/function/sqrt.mcfunction",
+   "scoreboard players operation Global _x = Global Param0\nscoreboard players set Global sqr_scratch0 1\nexecute if score Global _x matches 0.. if score Global _x matches ..19310 run function limbo:line003/execute1\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 19311.. if score Global _x matches ..1705544 run function limbo:line003/else2\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 1705545.. if score Global _x matches ..39400514 run function limbo:line003/else3\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 39400515.. if score Global _x matches ..455779650 run function limbo:line003/else4\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 455779651.. if score Global _x matches ..2147483647 run function limbo:line003/else5\nscoreboard players operation Global sqr_scratch0 = Global _x\nscoreboard players operation Global sqr_scratch0 /= sqrt y\nscoreboard players operation sqrt y += Global sqr_scratch0\nscoreboard players operation sqrt y /= c2 Constant\nscoreboard players operation Global sqr_scratch0 = sqrt y\nscoreboard players operation Global sqr_scratch0 *= sqrt y\nexecute if score Global sqr_scratch0 > Global _x run scoreboard players remove sqrt y 1\nscoreboard players operation Global ReturnValue = sqrt y"
+  ],
+  [
+   "data/limbo/function/line003/execute1.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 4095\nscoreboard players set sqrt y -594039\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 149\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/limbo/function/line003/else2.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 903167\nscoreboard players set sqrt y -1568669636\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 1857\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/limbo/function/line003/else3.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c141 Constant\nscoreboard players add Global sqr_scratch1 224767\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 10425\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/limbo/function/line003/else4.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c7775 Constant\nscoreboard players add Global sqr_scratch1 60419\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 39184\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/limbo/function/line003/else5.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c100000 Constant\nscoreboard players add Global sqr_scratch1 26111\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 91181"
+  ],
+  [
+   "data/limbo/function/abs.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global abs_scratch0 1\nexecute if score Global n matches ..-1 run function limbo:line025/execute6\nexecute if score Global abs_scratch0 matches 1.. run scoreboard players operation Global ReturnValue = Global n"
+  ],
+  [
+   "data/limbo/function/line025/execute6.mcfunction",
+   "scoreboard players operation Global ReturnValue = Global n\nscoreboard players operation Global ReturnValue *= minus Constant\nscoreboard players set Global abs_scratch0 0"
+  ],
+  [
+   "data/limbo/function/sin.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c360 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 181.. run function limbo:line035/execute7\nscoreboard players operation Global ReturnValue = Global _sin_angle\nscoreboard players operation Global ReturnValue *= c4000 Constant\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global ReturnValue *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global sin_scratch1 = Global _sin_angle\nscoreboard players operation Global sin_scratch1 *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 40500\nscoreboard players operation Global sin_scratch0 -= Global sin_scratch1\nscoreboard players operation Global ReturnValue /= Global sin_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/limbo/function/line035/execute7.mcfunction",
+   "scoreboard players remove Global _sin_angle 180\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/limbo/function/sin_precise.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c36000 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 18001.. run function limbo:line048/execute8\nscoreboard players set Global sin2_scratch0 18000\nscoreboard players operation Global sin2_scratch0 -= Global _sin_angle\nscoreboard players operation Global _angle_sq = Global _sin_angle\nscoreboard players operation Global _angle_sq *= Global sin2_scratch0\nscoreboard players operation Global _angle_sq /= c100 Constant\nscoreboard players operation Global ReturnValue = Global _angle_sq\nscoreboard players operation Global ReturnValue *= c4 Constant\nscoreboard players operation Global ReturnValue *= c100 Constant\nscoreboard players set Global sin2_scratch0 4050000\nscoreboard players operation Global sin2_scratch0 -= Global _angle_sq\nscoreboard players operation Global ReturnValue /= Global sin2_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/limbo/function/line048/execute8.mcfunction",
+   "scoreboard players remove Global _sin_angle 18000\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/limbo/function/cos.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos_scratch0 = Global _cos_angle\nscoreboard players add Global cos_scratch0 90\nscoreboard players operation Global Param0 = Global cos_scratch0\nfunction limbo:sin"
+  ],
+  [
+   "data/limbo/function/cos_precise.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos2_scratch0 = Global _cos_angle\nscoreboard players add Global cos2_scratch0 9000\nscoreboard players operation Global Param0 = Global cos2_scratch0\nfunction limbo:sin_precise"
+  ],
+  [
+   "data/limbo/function/sign.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global sig_scratch0 1\nexecute if score Global n matches 1.. run function limbo:line068/execute9\nexecute if score Global sig_scratch0 matches 1.. if score Global n matches ..-1 run function limbo:line068/else10\nexecute if score Global sig_scratch0 matches 1.. run scoreboard players set Global ReturnValue 0"
+  ],
+  [
+   "data/limbo/function/line068/execute9.mcfunction",
+   "scoreboard players set Global ReturnValue 1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/limbo/function/line068/else10.mcfunction",
+   "scoreboard players set Global ReturnValue -1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/limbo/function/reset.mcfunction",
+   "data modify storage limbo:global args set value {}\ndata modify storage limbo stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add pose dummy\nscoreboard objectives add slot dummy\nscoreboard objectives add temp_pose dummy\nscoreboard objectives add running_timer dummy\nscoreboard objectives add z2 dummy\nscoreboard objectives add z1 dummy\nscoreboard objectives add running_amount dummy\nscoreboard objectives add run dummy\nscoreboard objectives add dead dummy\nscoreboard objectives add dead_amount dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add _cos_angle dummy\nscoreboard objectives add _angle_sq dummy\nscoreboard objectives add mult dummy\nscoreboard objectives add _sin_angle dummy\nscoreboard objectives add n dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add y dummy\nscoreboard objectives add _x dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c15 Constant 15\nscoreboard players set c180 Constant 180\nscoreboard players set c20 Constant 20\nscoreboard players set c4 Constant 4\nscoreboard players set c100 Constant 100\nscoreboard players set c36000 Constant 36000\nscoreboard players set c4000 Constant 4000\nscoreboard players set c360 Constant 360\nscoreboard players set minus Constant -1\nscoreboard players set c2 Constant 2\nscoreboard players set c100000 Constant 100000\nscoreboard players set c7775 Constant 7775\nscoreboard players set c141 Constant 141\nscoreboard objectives add run_scratch2 dummy\nscoreboard objectives add run_scratch1 dummy\nscoreboard objectives add run_scratch0 dummy\nscoreboard objectives add get2_scratch1 dummy\nscoreboard objectives add get2_scratch0 dummy\nscoreboard objectives add get_scratch0 dummy\nscoreboard objectives add mai_scratch24 dummy\nscoreboard objectives add mai_scratch23 dummy\nscoreboard objectives add mai_scratch22 dummy\nscoreboard objectives add mai_scratch21 dummy\nscoreboard objectives add mai_scratch20 dummy\nscoreboard objectives add mai_scratch19 dummy\nscoreboard objectives add mai_scratch18 dummy\nscoreboard objectives add mai_scratch17 dummy\nscoreboard objectives add mai_scratch16 dummy\nscoreboard objectives add mai_scratch15 dummy\nscoreboard objectives add mai_scratch14 dummy\nscoreboard objectives add mai_scratch13 dummy\nscoreboard objectives add mai_scratch12 dummy\nscoreboard objectives add mai_scratch11 dummy\nscoreboard objectives add mai_scratch10 dummy\nscoreboard objectives add mai_scratch9 dummy\nscoreboard objectives add mai_scratch8 dummy\nscoreboard objectives add mai_scratch7 dummy\nscoreboard objectives add mai_scratch6 dummy\nscoreboard objectives add mai_scratch5 dummy\nscoreboard objectives add mai_scratch4 dummy\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nscoreboard objectives add sig_scratch0 dummy\nscoreboard objectives add cos2_scratch0 dummy\nscoreboard objectives add cos_scratch0 dummy\nscoreboard objectives add sin2_scratch0 dummy\nscoreboard objectives add sin_scratch1 dummy\nscoreboard objectives add sin_scratch0 dummy\nscoreboard objectives add abs_scratch0 dummy\nscoreboard objectives add sqr_scratch1 dummy\nscoreboard objectives add sqr_scratch0 dummy\nscoreboard objectives remove jumped\nscoreboard objectives add jumped minecraft.custom:minecraft.jump\ntellraw @a [\"\",{\"text\":\"[Reload Limbo]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function limbo:reload\"},\"color\":\"green\"}]"
+  ],
+  [
+   "data/limbo/function/reload.mcfunction",
+   "kill 0-0-0-0-B0110C\nkill 0-0-0-0-B014CE\nkill 0-0-0-0-B01\ntp @a -248.5 87.0 164.5 90 0\nkill @e[type=minecraft:vindicator,tag=Vindicator]\nkill @e[type=minecraft:creeper,tag=Creeper]\nkill @e[type=minecraft:spider,tag=Spider]\nsummon minecraft:vindicator -259 86.0 148 {\"Tags\":[\"Vindicator\"],\"HandItems\":[{\"id\":\"minecraft:iron_axe\",\"Count\":1}],\"NoAI\":1}\nsummon minecraft:creeper -259 86 146 {\"Tags\":[\"Creeper\"],\"NoAI\":1}\nscoreboard players set Global dead_amount 0\nscoreboard players set Global dead 0"
+  ],
+  [
+   "data/limbo/function/main.mcfunction",
+   "execute unless entity 0-0-0-0-B0110C run summon minecraft:area_effect_cloud -258.5 86 164.5 {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUIDMost\":0,\"UUIDLeast\":11538700,\"Passengers\":[{\"id\":\"minecraft:armor_stand\",\"ShowArms\":1,\"Invulnerable\":1,\"NoBasePlate\":1,\"UUIDMost\":0,\"UUIDLeast\":2817,\"Pose\":{\"LeftLeg\":[0.01f,0.01f,0.01f],\"RightLeg\":[0.01f,0.01f,0.01f],\"LeftArm\":[0.01f,0.01f,0.01f],\"RightArm\":[0.01f,0.01f,0.01f],\"Body\":[0.01f,0.01f,0.01f],\"Head\":[0.01f,0.01f,0.01f]}}]}\nexecute unless entity 0-0-0-0-B014CE run summon minecraft:armor_stand -258.5 86 164.5 {\"Invisible\":1,\"Invulernable\":1,\"UUIDMost\":0,\"UUIDLeast\":11539662}\nexecute as @e[scores={run=1..}] run function limbo:line119/execute11\nexecute as @a[limit=1] at @s run function limbo:line127/execute26"
+  ],
+  [
+   "data/limbo/function/line119/execute11.mcfunction",
+   "data modify entity @s Rotation[0] set value 18.0f\nexecute at @s run tp @s ~ ~ ~-0.4\nexecute store result score Global mai_scratch0 run data get entity @s Pos[2] 10000\nexecute if score Global mai_scratch0 matches ..-1 run kill @s"
+  ],
+  [
+   "data/limbo/function/line133/execute12.mcfunction",
+   "scoreboard players add Global dead_amount 4\nscoreboard players set Global mai_scratch2 0"
+  ],
+  [
+   "data/limbo/function/line132/execute13.mcfunction",
+   "scoreboard players set Global mai_scratch2 1\nexecute if score Global dead_amount matches ..99 run function limbo:line133/execute12\nexecute if score Global mai_scratch2 matches 1.. run function limbo:reload\nscoreboard players set Global mai_scratch1 0"
+  ],
+  [
+   "data/limbo/function/line140/execute14.mcfunction",
+   "execute store result score Global mai_scratch3 run data get entity 0-0-0-0-B014CE Motion[1] 10000\nscoreboard players add Global mai_scratch3 650\nexecute store result entity 0-0-0-0-B014CE Motion[1] double 0.0001 run scoreboard players get Global mai_scratch3"
+  ],
+  [
+   "data/limbo/function/line139/execute15.mcfunction",
+   "execute store result score Global mai_scratch2 run data get entity 0-0-0-0-B014CE OnGround 1\nexecute if score Global mai_scratch2 matches 1.. run function limbo:line140/execute14"
+  ],
+  [
+   "data/limbo/function/line146/execute16.mcfunction",
+   "execute store result score Global mai_scratch6 run data get entity 0-0-0-0-B014CE Motion[2] 10000\nscoreboard players add Global mai_scratch6 170\nexecute store result entity 0-0-0-0-B014CE Motion[2] double 0.0001 run scoreboard players get Global mai_scratch6\nexecute store result score Global mai_scratch6 run data get entity 0-0-0-0-B014CE Motion[2] 10000\nexecute if score Global mai_scratch6 matches 301.. run data modify entity 0-0-0-0-B014CE Motion[2] set value 0.03d\nexecute if score Global running_amount matches ..99 run scoreboard players add Global running_amount 10\nscoreboard players set Global mai_scratch3 0"
+  ],
+  [
+   "data/limbo/function/line146/else17.mcfunction",
+   "execute store result score Global mai_scratch7 run data get entity 0-0-0-0-B014CE Motion[2] 10000\nscoreboard players remove Global mai_scratch7 170\nexecute store result entity 0-0-0-0-B014CE Motion[2] double 0.0001 run scoreboard players get Global mai_scratch7\nexecute store result score Global mai_scratch7 run data get entity 0-0-0-0-B014CE Motion[2] 10000\nexecute if score Global mai_scratch7 matches ..-301 run data modify entity 0-0-0-0-B014CE Motion[2] set value -0.03d\nexecute if score Global running_amount matches ..99 run scoreboard players add Global running_amount 10\nscoreboard players set Global mai_scratch3 0"
+  ],
+  [
+   "data/limbo/function/line170/execute18.mcfunction",
+   "execute store result score Global mai_scratch10 run data get entity 0-0-0-0-B014CE Motion[2] 10000\nexecute if score Global mai_scratch10 matches 1.. run data modify entity 0-0-0-0-B01 Rotation[0] set value 0.0f\nexecute store result score Global mai_scratch11 run data get entity 0-0-0-0-B014CE Motion[2] 10000\nexecute if score Global mai_scratch11 matches ..-1 run data modify entity 0-0-0-0-B01 Rotation[0] set value 18.0f"
+  ],
+  [
+   "data/limbo/function/line185/execute19.mcfunction",
+   "scoreboard players set @e[type=minecraft:vindicator,tag=Vindicator] run 1\nscoreboard players set @e[type=minecraft:creeper,tag=Creeper] run 1"
+  ],
+  [
+   "data/limbo/function/line193/execute20.mcfunction",
+   "execute at @s run tp @s ~ ~ ~-0.275\nexecute store result score Global z1 run data get entity 0-0-0-0-B0110C Pos[2] 10000\nexecute store result score Global z2 run data get entity @s Pos[2] 10000\nexecute store result score Global y run data get entity 0-0-0-0-B0110C Pos[1] 10000\nexecute store result score Global mai_scratch15 run data get entity 0-0-0-0-B0110C Pos[2] 10000\nexecute store result score Global mai_scratch16 run data get entity @s Pos[2] 10000\nexecute store result score Global mai_scratch17 run data get entity @s Pos[2] 10000\nscoreboard players add Global mai_scratch17 5000\nexecute store result score Global mai_scratch18 run data get entity 0-0-0-0-B0110C Pos[2] 10000\nexecute store result score Global mai_scratch19 run data get entity 0-0-0-0-B0110C Pos[1] 10000\nexecute if score Global mai_scratch15 >= Global mai_scratch16 if score Global mai_scratch18 <= Global mai_scratch17 if score Global mai_scratch19 matches 85000.. run scoreboard players set Global dead 1"
+  ],
+  [
+   "data/limbo/function/line132/else21.mcfunction",
+   "execute if score @s jumped matches 1.. run function limbo:line139/execute15\nexecute store result score Global mai_scratch3 run data get entity 0-0-0-0-B014CE Motion[2] 10000\nscoreboard players operation Global mai_scratch3 /= c2 Constant\nexecute store result entity 0-0-0-0-B014CE Motion[2] double 0.0001 run scoreboard players get Global mai_scratch3\nexecute store result score Global mai_scratch4 run data get entity 0-0-0-0-B014CE Pos[2] 10000\nscoreboard players add Global mai_scratch4 200\nexecute store result score Global mai_scratch5 run data get entity @s Pos[2] 10000\nscoreboard players set Global mai_scratch3 1\nexecute if score Global mai_scratch5 > Global mai_scratch4 run function limbo:line146/execute16\nexecute store result score Global mai_scratch8 run data get entity 0-0-0-0-B014CE Pos[2] 10000\nscoreboard players remove Global mai_scratch8 200\nexecute store result score Global mai_scratch9 run data get entity @s Pos[2] 10000\nexecute if score Global mai_scratch3 matches 1.. if score Global mai_scratch9 < Global mai_scratch8 run function limbo:line146/else17\nexecute if score Global mai_scratch3 matches 1.. if score Global running_amount matches 1.. run scoreboard players remove Global running_amount 10\nexecute store result score Global mai_scratch3 run data get entity 0-0-0-0-B014CE OnGround 1\nexecute if score Global mai_scratch3 matches 1.. run function limbo:line170/execute18\nexecute at 0-0-0-0-B0110C if block ~ ~0.5 ~ #limbo:death run scoreboard players set Global dead 1\nexecute store result score Global mai_scratch12 run data get entity 0-0-0-0-B0110C Pos[2] 10000\nexecute if entity 0-0-0-0-B0110C if score Global mai_scratch12 matches ..153999 run function limbo:line185/execute19\nexecute store result score Global mai_scratch13 run data get entity 0-0-0-0-B0110C Pos[2] 10000\nexecute store result score Global mai_scratch14 run data get entity 0-0-0-0-B0110C Pos[2] 10000\nexecute if score Global mai_scratch13 matches 123001.. if score Global mai_scratch14 matches ..124999 unless entity @e[type=minecraft:spider,tag=Spider,limit=1] run summon minecraft:spider -252 87.7 130 {\"Tags\":[\"Spider\"],\"NoAI\":1,\"Rotation\":[180f,0f]}\nexecute as @e[type=minecraft:spider,tag=Spider] at @s run function limbo:line193/execute20"
+  ],
+  [
+   "data/limbo/function/line205/execute22.mcfunction",
+   "execute store result score Global mai_scratch1 run data get entity @s Pos[2] 10000\nexecute if score Global mai_scratch1 matches ..-1 run kill @s"
+  ],
+  [
+   "data/limbo/function/line211/execute23.mcfunction",
+   "tp 0-0-0-0-B0110C ~ ~ ~\ndata modify entity 0-0-0-0-B0110C Air set value 0s\ndata modify entity 0-0-0-0-B0110C Air set value 1s"
+  ],
+  [
+   "data/limbo/function/line217/execute24.mcfunction",
+   "setblock ~ ~ ~-1 barrier\nscoreboard players set Global mai_scratch20 0"
+  ],
+  [
+   "data/limbo/function/line222/execute25.mcfunction",
+   "setblock ~ ~ ~1 barrier\nscoreboard players set Global mai_scratch20 0"
+  ],
+  [
+   "data/limbo/function/line127/execute26.mcfunction",
+   "execute at @s anchored eyes run particle minecraft:squid_ink ^ ^ ^0.15 3 3 3 0 3000 force\nscoreboard players set Global mai_scratch1 1\nexecute if score Global dead matches 1.. run function limbo:line132/execute13\nexecute if score Global mai_scratch1 matches 1.. run function limbo:line132/else21\nexecute as @e[type=minecraft:spider,tag=Spider] run function limbo:line205/execute22\nexecute at 0-0-0-0-B014CE positioned ~ ~-0.5 ~ run function limbo:line211/execute23\nexecute store result score Global mai_scratch21 run data get entity 0-0-0-0-B014CE Pos[2] 10000\nscoreboard players remove Global mai_scratch21 750\nexecute store result score Global mai_scratch22 run data get entity @s Pos[2] 10000\nscoreboard players set Global mai_scratch20 1\nexecute if score Global mai_scratch22 < Global mai_scratch21 run function limbo:line217/execute24\nexecute if score Global mai_scratch20 matches 1.. run setblock ~ ~ ~-1 air\nexecute store result score Global mai_scratch23 run data get entity 0-0-0-0-B014CE Pos[2] 10000\nscoreboard players add Global mai_scratch23 750\nexecute store result score Global mai_scratch24 run data get entity @s Pos[2] 10000\nscoreboard players set Global mai_scratch20 1\nexecute if score Global mai_scratch24 > Global mai_scratch23 run function limbo:line222/execute25\nexecute if score Global mai_scratch20 matches 1.. run setblock ~ ~ ~1 air\nfunction limbo:get_pose\nscoreboard players set @s jumped 0"
+  ],
+  [
+   "data/limbo/function/get_pose.mcfunction",
+   "scoreboard players add Global running_timer 1\nscoreboard players set Global Param0 0\nfunction limbo:get_blended\nscoreboard players operation Global get_scratch0 = Global ReturnValue\nscoreboard players operation Global get_scratch0 %= c360 Constant\nexecute store result entity 0-0-0-0-B01 Pose.LeftLeg[0] float 1.0 run scoreboard players get Global get_scratch0\nscoreboard players set Global Param0 1\nfunction limbo:get_blended\nscoreboard players operation Global get_scratch0 = Global ReturnValue\nscoreboard players operation Global get_scratch0 %= c360 Constant\nexecute store result entity 0-0-0-0-B01 Pose.RightLeg[0] float 1.0 run scoreboard players get Global get_scratch0\nscoreboard players set Global Param0 2\nfunction limbo:get_blended\nscoreboard players operation Global get_scratch0 = Global ReturnValue\nscoreboard players operation Global get_scratch0 %= c360 Constant\nexecute store result entity 0-0-0-0-B01 Pose.LeftArm[0] float 1.0 run scoreboard players get Global get_scratch0\nscoreboard players set Global Param0 3\nfunction limbo:get_blended\nscoreboard players operation Global get_scratch0 = Global ReturnValue\nscoreboard players operation Global get_scratch0 %= c360 Constant\nexecute store result entity 0-0-0-0-B01 Pose.RightArm[0] float 1.0 run scoreboard players get Global get_scratch0\nscoreboard players set Global Param0 4\nfunction limbo:get_blended\nscoreboard players operation Global get_scratch0 = Global ReturnValue\nscoreboard players operation Global get_scratch0 %= c360 Constant\nexecute store result entity 0-0-0-0-B01 Pose.Body[0] float 1.0 run scoreboard players get Global get_scratch0\nscoreboard players set Global Param0 5\nfunction limbo:get_blended\nscoreboard players operation Global get_scratch0 = Global ReturnValue\nscoreboard players operation Global get_scratch0 %= c360 Constant\nexecute store result entity 0-0-0-0-B01 Pose.Head[0] float 1.0 run scoreboard players get Global get_scratch0"
+  ],
+  [
+   "data/limbo/function/get_blended.mcfunction",
+   "scoreboard players operation Global slot = Global Param0\nscoreboard players operation Global Param0 = Global slot\nfunction limbo:running_pose\nscoreboard players operation Global temp_pose = Global ReturnValue\nscoreboard players operation Global temp_pose *= Global running_amount\nscoreboard players operation Global temp_pose /= c100 Constant\nscoreboard players operation Global Param0 = Global slot\nfunction limbo:death_pose\nscoreboard players operation Global pose = Global ReturnValue\nscoreboard players operation Global pose *= Global dead_amount\nscoreboard players set Global get2_scratch0 100\nscoreboard players operation Global get2_scratch0 -= Global dead_amount\nscoreboard players operation Global get2_scratch1 = Global temp_pose\nscoreboard players operation Global get2_scratch1 *= Global get2_scratch0\nscoreboard players operation Global pose += Global get2_scratch1\nscoreboard players operation Global pose /= c100 Constant\nscoreboard players operation Global ReturnValue = Global pose"
+  ],
+  [
+   "data/limbo/function/running_pose.mcfunction",
+   "scoreboard players operation Global slot = Global Param0\nscoreboard players set Global run_scratch0 1\nexecute if score Global slot matches 4 run function limbo:line260/execute27\nexecute if score Global run_scratch0 matches 1.. if score Global slot matches 5 run function limbo:line260/else28\nexecute if score Global run_scratch0 matches 1.. run function limbo:line260/else29\nscoreboard players operation Global ReturnValue = Global pose"
+  ],
+  [
+   "data/limbo/function/line260/execute27.mcfunction",
+   "scoreboard players set Global pose 0\nscoreboard players set Global run_scratch0 0"
+  ],
+  [
+   "data/limbo/function/line260/else28.mcfunction",
+   "scoreboard players set Global pose 0\nscoreboard players set Global run_scratch0 0"
+  ],
+  [
+   "data/limbo/function/line260/else29.mcfunction",
+   "scoreboard players operation Global run_scratch1 = Global running_timer\nscoreboard players operation Global run_scratch1 *= c20 Constant\nscoreboard players operation Global run_scratch2 = Global slot\nscoreboard players operation Global run_scratch2 *= c180 Constant\nscoreboard players operation Global run_scratch1 += Global run_scratch2\nscoreboard players operation Global Param0 = Global run_scratch1\nfunction limbo:sin\nscoreboard players operation Global pose = Global ReturnValue\nscoreboard players operation Global pose /= c15 Constant"
+  ],
+  [
+   "data/limbo/function/death_pose.mcfunction",
+   "scoreboard players operation Global slot = Global Param0\nscoreboard players set Global ReturnValue 90"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"limbo:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"limbo:reset\"\n    ]\n}"
+  ],
+  [
+   "data/limbo/tags/block/death.json",
+   "{\n    \"values\": [\n        \"minecraft:dead_fire_coral\",\n        \"minecraft:dead_brain_coral\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 88,\n        \"description\": \"Undo and redo placing/breaking blocks\",\n        \"min_format\": [\n            88,\n            0\n        ],\n        \"max_format\": [\n            88,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}

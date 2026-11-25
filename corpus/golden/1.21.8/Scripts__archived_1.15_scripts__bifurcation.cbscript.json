@@ -1,0 +1,81 @@
+{
+ "id": "Scripts/archived 1.15 scripts/bifurcation.cbscript",
+ "ok": true,
+ "namespace": "bifurcation",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/bifurcation/function/reset.mcfunction",
+   "data modify storage bifurcation:global args set value {}\ndata modify storage bifurcation stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add radsq dummy\nscoreboard objectives add dsq dummy\nscoreboard objectives add dz dummy\nscoreboard objectives add dx dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add Param1 dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add growth_clock dummy\nscoreboard objectives add leaf dummy\nscoreboard objectives add radius dummy\nscoreboard objectives add _growth_2 dummy\nscoreboard objectives add _growth_1 dummy\nscoreboard objectives add _growth_0 dummy\nscoreboard objectives add root dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add Constant dummy\nscoreboard players set minus Constant -1\nscoreboard players set c10 Constant 10\nscoreboard players set c9 Constant 9\nscoreboard players set c100 Constant 100\nscoreboard players set c0 Constant 0\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nkill @e[type=minecraft:area_effect_cloud,tag=Branch]\ntellraw @a [\"\",{\"text\":\"[Create Tree]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function bifurcation:create_tree\"},\"color\":\"green\"}]"
+  ],
+  [
+   "data/bifurcation/function/create_tree.mcfunction",
+   "execute at @s run function bifurcation:line021/execute2"
+  ],
+  [
+   "data/bifurcation/function/line022/execute1.mcfunction",
+   "scoreboard players set @s root 1\nscoreboard players set @s _growth_0 0\nscoreboard players set @s _growth_1 1000\nscoreboard players set @s _growth_2 0\nscoreboard players set @s radius 200\nscoreboard players set @s leaf 1"
+  ],
+  [
+   "data/bifurcation/function/line021/execute2.mcfunction",
+   "scoreboard players set @e[type=minecraft:area_effect_cloud,tag=Branch] _age 1\nsummon minecraft:area_effect_cloud ~ ~ ~ {\"Tags\":[\"Branch\"],\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648}\nscoreboard players add @e[type=minecraft:area_effect_cloud,tag=Branch] _age 1\nexecute as @e[type=minecraft:area_effect_cloud,tag=Branch,limit=1,scores={_age=1}] run function bifurcation:line022/execute1"
+  ],
+  [
+   "data/bifurcation/function/main.mcfunction",
+   "scoreboard players add Global growth_clock 1\nexecute if score Global growth_clock matches 20.. run function bifurcation:line033/execute12"
+  ],
+  [
+   "data/bifurcation/function/line047/execute3.mcfunction",
+   "scoreboard players operation Global mai_scratch0 = Global _growth_0\nscoreboard players operation Global mai_scratch1 = Global _growth_1\nscoreboard players operation Global mai_scratch2 = Global _growth_2\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction bifurcation:rand\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction bifurcation:rand\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction bifurcation:rand\nscoreboard players operation Global mai_scratch0 += Global ReturnValue\nscoreboard players operation Global mai_scratch1 += Global ReturnValue\nscoreboard players operation Global mai_scratch2 += Global ReturnValue\nscoreboard players operation @s _growth_0 = Global mai_scratch0\nscoreboard players operation @s _growth_1 = Global mai_scratch1\nscoreboard players operation @s _growth_2 = Global mai_scratch2\nscoreboard players set @s leaf 1\nscoreboard players set @s radius 200"
+  ],
+  [
+   "data/bifurcation/function/line047/execute4.mcfunction",
+   "scoreboard players operation Global mai_scratch0 = Global _growth_0\nscoreboard players operation Global mai_scratch1 = Global _growth_1\nscoreboard players operation Global mai_scratch2 = Global _growth_2\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction bifurcation:rand\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction bifurcation:rand\nscoreboard players set Global Param0 -500\nscoreboard players set Global Param1 500\nfunction bifurcation:rand\nscoreboard players operation Global mai_scratch0 += Global ReturnValue\nscoreboard players operation Global mai_scratch1 += Global ReturnValue\nscoreboard players operation Global mai_scratch2 += Global ReturnValue\nscoreboard players operation @s _growth_0 = Global mai_scratch0\nscoreboard players operation @s _growth_1 = Global mai_scratch1\nscoreboard players operation @s _growth_2 = Global mai_scratch2\nscoreboard players set @s leaf 1\nscoreboard players set @s radius 200"
+  ],
+  [
+   "data/bifurcation/function/line045/execute5.mcfunction",
+   "scoreboard players set @e[type=minecraft:area_effect_cloud,tag=Branch] _age 1\nsummon minecraft:area_effect_cloud ~ ~ ~ {\"Tags\":[\"Branch\"],\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648}\nscoreboard players add @e[type=minecraft:area_effect_cloud,tag=Branch] _age 1\nexecute as @e[type=minecraft:area_effect_cloud,tag=Branch,limit=1,scores={_age=1}] run function bifurcation:line047/execute3\nscoreboard players set @e[type=minecraft:area_effect_cloud,tag=Branch] _age 1\nsummon minecraft:area_effect_cloud ~ ~ ~ {\"Tags\":[\"Branch\"],\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648}\nscoreboard players add @e[type=minecraft:area_effect_cloud,tag=Branch] _age 1\nexecute as @e[type=minecraft:area_effect_cloud,tag=Branch,limit=1,scores={_age=1}] run function bifurcation:line047/execute4"
+  ],
+  [
+   "data/bifurcation/function/line040/execute6.mcfunction",
+   "scoreboard players set @s leaf 0\nscoreboard players operation Global mai_scratch0 = @s _growth_0\nscoreboard players operation Global mai_scratch1 = @s _growth_1\nscoreboard players operation Global mai_scratch2 = @s _growth_2\nscoreboard players operation Global mai_scratch0 += c0 Constant\nscoreboard players operation Global mai_scratch1 += c100 Constant\nscoreboard players operation Global mai_scratch2 += c0 Constant\nscoreboard players operation Global mai_scratch0 *= c9 Constant\nscoreboard players operation Global mai_scratch1 *= c9 Constant\nscoreboard players operation Global mai_scratch2 *= c9 Constant\nscoreboard players operation Global mai_scratch0 /= c10 Constant\nscoreboard players operation Global mai_scratch1 /= c10 Constant\nscoreboard players operation Global mai_scratch2 /= c10 Constant\nscoreboard players operation Global _growth_0 = Global mai_scratch0\nscoreboard players operation Global _growth_1 = Global mai_scratch1\nscoreboard players operation Global _growth_2 = Global mai_scratch2\nexecute at @s unless entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] run summon minecraft:area_effect_cloud ~ ~ ~ {\"Tags\":[\"Position\"],\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648}\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global mai_scratch0 = @s _pos_0\nscoreboard players operation Global mai_scratch1 = @s _pos_1\nscoreboard players operation Global mai_scratch2 = @s _pos_2\nscoreboard players operation Global mai_scratch0 += @s _growth_0\nscoreboard players operation Global mai_scratch1 += @s _growth_1\nscoreboard players operation Global mai_scratch2 += @s _growth_2\nscoreboard players operation @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_0 = Global mai_scratch0\nscoreboard players operation @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_1 = Global mai_scratch1\nscoreboard players operation @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_2 = Global mai_scratch2\nexecute store result entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] Pos[0] double 0.0001 run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_0\nexecute store result entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] Pos[1] double 0.0001 run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_1\nexecute store result entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] Pos[2] double 0.0001 run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_2\nexecute at @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] run function bifurcation:line045/execute5"
+  ],
+  [
+   "data/bifurcation/function/line058/for007.mcfunction",
+   "scoreboard players operation Global dz = @s radius\nscoreboard players operation Global dz *= minus Constant\nexecute if score Global dz <= @s radius run function bifurcation:line059/for008\nscoreboard players add Global dx 200\nexecute if score Global dx <= @s radius run function bifurcation:line058/for007"
+  ],
+  [
+   "data/bifurcation/function/line059/for008.mcfunction",
+   "scoreboard players operation Global dsq = Global dx\nscoreboard players operation Global dsq *= Global dx\nscoreboard players operation Global mai_scratch0 = Global dz\nscoreboard players operation Global mai_scratch0 *= Global dz\nscoreboard players operation Global dsq += Global mai_scratch0\nscoreboard players operation Global radsq = @s radius\nscoreboard players operation Global radsq *= @s radius\nexecute if score Global dsq <= Global radsq run function bifurcation:line062/execute9\nscoreboard players add Global dz 200\nexecute if score Global dz <= @s radius run function bifurcation:line059/for008"
+  ],
+  [
+   "data/bifurcation/function/line062/execute9.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global mai_scratch0 = @s _pos_0\nscoreboard players operation Global mai_scratch1 = @s _pos_1\nscoreboard players operation Global mai_scratch2 = @s _pos_2\nscoreboard players operation Global mai_scratch0 += Global dx\nscoreboard players operation Global mai_scratch1 += c0 Constant\nscoreboard players operation Global mai_scratch2 += Global dz\nscoreboard players operation @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_0 = Global mai_scratch0\nscoreboard players operation @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_1 = Global mai_scratch1\nscoreboard players operation @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_2 = Global mai_scratch2\nexecute store result entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] Pos[0] double 0.0001 run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_0\nexecute store result entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] Pos[1] double 0.0001 run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_1\nexecute store result entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] Pos[2] double 0.0001 run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_2\nexecute at @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] run setblock ~ ~ ~ oak_wood"
+  ],
+  [
+   "data/bifurcation/function/line071/execute10.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global mai_scratch0 = @s _pos_0\nscoreboard players operation Global mai_scratch1 = @s _pos_1\nscoreboard players operation Global mai_scratch2 = @s _pos_2\nscoreboard players operation Global mai_scratch0 += @s _growth_0\nscoreboard players operation Global mai_scratch1 += @s _growth_1\nscoreboard players operation Global mai_scratch2 += @s _growth_2\nscoreboard players operation @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_0 = Global mai_scratch0\nscoreboard players operation @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_1 = Global mai_scratch1\nscoreboard players operation @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_2 = Global mai_scratch2\nexecute store result entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] Pos[0] double 0.0001 run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_0\nexecute store result entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] Pos[1] double 0.0001 run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_1\nexecute store result entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] Pos[2] double 0.0001 run scoreboard players get @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] _pos_2\nexecute at @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] run setblock ~ ~ ~ oak_leaves"
+  ],
+  [
+   "data/bifurcation/function/line056/execute11.mcfunction",
+   "execute unless entity @e[type=minecraft:area_effect_cloud,tag=Position,limit=1] run summon minecraft:area_effect_cloud ~ ~ ~ {\"Tags\":[\"Position\"],\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648}\nscoreboard players operation Global dx = @s radius\nscoreboard players operation Global dx *= minus Constant\nexecute if score Global dx <= @s radius run function bifurcation:line058/for007\nexecute if score @s leaf matches 1.. run function bifurcation:line071/execute10"
+  ],
+  [
+   "data/bifurcation/function/line033/execute12.mcfunction",
+   "scoreboard players set Global growth_clock 0\nexecute as @e[type=minecraft:area_effect_cloud,tag=Branch] run scoreboard players add @s radius 200\nexecute as @e[type=minecraft:area_effect_cloud,tag=Branch,scores={leaf=1..}] run function bifurcation:line040/execute6\nexecute as @e[type=minecraft:area_effect_cloud,tag=Branch] at @s run function bifurcation:line056/execute11"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"bifurcation:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"bifurcation:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 81,\n        \"description\": \"Grows realistic trees through bifurcation.\"\n    }\n}"
+  ]
+ ]
+}

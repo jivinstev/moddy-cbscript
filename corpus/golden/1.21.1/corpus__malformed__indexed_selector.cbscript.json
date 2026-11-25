@@ -1,0 +1,25 @@
+{
+ "id": "corpus/malformed/indexed_selector.cbscript",
+ "ok": true,
+ "namespace": "indexed_selector",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/indexed_selector/function/reset.mcfunction",
+   "data modify storage indexed_selector:global args set value {}\ndata modify storage indexed_selector stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add x dummy\nexecute as 0-0-0-0-F6EF6411 run scoreboard players set Global x 1"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"indexed_selector:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 48,\n        \"description\": \"No Description\"\n    }\n}"
+  ]
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "id": "corpus/mutants/grammar_gaps_m21.cbscript",
+ "ok": false,
+ "namespace": "grammar_gaps_m21",
+ "error": "Syntax error: unexpected End of File",
+ "log": [
+  "Syntax error: unexpected End of File"
+ ],
+ "files": []
+}

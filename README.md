@@ -7,9 +7,39 @@
 
 CBScript is a transpiled language, designed by SethBling. This compiler will compile CBScript files into Minecraft datapack zip files. It has many higher level language features that don't exist at the Minecraft command level. Awareness of implementation details will help you avoid performance overhead and bugs. The files in the datapack are generally organized by source file line numbers to make it easier to find the particular compiled mcfunction files you're looking for.
 
+# Two compilers: Python and Java
+
+This fork has **two implementations of the same compiler**, kept byte-for-byte in step:
+
+* the original **Python** compiler (`compile.py`, `compile_once.py`, and the modules beside them), which is the
+  reference; and
+* a **Java** port under [`java/`](java/) (JDK 21 or newer, no other dependencies), so a Java program such as the
+  Moddy mod can compile CBScript without Python installed. It is a translation of this Python code (see
+  [`NOTICE.md`](NOTICE.md)), and is built with `java/build.sh` into `java/build/moddy-cbscript.jar`: a library whose
+  one entry point is `CbScript.compile(namespace, source, minecraftVersion)` (datapack files, or the error and log),
+  and a command line with `compile_once.py`'s arguments and JSON output
+  (`java -jar moddy-cbscript.jar script.cbscript --out pack.zip --mc 1.21.1`).
+
+**They stay in step, and the corpus holds them to it.** [`corpus/`](corpus/) has programs covering every grammar
+production and the compile-time library, this repository's own example scripts, malformed and mutated programs for
+refusal parity, and the Python compiler's output for each of them, for every Minecraft version the branch targets
+(`corpus/golden/`). CI ([`.github/workflows/java-parity.yml`](.github/workflows/java-parity.yml)) fails a PR if the
+goldens are not what the Python compiler produces now, or if the Java compiler differs from them in any accept/refuse
+decision, error message, warning or output byte. So **a language or output change lands in both compilers in the same
+PR, with corpus cases for it and the goldens regenerated**:
+
+```
+python3 tools/export_parser_tables.py   # after any change to scriptparse.py / scriptlex.py (then update java/.../parse/Actions.java)
+python3 tools/corpus_golden.py          # regenerate the goldens (needs ply 3.11)
+java/build.sh test                      # Java unit tests + the differential against every golden
+```
+
+See [`JAVA_PORT.md`](JAVA_PORT.md) for how the port is built, what is compared, and its documented boundary (it
+does not run `import name.py` Python files, and it refuses `$"..."` expressions that reach outside the compiler).
+
 # Installation and Requirements
 
-The CBScript compiler requires python 3. In order to run it via the run.cmd file, you'll need the Python "py launcher", which comes with newer installations of Python, and can be used to launch a specific version. You'll need to install the Python dependencies with
+The Python CBScript compiler requires python 3 (the Java one, above, needs only a JDK). In order to run it via the run.cmd file, you'll need the Python "py launcher", which comes with newer installations of Python, and can be used to launch a specific version. You'll need to install the Python dependencies with
 
 ```pip install -r requirements.txt```
 

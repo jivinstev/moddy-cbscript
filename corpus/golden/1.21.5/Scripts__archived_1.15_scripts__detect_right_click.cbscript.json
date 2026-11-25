@@ -1,0 +1,101 @@
+{
+ "id": "Scripts/archived 1.15 scripts/detect_right_click.cbscript",
+ "ok": true,
+ "namespace": "detect_right_click",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/detect_right_click/function/reset.mcfunction",
+   "data modify storage detect_right_click:global args set value {}\ndata modify storage detect_right_click stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add click dummy\nscoreboard objectives add _id dummy\nscoreboard objectives add _unique dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add kill dummy\nscoreboard objectives add enable_click dummy\nscoreboard objectives add cli2_scratch0 dummy\nteam add no_collision\nteam modify no_collision collisionRule never\ntellraw @a [\"\",{\"text\":\"[Enable click]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function detect_right_click:enable_click\"}},{\"text\":\" \"},{\"text\":\"[Disable click]\",\"click_event\":{\"action\":\"run_command\",\"command\":\"/function detect_right_click:disable_click\"}}]"
+  ],
+  [
+   "data/detect_right_click/function/click_advancement_reward.mcfunction",
+   "advancement revoke @s only detect_right_click:damage_click_detector\nfunction detect_right_click:destroy_click\nexecute if score @s enable_click matches 1.. run function detect_right_click:line030/execute1"
+  ],
+  [
+   "data/detect_right_click/function/line030/execute1.mcfunction",
+   "function detect_right_click:create_click\nfunction detect_right_click:click_callback"
+  ],
+  [
+   "data/detect_right_click/function/tick_click_detector.mcfunction",
+   "effect give @s invisibility 10 0 true\ntp @s ~ ~-6 ~\ndata modify entity @s AbsorptionAmount set value 100.0f\nscoreboard players set @s kill 0"
+  ],
+  [
+   "data/detect_right_click/function/enable_click.mcfunction",
+   "execute unless score @s enable_click matches 1.. run function detect_right_click:line051/execute2"
+  ],
+  [
+   "data/detect_right_click/function/line051/execute2.mcfunction",
+   "scoreboard players set @s enable_click 1\nfunction detect_right_click:create_click"
+  ],
+  [
+   "data/detect_right_click/function/create_click.mcfunction",
+   "execute at @s anchored eyes positioned ^ ^ ^ run function detect_right_click:line058/execute4"
+  ],
+  [
+   "data/detect_right_click/function/line060/execute3.mcfunction",
+   "tp @s ~ ~-6 ~\nteam join no_collision\nfunction detect_right_click:tick_click_detector"
+  ],
+  [
+   "data/detect_right_click/function/line058/execute4.mcfunction",
+   "scoreboard players set @e[type=minecraft:slime,tag=BigClickDetector] _age 1\nsummon minecraft:slime ~ ~1000 ~ {\"CustomName\":\"\\\"ClickDetector\\\"\",\"Tags\":[\"BigClickDetector\"],\"NoGravity\":1b,\"NoAI\":1b,\"Silent\":1b,\"Size\":18,\"AbsorptionAmount\":100f}\nscoreboard players add @e[type=minecraft:slime,tag=BigClickDetector] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:slime,tag=BigClickDetector,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s click run scoreboard players get @e[type=minecraft:slime,tag=BigClickDetector,limit=1,scores={_age=1}] _id\nscoreboard players operation Global _id = @s click\nexecute as @e[type=minecraft:slime,tag=BigClickDetector] if score @s _id = Global _id run function detect_right_click:line060/execute3"
+  ],
+  [
+   "data/detect_right_click/function/disable_click.mcfunction",
+   "scoreboard players set @s enable_click 0\nfunction detect_right_click:destroy_click"
+  ],
+  [
+   "data/detect_right_click/function/destroy_click.mcfunction",
+   "scoreboard players operation Global _id = @s click\nexecute as @e[type=minecraft:slime,tag=BigClickDetector] if score @s _id = Global _id run function detect_right_click:line074/execute5\nscoreboard players set @s click 0"
+  ],
+  [
+   "data/detect_right_click/function/line074/execute5.mcfunction",
+   "scoreboard players set @s kill 1\ntp @s ~ -200 ~\nkill @s"
+  ],
+  [
+   "data/detect_right_click/function/click_detector_clock.mcfunction",
+   "scoreboard players set @e[type=minecraft:slime,tag=BigClickDetector] kill 1\nexecute as @a at @s anchored eyes positioned ^ ^ ^ if score @s enable_click matches 1.. run function detect_right_click:line087/execute8\nexecute as @e[type=minecraft:slime,tag=BigClickDetector,scores={kill=1..}] run function detect_right_click:line099/execute9"
+  ],
+  [
+   "data/detect_right_click/function/line088/execute6.mcfunction",
+   "function detect_right_click:tick_click_detector\nscoreboard players set Global cli2_scratch0 0"
+  ],
+  [
+   "data/detect_right_click/function/line088/else7.mcfunction",
+   "function detect_right_click:create_click\nscoreboard players operation Global _id = @s click\nexecute as @e[type=minecraft:slime,tag=BigClickDetector] if score @s _id = Global _id run function detect_right_click:tick_click_detector"
+  ],
+  [
+   "data/detect_right_click/function/line087/execute8.mcfunction",
+   "scoreboard players operation Global _id = @s click\nscoreboard players set Global cli2_scratch0 1\nexecute as @e[type=minecraft:slime,tag=BigClickDetector] if score @s _id = Global _id run function detect_right_click:line088/execute6\nexecute if score Global cli2_scratch0 matches 1.. run function detect_right_click:line088/else7"
+  ],
+  [
+   "data/detect_right_click/function/line099/execute9.mcfunction",
+   "tp @s ~ -200 ~\nkill @s"
+  ],
+  [
+   "data/detect_right_click/function/click_callback.mcfunction",
+   "execute at @s anchored eyes positioned ^ ^ ^10 run particle barrier"
+  ],
+  [
+   "data/detect_right_click/function/main.mcfunction",
+   ""
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"detect_right_click:click_detector_clock\",\n        \"detect_right_click:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"detect_right_click:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 71,\n        \"description\": \"Test methods of detecting clicks\"\n    }\n}"
+  ],
+  [
+   "data/detect_right_click/advancement/damage_click_detector.json",
+   "{\"criteria\":{\"damage_slime\":{\"trigger\":\"minecraft:player_hurt_entity\",\"conditions\":{\"damage\":{\"entity\":{\"nbt\":\"{Tags:\\\"BigClickDetector\\\"}\"}}}}},\"rewards\":{\"function\":\"detect_right_click:click_advancement_reward\"}}"
+  ]
+ ]
+}

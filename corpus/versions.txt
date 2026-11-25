@@ -1,0 +1,8 @@
+# Minecraft versions every corpus case is compiled for on this branch (CBSCRIPT_MC).
+# 1.21.1 is the default; 1.21.2 flips attribute ids; 1.21.5 flips component/text/click spellings and FallDistance.
+# 1.21.9+ writes min_format/max_format (mc/1.21.10).
+1.21.1
+1.21.4
+1.21.5
+1.21.8
+1.21.10

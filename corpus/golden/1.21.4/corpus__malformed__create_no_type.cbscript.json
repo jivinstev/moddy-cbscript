@@ -1,0 +1,14 @@
+{
+ "id": "corpus/malformed/create_no_type.cbscript",
+ "ok": false,
+ "namespace": "create_no_type",
+ "error": "Compile failed — see log.",
+ "log": [
+  "Unable to create @T, no entity type is defined.",
+  "<traceback> Exception: Error creating entity at line 5",
+  "Error compiling block at line 5",
+  "Unable to compile reset section at line 4",
+  "Error compiling block at line 4"
+ ],
+ "files": []
+}

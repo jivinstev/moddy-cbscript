@@ -1,0 +1,42 @@
+# mutant of corpus/programs/basics.cbscript: insert ':' before 'tick' on line 14
+# A program with every top-level section kind.
+dir "."
+desc "Basics: reset, clock, function, macro, template"
+scale 1000
+
+import common
+
+reset
+	/say reset
+	score = 0
+	count = 5
+end
+
+clock : tick
+	score += 1
+	if score > 100
+		score = 0
+	end
+end
+
+function add_points(amount)
+	score += amount
+	return score
+end
+
+function no_params()
+	/say no params
+end
+
+macro $greet($who)
+	/tellraw @a {"text":"hi $who"}
+end
+
+macro $bare()
+	/say bare macro
+end
+
+function test_tpl{$n, $m}(x)
+	/say $n $m
+	x = x * $n
+end

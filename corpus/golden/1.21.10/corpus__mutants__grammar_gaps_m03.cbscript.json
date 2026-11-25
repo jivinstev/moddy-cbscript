@@ -1,0 +1,27 @@
+{
+ "id": "corpus/mutants/grammar_gaps_m03.cbscript",
+ "ok": true,
+ "namespace": "grammar_gaps_m03",
+ "error": null,
+ "log": [
+  "1"
+ ],
+ "files": [
+  [
+   "data/grammar_gaps_m03/function/reset.mcfunction",
+   "data modify storage grammar_gaps_m03:global args set value {}\ndata modify storage grammar_gaps_m03 stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add _age dummy\nscoreboard objectives add _v_2 dummy\nscoreboard objectives add _v_1 dummy\nscoreboard objectives add _v_0 dummy\nscoreboard objectives add x dummy\nsay macro with an open paren\nexecute if block ~ ~ ~ minecraft:oak_log[axis=y,waterlogged=no] run scoreboard players set Global x 1\nexecute if block ~ ~ ~ minecraft:repeater[delay=2,facing=north] run scoreboard players set Global x 2\nexecute if block ~ ~ ~ minecraft:repeater[facing=east] run scoreboard players set Global x 3\nexecute if block ~ ~ ~ minecraft:repeater[facing=2] run scoreboard players set Global x 5\nexecute if block ~ ~ ~ minecraft:repeater[delay=9,facing=south] run scoreboard players set Global x 6\nexecute as @a run scoreboard players set Global x 7\nexecute as @a[tag=a,tag=b] run scoreboard players set Global x 8\nscoreboard players set Global x -3\ndata modify entity @s neg set value {\"b\":-3,\"h\":-31,\"d\":-12}\nexecute as @e[level=-1..2] run scoreboard players set Global x 10\nexecute as @e[type=minecraft:cow] run scoreboard players set Global x 9\nsummon minecraft:marker ~ ~ ~ {\"Tags\": [\"indexed\"], \"UUIDMost\": 0, \"UUIDLeast\": 2747625358}\nsummon minecraft:marker ~ ~ ~ {\"Tags\": [\"indexed\"], \"UUIDMost\": 0, \"UUIDLeast\": 2747625359}\nsummon minecraft:pig ~ ~1 ~ 2402339927}\nscoreboard players add @e _age 1\nsummon area_effect_cloud\nscoreboard players add @e _age 1\nexecute store result score Global _v_0 run data get entity @e[limit=1,scores={_age=1}] Pos[0] 100\nexecute store result score Global _v_1 run data get entity @e[limit=1,scores={_age=1}] Pos[1] 100\nexecute store result score Global _v_2 run data get entity @e[limit=1,scores={_age=1}] Pos[2] 100\nkill @e[scores={_age=1}]\ndata modify entity @s facingdata set value {\"facing\":1}\ndata modify entity @s data set value {\"flag\":false,\"flag2\":true,\"arr\":[B;],\"arr2\":[L;9,2],\"arr3\":[I;1,2,],\"typed\":1.5d,\"neg\":-2b}\nsay 1 2 {}"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": []\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"grammar_gaps_m03:reset\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 88,\n        \"description\": \"Productions the other programs do not reach\",\n        \"min_format\": [\n            88,\n            0\n        ],\n        \"max_format\": [\n            88,\n            0\n        ]\n    }\n}"
+  ]
+ ]
+}

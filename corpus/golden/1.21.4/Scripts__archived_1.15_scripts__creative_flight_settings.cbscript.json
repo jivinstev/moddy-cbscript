@@ -1,0 +1,253 @@
+{
+ "id": "Scripts/archived 1.15 scripts/creative_flight_settings.cbscript",
+ "ok": true,
+ "namespace": "creative_flight_settings",
+ "error": null,
+ "log": [],
+ "files": [
+  [
+   "data/creative_flight_settings/function/sqrt.mcfunction",
+   "scoreboard players operation Global _x = Global Param0\nscoreboard players set Global sqr_scratch0 1\nexecute if score Global _x matches 0.. if score Global _x matches ..19310 run function creative_flight_settings:line003/execute1\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 19311.. if score Global _x matches ..1705544 run function creative_flight_settings:line003/else2\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 1705545.. if score Global _x matches ..39400514 run function creative_flight_settings:line003/else3\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 39400515.. if score Global _x matches ..455779650 run function creative_flight_settings:line003/else4\nexecute if score Global sqr_scratch0 matches 1.. if score Global _x matches 455779651.. if score Global _x matches ..2147483647 run function creative_flight_settings:line003/else5\nscoreboard players operation Global sqr_scratch0 = Global _x\nscoreboard players operation Global sqr_scratch0 /= sqrt y\nscoreboard players operation sqrt y += Global sqr_scratch0\nscoreboard players operation sqrt y /= c2 Constant\nscoreboard players operation Global sqr_scratch0 = sqrt y\nscoreboard players operation Global sqr_scratch0 *= sqrt y\nexecute if score Global sqr_scratch0 > Global _x run scoreboard players remove sqrt y 1\nscoreboard players operation Global ReturnValue = sqrt y"
+  ],
+  [
+   "data/creative_flight_settings/function/line003/execute1.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 4095\nscoreboard players set sqrt y -594039\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 149\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line003/else2.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players add Global sqr_scratch1 903167\nscoreboard players set sqrt y -1568669636\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 1857\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line003/else3.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c141 Constant\nscoreboard players add Global sqr_scratch1 224767\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 10425\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line003/else4.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c7775 Constant\nscoreboard players add Global sqr_scratch1 60419\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 39184\nscoreboard players set Global sqr_scratch0 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line003/else5.mcfunction",
+   "scoreboard players operation Global sqr_scratch1 = Global _x\nscoreboard players operation Global sqr_scratch1 /= c100000 Constant\nscoreboard players add Global sqr_scratch1 26111\nscoreboard players set sqrt y -2147483648\nscoreboard players operation sqrt y /= Global sqr_scratch1\nscoreboard players add sqrt y 91181"
+  ],
+  [
+   "data/creative_flight_settings/function/abs.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global abs_scratch0 1\nexecute if score Global n matches ..-1 run function creative_flight_settings:line025/execute6\nexecute if score Global abs_scratch0 matches 1.. run scoreboard players operation Global ReturnValue = Global n"
+  ],
+  [
+   "data/creative_flight_settings/function/line025/execute6.mcfunction",
+   "scoreboard players operation Global ReturnValue = Global n\nscoreboard players operation Global ReturnValue *= minus Constant\nscoreboard players set Global abs_scratch0 0"
+  ],
+  [
+   "data/creative_flight_settings/function/sin.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c360 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 181.. run function creative_flight_settings:line035/execute7\nscoreboard players operation Global ReturnValue = Global _sin_angle\nscoreboard players operation Global ReturnValue *= c4000 Constant\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global ReturnValue *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 180\nscoreboard players operation Global sin_scratch0 -= Global _sin_angle\nscoreboard players operation Global sin_scratch1 = Global _sin_angle\nscoreboard players operation Global sin_scratch1 *= Global sin_scratch0\nscoreboard players set Global sin_scratch0 40500\nscoreboard players operation Global sin_scratch0 -= Global sin_scratch1\nscoreboard players operation Global ReturnValue /= Global sin_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/creative_flight_settings/function/line035/execute7.mcfunction",
+   "scoreboard players remove Global _sin_angle 180\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/creative_flight_settings/function/sin_precise.mcfunction",
+   "scoreboard players operation Global _sin_angle = Global Param0\nscoreboard players operation Global _sin_angle %= c36000 Constant\nscoreboard players set Global mult 1\nexecute if score Global _sin_angle matches 18001.. run function creative_flight_settings:line048/execute8\nscoreboard players set Global sin2_scratch0 18000\nscoreboard players operation Global sin2_scratch0 -= Global _sin_angle\nscoreboard players operation Global _angle_sq = Global _sin_angle\nscoreboard players operation Global _angle_sq *= Global sin2_scratch0\nscoreboard players operation Global _angle_sq /= c100 Constant\nscoreboard players operation Global ReturnValue = Global _angle_sq\nscoreboard players operation Global ReturnValue *= c4 Constant\nscoreboard players operation Global ReturnValue *= c100 Constant\nscoreboard players set Global sin2_scratch0 4050000\nscoreboard players operation Global sin2_scratch0 -= Global _angle_sq\nscoreboard players operation Global ReturnValue /= Global sin2_scratch0\nscoreboard players operation Global ReturnValue *= Global mult"
+  ],
+  [
+   "data/creative_flight_settings/function/line048/execute8.mcfunction",
+   "scoreboard players remove Global _sin_angle 18000\nscoreboard players set Global mult -1"
+  ],
+  [
+   "data/creative_flight_settings/function/cos.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos_scratch0 = Global _cos_angle\nscoreboard players add Global cos_scratch0 90\nscoreboard players operation Global Param0 = Global cos_scratch0\nfunction creative_flight_settings:sin"
+  ],
+  [
+   "data/creative_flight_settings/function/cos_precise.mcfunction",
+   "scoreboard players operation Global _cos_angle = Global Param0\nscoreboard players operation Global cos2_scratch0 = Global _cos_angle\nscoreboard players add Global cos2_scratch0 9000\nscoreboard players operation Global Param0 = Global cos2_scratch0\nfunction creative_flight_settings:sin_precise"
+  ],
+  [
+   "data/creative_flight_settings/function/sign.mcfunction",
+   "scoreboard players operation Global n = Global Param0\nscoreboard players set Global sig_scratch0 1\nexecute if score Global n matches 1.. run function creative_flight_settings:line068/execute9\nexecute if score Global sig_scratch0 matches 1.. if score Global n matches ..-1 run function creative_flight_settings:line068/else10\nexecute if score Global sig_scratch0 matches 1.. run scoreboard players set Global ReturnValue 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line068/execute9.mcfunction",
+   "scoreboard players set Global ReturnValue 1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line068/else10.mcfunction",
+   "scoreboard players set Global ReturnValue -1\nscoreboard players set Global sig_scratch0 0"
+  ],
+  [
+   "data/creative_flight_settings/function/reset.mcfunction",
+   "data modify storage creative_flight_settings:global args set value {}\ndata modify storage creative_flight_settings stack set value []\ngamerule maxCommandChainLength 1000000000\nscoreboard objectives add vmove dummy\nscoreboard objectives add nz dummy\nscoreboard objectives add nx dummy\nscoreboard objectives add hspeed dummy\nscoreboard objectives add hmag dummy\nscoreboard objectives add slope dummy\nscoreboard objectives add fz dummy\nscoreboard objectives add fy dummy\nscoreboard objectives add fx dummy\nscoreboard objectives add _start_2 dummy\nscoreboard objectives add _start_1 dummy\nscoreboard objectives add _start_0 dummy\nscoreboard objectives add oldspeedsq dummy\nscoreboard objectives add speedsq dummy\nscoreboard objectives add dz dummy\nscoreboard objectives add dy dummy\nscoreboard objectives add dx dummy\nscoreboard objectives add stop_count dummy\nscoreboard objectives add _unique dummy\nscoreboard objectives add _age dummy\nscoreboard objectives add _pos2_2 dummy\nscoreboard objectives add _pos2_1 dummy\nscoreboard objectives add _pos2_0 dummy\nscoreboard objectives add _id dummy\nscoreboard objectives add marker dummy\nscoreboard objectives add _pos_2 dummy\nscoreboard objectives add _pos_1 dummy\nscoreboard objectives add _pos_0 dummy\nscoreboard objectives add _pos1_2 dummy\nscoreboard objectives add _pos1_1 dummy\nscoreboard objectives add _pos1_0 dummy\nscoreboard objectives add nomomentum dummy\nscoreboard objectives add vflight dummy\nscoreboard objectives add noclip dummy\nscoreboard objectives add check dummy\nscoreboard objectives add Param0 dummy\nscoreboard objectives add _cos_angle dummy\nscoreboard objectives add _angle_sq dummy\nscoreboard objectives add mult dummy\nscoreboard objectives add _sin_angle dummy\nscoreboard objectives add n dummy\nscoreboard objectives add ReturnValue dummy\nscoreboard objectives add y dummy\nscoreboard objectives add _x dummy\nscoreboard objectives add Constant dummy\nscoreboard players set c1000 Constant 1000\nscoreboard players set c10 Constant 10\nscoreboard players set c9 Constant 9\nscoreboard players set c4 Constant 4\nscoreboard players set c100 Constant 100\nscoreboard players set c36000 Constant 36000\nscoreboard players set c4000 Constant 4000\nscoreboard players set c360 Constant 360\nscoreboard players set minus Constant -1\nscoreboard players set c2 Constant 2\nscoreboard players set c100000 Constant 100000\nscoreboard players set c7775 Constant 7775\nscoreboard players set c141 Constant 141\nscoreboard objectives add mai_scratch5 dummy\nscoreboard objectives add mai_scratch4 dummy\nscoreboard objectives add mai_scratch3 dummy\nscoreboard objectives add mai_scratch2 dummy\nscoreboard objectives add mai_scratch1 dummy\nscoreboard objectives add mai_scratch0 dummy\nscoreboard objectives add sig_scratch0 dummy\nscoreboard objectives add cos2_scratch0 dummy\nscoreboard objectives add cos_scratch0 dummy\nscoreboard objectives add sin2_scratch0 dummy\nscoreboard objectives add sin_scratch1 dummy\nscoreboard objectives add sin_scratch0 dummy\nscoreboard objectives add abs_scratch0 dummy\nscoreboard objectives add sqr_scratch1 dummy\nscoreboard objectives add sqr_scratch0 dummy\nscoreboard objectives add FlightSettings trigger"
+  ],
+  [
+   "data/creative_flight_settings/function/main.mcfunction",
+   "scoreboard players set @a check 0\nscoreboard players set @a[gamemode=creative] check 1\nscoreboard players set @a[gamemode=spectator] check 1\nscoreboard players set @a[scores={check=1..}] mai_scratch0 0\nexecute as @a[scores={check=1..}] run function creative_flight_settings:for48_ln200"
+  ],
+  [
+   "data/creative_flight_settings/function/line206/switch3-4_11.mcfunction",
+   "execute if score @s FlightSettings matches 3 run scoreboard players set @s noclip 1\nexecute if score @s FlightSettings matches 4 run scoreboard players set @s vflight 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line215/switch6-7_12.mcfunction",
+   "execute if score @s FlightSettings matches 6 run scoreboard players set @s nomomentum 0\nexecute if score @s FlightSettings matches 7 run scoreboard players set @s nomomentum 1"
+  ],
+  [
+   "data/creative_flight_settings/function/line224/execute13.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Noclip Enabled. \",\"color\":\"green\"},{\"text\":\"[Disable]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger FlightSettings set 2\"},\"color\":\"red\"}]\nscoreboard players set Global mai_scratch1 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line229/execute14.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"Vertical Flying Enabled. \",\"color\":\"green\"},{\"text\":\"[Disable]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger FlightSettings set 4\"},\"color\":\"red\"}]\nscoreboard players set Global mai_scratch1 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line234/execute15.mcfunction",
+   "tellraw @s [\"\",{\"text\":\"No Momentum Enabled. \",\"color\":\"green\"},{\"text\":\"[Disable]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger FlightSettings set 6\"},\"color\":\"red\"}]\nscoreboard players set Global mai_scratch1 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line201/execute16.mcfunction",
+   "execute if score @s FlightSettings matches 2 run scoreboard players set @s noclip 0\nexecute if score @s FlightSettings matches 3..4 run function creative_flight_settings:line206/switch3-4_11\nexecute if score @s FlightSettings matches 5 run scoreboard players set @s vflight 1\nexecute if score @s FlightSettings matches 6..7 run function creative_flight_settings:line215/switch6-7_12\ntellraw @s [\"\",{\"text\":\" == Creative Flight Settings by SethBling ==\",\"color\":\"aqua\"}]\nscoreboard players set Global mai_scratch1 1\nexecute if score @s noclip matches 1.. run function creative_flight_settings:line224/execute13\nexecute if score Global mai_scratch1 matches 1.. run tellraw @s [\"\",{\"text\":\"Noclip Disabled. \",\"color\":\"red\"},{\"text\":\"[Enable]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger FlightSettings set 3\"},\"color\":\"green\"}]\nscoreboard players set Global mai_scratch1 1\nexecute if score @s vflight matches 1.. run function creative_flight_settings:line229/execute14\nexecute if score Global mai_scratch1 matches 1.. run tellraw @s [\"\",{\"text\":\"Vertical Flying Disabled. \",\"color\":\"red\"},{\"text\":\"[Enable]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger FlightSettings set 5\"},\"color\":\"green\"}]\nscoreboard players set Global mai_scratch1 1\nexecute if score @s nomomentum matches 1.. run function creative_flight_settings:line234/execute15\nexecute if score Global mai_scratch1 matches 1.. run tellraw @s [\"\",{\"text\":\"No Momentum Disabled. \",\"color\":\"red\"},{\"text\":\"[Enable]\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger FlightSettings set 7\"},\"color\":\"green\"}]\ntellraw @s [\"\",{\"text\":\"Type \"},{\"text\":\"/trigger FlightSettings\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/trigger FlightSettings\"},\"color\":\"gray\"},{\"text\":\" at any time to bring up this menu.\"}]\nfunction creative_flight_settings:display_flight_settings\nscoreboard players set @s FlightSettings 0\nscoreboard players enable @s FlightSettings"
+  ],
+  [
+   "data/creative_flight_settings/function/line247/execute17.mcfunction",
+   "execute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global _pos2_0 = @s _pos_0\nscoreboard players operation Global _pos2_1 = @s _pos_1\nscoreboard players operation Global _pos2_2 = @s _pos_2\nscoreboard players set Global mai_scratch1 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line250/execute18.mcfunction",
+   "scoreboard players set @e[type=minecraft:marker] _age 1\nsummon minecraft:marker ~ ~ ~\nscoreboard players add @e[type=minecraft:marker] _age 1\nscoreboard players add Global _unique 1\nexecute unless score @e[type=minecraft:marker,limit=1,scores={_age=1}] _id matches 1.. run scoreboard players operation 0 _id = Global _unique\nexecute store result score @s marker run scoreboard players get @e[type=minecraft:marker,limit=1,scores={_age=1}] _id"
+  ],
+  [
+   "data/creative_flight_settings/function/line255/execute19.mcfunction",
+   "scoreboard players add @s stop_count 1\nscoreboard players set Global mai_scratch1 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line266/execute20.mcfunction",
+   "scoreboard players add @s stop_count 1\nscoreboard players set Global mai_scratch3 0"
+  ],
+  [
+   "data/creative_flight_settings/function/line266/else21.mcfunction",
+   "scoreboard players set @s[scores={stop_count=7..}] stop_count 0\nscoreboard players remove @s[scores={stop_count=1..}] stop_count 1"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute22.mcfunction",
+   "execute at @s run tp @s ~ ~0.512 ~\nscoreboard players remove Global vmove 512"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute23.mcfunction",
+   "execute at @s run tp @s ~ ~-0.512 ~\nscoreboard players add Global vmove 512"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute24.mcfunction",
+   "execute at @s run tp @s ~ ~0.256 ~\nscoreboard players remove Global vmove 256"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute25.mcfunction",
+   "execute at @s run tp @s ~ ~-0.256 ~\nscoreboard players add Global vmove 256"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute26.mcfunction",
+   "execute at @s run tp @s ~ ~0.128 ~\nscoreboard players remove Global vmove 128"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute27.mcfunction",
+   "execute at @s run tp @s ~ ~-0.128 ~\nscoreboard players add Global vmove 128"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute28.mcfunction",
+   "execute at @s run tp @s ~ ~0.064 ~\nscoreboard players remove Global vmove 64"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute29.mcfunction",
+   "execute at @s run tp @s ~ ~-0.064 ~\nscoreboard players add Global vmove 64"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute30.mcfunction",
+   "execute at @s run tp @s ~ ~0.032 ~\nscoreboard players remove Global vmove 32"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute31.mcfunction",
+   "execute at @s run tp @s ~ ~-0.032 ~\nscoreboard players add Global vmove 32"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute32.mcfunction",
+   "execute at @s run tp @s ~ ~0.016 ~\nscoreboard players remove Global vmove 16"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute33.mcfunction",
+   "execute at @s run tp @s ~ ~-0.016 ~\nscoreboard players add Global vmove 16"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute34.mcfunction",
+   "execute at @s run tp @s ~ ~0.008 ~\nscoreboard players remove Global vmove 8"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute35.mcfunction",
+   "execute at @s run tp @s ~ ~-0.008 ~\nscoreboard players add Global vmove 8"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute36.mcfunction",
+   "execute at @s run tp @s ~ ~0.004 ~\nscoreboard players remove Global vmove 4"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute37.mcfunction",
+   "execute at @s run tp @s ~ ~-0.004 ~\nscoreboard players add Global vmove 4"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute38.mcfunction",
+   "execute at @s run tp @s ~ ~0.002 ~\nscoreboard players remove Global vmove 2"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute39.mcfunction",
+   "execute at @s run tp @s ~ ~-0.002 ~\nscoreboard players add Global vmove 2"
+  ],
+  [
+   "data/creative_flight_settings/function/line304/execute40.mcfunction",
+   "execute at @s run tp @s ~ ~0.001 ~\nscoreboard players remove Global vmove 1"
+  ],
+  [
+   "data/creative_flight_settings/function/line308/execute41.mcfunction",
+   "execute at @s run tp @s ~ ~-0.001 ~\nscoreboard players add Global vmove 1"
+  ],
+  [
+   "data/creative_flight_settings/function/line275/execute42.mcfunction",
+   "execute unless entity 0-0-0-0-C1 run summon minecraft:marker ~ ~ ~ {\"Duration\":-1,\"Age\":-2147483648,\"WaitTime\":-2147483648,\"UUID\":[I;0,0,0,193]}\nexecute at @s run tp 0-0-0-0-C1 ~ ~ ~ 0 ~\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global _start_0 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global _start_1 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global _start_2 = 0-0-0-0-C1 _pos_2\nexecute as 0-0-0-0-C1 at @s run tp @s ^ ^ ^1\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global mai_scratch3 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global mai_scratch4 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global mai_scratch5 = 0-0-0-0-C1 _pos_2\nscoreboard players operation Global mai_scratch3 -= Global _start_0\nscoreboard players operation Global mai_scratch4 -= Global _start_1\nscoreboard players operation Global mai_scratch5 -= Global _start_2\nscoreboard players operation Global fx = Global mai_scratch3\nscoreboard players operation Global fy = Global mai_scratch4\nscoreboard players operation Global fz = Global mai_scratch5\nscoreboard players operation Global slope = Global fy\nscoreboard players operation Global slope *= c1000 Constant\nscoreboard players operation Global slope /= Global fz\nexecute at @s run tp 0-0-0-0-C1 ~ ~ ~ ~ 0\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global _start_0 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global _start_1 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global _start_2 = 0-0-0-0-C1 _pos_2\nexecute as 0-0-0-0-C1 at @s run tp @s ^ ^ ^1\nexecute store result score 0-0-0-0-C1 _pos_0 run data get entity 0-0-0-0-C1 Pos[0] 10000\nexecute store result score 0-0-0-0-C1 _pos_1 run data get entity 0-0-0-0-C1 Pos[1] 10000\nexecute store result score 0-0-0-0-C1 _pos_2 run data get entity 0-0-0-0-C1 Pos[2] 10000\nscoreboard players operation Global mai_scratch3 = 0-0-0-0-C1 _pos_0\nscoreboard players operation Global mai_scratch4 = 0-0-0-0-C1 _pos_1\nscoreboard players operation Global mai_scratch5 = 0-0-0-0-C1 _pos_2\nscoreboard players operation Global mai_scratch3 -= Global _start_0\nscoreboard players operation Global mai_scratch4 -= Global _start_1\nscoreboard players operation Global mai_scratch5 -= Global _start_2\nscoreboard players operation Global fx = Global mai_scratch3\nscoreboard players operation Global fy = Global mai_scratch4\nscoreboard players operation Global fz = Global mai_scratch5\nscoreboard players operation Global mai_scratch3 = Global dx\nscoreboard players operation Global mai_scratch4 = Global mai_scratch3\nscoreboard players operation Global mai_scratch3 *= Global mai_scratch4\nscoreboard players operation Global mai_scratch4 = Global dz\nscoreboard players operation Global mai_scratch5 = Global mai_scratch4\nscoreboard players operation Global mai_scratch4 *= Global mai_scratch5\nscoreboard players operation Global hmag = Global mai_scratch3\nscoreboard players operation Global hmag += Global mai_scratch4\nscoreboard players operation Global Param0 = Global hmag\nfunction creative_flight_settings:sqrt\nscoreboard players operation Global hspeed = Global ReturnValue\nscoreboard players operation Global nx = Global dx\nscoreboard players operation Global nx *= c1000 Constant\nscoreboard players operation Global nx /= Global hspeed\nscoreboard players operation Global nz = Global dz\nscoreboard players operation Global nz *= c1000 Constant\nscoreboard players operation Global nz /= Global hspeed\nscoreboard players operation Global mult = Global nx\nscoreboard players operation Global mult *= Global fx\nscoreboard players operation Global mai_scratch4 = Global nz\nscoreboard players operation Global mai_scratch4 *= Global fz\nscoreboard players operation Global mult += Global mai_scratch4\nscoreboard players operation Global mult /= c1000 Constant\nscoreboard players operation Global vmove = Global hspeed\nscoreboard players operation Global vmove *= Global slope\nscoreboard players operation Global vmove /= c1000 Constant\nscoreboard players operation Global vmove *= Global mult\nscoreboard players operation Global vmove /= c1000 Constant\nexecute if score Global vmove matches 513.. run function creative_flight_settings:line304/execute22\nexecute if score Global vmove matches ..-513 run function creative_flight_settings:line308/execute23\nexecute if score Global vmove matches 257.. run function creative_flight_settings:line304/execute24\nexecute if score Global vmove matches ..-257 run function creative_flight_settings:line308/execute25\nexecute if score Global vmove matches 129.. run function creative_flight_settings:line304/execute26\nexecute if score Global vmove matches ..-129 run function creative_flight_settings:line308/execute27\nexecute if score Global vmove matches 65.. run function creative_flight_settings:line304/execute28\nexecute if score Global vmove matches ..-65 run function creative_flight_settings:line308/execute29\nexecute if score Global vmove matches 33.. run function creative_flight_settings:line304/execute30\nexecute if score Global vmove matches ..-33 run function creative_flight_settings:line308/execute31\nexecute if score Global vmove matches 17.. run function creative_flight_settings:line304/execute32\nexecute if score Global vmove matches ..-17 run function creative_flight_settings:line308/execute33\nexecute if score Global vmove matches 9.. run function creative_flight_settings:line304/execute34\nexecute if score Global vmove matches ..-9 run function creative_flight_settings:line308/execute35\nexecute if score Global vmove matches 5.. run function creative_flight_settings:line304/execute36\nexecute if score Global vmove matches ..-5 run function creative_flight_settings:line308/execute37\nexecute if score Global vmove matches 3.. run function creative_flight_settings:line304/execute38\nexecute if score Global vmove matches ..-3 run function creative_flight_settings:line308/execute39\nexecute if score Global vmove matches 2.. run function creative_flight_settings:line304/execute40\nexecute if score Global vmove matches ..-2 run function creative_flight_settings:line308/execute41"
+  ],
+  [
+   "data/creative_flight_settings/function/line315/execute43.mcfunction",
+   "execute store result score @a[limit=1,scores={check=1..,mai_scratch0=1..}] _pos_0 run data get entity @a[limit=1,scores={check=1..,mai_scratch0=1..}] Pos[0] 10000\nexecute store result score @a[limit=1,scores={check=1..,mai_scratch0=1..}] _pos_1 run data get entity @a[limit=1,scores={check=1..,mai_scratch0=1..}] Pos[1] 10000\nexecute store result score @a[limit=1,scores={check=1..,mai_scratch0=1..}] _pos_2 run data get entity @a[limit=1,scores={check=1..,mai_scratch0=1..}] Pos[2] 10000\nscoreboard players operation @s _pos_0 = @a[limit=1,scores={check=1..,mai_scratch0=1..}] _pos_0\nscoreboard players operation @s _pos_1 = @a[limit=1,scores={check=1..,mai_scratch0=1..}] _pos_1\nscoreboard players operation @s _pos_2 = @a[limit=1,scores={check=1..,mai_scratch0=1..}] _pos_2\nexecute store result entity @s Pos[0] double 0.0001 run scoreboard players get @s _pos_0\nexecute store result entity @s Pos[1] double 0.0001 run scoreboard players get @s _pos_1\nexecute store result entity @s Pos[2] double 0.0001 run scoreboard players get @s _pos_2"
+  ],
+  [
+   "data/creative_flight_settings/function/line255/else44.mcfunction",
+   "scoreboard players operation Global mai_scratch2 = Global _pos1_0\nscoreboard players operation Global mai_scratch3 = Global _pos1_1\nscoreboard players operation Global mai_scratch4 = Global _pos1_2\nscoreboard players operation Global mai_scratch2 -= Global _pos2_0\nscoreboard players operation Global mai_scratch3 -= Global _pos2_1\nscoreboard players operation Global mai_scratch4 -= Global _pos2_2\nscoreboard players operation Global dx = Global mai_scratch2\nscoreboard players operation Global dy = Global mai_scratch3\nscoreboard players operation Global dz = Global mai_scratch4\nscoreboard players operation Global mai_scratch2 = Global dx\nscoreboard players operation Global mai_scratch3 = Global mai_scratch2\nscoreboard players operation Global mai_scratch2 *= Global mai_scratch3\nscoreboard players operation Global mai_scratch3 = Global dy\nscoreboard players operation Global mai_scratch4 = Global mai_scratch3\nscoreboard players operation Global mai_scratch3 *= Global mai_scratch4\nscoreboard players operation Global speedsq = Global mai_scratch2\nscoreboard players operation Global speedsq += Global mai_scratch3\nscoreboard players operation Global mai_scratch3 = Global dz\nscoreboard players operation Global mai_scratch4 = Global mai_scratch3\nscoreboard players operation Global mai_scratch3 *= Global mai_scratch4\nscoreboard players operation Global speedsq += Global mai_scratch3\ngamerule sendCommandFeedback false\ngamemode spectator @s[gamemode=creative,scores={noclip=1..}]\ngamerule sendCommandFeedback true\nscoreboard players operation Global oldspeedsq = @s speedsq\nscoreboard players operation Global oldspeedsq *= c9 Constant\nscoreboard players operation Global oldspeedsq /= c10 Constant\nscoreboard players set Global mai_scratch3 1\nexecute if score Global speedsq < Global oldspeedsq run function creative_flight_settings:line266/execute20\nexecute if score Global mai_scratch3 matches 1.. run function creative_flight_settings:line266/else21\nscoreboard players operation @s speedsq = Global speedsq\nexecute if score @s vflight matches 1.. run function creative_flight_settings:line275/execute42\nscoreboard players operation Global _id = @s marker\nexecute as @e[type=minecraft:marker] if score @s _id = Global _id run function creative_flight_settings:line315/execute43"
+  ],
+  [
+   "data/creative_flight_settings/function/line319/execute45.mcfunction",
+   "gamerule sendCommandFeedback false\ngamemode creative @s[gamemode=spectator,scores={noclip=1..}]\ngamerule sendCommandFeedback true"
+  ],
+  [
+   "data/creative_flight_settings/function/line326/execute46.mcfunction",
+   "tp @s 0 0 0\ntp @s ~ ~ ~"
+  ],
+  [
+   "data/creative_flight_settings/function/line324/execute47.mcfunction",
+   "scoreboard players set @s speedsq 0\nexecute at @s[scores={nomomentum=1..}] run function creative_flight_settings:line326/execute46"
+  ],
+  [
+   "data/creative_flight_settings/function/for48_ln200.mcfunction",
+   "scoreboard players set @s mai_scratch0 1\nexecute unless score @s FlightSettings matches 0 run function creative_flight_settings:line201/execute16\nexecute store result score @s _pos_0 run data get entity @s Pos[0] 10000\nexecute store result score @s _pos_1 run data get entity @s Pos[1] 10000\nexecute store result score @s _pos_2 run data get entity @s Pos[2] 10000\nscoreboard players operation Global _pos1_0 = @s _pos_0\nscoreboard players operation Global _pos1_1 = @s _pos_1\nscoreboard players operation Global _pos1_2 = @s _pos_2\nscoreboard players operation Global _id = @s marker\nscoreboard players set Global mai_scratch1 1\nexecute as @e[type=minecraft:marker] if score @s _id = Global _id run function creative_flight_settings:line247/execute17\nexecute if score Global mai_scratch1 matches 1.. at @s run function creative_flight_settings:line250/execute18\nscoreboard players set Global mai_scratch1 1\nexecute if score Global _pos1_0 = Global _pos2_0 if score Global _pos1_1 = Global _pos2_1 if score Global _pos1_2 = Global _pos2_2 run function creative_flight_settings:line255/execute19\nexecute if score Global mai_scratch1 matches 1.. run function creative_flight_settings:line255/else44\nexecute if score @s stop_count matches 2.. at @s if block ~ ~ ~ #creative_flight_settings:none if block ~ ~1 ~ #creative_flight_settings:none run function creative_flight_settings:line319/execute45\nexecute if score @s stop_count matches 6 run function creative_flight_settings:line324/execute47\nscoreboard players set @s mai_scratch0 0"
+  ],
+  [
+   "data/minecraft/tags/function/tick.json",
+   "{\n    \"values\": [\n        \"creative_flight_settings:main\"\n    ]\n}"
+  ],
+  [
+   "data/minecraft/tags/function/load.json",
+   "{\n    \"values\": [\n        \"creative_flight_settings:reset\"\n    ]\n}"
+  ],
+  [
+   "data/creative_flight_settings/tags/block/none.json",
+   "{\n    \"values\": [\n        \"minecraft:air\",\n        \"minecraft:cave_air\",\n        \"minecraft:grass\",\n        \"minecraft:fern\",\n        \"minecraft:dead_bush\",\n        \"minecraft:seagrass\",\n        \"minecraft:tall_seagrass\",\n        \"minecraft:piston_head\",\n        \"minecraft:tall_grass\",\n        \"minecraft:oak_sapling\",\n        \"minecraft:spruce_sapling\",\n        \"minecraft:birch_sapling\",\n        \"minecraft:jungle_sapling\",\n        \"minecraft:acacia_sapling\",\n        \"minecraft:dark_oak_sapling\",\n        \"minecraft:glass\",\n        \"minecraft:powered_rail\",\n        \"minecraft:detector_rail\",\n        \"minecraft:moving_piston\",\n        \"minecraft:dandelion\",\n        \"minecraft:poppy\",\n        \"minecraft:blue_orchid\",\n        \"minecraft:allium\",\n        \"minecraft:azure_bluet\",\n        \"minecraft:red_tulip\",\n        \"minecraft:orange_tulip\",\n        \"minecraft:white_tulip\",\n        \"minecraft:pink_tulip\",\n        \"minecraft:oxeye_daisy\",\n        \"minecraft:brown_mushroom\",\n        \"minecraft:red_mushroom\",\n        \"minecraft:torch\",\n        \"minecraft:wall_torch\",\n        \"minecraft:redstone_wire\",\n        \"minecraft:wheat\",\n        \"minecraft:ladder\",\n        \"minecraft:rail\",\n        \"minecraft:lever\",\n        \"minecraft:redstone_torch\",\n        \"minecraft:redstone_wall_torch\",\n        \"minecraft:stone_button\",\n        \"minecraft:sugar_cane\",\n        \"minecraft:white_stained_glass\",\n        \"minecraft:orange_stained_glass\",\n        \"minecraft:magenta_stained_glass\",\n        \"minecraft:light_blue_stained_glass\",\n        \"minecraft:yellow_stained_glass\",\n        \"minecraft:lime_stained_glass\",\n        \"minecraft:pink_stained_glass\",\n        \"minecraft:gray_stained_glass\",\n        \"minecraft:light_gray_stained_glass\",\n        \"minecraft:cyan_stained_glass\",\n        \"minecraft:purple_stained_glass\",\n        \"minecraft:blue_stained_glass\",\n        \"minecraft:brown_stained_glass\",\n        \"minecraft:green_stained_glass\",\n        \"minecraft:red_stained_glass\",\n        \"minecraft:black_stained_glass\",\n        \"minecraft:glass_pane\",\n        \"minecraft:attached_pumpkin_stem\",\n        \"minecraft:attached_melon_stem\",\n        \"minecraft:pumpkin_stem\",\n        \"minecraft:melon_stem\",\n        \"minecraft:nether_wart\",\n        \"minecraft:cocoa\",\n        \"minecraft:tripwire_hook\",\n        \"minecraft:tripwire\",\n        \"minecraft:beacon\",\n        \"minecraft:flower_pot\",\n        \"minecraft:potted_oak_sapling\",\n        \"minecraft:potted_spruce_sapling\",\n        \"minecraft:potted_birch_sapling\",\n        \"minecraft:potted_jungle_sapling\",\n        \"minecraft:potted_acacia_sapling\",\n        \"minecraft:potted_dark_oak_sapling\",\n        \"minecraft:potted_fern\",\n        \"minecraft:potted_dandelion\",\n        \"minecraft:potted_poppy\",\n        \"minecraft:potted_blue_orchid\",\n        \"minecraft:potted_allium\",\n        \"minecraft:potted_azure_bluet\",\n        \"minecraft:potted_red_tulip\",\n        \"minecraft:potted_orange_tulip\",\n        \"minecraft:potted_white_tulip\",\n        \"minecraft:potted_pink_tulip\",\n        \"minecraft:potted_oxeye_daisy\",\n        \"minecraft:potted_red_mushroom\",\n        \"minecraft:potted_brown_mushroom\",\n        \"minecraft:potted_dead_bush\",\n        \"minecraft:potted_cactus\",\n        \"minecraft:carrots\",\n        \"minecraft:potatoes\",\n        \"minecraft:oak_button\",\n        \"minecraft:spruce_button\",\n        \"minecraft:birch_button\",\n        \"minecraft:jungle_button\",\n        \"minecraft:acacia_button\",\n        \"minecraft:dark_oak_button\",\n        \"minecraft:skeleton_wall_skull\",\n        \"minecraft:skeleton_skull\",\n        \"minecraft:wither_skeleton_wall_skull\",\n        \"minecraft:wither_skeleton_skull\",\n        \"minecraft:zombie_wall_head\",\n        \"minecraft:zombie_head\",\n        \"minecraft:player_wall_head\",\n        \"minecraft:player_head\",\n        \"minecraft:creeper_wall_head\",\n        \"minecraft:creeper_head\",\n        \"minecraft:dragon_wall_head\",\n        \"minecraft:dragon_head\",\n        \"minecraft:activator_rail\",\n        \"minecraft:white_stained_glass_pane\",\n        \"minecraft:orange_stained_glass_pane\",\n        \"minecraft:magenta_stained_glass_pane\",\n        \"minecraft:light_blue_stained_glass_pane\",\n        \"minecraft:yellow_stained_glass_pane\",\n        \"minecraft:lime_stained_glass_pane\",\n        \"minecraft:pink_stained_glass_pane\",\n        \"minecraft:gray_stained_glass_pane\",\n        \"minecraft:light_gray_stained_glass_pane\",\n        \"minecraft:cyan_stained_glass_pane\",\n        \"minecraft:purple_stained_glass_pane\",\n        \"minecraft:blue_stained_glass_pane\",\n        \"minecraft:brown_stained_glass_pane\",\n        \"minecraft:green_stained_glass_pane\",\n        \"minecraft:red_stained_glass_pane\",\n        \"minecraft:black_stained_glass_pane\",\n        \"minecraft:barrier\",\n        \"minecraft:sunflower\",\n        \"minecraft:lilac\",\n        \"minecraft:rose_bush\",\n        \"minecraft:peony\",\n        \"minecraft:tall_grass\",\n        \"minecraft:large_fern\",\n        \"minecraft:end_rod\",\n        \"minecraft:chorus_plant\",\n        \"minecraft:chorus_flower\",\n        \"minecraft:beetroots\",\n        \"minecraft:structure_void\",\n        \"minecraft:kelp\",\n        \"minecraft:kelp_plant\",\n        \"minecraft:turtle_egg\",\n        \"minecraft:dead_tube_coral\",\n        \"minecraft:dead_brain_coral\",\n        \"minecraft:dead_bubble_coral\",\n        \"minecraft:dead_fire_coral\",\n        \"minecraft:dead_horn_coral\",\n        \"minecraft:tube_coral\",\n        \"minecraft:brain_coral\",\n        \"minecraft:bubble_coral\",\n        \"minecraft:fire_coral\",\n        \"minecraft:horn_coral\",\n        \"minecraft:dead_tube_coral_wall_fan\",\n        \"minecraft:dead_brain_coral_wall_fan\",\n        \"minecraft:dead_bubble_coral_wall_fan\",\n        \"minecraft:dead_fire_coral_wall_fan\",\n        \"minecraft:dead_horn_coral_wall_fan\",\n        \"minecraft:tube_coral_wall_fan\",\n        \"minecraft:brain_coral_wall_fan\",\n        \"minecraft:bubble_coral_wall_fan\",\n        \"minecraft:fire_coral_wall_fan\",\n        \"minecraft:horn_coral_wall_fan\",\n        \"minecraft:dead_tube_coral_fan\",\n        \"minecraft:dead_brain_coral_fan\",\n        \"minecraft:dead_bubble_coral_fan\",\n        \"minecraft:dead_fire_coral_fan\",\n        \"minecraft:dead_horn_coral_fan\",\n        \"minecraft:tube_coral_fan\",\n        \"minecraft:brain_coral_fan\",\n        \"minecraft:bubble_coral_fan\",\n        \"minecraft:fire_coral_fan\",\n        \"minecraft:horn_coral_fan\",\n        \"minecraft:sea_pickle\",\n        \"minecraft:conduit\",\n        \"minecraft:void_air\",\n        \"minecraft:water\",\n        \"minecraft:lava\"\n    ]\n}"
+  ],
+  [
+   "pack.mcmeta",
+   "{\n    \"pack\": {\n        \"pack_format\": 61,\n        \"description\": \"Noclip for creative mode\"\n    }\n}"
+  ]
+ ]
+}

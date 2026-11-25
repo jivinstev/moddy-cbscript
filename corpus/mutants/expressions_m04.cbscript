@@ -1,0 +1,43 @@
+# mutant of corpus/programs/expressions.cbscript: delete token '-' on line 33
+dir "."
+desc "Scalar expressions"
+
+$value = 21
+
+reset
+	a = 1
+	b = 2
+	c = a + b * 3 - 4 / 2 % 7
+	c = (a + b) * (c - a)
+	c = -a
+	c = - (a + 3)
+	c = a ^ 3
+	c += 5
+	c -= -5
+	c *= a
+	c /= 2
+	c %= 3
+	c++
+	c--
+	c = 0x1F + 0b101 - -7 + -0x10
+	@s.hp = @s.hp + 1
+	@a.kills += 1
+	@p.deaths -= @s.deaths
+	d = scale
+	e = add(1, 2)
+	f = @s.method_like(3)
+	x = 5
+	x = x + x
+	x = 3 + x
+	x = 3 * x
+	x = x * 3
+	x = x  0
+	x = x + -4
+	g = $value
+	h = $value * 2
+end
+
+
+function add(p, q)
+	return p + q
+end

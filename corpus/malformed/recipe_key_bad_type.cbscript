@@ -1,0 +1,8 @@
+dir "."
+shaped recipe
+	"A"
+	keys
+		A = block:stone
+	end
+	result: 1 stick
+end
