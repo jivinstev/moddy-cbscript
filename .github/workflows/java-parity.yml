@@ -12,8 +12,8 @@ on:
 
 jobs:
   goldens:
-    # Pinned: the goldens (and the evaluator's math cases) are CPython on glibc 2.39 / x86-64 with FMA, whose libm the
-    # Java evaluator reproduces bit for bit (java/THIRD_PARTY.md). Move this together with a golden regeneration.
+    # Pinned: the goldens and the evaluator's cases are CPython's output on this platform, and CPython's math functions
+    # depend on the platform's libm (JAVA_PORT.md, "Compile-time math"). Move this together with a regeneration.
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4

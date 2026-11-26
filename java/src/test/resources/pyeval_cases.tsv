@@ -15,8 +15,8 @@
 0_0	R:0	
 123456789012345678901234567890	R:123456789012345678901234567890	
 -123456789012345678901234567890	R:-123456789012345678901234567890	
-2**64	R:18446744073709551616	
--2**63	R:-9223372036854775808	
+2**64	R:18446744073709551616		libm
+-2**63	R:-9223372036854775808		libm
 1.5	R:1.5	
 1.	R:1.0	
 .5	R:0.5	
@@ -110,8 +110,8 @@ u'abc'	R:'abc'
 [*[1, 2], *(3,)]	R:[1, 2, 3]	
 (*l, *t)	R:(1, 2, 3, 4, 5)	
 {*l, *t}	R:{1, 2, 3, 4, 5}	
-{**d, "c": 3}	R:{'a': 1, 'b': [2, 3], 'c': 3}	
-{**{'a': 1}, 'a': 2}	R:{'a': 2}	
+{**d, "c": 3}	R:{'a': 1, 'b': [2, 3], 'c': 3}		libm
+{**{'a': 1}, 'a': 2}	R:{'a': 2}		libm
 [[]] * 3	R:[[], [], []]	
 1, 2	R:(1, 2)	
 1,	R:(1,)	
@@ -142,7 +142,7 @@ i * i	R:49
 i / 2	R:3.5	
 i // 2	R:3	
 i % 3	R:1	
-i ** 2	R:49	
+i ** 2	R:49		libm
 i == 7	R:True	
 i != 7	R:False	
 i <= 7	R:True	
@@ -155,7 +155,6 @@ l[1]	R:2
 d['b'][0]	R:2	
 len(l)	R:3	
 undefined_name	E:NameError: name 'undefined_name' is not defined	
-math	R:<module 'math' (built-in)>	
 len	R:<built-in function len>	
 math.pi	R:3.141592653589793	
 i.real	R:7	
@@ -190,12 +189,12 @@ big + 1	R:1180591620717411303425
 7 / -0.5	R:-14.0	
 7 // -0.5	R:-14.0	
 7 % -0.5	R:-0.0	
-7 + 2**64	R:18446744073709551623	
-7 - 2**64	R:-18446744073709551609	
-7 * 2**64	R:129127208515966861312	
-7 / 2**64	R:3.7947076036992655e-19	
-7 // 2**64	R:0	
-7 % 2**64	R:7	
+7 + 2**64	R:18446744073709551623		libm
+7 - 2**64	R:-18446744073709551609		libm
+7 * 2**64	R:129127208515966861312		libm
+7 / 2**64	R:3.7947076036992655e-19		libm
+7 // 2**64	R:0		libm
+7 % 2**64	R:7		libm
 7 + False	R:7	
 7 - False	R:7	
 7 * False	R:0	
@@ -238,12 +237,12 @@ big + 1	R:1180591620717411303425
 -7 / -0.5	R:14.0	
 -7 // -0.5	R:14.0	
 -7 % -0.5	R:-0.0	
--7 + 2**64	R:18446744073709551609	
--7 - 2**64	R:-18446744073709551623	
--7 * 2**64	R:-129127208515966861312	
--7 / 2**64	R:-3.7947076036992655e-19	
--7 // 2**64	R:-1	
--7 % 2**64	R:18446744073709551609	
+-7 + 2**64	R:18446744073709551609		libm
+-7 - 2**64	R:-18446744073709551623		libm
+-7 * 2**64	R:-129127208515966861312		libm
+-7 / 2**64	R:-3.7947076036992655e-19		libm
+-7 // 2**64	R:-1		libm
+-7 % 2**64	R:18446744073709551609		libm
 -7 + False	R:-7	
 -7 - False	R:-7	
 -7 * False	R:0	
@@ -286,12 +285,12 @@ big + 1	R:1180591620717411303425
 0 / -0.5	R:-0.0	
 0 // -0.5	R:-0.0	
 0 % -0.5	R:-0.0	
-0 + 2**64	R:18446744073709551616	
-0 - 2**64	R:-18446744073709551616	
-0 * 2**64	R:0	
-0 / 2**64	R:0.0	
-0 // 2**64	R:0	
-0 % 2**64	R:0	
+0 + 2**64	R:18446744073709551616		libm
+0 - 2**64	R:-18446744073709551616		libm
+0 * 2**64	R:0		libm
+0 / 2**64	R:0.0		libm
+0 // 2**64	R:0		libm
+0 % 2**64	R:0		libm
 0 + False	R:0	
 0 - False	R:0	
 0 * False	R:0	
@@ -310,102 +309,102 @@ big + 1	R:1180591620717411303425
 0 / 0	E:ZeroDivisionError: division by zero	
 0 // 0	E:ZeroDivisionError: integer division or modulo by zero	
 0 % 0	E:ZeroDivisionError: integer modulo by zero	
-2**65 + 2	R:36893488147419103234	
-2**65 - 2	R:36893488147419103230	
-2**65 * 2	R:73786976294838206464	
-2**65 / 2	R:1.8446744073709552e+19	
-2**65 // 2	R:18446744073709551616	
-2**65 % 2	R:0	
-2**65 + -2	R:36893488147419103230	
-2**65 - -2	R:36893488147419103234	
-2**65 * -2	R:-73786976294838206464	
-2**65 / -2	R:-1.8446744073709552e+19	
-2**65 // -2	R:-18446744073709551616	
-2**65 % -2	R:0	
-2**65 + 3.5	R:3.6893488147419103e+19	
-2**65 - 3.5	R:3.6893488147419103e+19	
-2**65 * 3.5	R:1.2912720851596686e+20	
-2**65 / 3.5	R:1.0540996613548315e+19	
-2**65 // 3.5	R:1.0540996613548315e+19	
-2**65 % 3.5	R:0.5	
-2**65 + -0.5	R:3.6893488147419103e+19	
-2**65 - -0.5	R:3.6893488147419103e+19	
-2**65 * -0.5	R:-1.8446744073709552e+19	
-2**65 / -0.5	R:-7.378697629483821e+19	
-2**65 // -0.5	R:-7.378697629483821e+19	
-2**65 % -0.5	R:-0.0	
-2**65 + 2**64	R:55340232221128654848	
-2**65 - 2**64	R:18446744073709551616	
-2**65 * 2**64	R:680564733841876926926749214863536422912	
-2**65 / 2**64	R:2.0	
-2**65 // 2**64	R:2	
-2**65 % 2**64	R:0	
-2**65 + False	R:36893488147419103232	
-2**65 - False	R:36893488147419103232	
-2**65 * False	R:0	
-2**65 / False	E:ZeroDivisionError: division by zero	
-2**65 // False	E:ZeroDivisionError: integer division or modulo by zero	
-2**65 % False	E:ZeroDivisionError: integer modulo by zero	
-2**65 + 0.0	R:3.6893488147419103e+19	
-2**65 - 0.0	R:3.6893488147419103e+19	
-2**65 * 0.0	R:0.0	
-2**65 / 0.0	E:ZeroDivisionError: float division by zero	
-2**65 // 0.0	E:ZeroDivisionError: float floor division by zero	
-2**65 % 0.0	E:ZeroDivisionError: float modulo by zero	
-2**65 + 0	R:36893488147419103232	
-2**65 - 0	R:36893488147419103232	
-2**65 * 0	R:0	
-2**65 / 0	E:ZeroDivisionError: division by zero	
-2**65 // 0	E:ZeroDivisionError: integer division or modulo by zero	
-2**65 % 0	E:ZeroDivisionError: integer modulo by zero	
--(2**65) + 2	R:-36893488147419103230	
--(2**65) - 2	R:-36893488147419103234	
--(2**65) * 2	R:-73786976294838206464	
--(2**65) / 2	R:-1.8446744073709552e+19	
--(2**65) // 2	R:-18446744073709551616	
--(2**65) % 2	R:0	
--(2**65) + -2	R:-36893488147419103234	
--(2**65) - -2	R:-36893488147419103230	
--(2**65) * -2	R:73786976294838206464	
--(2**65) / -2	R:1.8446744073709552e+19	
--(2**65) // -2	R:18446744073709551616	
--(2**65) % -2	R:0	
--(2**65) + 3.5	R:-3.6893488147419103e+19	
--(2**65) - 3.5	R:-3.6893488147419103e+19	
--(2**65) * 3.5	R:-1.2912720851596686e+20	
--(2**65) / 3.5	R:-1.0540996613548315e+19	
--(2**65) // 3.5	R:-1.0540996613548315e+19	
--(2**65) % 3.5	R:3.0	
--(2**65) + -0.5	R:-3.6893488147419103e+19	
--(2**65) - -0.5	R:-3.6893488147419103e+19	
--(2**65) * -0.5	R:1.8446744073709552e+19	
--(2**65) / -0.5	R:7.378697629483821e+19	
--(2**65) // -0.5	R:7.378697629483821e+19	
--(2**65) % -0.5	R:-0.0	
--(2**65) + 2**64	R:-18446744073709551616	
--(2**65) - 2**64	R:-55340232221128654848	
--(2**65) * 2**64	R:-680564733841876926926749214863536422912	
--(2**65) / 2**64	R:-2.0	
--(2**65) // 2**64	R:-2	
--(2**65) % 2**64	R:0	
--(2**65) + False	R:-36893488147419103232	
--(2**65) - False	R:-36893488147419103232	
--(2**65) * False	R:0	
--(2**65) / False	E:ZeroDivisionError: division by zero	
--(2**65) // False	E:ZeroDivisionError: integer division or modulo by zero	
--(2**65) % False	E:ZeroDivisionError: integer modulo by zero	
--(2**65) + 0.0	R:-3.6893488147419103e+19	
--(2**65) - 0.0	R:-3.6893488147419103e+19	
--(2**65) * 0.0	R:-0.0	
--(2**65) / 0.0	E:ZeroDivisionError: float division by zero	
--(2**65) // 0.0	E:ZeroDivisionError: float floor division by zero	
--(2**65) % 0.0	E:ZeroDivisionError: float modulo by zero	
--(2**65) + 0	R:-36893488147419103232	
--(2**65) - 0	R:-36893488147419103232	
--(2**65) * 0	R:0	
--(2**65) / 0	E:ZeroDivisionError: division by zero	
--(2**65) // 0	E:ZeroDivisionError: integer division or modulo by zero	
--(2**65) % 0	E:ZeroDivisionError: integer modulo by zero	
+2**65 + 2	R:36893488147419103234		libm
+2**65 - 2	R:36893488147419103230		libm
+2**65 * 2	R:73786976294838206464		libm
+2**65 / 2	R:1.8446744073709552e+19		libm
+2**65 // 2	R:18446744073709551616		libm
+2**65 % 2	R:0		libm
+2**65 + -2	R:36893488147419103230		libm
+2**65 - -2	R:36893488147419103234		libm
+2**65 * -2	R:-73786976294838206464		libm
+2**65 / -2	R:-1.8446744073709552e+19		libm
+2**65 // -2	R:-18446744073709551616		libm
+2**65 % -2	R:0		libm
+2**65 + 3.5	R:3.6893488147419103e+19		libm
+2**65 - 3.5	R:3.6893488147419103e+19		libm
+2**65 * 3.5	R:1.2912720851596686e+20		libm
+2**65 / 3.5	R:1.0540996613548315e+19		libm
+2**65 // 3.5	R:1.0540996613548315e+19		libm
+2**65 % 3.5	R:0.5		libm
+2**65 + -0.5	R:3.6893488147419103e+19		libm
+2**65 - -0.5	R:3.6893488147419103e+19		libm
+2**65 * -0.5	R:-1.8446744073709552e+19		libm
+2**65 / -0.5	R:-7.378697629483821e+19		libm
+2**65 // -0.5	R:-7.378697629483821e+19		libm
+2**65 % -0.5	R:-0.0		libm
+2**65 + 2**64	R:55340232221128654848		libm
+2**65 - 2**64	R:18446744073709551616		libm
+2**65 * 2**64	R:680564733841876926926749214863536422912		libm
+2**65 / 2**64	R:2.0		libm
+2**65 // 2**64	R:2		libm
+2**65 % 2**64	R:0		libm
+2**65 + False	R:36893488147419103232		libm
+2**65 - False	R:36893488147419103232		libm
+2**65 * False	R:0		libm
+2**65 / False	E:ZeroDivisionError: division by zero		libm
+2**65 // False	E:ZeroDivisionError: integer division or modulo by zero		libm
+2**65 % False	E:ZeroDivisionError: integer modulo by zero		libm
+2**65 + 0.0	R:3.6893488147419103e+19		libm
+2**65 - 0.0	R:3.6893488147419103e+19		libm
+2**65 * 0.0	R:0.0		libm
+2**65 / 0.0	E:ZeroDivisionError: float division by zero		libm
+2**65 // 0.0	E:ZeroDivisionError: float floor division by zero		libm
+2**65 % 0.0	E:ZeroDivisionError: float modulo by zero		libm
+2**65 + 0	R:36893488147419103232		libm
+2**65 - 0	R:36893488147419103232		libm
+2**65 * 0	R:0		libm
+2**65 / 0	E:ZeroDivisionError: division by zero		libm
+2**65 // 0	E:ZeroDivisionError: integer division or modulo by zero		libm
+2**65 % 0	E:ZeroDivisionError: integer modulo by zero		libm
+-(2**65) + 2	R:-36893488147419103230		libm
+-(2**65) - 2	R:-36893488147419103234		libm
+-(2**65) * 2	R:-73786976294838206464		libm
+-(2**65) / 2	R:-1.8446744073709552e+19		libm
+-(2**65) // 2	R:-18446744073709551616		libm
+-(2**65) % 2	R:0		libm
+-(2**65) + -2	R:-36893488147419103234		libm
+-(2**65) - -2	R:-36893488147419103230		libm
+-(2**65) * -2	R:73786976294838206464		libm
+-(2**65) / -2	R:1.8446744073709552e+19		libm
+-(2**65) // -2	R:18446744073709551616		libm
+-(2**65) % -2	R:0		libm
+-(2**65) + 3.5	R:-3.6893488147419103e+19		libm
+-(2**65) - 3.5	R:-3.6893488147419103e+19		libm
+-(2**65) * 3.5	R:-1.2912720851596686e+20		libm
+-(2**65) / 3.5	R:-1.0540996613548315e+19		libm
+-(2**65) // 3.5	R:-1.0540996613548315e+19		libm
+-(2**65) % 3.5	R:3.0		libm
+-(2**65) + -0.5	R:-3.6893488147419103e+19		libm
+-(2**65) - -0.5	R:-3.6893488147419103e+19		libm
+-(2**65) * -0.5	R:1.8446744073709552e+19		libm
+-(2**65) / -0.5	R:7.378697629483821e+19		libm
+-(2**65) // -0.5	R:7.378697629483821e+19		libm
+-(2**65) % -0.5	R:-0.0		libm
+-(2**65) + 2**64	R:-18446744073709551616		libm
+-(2**65) - 2**64	R:-55340232221128654848		libm
+-(2**65) * 2**64	R:-680564733841876926926749214863536422912		libm
+-(2**65) / 2**64	R:-2.0		libm
+-(2**65) // 2**64	R:-2		libm
+-(2**65) % 2**64	R:0		libm
+-(2**65) + False	R:-36893488147419103232		libm
+-(2**65) - False	R:-36893488147419103232		libm
+-(2**65) * False	R:0		libm
+-(2**65) / False	E:ZeroDivisionError: division by zero		libm
+-(2**65) // False	E:ZeroDivisionError: integer division or modulo by zero		libm
+-(2**65) % False	E:ZeroDivisionError: integer modulo by zero		libm
+-(2**65) + 0.0	R:-3.6893488147419103e+19		libm
+-(2**65) - 0.0	R:-3.6893488147419103e+19		libm
+-(2**65) * 0.0	R:-0.0		libm
+-(2**65) / 0.0	E:ZeroDivisionError: float division by zero		libm
+-(2**65) // 0.0	E:ZeroDivisionError: float floor division by zero		libm
+-(2**65) % 0.0	E:ZeroDivisionError: float modulo by zero		libm
+-(2**65) + 0	R:-36893488147419103232		libm
+-(2**65) - 0	R:-36893488147419103232		libm
+-(2**65) * 0	R:0		libm
+-(2**65) / 0	E:ZeroDivisionError: division by zero		libm
+-(2**65) // 0	E:ZeroDivisionError: integer division or modulo by zero		libm
+-(2**65) % 0	E:ZeroDivisionError: integer modulo by zero		libm
 7.0 + 2	R:9.0	
 7.0 - 2	R:5.0	
 7.0 * 2	R:14.0	
@@ -430,12 +429,12 @@ big + 1	R:1180591620717411303425
 7.0 / -0.5	R:-14.0	
 7.0 // -0.5	R:-14.0	
 7.0 % -0.5	R:-0.0	
-7.0 + 2**64	R:1.8446744073709552e+19	
-7.0 - 2**64	R:-1.8446744073709552e+19	
-7.0 * 2**64	R:1.2912720851596686e+20	
-7.0 / 2**64	R:3.7947076036992655e-19	
-7.0 // 2**64	R:0.0	
-7.0 % 2**64	R:7.0	
+7.0 + 2**64	R:1.8446744073709552e+19		libm
+7.0 - 2**64	R:-1.8446744073709552e+19		libm
+7.0 * 2**64	R:1.2912720851596686e+20		libm
+7.0 / 2**64	R:3.7947076036992655e-19		libm
+7.0 // 2**64	R:0.0		libm
+7.0 % 2**64	R:7.0		libm
 7.0 + False	R:7.0	
 7.0 - False	R:7.0	
 7.0 * False	R:0.0	
@@ -478,12 +477,12 @@ big + 1	R:1180591620717411303425
 -7.5 / -0.5	R:15.0	
 -7.5 // -0.5	R:15.0	
 -7.5 % -0.5	R:-0.0	
--7.5 + 2**64	R:1.8446744073709552e+19	
--7.5 - 2**64	R:-1.8446744073709552e+19	
--7.5 * 2**64	R:-1.3835058055282164e+20	
--7.5 / 2**64	R:-4.0657581468206416e-19	
--7.5 // 2**64	R:-1.0	
--7.5 % 2**64	R:1.8446744073709552e+19	
+-7.5 + 2**64	R:1.8446744073709552e+19		libm
+-7.5 - 2**64	R:-1.8446744073709552e+19		libm
+-7.5 * 2**64	R:-1.3835058055282164e+20		libm
+-7.5 / 2**64	R:-4.0657581468206416e-19		libm
+-7.5 // 2**64	R:-1.0		libm
+-7.5 % 2**64	R:1.8446744073709552e+19		libm
 -7.5 + False	R:-7.5	
 -7.5 - False	R:-7.5	
 -7.5 * False	R:-0.0	
@@ -526,12 +525,12 @@ big + 1	R:1180591620717411303425
 0.0 / -0.5	R:-0.0	
 0.0 // -0.5	R:-0.0	
 0.0 % -0.5	R:-0.0	
-0.0 + 2**64	R:1.8446744073709552e+19	
-0.0 - 2**64	R:-1.8446744073709552e+19	
-0.0 * 2**64	R:0.0	
-0.0 / 2**64	R:0.0	
-0.0 // 2**64	R:0.0	
-0.0 % 2**64	R:0.0	
+0.0 + 2**64	R:1.8446744073709552e+19		libm
+0.0 - 2**64	R:-1.8446744073709552e+19		libm
+0.0 * 2**64	R:0.0		libm
+0.0 / 2**64	R:0.0		libm
+0.0 // 2**64	R:0.0		libm
+0.0 % 2**64	R:0.0		libm
 0.0 + False	R:0.0	
 0.0 - False	R:0.0	
 0.0 * False	R:0.0	
@@ -574,12 +573,12 @@ big + 1	R:1180591620717411303425
 -0.0 / -0.5	R:0.0	
 -0.0 // -0.5	R:0.0	
 -0.0 % -0.5	R:-0.0	
--0.0 + 2**64	R:1.8446744073709552e+19	
--0.0 - 2**64	R:-1.8446744073709552e+19	
--0.0 * 2**64	R:-0.0	
--0.0 / 2**64	R:-0.0	
--0.0 // 2**64	R:-0.0	
--0.0 % 2**64	R:0.0	
+-0.0 + 2**64	R:1.8446744073709552e+19		libm
+-0.0 - 2**64	R:-1.8446744073709552e+19		libm
+-0.0 * 2**64	R:-0.0		libm
+-0.0 / 2**64	R:-0.0		libm
+-0.0 // 2**64	R:-0.0		libm
+-0.0 % 2**64	R:0.0		libm
 -0.0 + False	R:0.0	
 -0.0 - False	R:-0.0	
 -0.0 * False	R:-0.0	
@@ -621,12 +620,12 @@ True * -0.5	R:-0.5
 True / -0.5	R:-2.0	
 True // -0.5	R:-2.0	
 True % -0.5	R:-0.0	
-True + 2**64	R:18446744073709551617	
-True - 2**64	R:-18446744073709551615	
-True * 2**64	R:18446744073709551616	
-True / 2**64	R:5.421010862427522e-20	
-True // 2**64	R:0	
-True % 2**64	R:1	
+True + 2**64	R:18446744073709551617		libm
+True - 2**64	R:-18446744073709551615		libm
+True * 2**64	R:18446744073709551616		libm
+True / 2**64	R:5.421010862427522e-20		libm
+True // 2**64	R:0		libm
+True % 2**64	R:1		libm
 True + False	R:1	
 True - False	R:1	
 True * False	R:0	
@@ -653,8 +652,8 @@ divmod(7.5, 2)	R:(3.0, 1.5)
 divmod(-7.5, 2)	R:(-4.0, 0.5)	
 divmod(7, 0.5)	R:(14.0, 0.0)	
 divmod(-1e-300, 1e300)	R:(-1.0, 1e+300)	
-divmod(2**100, 3)	R:(422550200076076467165567735125, 1)	
-divmod(-2**100, 7)	R:(-181092942889747057356671886483, 5)	
+divmod(2**100, 3)	R:(422550200076076467165567735125, 1)		libm
+divmod(-2**100, 7)	R:(-181092942889747057356671886483, 5)		libm
 divmod(1, 0)	E:ZeroDivisionError: integer division or modulo by zero	
 divmod(1.0, 0)	E:ZeroDivisionError: float divmod()	
 divmod(0.0, -1.0)	R:(-0.0, -0.0)	
@@ -671,36 +670,36 @@ divmod(0.0, -1.0)	R:(-0.0, -0.0)
 0.3 % 0.1	R:0.09999999999999998	
 10 // 0.1	R:99.0	
 10 % 0.1	R:0.09999999999999945	
-2**-1	R:0.5	
-2**-1074	R:5e-324	
-2**-1075	R:0.0	
-(-2)**3	R:-8	
-(-2)**-3	R:-0.125	
-(-2.0)**3	R:-8.0	
-2**0.5	R:1.4142135623730951	
-2.0**100	R:1.2676506002282294e+30	
-10.0**400	E:OverflowError: (34, 'Numerical result out of range')	
-10**400 / 10**399	R:10.0	
-10**400 * 1.0	E:OverflowError: int too large to convert to float	
-0**0	R:1	
-0.0**0	R:1.0	
-0**-1	E:ZeroDivisionError: 0.0 cannot be raised to a negative power	
-0.0**-1.0	E:ZeroDivisionError: 0.0 cannot be raised to a negative power	
-(-0.0)**3	R:-0.0	
-(-0.0)**-3	E:ZeroDivisionError: 0.0 cannot be raised to a negative power	
-float("inf")**0	R:1.0	
-1**float("nan")	R:1.0	
-float("nan")**0	R:1.0	
-(-1.0)**2.0	R:1.0	
-(-1)**(2**64)	R:1	
-2**3**2	R:512	
--2**2	R:-4	
-(-2)**2	R:4	
-2**-2**-1	R:0.7071067811865476	
--2**-1	R:-0.5	
+2**-1	R:0.5		libm
+2**-1074	R:5e-324		libm
+2**-1075	R:0.0		libm
+(-2)**3	R:-8		libm
+(-2)**-3	R:-0.125		libm
+(-2.0)**3	R:-8.0		libm
+2**0.5	R:1.4142135623730951		libm
+2.0**100	R:1.2676506002282294e+30		libm
+10.0**400	E:OverflowError: (34, 'Numerical result out of range')		libm
+10**400 / 10**399	R:10.0		libm
+10**400 * 1.0	E:OverflowError: int too large to convert to float		libm
+0**0	R:1		libm
+0.0**0	R:1.0		libm
+0**-1	E:ZeroDivisionError: 0.0 cannot be raised to a negative power		libm
+0.0**-1.0	E:ZeroDivisionError: 0.0 cannot be raised to a negative power		libm
+(-0.0)**3	R:-0.0		libm
+(-0.0)**-3	E:ZeroDivisionError: 0.0 cannot be raised to a negative power		libm
+float("inf")**0	R:1.0		libm
+1**float("nan")	R:1.0		libm
+float("nan")**0	R:1.0		libm
+(-1.0)**2.0	R:1.0		libm
+(-1)**(2**64)	R:1		libm
+2**3**2	R:512		libm
+-2**2	R:-4		libm
+(-2)**2	R:4		libm
+2**-2**-1	R:0.7071067811865476		libm
+-2**-1	R:-0.5		libm
 ~5	R:-6	
 ~-1	R:0	
-~(2**70)	R:-1180591620717411303425	
+~(2**70)	R:-1180591620717411303425		libm
 5 & 3	R:1	
 5 | 3	R:7	
 5 ^ 3	R:6	
@@ -713,7 +712,7 @@ float("nan")**0	R:1.0
 1024 >> 3	R:128	
 -1024 >> 3	R:-128	
 -1 >> 100	R:-1	
-2**100 >> 99	R:2	
+2**100 >> 99	R:2		libm
 1 << -1	E:ValueError: negative shift count	
 True & False	R:False	
 True | 0	R:1	
@@ -724,11 +723,11 @@ True ^ True	R:False
 2 / 3	R:0.6666666666666666	
 10 / 4	R:2.5	
 -10 / 4	R:-2.5	
-10**30 / 3	R:3.333333333333333e+29	
--(10**30) / 7	R:-1.4285714285714285e+29	
-2**1100 / 2**1000	R:1.2676506002282294e+30	
-1 / 2**1100	R:0.0	
-2**1100 / 3	E:OverflowError: integer division result too large for a float	
+10**30 / 3	R:3.333333333333333e+29		libm
+-(10**30) / 7	R:-1.4285714285714285e+29		libm
+2**1100 / 2**1000	R:1.2676506002282294e+30		libm
+1 / 2**1100	R:0.0		libm
+2**1100 / 3	E:OverflowError: integer division result too large for a float		libm
 1/0	E:ZeroDivisionError: division by zero	
 1.0/0	E:ZeroDivisionError: float division by zero	
 1//0	E:ZeroDivisionError: integer division or modulo by zero	
@@ -739,19 +738,19 @@ True ^ True	R:False
 0.1 * 3	R:0.30000000000000004	
 1.1 * 1.1	R:1.2100000000000002	
 1e16 + 1	R:1e+16	
-2**53 + 1.0	R:9007199254740992.0	
-9 ** 0.5	R:3.0	
+2**53 + 1.0	R:9007199254740992.0		libm
+9 ** 0.5	R:3.0		libm
 1 - 0.9	R:0.09999999999999998	
 3 * 0.1 == 0.3	R:False	
 abs(-7)	R:7	
 abs(-7.5)	R:7.5	
 abs(-0.0)	R:0.0	
-abs(-(2**70))	R:1180591620717411303424	
+abs(-(2**70))	R:1180591620717411303424		libm
 abs(True)	R:1	
--(2**63)	R:-9223372036854775808	
-(2**63) * (2**63)	R:85070591730234615865843651857942052864	
-(-2**63) // -1	R:9223372036854775808	
-(-2**63) % -1	R:0	
+-(2**63)	R:-9223372036854775808		libm
+(2**63) * (2**63)	R:85070591730234615865843651857942052864		libm
+(-2**63) // -1	R:9223372036854775808		libm
+(-2**63) % -1	R:0		libm
 12345678901234567890 * 98765432109876543210	R:1219326311370217952237463801111263526900	
 pow(2, 10)	R:1024	
 pow(2, -1)	R:0.5	
@@ -760,7 +759,7 @@ pow(3, -1, 7)	R:5
 pow(-3, 3, 5)	R:3	
 pow(3, 3, -5)	R:-3	
 pow(2, 0.5)	R:1.4142135623730951	
-pow(2, 100, 2**61 - 1)	R:549755813888	
+pow(2, 100, 2**61 - 1)	R:549755813888		libm
 pow(2.0, 2, 3)	E:TypeError: pow() 3rd argument not allowed unless all arguments are integers	
 pow(2, 3, 0)	E:ValueError: pow() 3rd argument cannot be 0	
 pow(4, -1, 8)	E:ValueError: base is not invertible for the given modulus	
@@ -786,11 +785,11 @@ True * [1]	R:[1]
 1 == 1.0	R:True	
 1 == True	R:True	
 0.1 + 0.2 == 0.3	R:False	
-2**53 + 1 == 2.0**53	R:False	
-2**53 == 2.0**53	R:True	
-10**400 > 1e308	R:True	
--10**400 < -1e308	R:True	
-10**400 < float("inf")	R:True	
+2**53 + 1 == 2.0**53	R:False		libm
+2**53 == 2.0**53	R:True		libm
+10**400 > 1e308	R:True		libm
+-10**400 < -1e308	R:True		libm
+10**400 < float("inf")	R:True		libm
 float("nan") == float("nan")	R:False	
 float("nan") < 1	R:False	
 float("nan") != float("nan")	R:True	
@@ -889,8 +888,8 @@ float("1e")	E:ValueError: could not convert string to float: '1e'
 float("0x10")	E:ValueError: could not convert string to float: '0x10'	
 float("١٢")	R:12.0	
 float(" 1\\n")	R:1.0	
-float(10**400)	E:OverflowError: int too large to convert to float	
-float(2**1023 * 2 - 1)	E:OverflowError: int too large to convert to float	
+float(10**400)	E:OverflowError: int too large to convert to float		libm
+float(2**1023 * 2 - 1)	E:OverflowError: int too large to convert to float		libm
 float(True)	R:1.0	
 float(None)	E:TypeError: float() argument must be a string or a real number, not 'NoneType'	
 float([1])	E:TypeError: float() argument must be a string or a real number, not 'list'	
@@ -943,12 +942,12 @@ int(1, 2)	E:TypeError: int() can't convert non-string with explicit base
 int()	R:0	
 int("9" * 5000)	E:ValueError: Exceeds the limit (4300 digits) for integer string conversion: value has 5000 digits; use sys.set_int_max_str_digits() to increase the limit	
 int("1" * 4300) % 7	R:5	
-str(10**5000)	E:ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit	
+str(10**5000)	E:ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit		libm
 int(" 7\\t")	R:7	
 int("\\u00a07")	R:7	
 int("0x", 16)	E:ValueError: invalid literal for int() with base 16: '0x'	
 int("1e3")	E:ValueError: invalid literal for int() with base 10: '1e3'	
-int(2**70)	R:1180591620717411303424	
+int(2**70)	R:1180591620717411303424		libm
 int("-0b11", 0)	R:-3	
 int("  ")	E:ValueError: invalid literal for int() with base 10: '  '	
 round(0.5)	R:0	
@@ -1126,13 +1125,13 @@ round(-25, 2)	R:-25
 round(-25, -1)	R:-20	
 round(-25, -2)	R:0	
 round(-25, 5)	R:-25	
-round(2**70 + 5)	R:1180591620717411303429	
-round(2**70 + 5, 0)	R:1180591620717411303429	
-round(2**70 + 5, 1)	R:1180591620717411303429	
-round(2**70 + 5, 2)	R:1180591620717411303429	
-round(2**70 + 5, -1)	R:1180591620717411303430	
-round(2**70 + 5, -2)	R:1180591620717411303400	
-round(2**70 + 5, 5)	R:1180591620717411303429	
+round(2**70 + 5)	R:1180591620717411303429		libm
+round(2**70 + 5, 0)	R:1180591620717411303429		libm
+round(2**70 + 5, 1)	R:1180591620717411303429		libm
+round(2**70 + 5, 2)	R:1180591620717411303429		libm
+round(2**70 + 5, -1)	R:1180591620717411303430		libm
+round(2**70 + 5, -2)	R:1180591620717411303400		libm
+round(2**70 + 5, 5)	R:1180591620717411303429		libm
 round(123456789)	R:123456789	
 round(123456789, 0)	R:123456789	
 round(123456789, 1)	R:123456789	
@@ -1167,7 +1166,7 @@ str((1,))	R:'(1,)'
 str(set())	R:'set()'	
 str(range(3))	R:'range(0, 3)'	
 repr(range(1, 10, 2))	R:'range(1, 10, 2)'	
-str(2**100)	R:'1267650600228229401496703205376'	
+str(2**100)	R:'1267650600228229401496703205376'		libm
 str('é')	R:'é'	
 repr(chr(0x85))	R:"'\\\\x85'"	
 repr(chr(0x2028))	R:"'\\\\u2028'"	
@@ -1252,7 +1251,7 @@ repr(...)	R:'Ellipsis'
 '%' % 1	E:ValueError: incomplete format	
 '%x' % 3.0	E:TypeError: %x format: an integer is required, not float	
 '%.2f' % 'a'	E:TypeError: must be real number, not str	
-'%d' % 2**100	R:'1267650600228229401496703205376'	
+'%d' % 2**100	R:'1267650600228229401496703205376'		libm
 '%x' % -255	R:'-ff'	
 '%.3d' % 5	R:'005'	
 '%+.2e' % -1.5	R:'-1.50e+00'	
@@ -1290,7 +1289,7 @@ repr(...)	R:'Ellipsis'
 '{:#b}'.format(10)	R:'0b1010'	
 '{:o}'.format(8)	R:'10'	
 '{:#o}'.format(8)	R:'0o10'	
-'{:_x}'.format(2**32)	R:'1_0000_0000'	
+'{:_x}'.format(2**32)	R:'1_0000_0000'		libm
 '{:c}'.format(65)	R:'A'	
 '{:d}'.format(True)	R:'1'	
 '{:.2f}'.format(3.14159)	R:'3.14'	
@@ -1352,7 +1351,7 @@ format(1234.5, ',')	R:'1,234.5'
 format(-1234.5, '_.2f')	R:'-1_234.50'	
 format(1e100)	R:'1e+100'	
 format(0.1, '.20f')	R:'0.10000000000000000555'	
-format(2**70, ',')	R:'1,180,591,620,717,411,303,424'	
+format(2**70, ',')	R:'1,180,591,620,717,411,303,424'		libm
 format(None)	R:'None'	
 format([1], '')	R:'[1]'	
 format([1], 'x')	E:TypeError: unsupported format string passed to list.__format__	
@@ -1636,7 +1635,7 @@ set('abracadabra')	R:{'d', 'r', 'b', 'c', 'a'}
 {-1, -2, -3}	R:{-3, -1, -2}	
 {10, 20, 30, 40, 50, 60, 70, 80, 90}	R:{70, 40, 10, 80, 50, 20, 90, 60, 30}	
 set(range(20, 0, -1))	R:{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}	
-{2**61 - 1, 2**61, 2**62}	R:{2305843009213693951, 2305843009213693952, 4611686018427387904}	
+{2**61 - 1, 2**61, 2**62}	R:{2305843009213693951, 2305843009213693952, 4611686018427387904}		libm
 {0.1, 0.2, 0.30000000000000004}	R:{0.1, 0.30000000000000004, 0.2}	
 {-0.0, 0.0}	R:{-0.0}	
 {'é', 'ß', '☃', '😀', 'a'}	R:{'é', 'a', '☃', 'ß', '😀'}	
@@ -1664,7 +1663,7 @@ oct(8)	R:'0o10'
 oct(-8)	R:'-0o10'	
 hex(255)	R:'0xff'	
 hex(-255)	R:'-0xff'	
-hex(2**70)	R:'0x400000000000000000'	
+hex(2**70)	R:'0x400000000000000000'		libm
 bin(1.5)	E:TypeError: 'float' object cannot be interpreted as an integer	
 hex(1.5)	E:TypeError: 'float' object cannot be interpreted as an integer	
 bool(0)	R:False	
@@ -1728,13 +1727,13 @@ sum([[1], [2]], [])	R:[1, 2]
 sum(['a', 'b'])	E:TypeError: unsupported operand type(s) for +: 'int' and 'str'	
 sum([1], 'a')	E:TypeError: sum() can't sum strings [use ''.join(seq) instead]	
 sum(range(101))	R:5050	
-sum([2**63, 2**63])	R:18446744073709551616	
+sum([2**63, 2**63])	R:18446744073709551616		libm
 sum([], 0.5)	R:0.5	
 sum([True, True])	R:2	
 sum([1, 2], start=10)	R:13	
 sum([0.1, 0.2, 0.3], 1)	R:1.6	
 sum(x for x in range(4))	R:6	
-sum([1.5, 2**70])	R:1.1805916207174113e+21	
+sum([1.5, 2**70])	R:1.1805916207174113e+21		libm
 sum([float("inf"), 1.0])	R:inf	
 sum([float("inf"), float("-inf")])	R:nan	
 tuple("ab")	R:('a', 'b')	
@@ -1819,8 +1818,8 @@ abs("a")	E:TypeError: bad operand type for abs(): 'str'
 abs()	E:TypeError: abs() takes exactly one argument (0 given)	
 hash(1)	R:1	
 hash(-1)	R:-2	
-hash(2**61)	R:1	
-hash(-2**61)	R:-2	
+hash(2**61)	R:1		libm
+hash(-2**61)	R:-2		libm
 hash(1.5)	R:1152921504606846977	
 hash(-1.5)	R:-1152921504606846977	
 hash(0.1)	R:230584300921369408	
@@ -1842,10 +1841,10 @@ hash((1, 'a', (2.5,)))	R:5350091667078189583
 hash([])	E:TypeError: unhashable type: 'list'	
 hash(range(3))	R:-8338477496398685190	
 hash(5e-324)	R:16777216	
-hash(-2**63)	R:-4	
-hash(2**64 + 1)	R:9	
+hash(-2**63)	R:-4		libm
+hash(2**64 + 1)	R:9		libm
 hash(1e-310)	R:615709907932414099	
-hash(2.0**1000)	R:16777216	
+hash(2.0**1000)	R:16777216		libm
 print('printed')	R:None	printed\n
 print([i, s, (f, 1)])	R:None	[7, 'text', (2.5, 1)]\n
 print(1, 2, sep="-")	R:None	1-2\n
@@ -1865,7 +1864,7 @@ print("x", sep=1)	E:TypeError: sep must be None or a string, not int
 [(a, b) for (a, b) in [(1, 2), (3, 4)] if a > 1]	R:[(3, 4)]	
 [x for x in [1, 2, 3] if x > 1 if x < 3]	R:[2]	
 {x % 3 for x in range(10)}	R:{0, 1, 2}	
-{x: x ** 2 for x in range(4) if x}	R:{1: 1, 2: 4, 3: 9}	
+{x: x ** 2 for x in range(4) if x}	R:{1: 1, 2: 4, 3: 9}		libm
 [[y for y in range(x)] for x in range(3)]	R:[[], [0], [0, 1]]	
 list(x for x in range(3))	R:[0, 1, 2]	
 tuple(x * x for x in range(4))	R:(0, 1, 4, 9)	
@@ -1888,10 +1887,10 @@ list(y for y in l if y > i - 6)	E:NameError: name 'i' is not defined
 [k for k in l][i - 6]	R:2	
 (lambda a=x: a)()	R:0.1	
 (lambda: [x])()	E:NameError: name 'x' is not defined	
-(lambda a, b=2, *c, d, e=5, **g: (a, b, c, d, e, g))(1, d=4)	R:(1, 2, (), 4, 5, {})	
-(lambda a, b=2, *c, d, e=5, **g: (a, b, c, d, e, g))(1, 2, 3, 4, d=0, z=9)	R:(1, 2, (3, 4), 0, 5, {'z': 9})	
+(lambda a, b=2, *c, d, e=5, **g: (a, b, c, d, e, g))(1, d=4)	R:(1, 2, (), 4, 5, {})		libm
+(lambda a, b=2, *c, d, e=5, **g: (a, b, c, d, e, g))(1, 2, 3, 4, d=0, z=9)	R:(1, 2, (3, 4), 0, 5, {'z': 9})		libm
 (lambda *a: a)()	R:()	
-(lambda **k: k)(a=1)	R:{'a': 1}	
+(lambda **k: k)(a=1)	R:{'a': 1}		libm
 (lambda x: x)()	E:TypeError: <lambda>() missing 1 required positional argument: 'x'	
 (lambda x: x)(1, 2)	E:TypeError: <lambda>() takes 1 positional argument but 2 were given	
 (lambda x: x)(y=1)	E:TypeError: <lambda>() got an unexpected keyword argument 'y'	
@@ -1927,18 +1926,18 @@ dict((k, len(k)) for k in ["a", "bb"])	R:{'a': 1, 'bb': 2}
 [*range(3), *"ab"]	R:[0, 1, 2, 'a', 'b']	
 [v for v in (lambda: range(3))()]	R:[0, 1, 2]	
 print(*(v for v in 'ab'))	R:None	a b\n
-(lambda *a, **k: (a, k))(1, b=2)	R:((1,), {'b': 2})	
+(lambda *a, **k: (a, k))(1, b=2)	R:((1,), {'b': 2})		libm
 len(*[1, 2])	E:TypeError: len() takes exactly one argument (2 given)	
 (lambda: 1)(*1)	E:TypeError: <lambda>() argument after * must be an iterable, not int	
-max(**[1])	E:TypeError: max() argument after ** must be a mapping, not list	
-dict(**{1: 2})	E:TypeError: keywords must be strings	
-l(**{"a": 1}, a=2)	E:TypeError: [1, 2, 3] got multiple values for keyword argument 'a'	
-abs(**{"a": 1})	E:TypeError: abs() takes no keyword arguments	
-dict(**{"a": 1}, **{"b": 2})	R:{'a': 1, 'b': 2}	
-(lambda **k: k)(**{"a": 1}, b=2)	R:{'a': 1, 'b': 2}	
+max(**[1])	E:TypeError: max() argument after ** must be a mapping, not list		libm
+dict(**{1: 2})	E:TypeError: keywords must be strings		libm
+l(**{"a": 1}, a=2)	E:TypeError: [1, 2, 3] got multiple values for keyword argument 'a'		libm
+abs(**{"a": 1})	E:TypeError: abs() takes no keyword arguments		libm
+dict(**{"a": 1}, **{"b": 2})	R:{'a': 1, 'b': 2}		libm
+(lambda **k: k)(**{"a": 1}, b=2)	R:{'a': 1, 'b': 2}		libm
 abs(*[-5])	R:5	
-pow(*[2], **{"exp": 3})	R:8	
-sorted(l, **{"reverse": True})	R:[3, 2, 1]	
+pow(*[2], **{"exp": 3})	R:8		libm
+sorted(l, **{"reverse": True})	R:[3, 2, 1]		libm
 (1).foo	E:AttributeError: 'int' object has no attribute 'foo'	
 'a'.foo	E:AttributeError: 'str' object has no attribute 'foo'	
 [].foo	E:AttributeError: 'list' object has no attribute 'foo'	
@@ -1997,7 +1996,7 @@ exit()	E:NameError: name 'exit' is not defined
 math.ceil(2.1)	R:3	
 math.ceil(-2.1)	R:-2	
 math.ceil(5)	R:5	
-math.ceil(2**70)	R:1180591620717411303424	
+math.ceil(2**70)	R:1180591620717411303424		libm
 math.ceil(float("inf"))	E:OverflowError: cannot convert float infinity to integer	
 math.ceil(float("nan"))	E:ValueError: cannot convert float NaN to integer	
 math.ceil('a')	E:TypeError: must be real number, not str	
@@ -2011,10 +2010,10 @@ math.sqrt(16)	R:4.0
 math.sqrt(2)	R:1.4142135623730951	
 math.sqrt(-1)	E:ValueError: math domain error	
 math.sqrt(-0.0)	R:-0.0	
-math.sqrt(10**400)	E:OverflowError: int too large to convert to float	
-math.sqrt(2**1000)	R:3.273390607896142e+150	
+math.sqrt(10**400)	E:OverflowError: int too large to convert to float		libm
+math.sqrt(2**1000)	R:3.273390607896142e+150		libm
 math.isqrt(17)	R:4	
-math.isqrt(10**40)	R:100000000000000000000	
+math.isqrt(10**40)	R:100000000000000000000		libm
 math.isqrt(-1)	E:ValueError: isqrt() argument must be nonnegative	
 math.isqrt(2.0)	E:TypeError: 'float' object cannot be interpreted as an integer	
 math.e	R:2.718281828459045	
@@ -2022,23 +2021,23 @@ math.tau	R:6.283185307179586
 math.inf	R:inf	
 math.nan	R:nan	
 -math.inf	R:-inf	
-math.sin(0.5)	R:0.479425538604203	
-math.cos(math.pi / 3)	R:0.5000000000000001	
-math.atan2(1, 2)	R:0.4636476090008061	
-math.sin(1)	R:0.8414709848078965	
-math.cos(2)	R:-0.4161468365471424	
-math.tan(0.5)	R:0.5463024898437905	
-math.asin(0.5)	R:0.5235987755982989	
-math.acos(0.5)	R:1.0471975511965979	
-math.atan(1)	R:0.7853981633974483	
+math.sin(0.5)	R:0.479425538604203		libm
+math.cos(math.pi / 3)	R:0.5000000000000001		libm
+math.atan2(1, 2)	R:0.4636476090008061		libm
+math.sin(1)	R:0.8414709848078965		libm
+math.cos(2)	R:-0.4161468365471424		libm
+math.tan(0.5)	R:0.5463024898437905		libm
+math.asin(0.5)	R:0.5235987755982989		libm
+math.acos(0.5)	R:1.0471975511965979		libm
+math.atan(1)	R:0.7853981633974483		libm
 math.degrees(1)	R:57.29577951308232	
 math.radians(180)	R:3.141592653589793	
-math.exp(1)	R:2.718281828459045	
-math.log(10)	R:2.302585092994046	
-math.log(8, 2)	R:3.0	
-math.log10(1000)	R:3.0	
-math.log2(1024)	R:10.0	
-math.pow(2, 0.5)	R:1.4142135623730951	
+math.exp(1)	R:2.718281828459045		libm
+math.log(10)	R:2.302585092994046		libm
+math.log(8, 2)	R:3.0		libm
+math.log10(1000)	R:3.0		libm
+math.log2(1024)	R:10.0		libm
+math.pow(2, 0.5)	R:1.4142135623730951		libm
 math.hypot(3, 4)	R:5.0	
 math.fabs(-1)	R:1.0	
 math.gcd(12, 18)	R:6	
@@ -2049,66 +2048,66 @@ math.fmod(7, -3)	R:1.0
 math.fmod(1, 0)	E:ValueError: math domain error	
 math.fmod(1, float("inf"))	R:1.0	
 math.fmod(-0.0, 1)	R:-0.0	
-math.sin(float("inf"))	E:ValueError: math domain error	
-math.sin(float("nan"))	R:nan	
-math.cos(0)	R:1.0	
-math.sin(-0.0)	R:-0.0	
-math.tan(math.pi / 2)	R:1.633123935319537e+16	
-math.sin(1e22)	R:-0.8522008497671888	
-math.cos(1e300)	R:-0.5753861119575491	
-math.tan(1e100)	R:-0.4116229628832498	
-math.sin(2**1023)	R:0.563127779850884	
-math.asin(2)	E:ValueError: math domain error	
-math.acos(-1)	R:3.141592653589793	
-math.acos(1)	R:0.0	
-math.asin(-1)	R:-1.5707963267948966	
-math.atan(float("inf"))	R:1.5707963267948966	
-math.atan2(0.0, -0.0)	R:3.141592653589793	
-math.atan2(-0.0, -1)	R:-3.141592653589793	
-math.atan2(float("inf"), float("-inf"))	R:2.356194490192345	
-math.atan2(1, float("inf"))	R:0.0	
-math.atan2(float("nan"), 1)	R:nan	
-math.atan2(1e-300, 1e300)	R:0.0	
-math.atan2(1e300, 1e-300)	R:1.5707963267948966	
-math.exp(1000)	E:OverflowError: math range error	
-math.exp(-1000)	R:0.0	
-math.exp(709.7)	R:1.6549840276802644e+308	
-math.exp(-745.1)	R:5e-324	
-math.exp(-740)	R:4.2e-322	
-math.exp(float("-inf"))	R:0.0	
-math.exp(1e-20)	R:1.0	
-math.expm1(1e-10)	R:1.00000000005e-10	
-math.expm1(1)	R:1.718281828459045	
-math.expm1(-50)	R:-1.0	
-math.expm1(800)	E:OverflowError: math range error	
-math.log(0)	E:ValueError: math domain error	
-math.log(-1)	E:ValueError: math domain error	
-math.log(0.0)	E:ValueError: math domain error	
-math.log(float("inf"))	R:inf	
-math.log(1)	R:0.0	
-math.log(10**400)	R:921.0340371976182	
-math.log(2**1024)	R:709.782712893384	
-math.log(10**400, 10)	R:399.99999999999994	
-math.log2(10**400)	R:1328.771237954945	
-math.log10(10**400)	R:400.0	
-math.log10(2**2000 + 1)	R:602.0599913279624	
-math.log(8, 1)	E:ZeroDivisionError: float division by zero	
-math.log(8, 0)	E:ValueError: math domain error	
-math.log(1e-320)	R:-736.8272408909739	
-math.log2(3)	R:1.584962500721156	
-math.log10(5e-324)	R:-323.3062153431158	
-math.log(math.e)	R:1.0	
-math.log(100, 10)	R:2.0	
-math.pow(0, -1)	E:ValueError: math domain error	
-math.pow(10, 400)	E:OverflowError: math range error	
-math.pow(-8, 1/3)	E:ValueError: math domain error	
-math.pow(-2, 3)	R:-8.0	
-math.pow(2, -1074)	R:5e-324	
-math.pow(float("nan"), 0)	R:1.0	
-math.pow(1, float("nan"))	R:1.0	
-math.pow(float("inf"), -1)	R:0.0	
-math.pow(-0.0, -1)	E:ValueError: math domain error	
-math.pow(0.5, float("-inf"))	R:inf	
+math.sin(float("inf"))	E:ValueError: math domain error		libm
+math.sin(float("nan"))	R:nan		libm
+math.cos(0)	R:1.0		libm
+math.sin(-0.0)	R:-0.0		libm
+math.tan(math.pi / 2)	R:1.633123935319537e+16		libm
+math.sin(1e22)	R:-0.8522008497671888		libm
+math.cos(1e300)	R:-0.5753861119575491		libm
+math.tan(1e100)	R:-0.4116229628832498		libm
+math.sin(2**1023)	R:0.563127779850884		libm
+math.asin(2)	E:ValueError: math domain error		libm
+math.acos(-1)	R:3.141592653589793		libm
+math.acos(1)	R:0.0		libm
+math.asin(-1)	R:-1.5707963267948966		libm
+math.atan(float("inf"))	R:1.5707963267948966		libm
+math.atan2(0.0, -0.0)	R:3.141592653589793		libm
+math.atan2(-0.0, -1)	R:-3.141592653589793		libm
+math.atan2(float("inf"), float("-inf"))	R:2.356194490192345		libm
+math.atan2(1, float("inf"))	R:0.0		libm
+math.atan2(float("nan"), 1)	R:nan		libm
+math.atan2(1e-300, 1e300)	R:0.0		libm
+math.atan2(1e300, 1e-300)	R:1.5707963267948966		libm
+math.exp(1000)	E:OverflowError: math range error		libm
+math.exp(-1000)	R:0.0		libm
+math.exp(709.7)	R:1.6549840276802644e+308		libm
+math.exp(-745.1)	R:5e-324		libm
+math.exp(-740)	R:4.2e-322		libm
+math.exp(float("-inf"))	R:0.0		libm
+math.exp(1e-20)	R:1.0		libm
+math.expm1(1e-10)	R:1.00000000005e-10		libm
+math.expm1(1)	R:1.718281828459045		libm
+math.expm1(-50)	R:-1.0		libm
+math.expm1(800)	E:OverflowError: math range error		libm
+math.log(0)	E:ValueError: math domain error		libm
+math.log(-1)	E:ValueError: math domain error		libm
+math.log(0.0)	E:ValueError: math domain error		libm
+math.log(float("inf"))	R:inf		libm
+math.log(1)	R:0.0		libm
+math.log(10**400)	R:921.0340371976182		libm
+math.log(2**1024)	R:709.782712893384		libm
+math.log(10**400, 10)	R:399.99999999999994		libm
+math.log2(10**400)	R:1328.771237954945		libm
+math.log10(10**400)	R:400.0		libm
+math.log10(2**2000 + 1)	R:602.0599913279624		libm
+math.log(8, 1)	E:ZeroDivisionError: float division by zero		libm
+math.log(8, 0)	E:ValueError: math domain error		libm
+math.log(1e-320)	R:-736.8272408909739		libm
+math.log2(3)	R:1.584962500721156		libm
+math.log10(5e-324)	R:-323.3062153431158		libm
+math.log(math.e)	R:1.0		libm
+math.log(100, 10)	R:2.0		libm
+math.pow(0, -1)	E:ValueError: math domain error		libm
+math.pow(10, 400)	E:OverflowError: math range error		libm
+math.pow(-8, 1/3)	E:ValueError: math domain error		libm
+math.pow(-2, 3)	R:-8.0		libm
+math.pow(2, -1074)	R:5e-324		libm
+math.pow(float("nan"), 0)	R:1.0		libm
+math.pow(1, float("nan"))	R:1.0		libm
+math.pow(float("inf"), -1)	R:0.0		libm
+math.pow(-0.0, -1)	E:ValueError: math domain error		libm
+math.pow(0.5, float("-inf"))	R:inf		libm
 math.hypot()	R:0.0	
 math.hypot(1)	R:1.0	
 math.hypot(-3)	R:3.0	
@@ -2121,18 +2120,18 @@ math.hypot(float("inf"), float("nan"))	R:inf
 math.hypot(0.1, 0.2, 0.3)	R:0.3741657386773941	
 math.dist((0, 0), (3, 4))	R:5.0	
 math.dist([1, 2, 3], [4, 6, 8])	R:7.0710678118654755	
-math.sinh(1)	R:1.1752011936438014	
-math.cosh(1)	R:1.5430806348152437	
-math.tanh(0.5)	R:0.46211715726000974	
-math.sinh(1000)	E:OverflowError: math range error	
-math.cosh(-1000)	E:OverflowError: math range error	
-math.tanh(1000)	R:1.0	
-math.sinh(-0.0)	R:-0.0	
-math.cosh(0)	R:1.0	
-math.tanh(-30)	R:-1.0	
-math.sinh(710.4)	R:1.6663642832806494e+308	
-math.cosh(710.4)	R:1.6663642832806494e+308	
-math.sinh(1e-300)	R:1e-300	
+math.sinh(1)	R:1.1752011936438014		libm
+math.cosh(1)	R:1.5430806348152437		libm
+math.tanh(0.5)	R:0.46211715726000974		libm
+math.sinh(1000)	E:OverflowError: math range error		libm
+math.cosh(-1000)	E:OverflowError: math range error		libm
+math.tanh(1000)	R:1.0		libm
+math.sinh(-0.0)	R:-0.0		libm
+math.cosh(0)	R:1.0		libm
+math.tanh(-30)	R:-1.0		libm
+math.sinh(710.4)	R:1.6663642832806494e+308		libm
+math.cosh(710.4)	R:1.6663642832806494e+308		libm
+math.sinh(1e-300)	R:1e-300		libm
 math.factorial(-1)	E:ValueError: factorial() not defined for negative values	
 math.factorial(1.5)	E:TypeError: 'float' object cannot be interpreted as an integer	
 math.factorial(0)	R:1	
@@ -2173,27 +2172,27 @@ math.fsum([1e100, 1, -1e100])	R:1.0
 math.fsum([1, 1e-16, 1e16])	R:1.0000000000000002e+16	
 math.fsum([])	R:0.0	
 math.fsum([float("inf"), 1])	R:inf	
-math.sin()	E:TypeError: math.sin() takes exactly one argument (0 given)	
-math.sin(1, 2)	E:TypeError: math.sin() takes exactly one argument (2 given)	
-math.sin('a')	E:TypeError: must be real number, not str	
-math.sin(10**400)	E:OverflowError: int too large to convert to float	
-math.sin(True)	R:0.8414709848078965	
+math.sin()	E:TypeError: math.sin() takes exactly one argument (0 given)		libm
+math.sin(1, 2)	E:TypeError: math.sin() takes exactly one argument (2 given)		libm
+math.sin('a')	E:TypeError: must be real number, not str		libm
+math.sin(10**400)	E:OverflowError: int too large to convert to float		libm
+math.sin(True)	R:0.8414709848078965		libm
 math.degrees(math.pi)	R:180.0	
 math.radians(1)	R:0.017453292519943295	
 math.copysign(1, float("nan"))	R:1.0	
-[round(math.sin(math.radians(a)), 6) for a in range(0, 360, 45)]	R:[0.0, 0.707107, 1.0, 0.707107, 0.0, -0.707107, -1.0, -0.707107]	
+[round(math.sin(math.radians(a)), 6) for a in range(0, 360, 45)]	R:[0.0, 0.707107, 1.0, 0.707107, 0.0, -0.707107, -1.0, -0.707107]		libm
 math.sqrt(1e-320)	R:9.99994433575849e-161	
-math.exp(0.5) ** 2	R:2.7182818284590455	
-math.pow(2, 0.5) == 2 ** 0.5	R:True	
-10 ** -2	R:0.01	
-10.0 ** -2	R:0.01	
-math.pow(10, -2)	R:0.01	
-1.1 ** 10	R:2.5937424601000023	
-math.pow(1.1, 10)	R:2.5937424601000023	
-2 ** 0.1	R:1.0717734625362931	
-7 ** 0.333	R:1.911690787697772	
-math.e ** 2	R:7.3890560989306495	
-math.exp(2)	R:7.38905609893065	
+math.exp(0.5) ** 2	R:2.7182818284590455		libm
+math.pow(2, 0.5) == 2 ** 0.5	R:True		libm
+10 ** -2	R:0.01		libm
+10.0 ** -2	R:0.01		libm
+math.pow(10, -2)	R:0.01		libm
+1.1 ** 10	R:2.5937424601000023		libm
+math.pow(1.1, 10)	R:2.5937424601000023		libm
+2 ** 0.1	R:1.0717734625362931		libm
+7 ** 0.333	R:1.911690787697772		libm
+math.e ** 2	R:7.3890560989306495		libm
+math.exp(2)	R:7.38905609893065		libm
 (0.1 + 0.7) * 10	R:7.999999999999999	
 json.dumps({"a": [1, 2.5, None, True], "b": "é"})	R:'{"a": [1, 2.5, null, true], "b": "\\\\u00e9"}'	
 json.loads("[1, 2]")	R:[1, 2]	
@@ -2206,7 +2205,7 @@ json.dumps(1e100)	R:'1e+100'
 json.dumps(float("nan"))	R:'NaN'	
 json.dumps(float("-inf"))	R:'-Infinity'	
 json.dumps(float("inf"), allow_nan=False)	E:ValueError: Out of range float values are not JSON compliant: inf	
-json.dumps(2**70)	R:'1180591620717411303424'	
+json.dumps(2**70)	R:'1180591620717411303424'		libm
 json.dumps(True)	R:'true'	
 json.dumps(None)	R:'null'	
 json.dumps((1, 2))	R:'[1, 2]'	
@@ -2303,7 +2302,7 @@ f"{1:{2}}"	R:' 1'
 lambda x: 	E:SyntaxError: invalid syntax (<string>, line 1)	
 x if y	E:SyntaxError: expected 'else' after 'if' expression (<string>, line 1)	
 *a	E:SyntaxError: invalid syntax (<string>, line 1)	
-**a	E:SyntaxError: invalid syntax (<string>, line 1)	
+**a	E:SyntaxError: invalid syntax (<string>, line 1)		libm
 a.	E:SyntaxError: invalid syntax (<string>, line 1)	
 a[	E:SyntaxError: '[' was never closed (<string>, line 1)	
 a[]	E:SyntaxError: invalid syntax (<string>, line 1)	
@@ -2327,14 +2326,14 @@ a.1	E:SyntaxError: invalid syntax (<string>, line 1)
 [x for x in]	E:SyntaxError: invalid syntax (<string>, line 1)	
 [x for in y]	E:SyntaxError: invalid syntax (<string>, line 1)	
 f(x for x in y, 1)	E:SyntaxError: Generator expression must be parenthesized (<string>, line 1)	
-f(**a, *b)	E:SyntaxError: iterable argument unpacking follows keyword argument unpacking (<string>, line 1)	
+f(**a, *b)	E:SyntaxError: iterable argument unpacking follows keyword argument unpacking (<string>, line 1)		libm
 f(a=1, b)	E:SyntaxError: positional argument follows keyword argument (<string>, line 1)	
 f(a=1, a=2)	E:SyntaxError: keyword argument repeated: a (<string>, line 1)	
 x[1:2:3:4]	E:SyntaxError: invalid syntax (<string>, line 1)	
 "\\x1"	E:SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 0-2: truncated \\xXX escape (<string>, line 1)	
 u"a" b"x"	E:SyntaxError: cannot mix bytes and nonbytes literals (<string>, line 1)	
 True = 1	E:SyntaxError: invalid syntax (<string>, line 1)	
-{**a: 1}	E:SyntaxError: invalid syntax (<string>, line 1)	
+{**a: 1}	E:SyntaxError: invalid syntax (<string>, line 1)		libm
 {1:2, 3}	E:SyntaxError: ':' expected after dictionary key (<string>, line 1)	
 print(1,,2)	E:SyntaxError: invalid syntax (<string>, line 1)	
 1 not 2	E:SyntaxError: invalid syntax (<string>, line 1)	
@@ -2377,7 +2376,7 @@ format(1234.5678, '012,.2f')	R:'0,001,234.57'
 format(12, '#010b')	R:'0b00001100'	
 format(255, '#06x')	R:'0x00ff'	
 format(255, '_b')	R:'1111_1111'	
-format(10**20, ',d')	R:'100,000,000,000,000,000,000'	
+format(10**20, ',d')	R:'100,000,000,000,000,000,000'		libm
 format(0.5, '.0%')	R:'50%'	
 format(1e-10, 'f')	R:'0.000000'	
 format(123.456, '.0e')	R:'1e+02'	
@@ -2429,7 +2428,7 @@ divmod(0.0, -1)	R:(-0.0, -0.0)
 float('inf') - float('inf')	R:nan	
 round(0.5 + 1e-16)	R:1	
 round(-15, -1)	R:-20	
-round(2**63 + 2**10, -3)	R:9223372036854777000	
+round(2**63 + 2**10, -3)	R:9223372036854777000		libm
 int('  ١٢  ')	R:12	
 int('0' * 10)	R:0	
 int('-0b101', 0)	R:-5	
@@ -2504,10 +2503,10 @@ float('0x1p3')	E:ValueError: could not convert string to float: '0x1p3'
 'abc'[::-2]	R:'ca'	
 'abc'[None:None:None]	R:'abc'	
 'abc'[True]	R:'b'	
-'abc'[2**70]	E:IndexError: cannot fit 'int' into an index-sized integer	
-[1,2,3][2**70:]	R:[]	
-[1,2,3][-2**70:]	R:[1, 2, 3]	
-[1,2,3][::2**70]	R:[1]	
+'abc'[2**70]	E:IndexError: cannot fit 'int' into an index-sized integer		libm
+[1,2,3][2**70:]	R:[]		libm
+[1,2,3][-2**70:]	R:[1, 2, 3]		libm
+[1,2,3][::2**70]	R:[1]		libm
 range(10)[::3]	R:range(0, 10, 3)	
 range(10)[-3:]	R:range(7, 10)	
 range(10)[::-3]	R:range(9, -1, -3)	
@@ -2521,7 +2520,7 @@ range(10).count(3)	R:1
 range(10).index(11)	E:ValueError: 11 is not in range	
 range(0, 10, 3)[10:-10:-1]	R:range(9, -3, -3)	
 [x for x in range(3)] + [y for y in 'ab']	R:[0, 1, 2, 'a', 'b']	
-{1: 2, **{3: 4}}	R:{1: 2, 3: 4}	
+{1: 2, **{3: 4}}	R:{1: 2, 3: 4}		libm
 dict(zip('abc', range(3)))	R:{'a': 0, 'b': 1, 'c': 2}	
 sorted({'b': 1, 'a': 2}.items())	R:[('a', 2), ('b', 1)]	
 sorted([3, 1, 2], key=lambda v: (v % 2, v))	R:[2, 1, 3]	
@@ -2537,7 +2536,7 @@ any(map(bool, [0, 0, 1]))	R:True
 list(enumerate(range(3), 10))	R:[(10, 0), (11, 1), (12, 2)]	
 list(zip(*[[1, 2], [3, 4]]))	R:[(1, 3), (2, 4)]	
 [*zip('ab', 'cd')]	R:[('a', 'c'), ('b', 'd')]	
-{**dict(a=1)}	R:{'a': 1}	
+{**dict(a=1)}	R:{'a': 1}		libm
 tuple(range(3)) + (3,)	R:(0, 1, 2, 3)	
 (1, 2) * 2	R:(1, 2, 1, 2)	
 [1] * True	R:[1]	
@@ -2548,7 +2547,7 @@ tuple(range(3)) + (3,)	R:(0, 1, 2, 3)
 sum([[1], [2]], start=[0])	R:[0, 1, 2]	
 ' '.join(f'{v:02d}' for v in range(3))	R:'00 01 02'	
 '{}{}'.format(*'ab')	R:'ab'	
-'{a}{b}'.format(**{'a': 1, 'b': 2})	R:'12'	
+'{a}{b}'.format(**{'a': 1, 'b': 2})	R:'12'		libm
 '{0}{0}'.format('x')	R:'xx'	
 '{:{}}'.format('a', '>3')	R:'  a'	
 '{0:{1}}'.format(3.14159, '.2f')	R:'3.14'	
@@ -2596,8 +2595,8 @@ sum([[1], [2]], start=[0])	R:[0, 1, 2]
 '{:z.0f}'.format(-0.6)	R:'-1'	
 '{:zd}'.format(-0)	E:ValueError: Negative zero coercion (z) not allowed in integer format specifier	
 '{:,x}'.format(255)	E:ValueError: Cannot specify ',' with 'x'.	
-'{:_o}'.format(2**20)	R:'400_0000'	
-'{:_d}'.format(2**40)	R:'1_099_511_627_776'	
+'{:_o}'.format(2**20)	R:'400_0000'		libm
+'{:_d}'.format(2**40)	R:'1_099_511_627_776'		libm
 '{:,b}'.format(5)	E:ValueError: Cannot specify ',' with 'b'.	
 '{:.2}'.format('abc')	R:'ab'	
 '{:5.2}|'.format('abc')	R:'ab   |'	
@@ -2645,7 +2644,7 @@ json.dumps({'a': float('inf')})	R:'{"a": Infinity}'
 json.dumps({1.5: 1})	R:'{"1.5": 1}'	
 json.dumps({float('nan'): 1})	R:'{"NaN": 1}'	
 json.dumps({-0.0: 1})	R:'{"-0.0": 1}'	
-json.dumps({2**70: 1})	R:'{"1180591620717411303424": 1}'	
+json.dumps({2**70: 1})	R:'{"1180591620717411303424": 1}'		libm
 json.dumps({'a': 1}, separators=(':', ','))	R:'{"a",1}'	
 json.dumps([1, 2], indent='--')	R:'[\\n--1,\\n--2\\n]'	
 json.dumps(range(3))	E:TypeError: Object of type range is not JSON serializable	
@@ -2781,7 +2780,7 @@ l is [1, 2, 3]	R:False
 None.__class__	E:AttributeError: 'NoneType' object has no attribute '__class__'	
 True.real	R:1	
 False + 1	R:1	
-True ** 2	R:1	
+True ** 2	R:1		libm
 True << 3	R:8	
 ~True	R:-2	
 abs(False)	R:0	
@@ -2856,7 +2855,7 @@ dict(a=1)	R:{'a': 1}
 set(1, 2)	E:TypeError: set expected at most 1 argument, got 2	
 range(1, 2, 3, 4)	E:TypeError: range expected at most 3 arguments, got 4	
 range('a')	E:TypeError: 'str' object cannot be interpreted as an integer	
-len(range(2**62))	R:4611686018427387904	
+len(range(2**62))	R:4611686018427387904		libm
 zip(1, 2)	E:TypeError: 'int' object is not iterable	
 enumerate()	E:TypeError: enumerate() missing required argument 'iterable'	
 enumerate([1], 'a')	E:TypeError: 'str' object cannot be interpreted as an integer	
@@ -2886,24 +2885,24 @@ print(file=1)	E:AttributeError: 'int' object has no attribute 'write'
 print(end=1)	E:TypeError: end must be None or a string, not int	
 type()	E:TypeError: type() takes 1 or 3 arguments	
 type(1, 2)	E:TypeError: type() takes 1 or 3 arguments	
-math.log()	E:TypeError: log expected at least 1 argument, got 0	
-math.log(1, 2, 3)	E:TypeError: log expected at most 2 arguments, got 3	
-math.log('a')	E:TypeError: must be real number, not str	
-math.log(-1.5)	E:ValueError: math domain error	
-math.log(0, 2)	E:ValueError: math domain error	
-math.log(2, -1)	E:ValueError: math domain error	
-math.log(1, 1)	E:ZeroDivisionError: float division by zero	
-math.atan2(1)	E:TypeError: atan2 expected 2 arguments, got 1	
+math.log()	E:TypeError: log expected at least 1 argument, got 0		libm
+math.log(1, 2, 3)	E:TypeError: log expected at most 2 arguments, got 3		libm
+math.log('a')	E:TypeError: must be real number, not str		libm
+math.log(-1.5)	E:ValueError: math domain error		libm
+math.log(0, 2)	E:ValueError: math domain error		libm
+math.log(2, -1)	E:ValueError: math domain error		libm
+math.log(1, 1)	E:ZeroDivisionError: float division by zero		libm
+math.atan2(1)	E:TypeError: atan2 expected 2 arguments, got 1		libm
 math.hypot('a')	E:TypeError: must be real number, not str	
-math.gcd(2**70, 2**65)	R:36893488147419103232	
+math.gcd(2**70, 2**65)	R:36893488147419103232		libm
 math.floor(1.5, 2)	E:TypeError: math.floor() takes exactly one argument (2 given)	
-math.factorial(2**70)	E:OverflowError: factorial() argument should not exceed 9223372036854775807	
+math.factorial(2**70)	E:OverflowError: factorial() argument should not exceed 9223372036854775807		libm
 math.isqrt(-0)	R:0	
-math.pow(2)	E:TypeError: pow expected 2 arguments, got 1	
+math.pow(2)	E:TypeError: pow expected 2 arguments, got 1		libm
 math.copysign(1)	E:TypeError: copysign expected 2 arguments, got 1	
 math.fmod(1, 0.0)	E:ValueError: math domain error	
 math.fmod(float('inf'), 1)	E:ValueError: math domain error	
-math.exp('1')	E:TypeError: must be real number, not str	
+math.exp('1')	E:TypeError: must be real number, not str		libm
 math.sqrt([])	E:TypeError: must be real number, not list	
 math.comb(-1, 2)	E:ValueError: n must be a non-negative integer	
 math.ceil(None)	E:TypeError: must be real number, not NoneType	
@@ -3018,13 +3017,13 @@ not -1	R:False
 +-+1	R:-1	
 ~~5	R:5	
 --5.5	R:5.5	
-2 ** -1	R:0.5	
--2 ** -1	R:-0.5	
-2 ** - 2 ** 2	R:0.0625	
-(2 ** -2) ** -1	R:4.0	
-3 // 2 ** 2	R:0	
--3 % 2 ** 3	R:5	
-1 + 2 * 3 - 4 / 5 // 6 % 7 ** 8	R:7.0	
+2 ** -1	R:0.5		libm
+-2 ** -1	R:-0.5		libm
+2 ** - 2 ** 2	R:0.0625		libm
+(2 ** -2) ** -1	R:4.0		libm
+3 // 2 ** 2	R:0		libm
+-3 % 2 ** 3	R:5		libm
+1 + 2 * 3 - 4 / 5 // 6 % 7 ** 8	R:7.0		libm
 1 << 2 + 3	R:32	
 1 & 2 | 3 ^ 4	R:7	
 1 | 2 & 3	R:3	
@@ -3042,104 +3041,104 @@ not 1 in [1]	R:False
 (lambda: lambda: 3)()()	R:3	
 [lambda: 1][0]()	R:1	
 {'f': lambda v: v * 2}['f'](4)	R:8	
-(lambda *a, b=1, **c: (a, b, c))(*[1, 2], **{'b': 3, 'z': 4})	R:((1, 2), 3, {'z': 4})	
-2 ** 1000	R:10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376	
--(2 ** 1000) // 3	R:-3571695357287557736494750163533339368538016039018445358145834627901170170416453741643994596052319527091982243058510489417290484285641046811994859191566191601311522591608076995140358201687457047292651394051015491661193980422466255853055181315359020971523732159228847389220143277217541462279068556023126	
-2 ** 1000 % 7	R:2	
-(2 ** 1000) ** 0.5	R:3.273390607896142e+150	
-(2 ** 1024) * 1.0	E:OverflowError: int too large to convert to float	
-float(2 ** 1024)	E:OverflowError: int too large to convert to float	
-2 ** 1024 / 2	R:8.98846567431158e+307	
-2 ** 1024 // 2.0	E:OverflowError: int too large to convert to float	
-2 ** 2000 / 2 ** 1000	R:1.0715086071862673e+301	
-1 / 2 ** 2000	R:0.0	
-(10 ** 50 + 1) / 10 ** 50	R:1.0	
-10 ** 400 // 10 ** 399	R:10	
-10 ** 400 % 3.5	E:OverflowError: int too large to convert to float	
-3.5 % 10 ** 400	E:OverflowError: int too large to convert to float	
-divmod(10 ** 30, 7.5)	R:(1.3333333333333333e+29, 1.0)	
-int(1e300) == 10 ** 300	R:False	
+(lambda *a, b=1, **c: (a, b, c))(*[1, 2], **{'b': 3, 'z': 4})	R:((1, 2), 3, {'z': 4})		libm
+2 ** 1000	R:10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376		libm
+-(2 ** 1000) // 3	R:-3571695357287557736494750163533339368538016039018445358145834627901170170416453741643994596052319527091982243058510489417290484285641046811994859191566191601311522591608076995140358201687457047292651394051015491661193980422466255853055181315359020971523732159228847389220143277217541462279068556023126		libm
+2 ** 1000 % 7	R:2		libm
+(2 ** 1000) ** 0.5	R:3.273390607896142e+150		libm
+(2 ** 1024) * 1.0	E:OverflowError: int too large to convert to float		libm
+float(2 ** 1024)	E:OverflowError: int too large to convert to float		libm
+2 ** 1024 / 2	R:8.98846567431158e+307		libm
+2 ** 1024 // 2.0	E:OverflowError: int too large to convert to float		libm
+2 ** 2000 / 2 ** 1000	R:1.0715086071862673e+301		libm
+1 / 2 ** 2000	R:0.0		libm
+(10 ** 50 + 1) / 10 ** 50	R:1.0		libm
+10 ** 400 // 10 ** 399	R:10		libm
+10 ** 400 % 3.5	E:OverflowError: int too large to convert to float		libm
+3.5 % 10 ** 400	E:OverflowError: int too large to convert to float		libm
+divmod(10 ** 30, 7.5)	R:(1.3333333333333333e+29, 1.0)		libm
+int(1e300) == 10 ** 300	R:False		libm
 int(1e300)	R:1000000000000000052504760255204420248704468581108159154915854115511802457988908195786371375080447864043704443832883878176942523235360430575644792184786706982848387200926575803737830233794788090059368953234970799945081119038967640880074652742780142494579258788820056842838115669472196386865459400540160	
-str(2 ** 200)	R:'1606938044258990275541962092341162602522202993782792835301376'	
-hex(-2 ** 100)	R:'-0x10000000000000000000000000'	
-bin(2 ** 70)	R:'0b10000000000000000000000000000000000000000000000000000000000000000000000'	
-oct(-8 ** 30)	R:'-0o1000000000000000000000000000000'	
-(2 ** 100).bit_length()	R:101	
-abs(-2 ** 100)	R:1267650600228229401496703205376	
--2 ** 100 >> 10	R:-1237940039285380274899124224	
--2 ** 100 << 10	R:-1298074214633706907132624082305024	
-2 ** 100 & -2 ** 50	R:1267650600228229401496703205376	
-~(2 ** 100)	R:-1267650600228229401496703205377	
-2 ** 100 | 1	R:1267650600228229401496703205377	
-2 ** 64 ^ 2 ** 63	R:27670116110564327424	
-round(2 ** 100 / 3)	R:422550200076076443709319675904	
-round(2 ** 100 + 0.5)	R:1267650600228229401496703205376	
-max(2 ** 100, 1e30)	R:1267650600228229401496703205376	
-min(2 ** 100, 1e31)	R:1267650600228229401496703205376	
-2 ** 100 == 2.0 ** 100	R:True	
-2 ** 100 + 1 > 2.0 ** 100	R:True	
-2 ** 100 + 1 == 2.0 ** 100	R:False	
-hash(2 ** 100)	R:549755813888	
-hash(-(2 ** 100))	R:-549755813888	
-hash(2.0 ** 100)	R:549755813888	
-hash(10 ** 30)	R:465258685558744706	
+str(2 ** 200)	R:'1606938044258990275541962092341162602522202993782792835301376'		libm
+hex(-2 ** 100)	R:'-0x10000000000000000000000000'		libm
+bin(2 ** 70)	R:'0b10000000000000000000000000000000000000000000000000000000000000000000000'		libm
+oct(-8 ** 30)	R:'-0o1000000000000000000000000000000'		libm
+(2 ** 100).bit_length()	R:101		libm
+abs(-2 ** 100)	R:1267650600228229401496703205376		libm
+-2 ** 100 >> 10	R:-1237940039285380274899124224		libm
+-2 ** 100 << 10	R:-1298074214633706907132624082305024		libm
+2 ** 100 & -2 ** 50	R:1267650600228229401496703205376		libm
+~(2 ** 100)	R:-1267650600228229401496703205377		libm
+2 ** 100 | 1	R:1267650600228229401496703205377		libm
+2 ** 64 ^ 2 ** 63	R:27670116110564327424		libm
+round(2 ** 100 / 3)	R:422550200076076443709319675904		libm
+round(2 ** 100 + 0.5)	R:1267650600228229401496703205376		libm
+max(2 ** 100, 1e30)	R:1267650600228229401496703205376		libm
+min(2 ** 100, 1e31)	R:1267650600228229401496703205376		libm
+2 ** 100 == 2.0 ** 100	R:True		libm
+2 ** 100 + 1 > 2.0 ** 100	R:True		libm
+2 ** 100 + 1 == 2.0 ** 100	R:False		libm
+hash(2 ** 100)	R:549755813888		libm
+hash(-(2 ** 100))	R:-549755813888		libm
+hash(2.0 ** 100)	R:549755813888		libm
+hash(10 ** 30)	R:465258685558744706		libm
 hash(1e30)	R:465278570183583362	
-{2 ** 100: 1, 2.0 ** 100: 2}	R:{1267650600228229401496703205376: 2}	
-sum([2 ** 63 - 1, 1])	R:9223372036854775808	
-sum([-2 ** 63, -1])	R:-9223372036854775809	
-sum([1.0, 2 ** 70])	R:1.1805916207174113e+21	
-sum([2 ** 70, 1.0])	R:1.1805916207174113e+21	
-math.sqrt(2 ** 2000)	E:OverflowError: int too large to convert to float	
-math.log(2 ** 2000)	R:1386.2943611198907	
-math.log(2 ** 2000, 2)	R:2000.0000000000002	
-math.log10(10 ** 500)	R:500.0	
-math.log2(2 ** 5000)	R:5000.0	
-math.log(3 ** 1000)	R:1098.6122886681096	
-math.log(10 ** 400 + 1)	R:921.0340371976182	
-math.exp(2 ** 100)	E:OverflowError: math range error	
-math.sin(2 ** 100)	R:-0.8721836054182673	
-math.floor(2 ** 100 + 0.5)	R:1267650600228229401496703205376	
-math.trunc(2.0 ** 100)	R:1267650600228229401496703205376	
+{2 ** 100: 1, 2.0 ** 100: 2}	R:{1267650600228229401496703205376: 2}		libm
+sum([2 ** 63 - 1, 1])	R:9223372036854775808		libm
+sum([-2 ** 63, -1])	R:-9223372036854775809		libm
+sum([1.0, 2 ** 70])	R:1.1805916207174113e+21		libm
+sum([2 ** 70, 1.0])	R:1.1805916207174113e+21		libm
+math.sqrt(2 ** 2000)	E:OverflowError: int too large to convert to float		libm
+math.log(2 ** 2000)	R:1386.2943611198907		libm
+math.log(2 ** 2000, 2)	R:2000.0000000000002		libm
+math.log10(10 ** 500)	R:500.0		libm
+math.log2(2 ** 5000)	R:5000.0		libm
+math.log(3 ** 1000)	R:1098.6122886681096		libm
+math.log(10 ** 400 + 1)	R:921.0340371976182		libm
+math.exp(2 ** 100)	E:OverflowError: math range error		libm
+math.sin(2 ** 100)	R:-0.8721836054182673		libm
+math.floor(2 ** 100 + 0.5)	R:1267650600228229401496703205376		libm
+math.trunc(2.0 ** 100)	R:1267650600228229401496703205376		libm
 math.ceil(1e30)	R:1000000000000000019884624838656	
 math.factorial(25)	R:15511210043330985984000000	
-math.gcd(2 ** 100, 6 ** 50)	R:1125899906842624	
-math.isqrt(2 ** 201)	R:1792728671193156477399422023278	
+math.gcd(2 ** 100, 6 ** 50)	R:1125899906842624		libm
+math.isqrt(2 ** 201)	R:1792728671193156477399422023278		libm
 math.comb(100, 50)	R:100891344545564193334812497256	
 math.perm(20, 10)	R:670442572800	
-pow(2, 2 ** 70, 10 ** 9 + 7)	R:100126750	
-pow(10 ** 20, -1, 7)	R:4	
+pow(2, 2 ** 70, 10 ** 9 + 7)	R:100126750		libm
+pow(10 ** 20, -1, 7)	R:4		libm
 pow(6, -1, 9)	E:ValueError: base is not invertible for the given modulus	
-divmod(-2 ** 100, 2 ** 60 + 1)	R:(-1099511627776, 1099511627776)	
-divmod(2 ** 100, -7)	R:(-181092942889747057356671886483, -5)	
-(-7) // 2 ** 100	R:-1	
-7 % -2 ** 100	R:-1267650600228229401496703205369	
--7 % 2 ** 100	R:1267650600228229401496703205369	
-2 ** 0	R:1	
-0 ** 0	R:1	
-(-2) ** 101	R:-2535301200456458802993406410752	
-1 ** -1	R:1.0	
-(-1) ** -1	R:-1.0	
-(-1) ** -2	R:1.0	
-2 ** -1.5	R:0.3535533905932738	
-4 ** 0.5	R:2.0	
-0.0 ** 0.5	R:0.0	
-(-0.0) ** 0.5	R:0.0	
-1e308 ** 2	E:OverflowError: (34, 'Numerical result out of range')	
-(-1e308) ** 3	E:OverflowError: (34, 'Numerical result out of range')	
-(1e-308) ** 2	R:0.0	
-2.0 ** -1075	R:0.0	
-2.0 ** 1023.5	R:1.2711610061536464e+308	
-10 ** -400	R:0.0	
-10.0 ** -400	R:0.0	
-0.5 ** 1100	R:0.0	
-float('inf') ** -1	R:0.0	
-(-float('inf')) ** 3	R:-inf	
-(-float('inf')) ** 2	R:inf	
-(-float('inf')) ** -3	R:-0.0	
-float('nan') ** 0	R:1.0	
-0 ** float('nan')	R:nan	
-(-2.0) ** float('inf')	R:inf	
-(-0.5) ** float('-inf')	R:inf	
+divmod(-2 ** 100, 2 ** 60 + 1)	R:(-1099511627776, 1099511627776)		libm
+divmod(2 ** 100, -7)	R:(-181092942889747057356671886483, -5)		libm
+(-7) // 2 ** 100	R:-1		libm
+7 % -2 ** 100	R:-1267650600228229401496703205369		libm
+-7 % 2 ** 100	R:1267650600228229401496703205369		libm
+2 ** 0	R:1		libm
+0 ** 0	R:1		libm
+(-2) ** 101	R:-2535301200456458802993406410752		libm
+1 ** -1	R:1.0		libm
+(-1) ** -1	R:-1.0		libm
+(-1) ** -2	R:1.0		libm
+2 ** -1.5	R:0.3535533905932738		libm
+4 ** 0.5	R:2.0		libm
+0.0 ** 0.5	R:0.0		libm
+(-0.0) ** 0.5	R:0.0		libm
+1e308 ** 2	E:OverflowError: (34, 'Numerical result out of range')		libm
+(-1e308) ** 3	E:OverflowError: (34, 'Numerical result out of range')		libm
+(1e-308) ** 2	R:0.0		libm
+2.0 ** -1075	R:0.0		libm
+2.0 ** 1023.5	R:1.2711610061536464e+308		libm
+10 ** -400	R:0.0		libm
+10.0 ** -400	R:0.0		libm
+0.5 ** 1100	R:0.0		libm
+float('inf') ** -1	R:0.0		libm
+(-float('inf')) ** 3	R:-inf		libm
+(-float('inf')) ** 2	R:inf		libm
+(-float('inf')) ** -3	R:-0.0		libm
+float('nan') ** 0	R:1.0		libm
+0 ** float('nan')	R:nan		libm
+(-2.0) ** float('inf')	R:inf		libm
+(-0.5) ** float('-inf')	R:inf		libm
 (lambda q: (q.append(q), q))([1])[1]	R:[1, [...]]	
 (lambda q: (q.update({'s': q}), q))({})[1]	R:{'s': {...}}	
 (lambda q: (q.append((q,)), q))([])[1]	R:[([...],)]	
@@ -3170,9 +3169,9 @@ str({1: 'a'}.keys())	R:'dict_keys([1])'
 [1/7, 2/7, 3/7, 4/7, 5/7, 6/7]	R:[0.14285714285714285, 0.2857142857142857, 0.42857142857142855, 0.5714285714285714, 0.7142857142857143, 0.8571428571428571]	
 [x / 10 for x in range(10)]	R:[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]	
 [x * 0.1 for x in range(10)]	R:[0.0, 0.1, 0.2, 0.30000000000000004, 0.4, 0.5, 0.6000000000000001, 0.7000000000000001, 0.8, 0.9]	
-[2 ** -x for x in range(0, 60, 7)]	R:[1, 0.0078125, 6.103515625e-05, 4.76837158203125e-07, 3.725290298461914e-09, 2.9103830456733704e-11, 2.2737367544323206e-13, 1.7763568394002505e-15, 1.3877787807814457e-17]	
-[10.0 ** x for x in range(-6, 24, 3)]	R:[1e-06, 0.001, 1.0, 1000.0, 1000000.0, 1000000000.0, 1000000000000.0, 1000000000000000.0, 1e+18, 1e+21]	
-[1.0 / 3 * 10 ** x for x in range(-8, 20, 2)]	R:[3.3333333333333334e-09, 3.333333333333333e-07, 3.3333333333333335e-05, 0.003333333333333333, 0.3333333333333333, 33.33333333333333, 3333.333333333333, 333333.3333333333, 33333333.333333332, 3333333333.333333, 333333333333.3333, 33333333333333.332, 3333333333333333.0, 3.333333333333333e+17]	
+[2 ** -x for x in range(0, 60, 7)]	R:[1, 0.0078125, 6.103515625e-05, 4.76837158203125e-07, 3.725290298461914e-09, 2.9103830456733704e-11, 2.2737367544323206e-13, 1.7763568394002505e-15, 1.3877787807814457e-17]		libm
+[10.0 ** x for x in range(-6, 24, 3)]	R:[1e-06, 0.001, 1.0, 1000.0, 1000000.0, 1000000000.0, 1000000000000.0, 1000000000000000.0, 1e+18, 1e+21]		libm
+[1.0 / 3 * 10 ** x for x in range(-8, 20, 2)]	R:[3.3333333333333334e-09, 3.333333333333333e-07, 3.3333333333333335e-05, 0.003333333333333333, 0.3333333333333333, 33.33333333333333, 3333.333333333333, 333333.3333333333, 33333333.333333332, 3333333333.333333, 333333333333.3333, 33333333333333.332, 3333333333333333.0, 3.333333333333333e+17]		libm
 [round(x * 1.1, 2) for x in range(10)]	R:[0.0, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9]	
 [round(x / 8, 2) for x in range(16)]	R:[0.0, 0.12, 0.25, 0.38, 0.5, 0.62, 0.75, 0.88, 1.0, 1.12, 1.25, 1.38, 1.5, 1.62, 1.75, 1.88]	
 [round(x / 2) for x in range(-5, 6)]	R:[-2, -2, -2, -1, 0, 0, 0, 1, 2, 2, 2]	
@@ -4424,1003 +4423,1003 @@ set([10, 11, 15, 22, 25, 47, 57, 58, 65, 70, 83, 96]) | set([3, 8, 9, 23, 31, 40
 set([10, 11, 15, 22, 25, 47, 57, 58, 65, 70, 83, 96]) & set([3, 8, 9, 23, 31, 40, 51, 63, 64])	R:set()	
 set([10, 11, 15, 22, 25, 47, 57, 58, 65, 70, 83, 96]) - set([3, 8, 9, 23, 31, 40, 51, 63, 64])	R:{96, 65, 70, 10, 11, 15, 47, 83, 22, 25, 58, 57}	
 set([10, 11, 15, 22, 25, 47, 57, 58, 65, 70, 83, 96]) ^ set([3, 8, 9, 23, 31, 40, 51, 63, 64])	R:{3, 8, 9, 10, 11, 15, 22, 23, 25, 31, 40, 47, 51, 57, 58, 63, 64, 65, 70, 83, 96}	
-math.sin(236405.55112975184)	R:0.6472315848440893	
-math.cos((-0.5096209193373775))	R:0.8729295034879149	
-math.tan((-14858.32259921421))	R:6.1909048228001415	
-math.sin((-652432.5382776303))	R:0.7563067749544933	
-math.cos(2.4291646336747696)	R:-0.7567769767912549	
-math.tan(3.868284752429304)	R:0.888977966074217	
-math.sin((-497273.36102243804))	R:0.08456256270295717	
-math.cos((-372616.07073823176))	R:-0.3708484221584853	
-math.tan(3.412805350449549)	R:0.27806415830285763	
-math.sin(1449.3158246033138)	R:-0.8632187792682825	
-math.cos(52904379.56462608)	R:-0.9929422732962834	
-math.tan(6.7499951254840494e-06)	R:6.749995125586565e-06	
-math.sin((-218290384675206.78))	R:-0.14414816634605246	
-math.cos((-814966.1795503353))	R:0.7937158808623345	
-math.tan(1.2850716088247208e+19)	R:-11.937467464967028	
-math.sin((-7.015273050480493))	R:-0.6684239134075407	
-math.cos((-2.6146668073165324))	R:-0.8643570783299447	
-math.tan((-6.597177739578884))	R:-0.3247352602451053	
-math.sin((-179935.94978370785))	R:0.9426722740190302	
-math.cos((-7.338126927017832))	R:0.49327851428536473	
-math.tan((-9.964012320366118))	R:-0.5983893532352822	
-math.sin((-7.916302192572284))	R:-0.998058702419439	
-math.cos(4.001408107036956e+18)	R:0.867716205863193	
-math.tan((-0.29240500760693244))	R:-0.30103384671263583	
-math.sin((-768495.8421375306))	R:0.52505829209009	
-math.cos((-7.69249153205439))	R:0.16078909846503986	
-math.tan((-188506.87902768387))	R:2.975309654250829	
-math.sin((-1.7164278379277764))	R:-0.9894144599898874	
-math.cos((-12516206.30624278))	R:0.8000749812531512	
-math.tan((-15008024862929.377))	R:6.241142257133475	
-math.sin((-8.96014487685578))	R:-0.44809481375719923	
-math.cos((-3.3271589012212104))	R:-0.9828319337643237	
-math.tan((-582802.9057704131))	R:0.23475770830500264	
-math.sin((-329286.91486077267))	R:0.771295937314549	
-math.cos((-8.127487140236877))	R:-0.2701082958092159	
-math.tan((-108474.66404419777))	R:5.430509581484106	
-math.sin(368654.1150861182)	R:0.7058043716955191	
-math.cos((-1.3755091288057315))	R:0.19404828188532638	
-math.tan(259773.07133587776)	R:1.7760689736918402	
-math.sin(854124.6600009087)	R:0.8498568081549563	
-math.cos(4.623988112668968)	R:-0.08828577478806457	
-math.tan((-15.647082158588871))	R:0.060956439850273096	
-math.sin((-511085.87611788005))	R:0.8322416156232436	
-math.cos((-121929.82822525676))	R:-0.09490648862269176	
-math.tan(688247.0300782172)	R:-0.5753531226867593	
-math.sin((-7.762370766752246))	R:-0.9958066584705132	
-math.cos((-0.024278675266114887))	R:0.9997052874407145	
-math.tan(0.00033938703123985274)	R:0.00033938704427045516	
-math.sin(3.662899336302054)	R:-0.49801367764908755	
-math.cos(3.0283106205988872)	R:-0.9935904492847002	
-math.tan((-798118.8275001423))	R:-0.3712151331363939	
-math.sin(20199271674.939404)	R:-0.46674024118546675	
-math.cos((-6.852008914699885))	R:0.8425352115467805	
-math.tan(4.672164666662882e-05)	R:4.6721646700625236e-05	
-math.sin((-773508.1628516613))	R:0.8002116496294166	
-math.cos(539490.0333467028)	R:-0.9993907428900265	
-math.tan((-3.8865848147663726))	R:-0.9222858171736901	
-math.sin(1.404537375416826)	R:0.9862107879865095	
-math.cos((-5.133745364725528e+17))	R:-0.9425482243097163	
-math.tan((-9.920331510560718))	R:-0.5405429650751011	
-math.sin((-0.738985914747861))	R:-0.6735386949735928	
-math.cos(4.401882594068924)	R:-0.30554084599801745	
-math.tan((-4245844.269352496))	R:-0.756395707947922	
-math.sin(9.793396704896623e-05)	R:9.793396689241777e-05	
-math.cos(865679.4813402072)	R:0.48950622021030143	
-math.tan(3.5219075201542456)	R:0.39977786477820093	
-math.sin((-8.536607977415775))	R:-0.7759186124925641	
-math.cos((-2.1074967837008852e+18))	R:-0.0942103493385126	
-math.tan(8.281074155776281)	R:-2.197287007904955	
-math.sin(1.7908660952363106e+16)	R:0.9971011222337308	
-math.cos((-8.619198868743672))	R:-0.6926936915513455	
-math.tan(0.468747269134413)	R:0.506390926345201	
-math.sin((-9.72828478023656))	R:0.2988685752726691	
-math.cos(0.5065397153209407)	R:0.8744285115942441	
-math.tan(4.707669370298582)	R:211.8803369002912	
-math.sin(9.827874653878421)	R:-0.3922687138194831	
-math.cos((-7155322256116601.0))	R:0.15500165405710112	
-math.tan(829228.1503013412)	R:-17.52567674591202	
-math.sin((-194371.12594977405))	R:-0.7092770902711335	
-math.cos((-8.187171270544605))	R:-0.3270589061639773	
-math.tan((-67682.92995050887))	R:-0.49273852237227767	
-math.sin((-666569436463605.5))	R:0.6976970570407466	
-math.cos(1.426648551344622e+17)	R:0.3965406535011847	
-math.tan(7.669967622269198)	R:5.3728918614026	
-math.sin((-830476.7904227279))	R:-0.08585525395012295	
-math.cos(71525.91664206982)	R:-0.2898772092305285	
-math.tan(296193.6555587766)	R:2.2869584576811395	
-math.sin((-226027696824815.94))	R:0.9998654254262633	
-math.cos(0.005303317669621004)	R:0.9999859374438069	
-math.tan((-17199103907564.672))	R:-0.3252642013791051	
-math.sin((-9.74566232819113))	R:0.315405910373868	
-math.cos(958086.0428745437)	R:0.6862361189986442	
-math.tan((-0.016624452809330507))	R:-0.016625984492136838	
-math.sin(9.321317471711605)	R:0.10327601304995733	
-math.cos((-430350947741.37933))	R:-0.4396649539104792	
-math.tan(8.593109774902036)	R:-1.0971022751924464	
-math.sin(90441665.02091973)	R:0.30627132720185674	
-math.cos(1.006771488411317e+16)	R:0.2083196869443731	
-math.tan((-136319275687.09274))	R:2.6395521300364306	
-math.sin(9.738153822395564)	R:-0.3082718384010248	
-math.cos(663471.2399073581)	R:-0.1413331402474064	
-math.tan((-5.563105168859361))	R:0.8772096944122896	
-math.sin(132838.72364234412)	R:-0.37103380710103817	
-math.cos(186509.54617811702)	R:0.8645810975265749	
-math.tan((-1.2538643782136472))	R:-3.048893228151697	
-math.sin((-374876.86282603175))	R:0.036243183147921736	
-math.cos(339846.7581340475)	R:-0.2575086289407686	
-math.tan(670653.2676407674)	R:-4.80664455805672	
-math.sin(157765622392.87158)	R:-0.9604248981037142	
-math.cos(185975.0026782544)	R:0.5409509578697983	
-math.tan((-654193.5108334975))	R:-1.0782247339649897	
-math.sin((-2.6309948412949646))	R:-0.48869889701646857	
-math.cos(8655290364727605.0)	R:0.9999582315735048	
-math.tan((-4.134357109491441e+20))	R:-1.0096721643050401	
-math.sin(5.656610355301453e+19)	R:0.6026605354373535	
-math.cos((-4.792639752143701))	R:0.08016466117105127	
-math.tan((-1520.5456897869426))	R:-0.014846540162015429	
-math.sin((-7.463121618785888))	R:-0.9245817500426543	
-math.cos(9.594102763981493)	R:-0.9856987736200812	
-math.tan((-5.957966819168334))	R:0.3371910678259391	
-math.sin(159752.11778605613)	R:0.846960337892451	
-math.cos(13315.953318805463)	R:-0.3077777909731762	
-math.tan(7.5492265120437)	R:3.179103387949848	
-math.sin(345685.2425126472)	R:-0.0947326262876262	
-math.cos((-598235.0684891795))	R:0.9093730159246809	
-math.tan((-191599.01402626606))	R:0.4692310373592856	
-math.sin(0.9536137068110211)	R:0.8155122212158988	
-math.cos(1820567.7138287781)	R:-0.5922968557168896	
-math.tan((-623053.8086662837))	R:-0.6655595429428213	
-math.sin((-0.621603088604413))	R:-0.5823391326587692	
-math.cos((-451644.94464209094))	R:-0.9872298225447766	
-math.tan((-6978.808732517857))	R:-4.097938013016913	
-math.sin(1.229643550496712e+21)	R:0.34210969640768313	
-math.cos((-6.264556569533225))	R:0.9998264900846988	
-math.tan(2.452522228561808)	R:-0.8237745203254274	
-math.sin((-1390033627.5637028))	R:0.6339222426480643	
-math.cos(9.908119812805396)	R:-0.885446775009743	
-math.tan(6.204895488388956)	R:-0.07845016574490929	
-math.sin(832549.0468890681)	R:0.9582009097096568	
-math.cos(9.449777744256679)	R:-0.9996875216879328	
-math.tan(7.8196268306259675)	R:29.096558679031812	
-math.sin(1.4670777843184793e-05)	R:1.4670777842658522e-05	
-math.cos((-1.4113980963284946e-05))	R:0.9999999999003978	
-math.tan((-1.1348092397092053e-08))	R:-1.1348092397092053e-08	
-math.sin(238980.54228726984)	R:-0.3994082692059893	
-math.cos((-870016.6543138843))	R:-0.9531815791172922	
-math.tan((-778865.5145091328))	R:3.314321624160581	
-math.sin((-6.765300817664466))	R:-0.4636545878816977	
-math.cos((-354620.7685741219))	R:-0.5966874083144731	
-math.tan(680793.8661044682)	R:3.797237925088114	
-math.sin((-4.458184540996932))	R:0.9678636659540275	
-math.cos((-106915.75372945052))	R:0.4778924125355281	
-math.tan(643187521564484.2)	R:2.7715770684314855	
-math.sin((-865118.6459920141))	R:0.5418048165187531	
-math.cos((-794587.0623320544))	R:-0.966498599763913	
-math.tan(167017.39539824493)	R:1.2735878848498317	
-math.sin(651392.524429454)	R:0.8438021268105603	
-math.cos((-3.4152956027561654))	R:-0.9627765981469235	
-math.tan((-9260531244405.05))	R:-0.028622096439813234	
-math.sin(6.08520161095985e+20)	R:0.6170771988075054	
-math.cos((-6871.235663005849))	R:-0.8405332270856105	
-math.tan((-450566.9884798371))	R:0.2340357846387973	
-math.sin(236306.75239375373)	R:0.6483510735489907	
-math.cos((-6290.541104955982))	R:0.4778309339001191	
-math.tan(8.641578781541359)	R:-0.9956116744462707	
-math.sin(818490.8434209994)	R:-0.7558748795115249	
-math.cos((-106480.774132877))	R:0.9333118359177022	
-math.tan(1.1308453335526618)	R:2.124402186458596	
-math.sin(649106965387.083)	R:-0.9949960533426712	
-math.cos((-249.42681966986916))	R:-0.3238503038782805	
-math.tan((-3.9636874565718543))	R:-1.0762246879663628	
-math.sin((-2.7138023053554017))	R:-0.41486128859186777	
-math.cos(6.4208878353440255)	R:0.9905339789409021	
-math.tan((-695783.7779297029))	R:0.48926662309907565	
-math.sin((-1289447325987573.8))	R:0.5151534609856543	
-math.cos(686.0453400614206)	R:0.382642472945284	
-math.tan((-348900.0059203013))	R:-1.5886692143606427	
-math.sin((-993348.7179264727))	R:-0.7758050887717811	
-math.cos(749897.4417481085)	R:0.7487223422595386	
-math.tan(1059.4674483990286)	R:0.932949972705345	
-math.exp((-255.48930215736482))	R:1.1025692795671406e-111	
-math.log(1.0800849435309386e+78)	R:179.67867694299636	
-math.atan2(34145.774263645035, 0.057256113805000286)	R:1.5707946499808534	
-math.pow(239.00534033686162, 0.043347393663864864)	R:1.2679372786907026	
-6268.992678916983 ** (-13.162552462272812)	R:1.0451659181641381e-50	
-math.exp(427.76833768943766)	R:5.990024399786667e+185	
-math.log(1.0779229740666652)	R:0.07503601730561929	
-math.atan2(2618321239.3386045, 14376.144008123425)	R:1.5707908361989407	
-math.pow(0.01044017107098275, (-15.870820775252188))	R:2.784430265054443e+31	
-0.003097203559432866 ** 3.5138681554266604	R:1.5261545031497139e-09	
-math.exp((-3.91765549323585))	R:0.019887666898238683	
-math.log(8.117493260918444e-83)	R:-189.02054132370301	
-math.atan2(616606413307.401, 103573986135515.2)	R:0.005953223892788642	
-math.pow(1.5532058928330611e-10, (-12.78991022768221))	R:2.839881087796313e+125	
-3.0985756579620833 ** (-9.982990982543498)	R:1.2494910133582083e-05	
-math.exp(4.528205986218884)	R:92.59230012702866	
-math.log(4.2630193213973e+190)	R:438.941145338989	
-math.atan2((-2.4371157174922646e+17), (-4.366171229869197e-19))	R:-1.5707963267948966	
-math.pow(9.274439081306235e-08, (-15.361493179628155))	R:1.0788541932875278e+108	
-0.005942032469750672 ** 18.904190419404557	R:8.280255622239286e-43	
-math.exp((-0.10370890165327418))	R:0.9014876808031431	
-math.log(1.0016104251495512)	R:0.0016091298054867083	
-math.atan2(9.486579983334605e+18, 39265.71193365084)	R:1.5707963267948926	
-math.pow(3.4054912982180025e-10, (-7.3013235497642555))	R:1.3415867934806882e+69	
-489.6931537139356 ** (-17.733003454476837)	R:1.993277860823953e-48	
-math.exp(0.8247934966741777)	R:2.2814095980126163	
-math.log(1.052678022378992)	R:0.05133741467427876	
-math.atan2((-135429756114643.89), 4.139977207081424e-20)	R:-1.5707963267948966	
-math.pow(0.14101671907710148, 15.023829574777572)	R:1.65495645609738e-13	
-1.4018117503612408e-05 ** (-7.794040639504885)	R:6.712707834017856e+37	
-math.exp(0.56211205134134)	R:1.7543739179146935	
-math.log(0.9685057674055646)	R:-0.032000841165140945	
-math.atan2((-4.010624836578227e-16), 1.6039824128704174e-20)	R:-1.5707563334652441	
-math.pow(80874.85224773691, (-10.39410679112633))	R:9.719912769955345e-52	
-15290.693653928392 ** (-18.85017762398164)	R:1.3267963346274364e-79	
-math.exp(491.7199941503345)	R:3.55860759232456e+213	
-math.log(1.0719208925788397)	R:0.06945226568952466	
-math.atan2((-0.007266553665106358), (-73478206918.12102))	R:-3.1415926535896945	
-math.pow(0.036074048605724135, 5.124785314933689)	R:4.0358362792686406e-08	
-19.64642711487559 ** 10.360235176454701	R:25045058661730.082	
-math.exp((-1.14500687969954e-09))	R:0.9999999988549931	
-math.log(3.6456271718148906e-235)	R:-539.8139684393433	
-math.atan2(1299245.8172546371, (-3.2350758069850915e+19))	R:3.141592653589753	
-math.pow(0.0015895800471873722, (-18.52636106678435))	R:7.08031745725049e+51	
-5.391528000896775 ** (-0.9884000490071507)	R:0.18913676505927626	
-math.exp(0.3359905033706767)	R:1.3993257358700144	
-math.log(0.9369116839408105)	R:-0.06516625525121206	
-math.atan2(3.829005122174599e-08, (-1.969415342182636e-08))	R:2.045851014210271	
-math.pow(7.164379329037043e-09, 15.468258421201071)	R:1.0322796355713793e-126	
-1465.417925615684 ** (-7.8731410583301695)	R:1.1856009197249274e-25	
-math.exp((-0.531298232846245))	R:0.5878413191785918	
-math.log(0.9688271658509541)	R:-0.03166904641492449	
-math.atan2((-3.1862921355685196e-14), (-3563544498.7064376))	R:-3.141592653589793	
-math.pow(6187289.650037974, (-19.79393756812303))	R:3.710770963169786e-135	
-7.54027118208421e-05 ** (-6.738544491724641)	R:6.031305905209664e+27	
-math.exp(12.225160717808587)	R:203854.28284403819	
-math.log(9.321277471276326e+92)	R:214.07012824249028	
-math.atan2((-1.6146821805556796e-10), 9.632207168099417e-17)	R:-1.5707957302560058	
-math.pow(299693455.3681393, (-22.293814618177997))	R:1.0532430668386946e-189	
-13.440322573080824 ** (-1.4668968986686757)	R:0.02211766736405953	
-math.exp(0.043247289054966)	R:1.0441960811880853	
-math.log(4.4639018658133365e+157)	R:363.0018828414378	
-math.atan2(12247100915605.613, 6.471769516276682)	R:1.570796326794368	
-math.pow(0.002533491549080227, 2.240137015131957)	R:1.5274811538321236e-06	
-0.5585408154545314 ** 2.404519614852294	R:0.24648391363484023	
-math.exp(159.5417261859701)	R:1.9412940162077586e+69	
-math.log(1.0741568243057968)	R:0.07153600433365102	
-math.atan2((-9.500249302387284e-19), (-36547.57118295144))	R:-3.141592653589793	
-math.pow(6.876032962938543e-07, (-14.479301259970288))	R:1.702316801781456e+89	
-7665.61281604353 ** 18.252192384907005	R:7.970709382832827e+70	
-math.exp((-141.0299957202028))	R:5.642233768972495e-62	
-math.log(1.765424627786963e+200)	R:461.0854098425747	
-math.atan2((-2.4786047652482657e+18), (-1.508056890157552e+16))	R:-1.5768805492694025	
-math.pow(214469.52570329668, (-14.179992321092246))	R:2.5192824062420186e-76	
-1.9235046563743106 ** 12.799571745109596	R:4327.84634179373	
-math.exp((-0.6870066151534044))	R:0.5030797286637634	
-math.log(8.43435981511297e-224)	R:-513.6467470138008	
-math.atan2((-1.6782805582157723e-05), (-2792586468.227718))	R:-3.1415926535897873	
-math.pow(0.01616858709838963, 4.841808095666892)	R:2.121944051653132e-09	
-3918.3166760254608 ** 7.964538531664978	R:4.143617653730144e+28	
-math.exp((-8.812378826730878))	R:0.0001488786777876141	
-math.log(2.4794532076837483e+122)	R:281.8234194003683	
-math.atan2(6.451646287069565e-11, 158535.58786984358)	R:4.069525570729465e-16	
-math.pow(0.003653769302830685, (-4.499978377829898))	R:92813734778.96666	
-0.06847768709887926 ** 1.6986070056594684	R:0.010520963525330133	
-math.exp((-1.0957572085957175))	R:0.33428638656504267	
-math.log(1.0282360129597816)	R:0.027844725273691393	
-math.atan2((-1.9683743455749645e+17), 1.3305207075116347e-13)	R:-1.5707963267948966	
-math.pow(5.360108318966169e-09, (-25.082770084301362))	R:2.8525800936770087e+207	
-1.1636661277442986 ** 3.014201939498097	R:1.5791379466154567	
-math.exp(0.7472575285680818)	R:2.1112021584098675	
-math.log(7.989414638981944e+233)	R:538.5804441630027	
-math.atan2(4.799347606893915, (-80.77074794262596))	R:3.082243057702082	
-math.pow(16647107.103838379, 5.2076054568400565)	R:4.035368537364568e+37	
-322.2498592315116 ** (-4.168920967709099)	R:3.4957688691854457e-11	
-math.exp(3.345026618696923e-11)	R:1.0000000000334504	
-math.log(9.415719871756519e-44)	R:-99.07136347246085	
-math.atan2((-3.558567039272321e-15), (-6.738640804007941e-18))	R:-1.5726899633837348	
-math.pow(63368240.84632883, 7.084510356478006)	R:1.8725805617634112e+55	
-0.044965185211598695 ** 14.239346723486953	R:6.574152733463399e-20	
-math.exp((-461.26731900735774))	R:4.722246711027919e-201	
-math.log(3.594449756523307e+150)	R:346.66715487057456	
-math.atan2(1.103614442556809e+16, 85.2987072363074)	R:1.5707963267948888	
-math.pow(0.016246003532248348, (-27.893609519679682))	R:8.104705755937233e+49	
-0.011818370456440018 ** (-8.291642875053071)	R:9586587706067368.0	
-math.exp((-0.22785114270406726))	R:0.7962427775608945	
-math.log(1.8883349717575667e-112)	R:-257.25383494186536	
-math.atan2(526.7880622743435, (-239687.1563879065))	R:3.1393948419839566	
-math.pow(4254.637441179189, 16.88427376358227)	R:1.8651289923747376e+61	
-0.20228416037199323 ** 11.540574941788332	R:9.781400265285386e-09	
-math.exp(126.66590751553167)	R:1.0240111352841907e+55	
-math.log(4.7542121053034213e+257)	R:593.323399883589	
-math.atan2((-3.469343269933359e+18), 8882088187377469.0)	R:-1.5682361682603627	
-math.pow(0.17610696373285548, 7.250824295926066)	R:3.3982719847841926e-06	
-0.00013880879668052787 ** 19.436240656030364	R:1.0546011850022977e-75	
-math.exp((-1.2517506590606982e-11))	R:0.9999999999874825	
-math.log(0.9625039796195386)	R:-0.038217078159094996	
-math.atan2((-5.054332009231645e-10), 9.115080200397233e-16)	R:-1.570794523375536	
-math.pow(162.3874260079299, 15.591505831371151)	R:2.9230793325704443e+34	
-0.00011659683421069112 ** 14.153660585616436	R:2.134122807263074e-56	
-math.exp((-0.6945744870142458))	R:0.4992868558315553	
-math.log(6.0838111744445584e+274)	R:632.7139468178678	
-math.atan2((-17.783485943700423), (-91203223.66639777))	R:-3.141592458602322	
-math.pow(1.3641651311079842e-10, (-27.83337484959639))	R:3.801423671336137e+274	
-0.32815351761304945 ** 11.509875516308913	R:2.6921995489212448e-06	
-math.exp((-0.29151439196690454))	R:0.7471312608372146	
-math.log(1.0517164745118208)	R:0.05042356707060089	
-math.atan2(1279160921791.7195, (-1.7625808483100365e+17))	R:3.1415853962720766	
-math.pow(12298518.657768235, 15.420188468669103)	R:2.1225916811983737e+109	
-0.020150793974320153 ** 17.336470202607252	R:4.0032398097140285e-30	
-math.exp((-0.6891459997600411))	R:0.5020045981053023	
-math.log(4.64898863312979e+34)	R:79.82454285948899	
-math.atan2((-0.17185538822071944), 403788.59238204703)	R:-4.2560733874845837e-07	
-math.pow(123659079.17701383, (-29.796501640306325))	R:7.58532987644121e-242	
-340.4420042722928 ** 19.501744759879514	R:2.3947435439474113e+49	
-math.exp(0.0031913156602141218)	R:1.0031964133293503	
-math.log(3.1638527036416596e+243)	R:560.6799680925321	
-math.atan2((-8517135501.71049), (-1.1418526705487949e+17))	R:-3.141592578999299	
-math.pow(0.0013561019545783963, 3.9555769166044215)	R:4.534838072753008e-12	
-9291.393733223504 ** (-13.195154454504504)	R:4.3707916946002145e-53	
-math.exp((-0.9166425274877916))	R:0.39985930650367385	
-math.log(4.591855893985888e+20)	R:47.57598613643404	
-math.atan2((-7.545096161577e-20), 3413.272855909111)	R:-2.210516557009151e-23	
-math.pow(0.10768465631683626, 3.4338316064417285)	R:0.0004748749038268552	
-9309.662654087839 ** (-7.560353009795664)	R:9.850500782583288e-31	
-math.exp(1.1368363537879494e-10)	R:1.0000000001136837	
-math.log(2.6952224845271612e-48)	R:-109.53260370820514	
-math.atan2((-29737656505.571644), (-69190534336106.53))	R:-3.141162859905443	
-math.pow(0.10829948728679305, (-28.73711869810103))	R:5.521482682243341e+27	
-0.00015733849520039475 ** (-16.104462320669413)	R:1.769813758843952e+61	
-math.exp(4.381411628868125e-09)	R:1.0000000043814117	
-math.log(4.334327083049184e+217)	R:501.12753154906744	
-math.atan2((-1.4390534707229722e-06), 21247.199248109828)	R:-6.772909002823005e-11	
-math.pow(0.044074238063622165, 29.796606474739256)	R:3.9930838015436586e-41	
-4794.974494255287 ** (-11.876675929887298)	R:1.9252801415277728e-44	
-math.exp((-0.8038975514331113))	R:0.4475810897968684	
-math.log(4.920392953119925e+225)	R:519.6750343194955	
-math.atan2(6.061357698640196e-20, (-2.8605015128797295e-10))	R:3.1415926533778946	
-math.pow(34249.69189188633, 15.074823994804134)	R:2.2863944720653754e+68	
-382.0322012993402 ** 14.710870560946283	R:9.659139705429733e+37	
-math.exp(3.740521904643188e-05)	R:1.0000374059186303	
-math.log(6.0258845067960305e+29)	R:68.5710319715363	
-math.atan2((-1.131115550402664e-05), 3.439927163966923e+19)	R:-3.288196221859133e-25	
-math.pow(0.6330991858582953, 26.824768568129905)	R:4.726348860893645e-06	
-0.0761284772940421 ** 11.536381914354266	R:1.2505489355778848e-13	
-math.exp(9.101170431911787e-11)	R:1.0000000000910116	
-math.log(1.0375053257339273)	R:0.03681910634706157	
-math.atan2(241.99304793700756, (-1.852418780106856e-20))	R:1.5707963267948966	
-math.pow(76.10968592628852, (-15.063336006814879))	R:4.562870687373566e-29	
-0.0010797443235380118 ** 9.207151589121164	R:4.845471929739071e-28	
-math.exp(3.6575025962997454e-11)	R:1.000000000036575	
-math.log(1.0323155737415681)	R:0.03180440882486513	
-math.atan2((-5389439842.986021), (-1767635220.3197105))	R:-1.8877222977317711	
-math.pow(2.6856470151751932e-06, (-21.90086461788456))	R:1.0201056494617616e+122	
-0.0018833225327634627 ** 15.133301060642744	R:5.762555350685784e-42	
-math.exp((-0.9887052553786173))	R:0.3720580995274629	
-math.log(2.3389235110536473e-291)	R:-669.2025712757589	
-math.atan2((-5.347520494454342e-10), (-4.895515337478412e-09))	R:-3.03279097517232	
-math.pow(23234161.467967607, 27.01345469685318)	R:9.6502395097278e+198	
-4.95835989798368e-05 ** 5.215827563600769	R:3.5287876971756135e-23	
-math.exp(2.709949793684004e-10)	R:1.000000000270995	
-math.log(2.7590362296944093e+46)	R:106.93379570433368	
-math.atan2((-3.4219819465819988e+16), 0.014787217306464285)	R:-1.5707963267948966	
-math.pow(1.2573146592906583, (-10.515776609664066))	R:0.09000555836791838	
-7.541175727374598e-05 ** (-3.1826745127466047)	R:13205949366420.164	
-math.exp((-342.6884627975084))	R:1.4869336680844365e-149	
-math.log(0.9080832160995608)	R:-0.09641925689349548	
-math.atan2(153155134524386.25, 0.02460586146105292)	R:1.5707963267948966	
-math.pow(5.336972313832718e-05, 26.028344926959704)	R:6.145527744772144e-112	
-19.473026917290394 ** 2.1393243454226685	R:573.4775242699324	
-math.exp((-9.567006893189429e-06))	R:0.9999904330388705	
-math.log(1.0639582722099514)	R:0.06199617230262273	
-math.atan2(7.8851374795847065, 6.240982896887036e-15)	R:1.570796326794896	
-math.pow(31253467.266711082, 18.34481587026564)	R:3.108332995720481e+137	
-1.252927607352578 ** (-15.635548688680307)	R:0.02943564740159824	
-math.exp(1.5240993441545406e-06)	R:1.0000015241005056	
-math.log(0.9367806355999029)	R:-0.06530613770656996	
-math.atan2(1.4064021026195508e-15, 7.898499496317685e-05)	R:1.780594027099985e-11	
-math.pow(28390.72589052285, 18.28701273738914)	R:2.7245533489969927e+81	
-0.18016427111968386 ** 13.16306260731934	R:1.5933826717286457e-10	
-math.exp((-479.1912542782407))	R:7.760371117834959e-209	
-math.log(0.9704080927045057)	R:-0.03003858183172672	
-math.atan2(149555455318229.16, (-4.3278182201895734e-13))	R:1.5707963267948966	
-math.pow(0.004282800399616206, 14.449673079722388)	R:6.01508051669353e-35	
-2.4969086731681578e-05 ** (-8.305538428045928)	R:1.686743687809249e+38	
-math.exp((-360.8475890583547))	R:1.931449083600532e-157	
-math.log(0.977934159971407)	R:-0.02231293230611708	
-math.atan2((-2602150.289974335), (-1.4825488177306322e-07))	R:-1.5707963267949536	
-math.pow(6902.189866573717, 24.687750977829317)	R:5.9697018028304465e+94	
-0.03632599598511552 ** (-3.991790154366246)	R:558868.3120836511	
-math.exp((-430.7919888254176))	R:8.117389866307088e-188	
-math.log(0.9971860039749028)	R:-0.0028179627552347717	
-math.atan2((-0.004851964686391233), (-175.77320147019478))	R:-3.1415650500379173	
-math.pow(3.754765785175886e-09, 5.291798656472764)	R:2.596503155441441e-45	
-0.0028071074780254453 ** (-8.334716194217751)	R:1.8536882336564526e+21	
-math.exp((-671.6514958653902))	R:2.0205126955177674e-292	
-math.log(0.9691105701050766)	R:-0.03137656616554946	
-math.atan2((-30.21725466826502), 1204727.544177644)	R:-2.5082231088652332e-05	
-math.pow(898.2262015990254, (-19.015445725113675))	R:6.919172317235052e-57	
-0.02077117190395794 ** 7.798104155070568	R:7.57505225481584e-14	
-math.exp(1.8803061221620736e-11)	R:1.000000000018803	
-math.log(1.0279122822953297)	R:0.027529834885800648	
-math.atan2(1.4279241479771462e-13, (-1.4200373152968656e-18))	R:1.5708062715620417	
-math.pow(0.04837961203135109, (-26.594179717380207))	R:9.5570755727085e+34	
-5.186507451747602e-05 ** 8.543255655591182	R:2.4608302789202774e-37	
-math.exp((-177.90329815293126))	R:5.464863261813446e-78	
-math.log(1.3787527533470522e+176)	R:405.5761556555235	
-math.atan2(55428.41980776376, (-3427777116.438304))	R:3.141576483221091	
-math.pow(0.0009484880956671616, (-0.5383714672988091))	R:42.411123750914115	
-0.0010939523421692843 ** 11.514362187712205	R:8.052953056175309e-35	
-math.exp((-400.89813923375385))	R:7.801000854973783e-175	
-math.log(4.806772011603012e+72)	R:167.35615245494208	
-math.atan2((-4074621384.4062), 317495132137846.3)	R:-1.2833649942114477e-05	
-math.pow(5.469732082234188e-10, (-2.5292665931073657))	R:2.6677986171567458e+23	
-36840.729342849765 ** (-19.153925734585652)	R:3.4426145940465584e-88	
-math.exp(0.7645725606010594)	R:2.1480760060788295	
-math.log(0.9208066120739031)	R:-0.08250524080756226	
-math.atan2(2056.7233092890087, 512007418615241.7)	R:4.016979509499207e-12	
-math.pow(7.216259077147049e-07, (-23.44355708378241))	R:9.616354849528023e+143	
-8.195719986010862e-05 ** (-18.826376433476003)	R:8.557507598347874e+76	
-math.exp(3.4261963258288176e-10)	R:1.0000000003426197	
-math.log(1.0403164379825043)	R:0.03952493416424605	
-math.atan2(0.00015538855026009388, (-1.1992954473454549e-16))	R:1.5707963267956684	
-math.pow(2.4245450037647594e-07, 20.130215714104267)	R:6.779222680511913e-134	
-282.96384238256144 ** 1.7457122304410788	R:19055.33968289529	
-math.exp((-0.9833259452727006))	R:0.3740649082060962	
-math.log(5.720476834579898e-183)	R:-419.6290198533043	
-math.atan2(84546989610.08533, (-5.571376865464477e-17))	R:1.5707963267948966	
-math.pow(5.220209933031332e-10, (-23.120388608366547))	R:4.080011130335973e+214	
-0.0010270706463006765 ** (-18.147564066853093)	R:1.706768818647968e+54	
-math.exp((-0.2535773027902364))	R:0.7760197541141666	
-math.log(1.0176267656598577)	R:0.01747321598958822	
-math.atan2(0.0017919590931336083, 8.336347467813199e-09)	R:1.5707916747090875	
-math.pow(0.02052409159838733, 23.57435593072703)	R:1.6319599787861373e-40	
-4736.6099425629545 ** 18.728187727709425	R:6.836717219566856e+68	
-math.exp((-2.031964637401311e-11))	R:0.9999999999796804	
-math.log(0.9258083789337397)	R:-0.07708799994661819	
-math.atan2((-1.4157031685997001e-08), (-0.05279469114451927))	R:-3.141592385437231	
-math.pow(6261323733.254281, 0.24862321082567007)	R:272.6958921418688	
-0.0016892619855354923 ** 7.690593857199495	R:4.779072808637004e-22	
-math.exp((-0.886731639053667))	R:0.41200011971854217	
-math.log(1.0293726960721992)	R:0.028949583766035705	
-math.atan2(1.5051998893498546, (-305539.638477432))	R:3.141587727224439	
-math.pow(44.64158224440835, (-29.432109124496616))	R:2.784099056239748e-49	
-32.15776306704755 ** 15.380793455452356	R:1.5249375061766606e+23	
-math.exp((-0.05190939406482009))	R:0.9494148855695079	
-math.log(6.095681391290728e+203)	R:469.2323544296015	
-math.atan2(1950469221234597.2, 3429454405.9350944)	R:1.5707945685234157	
-math.pow(0.00791162067837397, (-14.628186577811729))	R:5.553477716168056e+30	
-24974.654724630225 ** (-18.259389802090435)	R:5.062238545723267e-81	
-math.exp((-86.0265661312774))	R:4.356493115895183e-38	
-math.log(9.136346372847136e-149)	R:-340.87291829095295	
-math.atan2((-600.5061123390399), 1.4953677599400485e-17)	R:-1.5707963267948966	
-math.pow(6.156234170181631e-10, (-28.17006329504626))	R:2.921297230965132e+259	
-1.2838043750044537 ** (-0.24723992072352985)	R:0.9401015150654911	
-math.exp(5.576916358973032e-12)	R:1.0000000000055769	
-math.log(0.951833946553569)	R:-0.04936468529384448	
-math.atan2(0.0001684573517860307, 2068.564031260927)	R:8.143685631203033e-08	
-math.pow(3.366768682809645e-05, 6.110944137249142)	R:4.645689809409616e-28	
-0.00798108834531204 ** (-5.929479917169127)	R:2752203467558.0586	
-math.exp((-220.7596961848202))	R:1.334387977091269e-96	
-math.log(0.9111094016744153)	R:-0.09309229927877959	
-math.atan2(9856696163571208.0, 1.539095878454385e-14)	R:1.5707963267948966	
-math.pow(509004542.4806501, 20.832303023464945)	R:2.4047167174637552e+181	
-0.000309080440810812 ** (-10.847434549461878)	R:1.185002940269391e+38	
-math.exp(5.748662103509342e-08)	R:1.0000000574866228	
-math.log(1.0676210819507375)	R:0.06543288540340908	
-math.atan2(0.0007603032320914261, (-4.854394911899428e+19))	R:3.141592653589793	
-math.pow(0.08800122068929839, (-25.76303137287512))	R:1.560166070072776e+27	
-1198.419677880472 ** 8.826972665230166	R:1.4955360458847093e+27	
-math.exp((-2.8772615711515804e-10))	R:0.9999999997122738	
-math.log(0.9848790083592391)	R:-0.0152364795078373	
-math.atan2((-0.001008132309192793), (-1.3325537112761268e-19))	R:-1.5707963267948968	
-math.pow(9.160288209856505, 1.0876637395346265)	R:11.123301017610368	
-0.0057677716379562 ** (-11.443502775852426)	R:4.187072813129947e+25	
-math.exp(0.6210859538449995)	R:1.8609478484108193	
-math.log(0.9126395114492338)	R:-0.09141431595242784	
-math.atan2((-1.104169901039124e-15), (-23148418957.94568))	R:-3.141592653589793	
-math.pow(119085.31450603878, 12.824717019310782)	R:1.248662725300221e+65	
-3.424174239031137 ** (-3.4193208322342414)	R:0.014865585764390508	
-math.exp(0.6682343957087349)	R:1.9507899550737455	
-math.log(0.9324964062780288)	R:-0.06988998132893438	
-math.atan2(1.3910766029662611e-15, (-1.0109292668684321e-13))	R:3.127833146773931	
-math.pow(14203136.555869844, (-22.35500396633637))	R:1.283575565411542e-160	
-865.8026871338693 ** (-12.431490542677066)	R:3.0444185512063263e-37	
-math.exp((-0.34319220165836395))	R:0.7095018310258107	
-math.log(0.9693242620588731)	R:-0.031156087301760577	
-math.atan2((-49421.93335224027), 366408529251.8274)	R:-1.3488204942487289e-07	
-math.pow(0.007942015532367144, (-1.0571313415844799))	R:165.977432650508	
-37.608577294505224 ** 19.636210373293224	R:8.563771259835989e+30	
-math.exp(0.062462184870446524)	R:1.064454205683082	
-math.log(0.9573281608939416)	R:-0.04360904046266648	
-math.atan2((-0.06905493083083059), (-10076.744913189883))	R:-3.1415858006892363	
-math.pow(0.41693744154808526, (-24.279866649379617))	R:1677366458.367347	
-0.6233260433706249 ** 0.6976835586791239	R:0.7190783626944744	
-math.exp((-2.230070274656849e-11))	R:0.9999999999776993	
-math.log(5.064401635727359e+276)	R:637.135721660006	
-math.atan2(2.4453151745209755e-17, 2691132.6350513836)	R:9.086565049493688e-24	
-math.pow(0.0013739765305926686, (-16.88631657025615))	R:2.1329826703084596e+48	
-0.7935598230507688 ** 3.2559257800978756	R:0.47101947595602567	
-math.exp(8.744545774318904e-11)	R:1.0000000000874454	
-math.log(0.9875055473125885)	R:-0.01257316469090315	
-math.atan2((-70845069432.61475), (-1.6038772892359286e-06))	R:-1.5707963267948966	
-math.pow(1756788645.5447402, (-7.666820881792084))	R:1.325535518969288e-71	
-331.93885119051856 ** 15.499798585610208	R:1.1909473571911988e+39	
-math.exp((-0.0016560187104879781))	R:0.9983453517318996	
-math.log(1.0910863090035863)	R:0.08717381371602445	
-math.atan2(289326746875833.06, (-4.330136310599977e-09))	R:1.5707963267948966	
-math.pow(111273.71309362161, (-17.884421129281495))	R:5.600024290916484e-91	
-0.03900340284352177 ** (-3.9327531144200307)	R:347412.976821266	
-math.exp((-367.68859979614064))	R:2.0647622423478312e-160	
-math.log(1.0243996718296697)	R:0.024106754989481824	
-math.atan2((-3.985057778086563e-16), (-3.729790497214255e-19))	R:-1.5717322704162506	
-math.pow(24163.744904978586, 27.61014494836831)	R:1.0466465865690093e+121	
-6.0640914153223955 ** 12.852999256089944	R:11505022405.90409	
-math.exp((-4.3342503356728534e-06))	R:0.9999956657590572	
-math.log(0.934067965493924)	R:-0.06820607520599163	
-math.atan2(19178076.08997514, 2.128151619417097e-12)	R:1.5707963267948966	
-math.pow(1.9540426842513254, (-4.31809244284381))	R:0.05542681119167714	
-0.6028989921203831 ** 4.665346665538898	R:0.09435494823704998	
-math.exp(174.61747742746024)	R:6.845527045358495e+75	
-math.log(2.8509039489721708e+274)	R:631.9559515994376	
-math.atan2((-0.014195969576312334), (-0.1886083641048184))	R:-3.0664673898690515	
-math.pow(1.5040425576660982e-07, 27.930302065894338)	R:2.7467199046391372e-191	
-0.008162646342402626 ** (-12.815882770965246)	R:5.777359061300753e+26	
-math.exp(227.22113456364855)	R:4.796063370287043e+98	
-math.log(0.9766052672033388)	R:-0.02367273396000948	
-math.atan2((-3.5631133076014696), (-5370694.603544063))	R:-3.141591990153577	
-math.pow(764337811.691735, 14.649822432341324)	R:1.3757924262437694e+130	
-0.00047409791175466947 ** 3.1367920989587326	R:3.7401510284590347e-11	
-math.exp(560.9944989861283)	R:4.33326538625369e+243	
-math.log(0.9664241124398889)	R:-0.03415250132654336	
-math.atan2(7.340503585150178e-07, (-3.162533923195133e-14))	R:1.570796369878234	
-math.pow(950484885.6357154, 7.665230344641522)	R:6.576852412682082e+68	
-69.11387411623778 ** 8.226150113964984	R:1356874838946958.5	
-math.exp(2.6683596988851264e-09)	R:1.0000000026683598	
-math.log(1.0512803263451738)	R:0.05000877977970007	
-math.atan2((-3114.442038949819), 127.48326727684359)	R:-1.5298862255519228	
-math.pow(338.53727068668894, 0.7825050474627453)	R:95.37396662110959	
-0.06284605444980117 ** 8.64274336211777	R:4.109843753676128e-11	
-math.exp(14.620934111253321)	R:2237644.0596357468	
-math.log(0.9004282555291351)	R:-0.10488478935671251	
-math.atan2((-0.00021829954895657953), 1239.0856001257916)	R:-1.761779403573212e-07	
-math.pow(16418227.18919217, 7.731905153256399)	R:6.140705923440144e+55	
-1.4751733539575023 ** 7.266810544962482	R:16.863608937578892	
-math.exp((-460.57545482398365))	R:9.432383933454543e-201	
-math.log(2.015348659858779e+221)	R:509.5720977643024	
-math.atan2((-4.66837340515817e-12), 6.019362752557163e-17)	R:-1.5707834328761163	
-math.pow(5.748716165747288e-08, 22.153463337531782)	R:3.975746120144812e-161	
-0.014077037446721808 ** 10.412380300289442	R:5.267386408081417e-20	
-math.exp(582.3722648452087)	R:8.337983584583907e+252	
-math.log(1.028275923777663)	R:0.027883539361928382	
-math.atan2(2.3609754149958325e-18, (-5.579245694429772e-12))	R:3.1415922304187154	
-math.pow(7.074876140931459e-08, 13.832881035776815)	R:1.2331370794126546e-99	
-0.4179713796282725 ** (-15.411379649117464)	R:689690.7969584926	
-math.exp((-0.27381373829691014))	R:0.7604737091982137	
-math.log(0.9703923102960003)	R:-0.030054845645853475	
-math.atan2((-3.1456335686980935e-17), (-1.893366277068201e-17))	R:-2.1126139159533	
-math.pow(2.3060521011694427e-07, (-16.714798764012958))	R:8.675751621670756e+110	
-0.26548308075047733 ** 15.146434656193172	R:1.8889121683133516e-09	
-math.exp((-28.267450001502404))	R:5.291788118740076e-13	
-math.log(1.0372907341358977)	R:0.03661225074043557	
-math.atan2(5565580.396335717, 80.79311199650792)	R:1.5707818102294646	
-math.pow(191.1673244868454, (-19.063025218659845))	R:3.231125508497805e-44	
-0.1458040172015825 ** (-18.749974159325205)	R:4778597553759173.0	
-math.exp(471.5940052261924)	R:6.466572758453366e+204	
-math.log(9.749169367371428e-256)	R:-587.1846017181851	
-math.atan2(2.3119622833146806e-13, (-1.9391035545938562e-05))	R:3.1415926416669526	
-math.pow(3.015632367463753e-10, (-14.4549172589368))	R:4.166750908670237e+137	
-5526.236134208103 ** (-19.78130325810696)	R:9.329714632979252e-75	
-math.exp(0.00843089535271102)	R:1.008466535439808	
-math.log(1.0552436254744562)	R:0.053771664889381336	
-math.atan2(2.6432215190586662e-08, 1.1643354782002946e-16)	R:1.5707963223899102	
-math.pow(2.228051488593243e-05, (-22.587885037804387))	R:1.2037332413924404e+105	
-1.0692938734019419e-05 ** (-6.480635308595248)	R:1.6391133542940428e+32	
-math.exp(701.2057296543867)	R:3.386718248412832e+304	
-math.log(3.1705028130453256e-98)	R:-224.49944892200287	
-math.atan2(4.1665784258047394e-09, (-1.7965846999092464e-05))	R:3.141360736978719	
-math.pow(712884.4327892935, (-1.5139288854836188))	R:1.377035923399783e-09	
-0.00980789646963431 ** 4.137192927837489	R:4.9063881766078616e-09	
-math.log10(6.127597036889606e+70)	R:70.78729019748462	
-math.log2(2.915079868497159e+68)	R:227.4346458638303	
-math.log(4.433170012551643e-10, 0.049000066571535904)	R:7.140984756529854	
-math.asin((-0.36570721026024144))	R:-0.3743925344969195	
-math.acos(0.8241111962338201)	R:0.6021650607488184	
-math.atan((-1304137711.7234557))	R:-1.5707963260281064	
-math.sinh((-7.00774988484163))	R:-552.5820259011052	
-math.cosh((-5.229132907175096))	R:93.31813259480069	
-math.tanh(2.8032017171013655)	R:0.9926783808519394	
+math.sin(236405.55112975184)	R:0.6472315848440893		libm
+math.cos((-0.5096209193373775))	R:0.8729295034879149		libm
+math.tan((-14858.32259921421))	R:6.1909048228001415		libm
+math.sin((-652432.5382776303))	R:0.7563067749544933		libm
+math.cos(2.4291646336747696)	R:-0.7567769767912549		libm
+math.tan(3.868284752429304)	R:0.888977966074217		libm
+math.sin((-497273.36102243804))	R:0.08456256270295717		libm
+math.cos((-372616.07073823176))	R:-0.3708484221584853		libm
+math.tan(3.412805350449549)	R:0.27806415830285763		libm
+math.sin(1449.3158246033138)	R:-0.8632187792682825		libm
+math.cos(52904379.56462608)	R:-0.9929422732962834		libm
+math.tan(6.7499951254840494e-06)	R:6.749995125586565e-06		libm
+math.sin((-218290384675206.78))	R:-0.14414816634605246		libm
+math.cos((-814966.1795503353))	R:0.7937158808623345		libm
+math.tan(1.2850716088247208e+19)	R:-11.937467464967028		libm
+math.sin((-7.015273050480493))	R:-0.6684239134075407		libm
+math.cos((-2.6146668073165324))	R:-0.8643570783299447		libm
+math.tan((-6.597177739578884))	R:-0.3247352602451053		libm
+math.sin((-179935.94978370785))	R:0.9426722740190302		libm
+math.cos((-7.338126927017832))	R:0.49327851428536473		libm
+math.tan((-9.964012320366118))	R:-0.5983893532352822		libm
+math.sin((-7.916302192572284))	R:-0.998058702419439		libm
+math.cos(4.001408107036956e+18)	R:0.867716205863193		libm
+math.tan((-0.29240500760693244))	R:-0.30103384671263583		libm
+math.sin((-768495.8421375306))	R:0.52505829209009		libm
+math.cos((-7.69249153205439))	R:0.16078909846503986		libm
+math.tan((-188506.87902768387))	R:2.975309654250829		libm
+math.sin((-1.7164278379277764))	R:-0.9894144599898874		libm
+math.cos((-12516206.30624278))	R:0.8000749812531512		libm
+math.tan((-15008024862929.377))	R:6.241142257133475		libm
+math.sin((-8.96014487685578))	R:-0.44809481375719923		libm
+math.cos((-3.3271589012212104))	R:-0.9828319337643237		libm
+math.tan((-582802.9057704131))	R:0.23475770830500264		libm
+math.sin((-329286.91486077267))	R:0.771295937314549		libm
+math.cos((-8.127487140236877))	R:-0.2701082958092159		libm
+math.tan((-108474.66404419777))	R:5.430509581484106		libm
+math.sin(368654.1150861182)	R:0.7058043716955191		libm
+math.cos((-1.3755091288057315))	R:0.19404828188532638		libm
+math.tan(259773.07133587776)	R:1.7760689736918402		libm
+math.sin(854124.6600009087)	R:0.8498568081549563		libm
+math.cos(4.623988112668968)	R:-0.08828577478806457		libm
+math.tan((-15.647082158588871))	R:0.060956439850273096		libm
+math.sin((-511085.87611788005))	R:0.8322416156232436		libm
+math.cos((-121929.82822525676))	R:-0.09490648862269176		libm
+math.tan(688247.0300782172)	R:-0.5753531226867593		libm
+math.sin((-7.762370766752246))	R:-0.9958066584705132		libm
+math.cos((-0.024278675266114887))	R:0.9997052874407145		libm
+math.tan(0.00033938703123985274)	R:0.00033938704427045516		libm
+math.sin(3.662899336302054)	R:-0.49801367764908755		libm
+math.cos(3.0283106205988872)	R:-0.9935904492847002		libm
+math.tan((-798118.8275001423))	R:-0.3712151331363939		libm
+math.sin(20199271674.939404)	R:-0.46674024118546675		libm
+math.cos((-6.852008914699885))	R:0.8425352115467805		libm
+math.tan(4.672164666662882e-05)	R:4.6721646700625236e-05		libm
+math.sin((-773508.1628516613))	R:0.8002116496294166		libm
+math.cos(539490.0333467028)	R:-0.9993907428900265		libm
+math.tan((-3.8865848147663726))	R:-0.9222858171736901		libm
+math.sin(1.404537375416826)	R:0.9862107879865095		libm
+math.cos((-5.133745364725528e+17))	R:-0.9425482243097163		libm
+math.tan((-9.920331510560718))	R:-0.5405429650751011		libm
+math.sin((-0.738985914747861))	R:-0.6735386949735928		libm
+math.cos(4.401882594068924)	R:-0.30554084599801745		libm
+math.tan((-4245844.269352496))	R:-0.756395707947922		libm
+math.sin(9.793396704896623e-05)	R:9.793396689241777e-05		libm
+math.cos(865679.4813402072)	R:0.48950622021030143		libm
+math.tan(3.5219075201542456)	R:0.39977786477820093		libm
+math.sin((-8.536607977415775))	R:-0.7759186124925641		libm
+math.cos((-2.1074967837008852e+18))	R:-0.0942103493385126		libm
+math.tan(8.281074155776281)	R:-2.197287007904955		libm
+math.sin(1.7908660952363106e+16)	R:0.9971011222337308		libm
+math.cos((-8.619198868743672))	R:-0.6926936915513455		libm
+math.tan(0.468747269134413)	R:0.506390926345201		libm
+math.sin((-9.72828478023656))	R:0.2988685752726691		libm
+math.cos(0.5065397153209407)	R:0.8744285115942441		libm
+math.tan(4.707669370298582)	R:211.8803369002912		libm
+math.sin(9.827874653878421)	R:-0.3922687138194831		libm
+math.cos((-7155322256116601.0))	R:0.15500165405710112		libm
+math.tan(829228.1503013412)	R:-17.52567674591202		libm
+math.sin((-194371.12594977405))	R:-0.7092770902711335		libm
+math.cos((-8.187171270544605))	R:-0.3270589061639773		libm
+math.tan((-67682.92995050887))	R:-0.49273852237227767		libm
+math.sin((-666569436463605.5))	R:0.6976970570407466		libm
+math.cos(1.426648551344622e+17)	R:0.3965406535011847		libm
+math.tan(7.669967622269198)	R:5.3728918614026		libm
+math.sin((-830476.7904227279))	R:-0.08585525395012295		libm
+math.cos(71525.91664206982)	R:-0.2898772092305285		libm
+math.tan(296193.6555587766)	R:2.2869584576811395		libm
+math.sin((-226027696824815.94))	R:0.9998654254262633		libm
+math.cos(0.005303317669621004)	R:0.9999859374438069		libm
+math.tan((-17199103907564.672))	R:-0.3252642013791051		libm
+math.sin((-9.74566232819113))	R:0.315405910373868		libm
+math.cos(958086.0428745437)	R:0.6862361189986442		libm
+math.tan((-0.016624452809330507))	R:-0.016625984492136838		libm
+math.sin(9.321317471711605)	R:0.10327601304995733		libm
+math.cos((-430350947741.37933))	R:-0.4396649539104792		libm
+math.tan(8.593109774902036)	R:-1.0971022751924464		libm
+math.sin(90441665.02091973)	R:0.30627132720185674		libm
+math.cos(1.006771488411317e+16)	R:0.2083196869443731		libm
+math.tan((-136319275687.09274))	R:2.6395521300364306		libm
+math.sin(9.738153822395564)	R:-0.3082718384010248		libm
+math.cos(663471.2399073581)	R:-0.1413331402474064		libm
+math.tan((-5.563105168859361))	R:0.8772096944122896		libm
+math.sin(132838.72364234412)	R:-0.37103380710103817		libm
+math.cos(186509.54617811702)	R:0.8645810975265749		libm
+math.tan((-1.2538643782136472))	R:-3.048893228151697		libm
+math.sin((-374876.86282603175))	R:0.036243183147921736		libm
+math.cos(339846.7581340475)	R:-0.2575086289407686		libm
+math.tan(670653.2676407674)	R:-4.80664455805672		libm
+math.sin(157765622392.87158)	R:-0.9604248981037142		libm
+math.cos(185975.0026782544)	R:0.5409509578697983		libm
+math.tan((-654193.5108334975))	R:-1.0782247339649897		libm
+math.sin((-2.6309948412949646))	R:-0.48869889701646857		libm
+math.cos(8655290364727605.0)	R:0.9999582315735048		libm
+math.tan((-4.134357109491441e+20))	R:-1.0096721643050401		libm
+math.sin(5.656610355301453e+19)	R:0.6026605354373535		libm
+math.cos((-4.792639752143701))	R:0.08016466117105127		libm
+math.tan((-1520.5456897869426))	R:-0.014846540162015429		libm
+math.sin((-7.463121618785888))	R:-0.9245817500426543		libm
+math.cos(9.594102763981493)	R:-0.9856987736200812		libm
+math.tan((-5.957966819168334))	R:0.3371910678259391		libm
+math.sin(159752.11778605613)	R:0.846960337892451		libm
+math.cos(13315.953318805463)	R:-0.3077777909731762		libm
+math.tan(7.5492265120437)	R:3.179103387949848		libm
+math.sin(345685.2425126472)	R:-0.0947326262876262		libm
+math.cos((-598235.0684891795))	R:0.9093730159246809		libm
+math.tan((-191599.01402626606))	R:0.4692310373592856		libm
+math.sin(0.9536137068110211)	R:0.8155122212158988		libm
+math.cos(1820567.7138287781)	R:-0.5922968557168896		libm
+math.tan((-623053.8086662837))	R:-0.6655595429428213		libm
+math.sin((-0.621603088604413))	R:-0.5823391326587692		libm
+math.cos((-451644.94464209094))	R:-0.9872298225447766		libm
+math.tan((-6978.808732517857))	R:-4.097938013016913		libm
+math.sin(1.229643550496712e+21)	R:0.34210969640768313		libm
+math.cos((-6.264556569533225))	R:0.9998264900846988		libm
+math.tan(2.452522228561808)	R:-0.8237745203254274		libm
+math.sin((-1390033627.5637028))	R:0.6339222426480643		libm
+math.cos(9.908119812805396)	R:-0.885446775009743		libm
+math.tan(6.204895488388956)	R:-0.07845016574490929		libm
+math.sin(832549.0468890681)	R:0.9582009097096568		libm
+math.cos(9.449777744256679)	R:-0.9996875216879328		libm
+math.tan(7.8196268306259675)	R:29.096558679031812		libm
+math.sin(1.4670777843184793e-05)	R:1.4670777842658522e-05		libm
+math.cos((-1.4113980963284946e-05))	R:0.9999999999003978		libm
+math.tan((-1.1348092397092053e-08))	R:-1.1348092397092053e-08		libm
+math.sin(238980.54228726984)	R:-0.3994082692059893		libm
+math.cos((-870016.6543138843))	R:-0.9531815791172922		libm
+math.tan((-778865.5145091328))	R:3.314321624160581		libm
+math.sin((-6.765300817664466))	R:-0.4636545878816977		libm
+math.cos((-354620.7685741219))	R:-0.5966874083144731		libm
+math.tan(680793.8661044682)	R:3.797237925088114		libm
+math.sin((-4.458184540996932))	R:0.9678636659540275		libm
+math.cos((-106915.75372945052))	R:0.4778924125355281		libm
+math.tan(643187521564484.2)	R:2.7715770684314855		libm
+math.sin((-865118.6459920141))	R:0.5418048165187531		libm
+math.cos((-794587.0623320544))	R:-0.966498599763913		libm
+math.tan(167017.39539824493)	R:1.2735878848498317		libm
+math.sin(651392.524429454)	R:0.8438021268105603		libm
+math.cos((-3.4152956027561654))	R:-0.9627765981469235		libm
+math.tan((-9260531244405.05))	R:-0.028622096439813234		libm
+math.sin(6.08520161095985e+20)	R:0.6170771988075054		libm
+math.cos((-6871.235663005849))	R:-0.8405332270856105		libm
+math.tan((-450566.9884798371))	R:0.2340357846387973		libm
+math.sin(236306.75239375373)	R:0.6483510735489907		libm
+math.cos((-6290.541104955982))	R:0.4778309339001191		libm
+math.tan(8.641578781541359)	R:-0.9956116744462707		libm
+math.sin(818490.8434209994)	R:-0.7558748795115249		libm
+math.cos((-106480.774132877))	R:0.9333118359177022		libm
+math.tan(1.1308453335526618)	R:2.124402186458596		libm
+math.sin(649106965387.083)	R:-0.9949960533426712		libm
+math.cos((-249.42681966986916))	R:-0.3238503038782805		libm
+math.tan((-3.9636874565718543))	R:-1.0762246879663628		libm
+math.sin((-2.7138023053554017))	R:-0.41486128859186777		libm
+math.cos(6.4208878353440255)	R:0.9905339789409021		libm
+math.tan((-695783.7779297029))	R:0.48926662309907565		libm
+math.sin((-1289447325987573.8))	R:0.5151534609856543		libm
+math.cos(686.0453400614206)	R:0.382642472945284		libm
+math.tan((-348900.0059203013))	R:-1.5886692143606427		libm
+math.sin((-993348.7179264727))	R:-0.7758050887717811		libm
+math.cos(749897.4417481085)	R:0.7487223422595386		libm
+math.tan(1059.4674483990286)	R:0.932949972705345		libm
+math.exp((-255.48930215736482))	R:1.1025692795671406e-111		libm
+math.log(1.0800849435309386e+78)	R:179.67867694299636		libm
+math.atan2(34145.774263645035, 0.057256113805000286)	R:1.5707946499808534		libm
+math.pow(239.00534033686162, 0.043347393663864864)	R:1.2679372786907026		libm
+6268.992678916983 ** (-13.162552462272812)	R:1.0451659181641381e-50		libm
+math.exp(427.76833768943766)	R:5.990024399786667e+185		libm
+math.log(1.0779229740666652)	R:0.07503601730561929		libm
+math.atan2(2618321239.3386045, 14376.144008123425)	R:1.5707908361989407		libm
+math.pow(0.01044017107098275, (-15.870820775252188))	R:2.784430265054443e+31		libm
+0.003097203559432866 ** 3.5138681554266604	R:1.5261545031497139e-09		libm
+math.exp((-3.91765549323585))	R:0.019887666898238683		libm
+math.log(8.117493260918444e-83)	R:-189.02054132370301		libm
+math.atan2(616606413307.401, 103573986135515.2)	R:0.005953223892788642		libm
+math.pow(1.5532058928330611e-10, (-12.78991022768221))	R:2.839881087796313e+125		libm
+3.0985756579620833 ** (-9.982990982543498)	R:1.2494910133582083e-05		libm
+math.exp(4.528205986218884)	R:92.59230012702866		libm
+math.log(4.2630193213973e+190)	R:438.941145338989		libm
+math.atan2((-2.4371157174922646e+17), (-4.366171229869197e-19))	R:-1.5707963267948966		libm
+math.pow(9.274439081306235e-08, (-15.361493179628155))	R:1.0788541932875278e+108		libm
+0.005942032469750672 ** 18.904190419404557	R:8.280255622239286e-43		libm
+math.exp((-0.10370890165327418))	R:0.9014876808031431		libm
+math.log(1.0016104251495512)	R:0.0016091298054867083		libm
+math.atan2(9.486579983334605e+18, 39265.71193365084)	R:1.5707963267948926		libm
+math.pow(3.4054912982180025e-10, (-7.3013235497642555))	R:1.3415867934806882e+69		libm
+489.6931537139356 ** (-17.733003454476837)	R:1.993277860823953e-48		libm
+math.exp(0.8247934966741777)	R:2.2814095980126163		libm
+math.log(1.052678022378992)	R:0.05133741467427876		libm
+math.atan2((-135429756114643.89), 4.139977207081424e-20)	R:-1.5707963267948966		libm
+math.pow(0.14101671907710148, 15.023829574777572)	R:1.65495645609738e-13		libm
+1.4018117503612408e-05 ** (-7.794040639504885)	R:6.712707834017856e+37		libm
+math.exp(0.56211205134134)	R:1.7543739179146935		libm
+math.log(0.9685057674055646)	R:-0.032000841165140945		libm
+math.atan2((-4.010624836578227e-16), 1.6039824128704174e-20)	R:-1.5707563334652441		libm
+math.pow(80874.85224773691, (-10.39410679112633))	R:9.719912769955345e-52		libm
+15290.693653928392 ** (-18.85017762398164)	R:1.3267963346274364e-79		libm
+math.exp(491.7199941503345)	R:3.55860759232456e+213		libm
+math.log(1.0719208925788397)	R:0.06945226568952466		libm
+math.atan2((-0.007266553665106358), (-73478206918.12102))	R:-3.1415926535896945		libm
+math.pow(0.036074048605724135, 5.124785314933689)	R:4.0358362792686406e-08		libm
+19.64642711487559 ** 10.360235176454701	R:25045058661730.082		libm
+math.exp((-1.14500687969954e-09))	R:0.9999999988549931		libm
+math.log(3.6456271718148906e-235)	R:-539.8139684393433		libm
+math.atan2(1299245.8172546371, (-3.2350758069850915e+19))	R:3.141592653589753		libm
+math.pow(0.0015895800471873722, (-18.52636106678435))	R:7.08031745725049e+51		libm
+5.391528000896775 ** (-0.9884000490071507)	R:0.18913676505927626		libm
+math.exp(0.3359905033706767)	R:1.3993257358700144		libm
+math.log(0.9369116839408105)	R:-0.06516625525121206		libm
+math.atan2(3.829005122174599e-08, (-1.969415342182636e-08))	R:2.045851014210271		libm
+math.pow(7.164379329037043e-09, 15.468258421201071)	R:1.0322796355713793e-126		libm
+1465.417925615684 ** (-7.8731410583301695)	R:1.1856009197249274e-25		libm
+math.exp((-0.531298232846245))	R:0.5878413191785918		libm
+math.log(0.9688271658509541)	R:-0.03166904641492449		libm
+math.atan2((-3.1862921355685196e-14), (-3563544498.7064376))	R:-3.141592653589793		libm
+math.pow(6187289.650037974, (-19.79393756812303))	R:3.710770963169786e-135		libm
+7.54027118208421e-05 ** (-6.738544491724641)	R:6.031305905209664e+27		libm
+math.exp(12.225160717808587)	R:203854.28284403819		libm
+math.log(9.321277471276326e+92)	R:214.07012824249028		libm
+math.atan2((-1.6146821805556796e-10), 9.632207168099417e-17)	R:-1.5707957302560058		libm
+math.pow(299693455.3681393, (-22.293814618177997))	R:1.0532430668386946e-189		libm
+13.440322573080824 ** (-1.4668968986686757)	R:0.02211766736405953		libm
+math.exp(0.043247289054966)	R:1.0441960811880853		libm
+math.log(4.4639018658133365e+157)	R:363.0018828414378		libm
+math.atan2(12247100915605.613, 6.471769516276682)	R:1.570796326794368		libm
+math.pow(0.002533491549080227, 2.240137015131957)	R:1.5274811538321236e-06		libm
+0.5585408154545314 ** 2.404519614852294	R:0.24648391363484023		libm
+math.exp(159.5417261859701)	R:1.9412940162077586e+69		libm
+math.log(1.0741568243057968)	R:0.07153600433365102		libm
+math.atan2((-9.500249302387284e-19), (-36547.57118295144))	R:-3.141592653589793		libm
+math.pow(6.876032962938543e-07, (-14.479301259970288))	R:1.702316801781456e+89		libm
+7665.61281604353 ** 18.252192384907005	R:7.970709382832827e+70		libm
+math.exp((-141.0299957202028))	R:5.642233768972495e-62		libm
+math.log(1.765424627786963e+200)	R:461.0854098425747		libm
+math.atan2((-2.4786047652482657e+18), (-1.508056890157552e+16))	R:-1.5768805492694025		libm
+math.pow(214469.52570329668, (-14.179992321092246))	R:2.5192824062420186e-76		libm
+1.9235046563743106 ** 12.799571745109596	R:4327.84634179373		libm
+math.exp((-0.6870066151534044))	R:0.5030797286637634		libm
+math.log(8.43435981511297e-224)	R:-513.6467470138008		libm
+math.atan2((-1.6782805582157723e-05), (-2792586468.227718))	R:-3.1415926535897873		libm
+math.pow(0.01616858709838963, 4.841808095666892)	R:2.121944051653132e-09		libm
+3918.3166760254608 ** 7.964538531664978	R:4.143617653730144e+28		libm
+math.exp((-8.812378826730878))	R:0.0001488786777876141		libm
+math.log(2.4794532076837483e+122)	R:281.8234194003683		libm
+math.atan2(6.451646287069565e-11, 158535.58786984358)	R:4.069525570729465e-16		libm
+math.pow(0.003653769302830685, (-4.499978377829898))	R:92813734778.96666		libm
+0.06847768709887926 ** 1.6986070056594684	R:0.010520963525330133		libm
+math.exp((-1.0957572085957175))	R:0.33428638656504267		libm
+math.log(1.0282360129597816)	R:0.027844725273691393		libm
+math.atan2((-1.9683743455749645e+17), 1.3305207075116347e-13)	R:-1.5707963267948966		libm
+math.pow(5.360108318966169e-09, (-25.082770084301362))	R:2.8525800936770087e+207		libm
+1.1636661277442986 ** 3.014201939498097	R:1.5791379466154567		libm
+math.exp(0.7472575285680818)	R:2.1112021584098675		libm
+math.log(7.989414638981944e+233)	R:538.5804441630027		libm
+math.atan2(4.799347606893915, (-80.77074794262596))	R:3.082243057702082		libm
+math.pow(16647107.103838379, 5.2076054568400565)	R:4.035368537364568e+37		libm
+322.2498592315116 ** (-4.168920967709099)	R:3.4957688691854457e-11		libm
+math.exp(3.345026618696923e-11)	R:1.0000000000334504		libm
+math.log(9.415719871756519e-44)	R:-99.07136347246085		libm
+math.atan2((-3.558567039272321e-15), (-6.738640804007941e-18))	R:-1.5726899633837348		libm
+math.pow(63368240.84632883, 7.084510356478006)	R:1.8725805617634112e+55		libm
+0.044965185211598695 ** 14.239346723486953	R:6.574152733463399e-20		libm
+math.exp((-461.26731900735774))	R:4.722246711027919e-201		libm
+math.log(3.594449756523307e+150)	R:346.66715487057456		libm
+math.atan2(1.103614442556809e+16, 85.2987072363074)	R:1.5707963267948888		libm
+math.pow(0.016246003532248348, (-27.893609519679682))	R:8.104705755937233e+49		libm
+0.011818370456440018 ** (-8.291642875053071)	R:9586587706067368.0		libm
+math.exp((-0.22785114270406726))	R:0.7962427775608945		libm
+math.log(1.8883349717575667e-112)	R:-257.25383494186536		libm
+math.atan2(526.7880622743435, (-239687.1563879065))	R:3.1393948419839566		libm
+math.pow(4254.637441179189, 16.88427376358227)	R:1.8651289923747376e+61		libm
+0.20228416037199323 ** 11.540574941788332	R:9.781400265285386e-09		libm
+math.exp(126.66590751553167)	R:1.0240111352841907e+55		libm
+math.log(4.7542121053034213e+257)	R:593.323399883589		libm
+math.atan2((-3.469343269933359e+18), 8882088187377469.0)	R:-1.5682361682603627		libm
+math.pow(0.17610696373285548, 7.250824295926066)	R:3.3982719847841926e-06		libm
+0.00013880879668052787 ** 19.436240656030364	R:1.0546011850022977e-75		libm
+math.exp((-1.2517506590606982e-11))	R:0.9999999999874825		libm
+math.log(0.9625039796195386)	R:-0.038217078159094996		libm
+math.atan2((-5.054332009231645e-10), 9.115080200397233e-16)	R:-1.570794523375536		libm
+math.pow(162.3874260079299, 15.591505831371151)	R:2.9230793325704443e+34		libm
+0.00011659683421069112 ** 14.153660585616436	R:2.134122807263074e-56		libm
+math.exp((-0.6945744870142458))	R:0.4992868558315553		libm
+math.log(6.0838111744445584e+274)	R:632.7139468178678		libm
+math.atan2((-17.783485943700423), (-91203223.66639777))	R:-3.141592458602322		libm
+math.pow(1.3641651311079842e-10, (-27.83337484959639))	R:3.801423671336137e+274		libm
+0.32815351761304945 ** 11.509875516308913	R:2.6921995489212448e-06		libm
+math.exp((-0.29151439196690454))	R:0.7471312608372146		libm
+math.log(1.0517164745118208)	R:0.05042356707060089		libm
+math.atan2(1279160921791.7195, (-1.7625808483100365e+17))	R:3.1415853962720766		libm
+math.pow(12298518.657768235, 15.420188468669103)	R:2.1225916811983737e+109		libm
+0.020150793974320153 ** 17.336470202607252	R:4.0032398097140285e-30		libm
+math.exp((-0.6891459997600411))	R:0.5020045981053023		libm
+math.log(4.64898863312979e+34)	R:79.82454285948899		libm
+math.atan2((-0.17185538822071944), 403788.59238204703)	R:-4.2560733874845837e-07		libm
+math.pow(123659079.17701383, (-29.796501640306325))	R:7.58532987644121e-242		libm
+340.4420042722928 ** 19.501744759879514	R:2.3947435439474113e+49		libm
+math.exp(0.0031913156602141218)	R:1.0031964133293503		libm
+math.log(3.1638527036416596e+243)	R:560.6799680925321		libm
+math.atan2((-8517135501.71049), (-1.1418526705487949e+17))	R:-3.141592578999299		libm
+math.pow(0.0013561019545783963, 3.9555769166044215)	R:4.534838072753008e-12		libm
+9291.393733223504 ** (-13.195154454504504)	R:4.3707916946002145e-53		libm
+math.exp((-0.9166425274877916))	R:0.39985930650367385		libm
+math.log(4.591855893985888e+20)	R:47.57598613643404		libm
+math.atan2((-7.545096161577e-20), 3413.272855909111)	R:-2.210516557009151e-23		libm
+math.pow(0.10768465631683626, 3.4338316064417285)	R:0.0004748749038268552		libm
+9309.662654087839 ** (-7.560353009795664)	R:9.850500782583288e-31		libm
+math.exp(1.1368363537879494e-10)	R:1.0000000001136837		libm
+math.log(2.6952224845271612e-48)	R:-109.53260370820514		libm
+math.atan2((-29737656505.571644), (-69190534336106.53))	R:-3.141162859905443		libm
+math.pow(0.10829948728679305, (-28.73711869810103))	R:5.521482682243341e+27		libm
+0.00015733849520039475 ** (-16.104462320669413)	R:1.769813758843952e+61		libm
+math.exp(4.381411628868125e-09)	R:1.0000000043814117		libm
+math.log(4.334327083049184e+217)	R:501.12753154906744		libm
+math.atan2((-1.4390534707229722e-06), 21247.199248109828)	R:-6.772909002823005e-11		libm
+math.pow(0.044074238063622165, 29.796606474739256)	R:3.9930838015436586e-41		libm
+4794.974494255287 ** (-11.876675929887298)	R:1.9252801415277728e-44		libm
+math.exp((-0.8038975514331113))	R:0.4475810897968684		libm
+math.log(4.920392953119925e+225)	R:519.6750343194955		libm
+math.atan2(6.061357698640196e-20, (-2.8605015128797295e-10))	R:3.1415926533778946		libm
+math.pow(34249.69189188633, 15.074823994804134)	R:2.2863944720653754e+68		libm
+382.0322012993402 ** 14.710870560946283	R:9.659139705429733e+37		libm
+math.exp(3.740521904643188e-05)	R:1.0000374059186303		libm
+math.log(6.0258845067960305e+29)	R:68.5710319715363		libm
+math.atan2((-1.131115550402664e-05), 3.439927163966923e+19)	R:-3.288196221859133e-25		libm
+math.pow(0.6330991858582953, 26.824768568129905)	R:4.726348860893645e-06		libm
+0.0761284772940421 ** 11.536381914354266	R:1.2505489355778848e-13		libm
+math.exp(9.101170431911787e-11)	R:1.0000000000910116		libm
+math.log(1.0375053257339273)	R:0.03681910634706157		libm
+math.atan2(241.99304793700756, (-1.852418780106856e-20))	R:1.5707963267948966		libm
+math.pow(76.10968592628852, (-15.063336006814879))	R:4.562870687373566e-29		libm
+0.0010797443235380118 ** 9.207151589121164	R:4.845471929739071e-28		libm
+math.exp(3.6575025962997454e-11)	R:1.000000000036575		libm
+math.log(1.0323155737415681)	R:0.03180440882486513		libm
+math.atan2((-5389439842.986021), (-1767635220.3197105))	R:-1.8877222977317711		libm
+math.pow(2.6856470151751932e-06, (-21.90086461788456))	R:1.0201056494617616e+122		libm
+0.0018833225327634627 ** 15.133301060642744	R:5.762555350685784e-42		libm
+math.exp((-0.9887052553786173))	R:0.3720580995274629		libm
+math.log(2.3389235110536473e-291)	R:-669.2025712757589		libm
+math.atan2((-5.347520494454342e-10), (-4.895515337478412e-09))	R:-3.03279097517232		libm
+math.pow(23234161.467967607, 27.01345469685318)	R:9.6502395097278e+198		libm
+4.95835989798368e-05 ** 5.215827563600769	R:3.5287876971756135e-23		libm
+math.exp(2.709949793684004e-10)	R:1.000000000270995		libm
+math.log(2.7590362296944093e+46)	R:106.93379570433368		libm
+math.atan2((-3.4219819465819988e+16), 0.014787217306464285)	R:-1.5707963267948966		libm
+math.pow(1.2573146592906583, (-10.515776609664066))	R:0.09000555836791838		libm
+7.541175727374598e-05 ** (-3.1826745127466047)	R:13205949366420.164		libm
+math.exp((-342.6884627975084))	R:1.4869336680844365e-149		libm
+math.log(0.9080832160995608)	R:-0.09641925689349548		libm
+math.atan2(153155134524386.25, 0.02460586146105292)	R:1.5707963267948966		libm
+math.pow(5.336972313832718e-05, 26.028344926959704)	R:6.145527744772144e-112		libm
+19.473026917290394 ** 2.1393243454226685	R:573.4775242699324		libm
+math.exp((-9.567006893189429e-06))	R:0.9999904330388705		libm
+math.log(1.0639582722099514)	R:0.06199617230262273		libm
+math.atan2(7.8851374795847065, 6.240982896887036e-15)	R:1.570796326794896		libm
+math.pow(31253467.266711082, 18.34481587026564)	R:3.108332995720481e+137		libm
+1.252927607352578 ** (-15.635548688680307)	R:0.02943564740159824		libm
+math.exp(1.5240993441545406e-06)	R:1.0000015241005056		libm
+math.log(0.9367806355999029)	R:-0.06530613770656996		libm
+math.atan2(1.4064021026195508e-15, 7.898499496317685e-05)	R:1.780594027099985e-11		libm
+math.pow(28390.72589052285, 18.28701273738914)	R:2.7245533489969927e+81		libm
+0.18016427111968386 ** 13.16306260731934	R:1.5933826717286457e-10		libm
+math.exp((-479.1912542782407))	R:7.760371117834959e-209		libm
+math.log(0.9704080927045057)	R:-0.03003858183172672		libm
+math.atan2(149555455318229.16, (-4.3278182201895734e-13))	R:1.5707963267948966		libm
+math.pow(0.004282800399616206, 14.449673079722388)	R:6.01508051669353e-35		libm
+2.4969086731681578e-05 ** (-8.305538428045928)	R:1.686743687809249e+38		libm
+math.exp((-360.8475890583547))	R:1.931449083600532e-157		libm
+math.log(0.977934159971407)	R:-0.02231293230611708		libm
+math.atan2((-2602150.289974335), (-1.4825488177306322e-07))	R:-1.5707963267949536		libm
+math.pow(6902.189866573717, 24.687750977829317)	R:5.9697018028304465e+94		libm
+0.03632599598511552 ** (-3.991790154366246)	R:558868.3120836511		libm
+math.exp((-430.7919888254176))	R:8.117389866307088e-188		libm
+math.log(0.9971860039749028)	R:-0.0028179627552347717		libm
+math.atan2((-0.004851964686391233), (-175.77320147019478))	R:-3.1415650500379173		libm
+math.pow(3.754765785175886e-09, 5.291798656472764)	R:2.596503155441441e-45		libm
+0.0028071074780254453 ** (-8.334716194217751)	R:1.8536882336564526e+21		libm
+math.exp((-671.6514958653902))	R:2.0205126955177674e-292		libm
+math.log(0.9691105701050766)	R:-0.03137656616554946		libm
+math.atan2((-30.21725466826502), 1204727.544177644)	R:-2.5082231088652332e-05		libm
+math.pow(898.2262015990254, (-19.015445725113675))	R:6.919172317235052e-57		libm
+0.02077117190395794 ** 7.798104155070568	R:7.57505225481584e-14		libm
+math.exp(1.8803061221620736e-11)	R:1.000000000018803		libm
+math.log(1.0279122822953297)	R:0.027529834885800648		libm
+math.atan2(1.4279241479771462e-13, (-1.4200373152968656e-18))	R:1.5708062715620417		libm
+math.pow(0.04837961203135109, (-26.594179717380207))	R:9.5570755727085e+34		libm
+5.186507451747602e-05 ** 8.543255655591182	R:2.4608302789202774e-37		libm
+math.exp((-177.90329815293126))	R:5.464863261813446e-78		libm
+math.log(1.3787527533470522e+176)	R:405.5761556555235		libm
+math.atan2(55428.41980776376, (-3427777116.438304))	R:3.141576483221091		libm
+math.pow(0.0009484880956671616, (-0.5383714672988091))	R:42.411123750914115		libm
+0.0010939523421692843 ** 11.514362187712205	R:8.052953056175309e-35		libm
+math.exp((-400.89813923375385))	R:7.801000854973783e-175		libm
+math.log(4.806772011603012e+72)	R:167.35615245494208		libm
+math.atan2((-4074621384.4062), 317495132137846.3)	R:-1.2833649942114477e-05		libm
+math.pow(5.469732082234188e-10, (-2.5292665931073657))	R:2.6677986171567458e+23		libm
+36840.729342849765 ** (-19.153925734585652)	R:3.4426145940465584e-88		libm
+math.exp(0.7645725606010594)	R:2.1480760060788295		libm
+math.log(0.9208066120739031)	R:-0.08250524080756226		libm
+math.atan2(2056.7233092890087, 512007418615241.7)	R:4.016979509499207e-12		libm
+math.pow(7.216259077147049e-07, (-23.44355708378241))	R:9.616354849528023e+143		libm
+8.195719986010862e-05 ** (-18.826376433476003)	R:8.557507598347874e+76		libm
+math.exp(3.4261963258288176e-10)	R:1.0000000003426197		libm
+math.log(1.0403164379825043)	R:0.03952493416424605		libm
+math.atan2(0.00015538855026009388, (-1.1992954473454549e-16))	R:1.5707963267956684		libm
+math.pow(2.4245450037647594e-07, 20.130215714104267)	R:6.779222680511913e-134		libm
+282.96384238256144 ** 1.7457122304410788	R:19055.33968289529		libm
+math.exp((-0.9833259452727006))	R:0.3740649082060962		libm
+math.log(5.720476834579898e-183)	R:-419.6290198533043		libm
+math.atan2(84546989610.08533, (-5.571376865464477e-17))	R:1.5707963267948966		libm
+math.pow(5.220209933031332e-10, (-23.120388608366547))	R:4.080011130335973e+214		libm
+0.0010270706463006765 ** (-18.147564066853093)	R:1.706768818647968e+54		libm
+math.exp((-0.2535773027902364))	R:0.7760197541141666		libm
+math.log(1.0176267656598577)	R:0.01747321598958822		libm
+math.atan2(0.0017919590931336083, 8.336347467813199e-09)	R:1.5707916747090875		libm
+math.pow(0.02052409159838733, 23.57435593072703)	R:1.6319599787861373e-40		libm
+4736.6099425629545 ** 18.728187727709425	R:6.836717219566856e+68		libm
+math.exp((-2.031964637401311e-11))	R:0.9999999999796804		libm
+math.log(0.9258083789337397)	R:-0.07708799994661819		libm
+math.atan2((-1.4157031685997001e-08), (-0.05279469114451927))	R:-3.141592385437231		libm
+math.pow(6261323733.254281, 0.24862321082567007)	R:272.6958921418688		libm
+0.0016892619855354923 ** 7.690593857199495	R:4.779072808637004e-22		libm
+math.exp((-0.886731639053667))	R:0.41200011971854217		libm
+math.log(1.0293726960721992)	R:0.028949583766035705		libm
+math.atan2(1.5051998893498546, (-305539.638477432))	R:3.141587727224439		libm
+math.pow(44.64158224440835, (-29.432109124496616))	R:2.784099056239748e-49		libm
+32.15776306704755 ** 15.380793455452356	R:1.5249375061766606e+23		libm
+math.exp((-0.05190939406482009))	R:0.9494148855695079		libm
+math.log(6.095681391290728e+203)	R:469.2323544296015		libm
+math.atan2(1950469221234597.2, 3429454405.9350944)	R:1.5707945685234157		libm
+math.pow(0.00791162067837397, (-14.628186577811729))	R:5.553477716168056e+30		libm
+24974.654724630225 ** (-18.259389802090435)	R:5.062238545723267e-81		libm
+math.exp((-86.0265661312774))	R:4.356493115895183e-38		libm
+math.log(9.136346372847136e-149)	R:-340.87291829095295		libm
+math.atan2((-600.5061123390399), 1.4953677599400485e-17)	R:-1.5707963267948966		libm
+math.pow(6.156234170181631e-10, (-28.17006329504626))	R:2.921297230965132e+259		libm
+1.2838043750044537 ** (-0.24723992072352985)	R:0.9401015150654911		libm
+math.exp(5.576916358973032e-12)	R:1.0000000000055769		libm
+math.log(0.951833946553569)	R:-0.04936468529384448		libm
+math.atan2(0.0001684573517860307, 2068.564031260927)	R:8.143685631203033e-08		libm
+math.pow(3.366768682809645e-05, 6.110944137249142)	R:4.645689809409616e-28		libm
+0.00798108834531204 ** (-5.929479917169127)	R:2752203467558.0586		libm
+math.exp((-220.7596961848202))	R:1.334387977091269e-96		libm
+math.log(0.9111094016744153)	R:-0.09309229927877959		libm
+math.atan2(9856696163571208.0, 1.539095878454385e-14)	R:1.5707963267948966		libm
+math.pow(509004542.4806501, 20.832303023464945)	R:2.4047167174637552e+181		libm
+0.000309080440810812 ** (-10.847434549461878)	R:1.185002940269391e+38		libm
+math.exp(5.748662103509342e-08)	R:1.0000000574866228		libm
+math.log(1.0676210819507375)	R:0.06543288540340908		libm
+math.atan2(0.0007603032320914261, (-4.854394911899428e+19))	R:3.141592653589793		libm
+math.pow(0.08800122068929839, (-25.76303137287512))	R:1.560166070072776e+27		libm
+1198.419677880472 ** 8.826972665230166	R:1.4955360458847093e+27		libm
+math.exp((-2.8772615711515804e-10))	R:0.9999999997122738		libm
+math.log(0.9848790083592391)	R:-0.0152364795078373		libm
+math.atan2((-0.001008132309192793), (-1.3325537112761268e-19))	R:-1.5707963267948968		libm
+math.pow(9.160288209856505, 1.0876637395346265)	R:11.123301017610368		libm
+0.0057677716379562 ** (-11.443502775852426)	R:4.187072813129947e+25		libm
+math.exp(0.6210859538449995)	R:1.8609478484108193		libm
+math.log(0.9126395114492338)	R:-0.09141431595242784		libm
+math.atan2((-1.104169901039124e-15), (-23148418957.94568))	R:-3.141592653589793		libm
+math.pow(119085.31450603878, 12.824717019310782)	R:1.248662725300221e+65		libm
+3.424174239031137 ** (-3.4193208322342414)	R:0.014865585764390508		libm
+math.exp(0.6682343957087349)	R:1.9507899550737455		libm
+math.log(0.9324964062780288)	R:-0.06988998132893438		libm
+math.atan2(1.3910766029662611e-15, (-1.0109292668684321e-13))	R:3.127833146773931		libm
+math.pow(14203136.555869844, (-22.35500396633637))	R:1.283575565411542e-160		libm
+865.8026871338693 ** (-12.431490542677066)	R:3.0444185512063263e-37		libm
+math.exp((-0.34319220165836395))	R:0.7095018310258107		libm
+math.log(0.9693242620588731)	R:-0.031156087301760577		libm
+math.atan2((-49421.93335224027), 366408529251.8274)	R:-1.3488204942487289e-07		libm
+math.pow(0.007942015532367144, (-1.0571313415844799))	R:165.977432650508		libm
+37.608577294505224 ** 19.636210373293224	R:8.563771259835989e+30		libm
+math.exp(0.062462184870446524)	R:1.064454205683082		libm
+math.log(0.9573281608939416)	R:-0.04360904046266648		libm
+math.atan2((-0.06905493083083059), (-10076.744913189883))	R:-3.1415858006892363		libm
+math.pow(0.41693744154808526, (-24.279866649379617))	R:1677366458.367347		libm
+0.6233260433706249 ** 0.6976835586791239	R:0.7190783626944744		libm
+math.exp((-2.230070274656849e-11))	R:0.9999999999776993		libm
+math.log(5.064401635727359e+276)	R:637.135721660006		libm
+math.atan2(2.4453151745209755e-17, 2691132.6350513836)	R:9.086565049493688e-24		libm
+math.pow(0.0013739765305926686, (-16.88631657025615))	R:2.1329826703084596e+48		libm
+0.7935598230507688 ** 3.2559257800978756	R:0.47101947595602567		libm
+math.exp(8.744545774318904e-11)	R:1.0000000000874454		libm
+math.log(0.9875055473125885)	R:-0.01257316469090315		libm
+math.atan2((-70845069432.61475), (-1.6038772892359286e-06))	R:-1.5707963267948966		libm
+math.pow(1756788645.5447402, (-7.666820881792084))	R:1.325535518969288e-71		libm
+331.93885119051856 ** 15.499798585610208	R:1.1909473571911988e+39		libm
+math.exp((-0.0016560187104879781))	R:0.9983453517318996		libm
+math.log(1.0910863090035863)	R:0.08717381371602445		libm
+math.atan2(289326746875833.06, (-4.330136310599977e-09))	R:1.5707963267948966		libm
+math.pow(111273.71309362161, (-17.884421129281495))	R:5.600024290916484e-91		libm
+0.03900340284352177 ** (-3.9327531144200307)	R:347412.976821266		libm
+math.exp((-367.68859979614064))	R:2.0647622423478312e-160		libm
+math.log(1.0243996718296697)	R:0.024106754989481824		libm
+math.atan2((-3.985057778086563e-16), (-3.729790497214255e-19))	R:-1.5717322704162506		libm
+math.pow(24163.744904978586, 27.61014494836831)	R:1.0466465865690093e+121		libm
+6.0640914153223955 ** 12.852999256089944	R:11505022405.90409		libm
+math.exp((-4.3342503356728534e-06))	R:0.9999956657590572		libm
+math.log(0.934067965493924)	R:-0.06820607520599163		libm
+math.atan2(19178076.08997514, 2.128151619417097e-12)	R:1.5707963267948966		libm
+math.pow(1.9540426842513254, (-4.31809244284381))	R:0.05542681119167714		libm
+0.6028989921203831 ** 4.665346665538898	R:0.09435494823704998		libm
+math.exp(174.61747742746024)	R:6.845527045358495e+75		libm
+math.log(2.8509039489721708e+274)	R:631.9559515994376		libm
+math.atan2((-0.014195969576312334), (-0.1886083641048184))	R:-3.0664673898690515		libm
+math.pow(1.5040425576660982e-07, 27.930302065894338)	R:2.7467199046391372e-191		libm
+0.008162646342402626 ** (-12.815882770965246)	R:5.777359061300753e+26		libm
+math.exp(227.22113456364855)	R:4.796063370287043e+98		libm
+math.log(0.9766052672033388)	R:-0.02367273396000948		libm
+math.atan2((-3.5631133076014696), (-5370694.603544063))	R:-3.141591990153577		libm
+math.pow(764337811.691735, 14.649822432341324)	R:1.3757924262437694e+130		libm
+0.00047409791175466947 ** 3.1367920989587326	R:3.7401510284590347e-11		libm
+math.exp(560.9944989861283)	R:4.33326538625369e+243		libm
+math.log(0.9664241124398889)	R:-0.03415250132654336		libm
+math.atan2(7.340503585150178e-07, (-3.162533923195133e-14))	R:1.570796369878234		libm
+math.pow(950484885.6357154, 7.665230344641522)	R:6.576852412682082e+68		libm
+69.11387411623778 ** 8.226150113964984	R:1356874838946958.5		libm
+math.exp(2.6683596988851264e-09)	R:1.0000000026683598		libm
+math.log(1.0512803263451738)	R:0.05000877977970007		libm
+math.atan2((-3114.442038949819), 127.48326727684359)	R:-1.5298862255519228		libm
+math.pow(338.53727068668894, 0.7825050474627453)	R:95.37396662110959		libm
+0.06284605444980117 ** 8.64274336211777	R:4.109843753676128e-11		libm
+math.exp(14.620934111253321)	R:2237644.0596357468		libm
+math.log(0.9004282555291351)	R:-0.10488478935671251		libm
+math.atan2((-0.00021829954895657953), 1239.0856001257916)	R:-1.761779403573212e-07		libm
+math.pow(16418227.18919217, 7.731905153256399)	R:6.140705923440144e+55		libm
+1.4751733539575023 ** 7.266810544962482	R:16.863608937578892		libm
+math.exp((-460.57545482398365))	R:9.432383933454543e-201		libm
+math.log(2.015348659858779e+221)	R:509.5720977643024		libm
+math.atan2((-4.66837340515817e-12), 6.019362752557163e-17)	R:-1.5707834328761163		libm
+math.pow(5.748716165747288e-08, 22.153463337531782)	R:3.975746120144812e-161		libm
+0.014077037446721808 ** 10.412380300289442	R:5.267386408081417e-20		libm
+math.exp(582.3722648452087)	R:8.337983584583907e+252		libm
+math.log(1.028275923777663)	R:0.027883539361928382		libm
+math.atan2(2.3609754149958325e-18, (-5.579245694429772e-12))	R:3.1415922304187154		libm
+math.pow(7.074876140931459e-08, 13.832881035776815)	R:1.2331370794126546e-99		libm
+0.4179713796282725 ** (-15.411379649117464)	R:689690.7969584926		libm
+math.exp((-0.27381373829691014))	R:0.7604737091982137		libm
+math.log(0.9703923102960003)	R:-0.030054845645853475		libm
+math.atan2((-3.1456335686980935e-17), (-1.893366277068201e-17))	R:-2.1126139159533		libm
+math.pow(2.3060521011694427e-07, (-16.714798764012958))	R:8.675751621670756e+110		libm
+0.26548308075047733 ** 15.146434656193172	R:1.8889121683133516e-09		libm
+math.exp((-28.267450001502404))	R:5.291788118740076e-13		libm
+math.log(1.0372907341358977)	R:0.03661225074043557		libm
+math.atan2(5565580.396335717, 80.79311199650792)	R:1.5707818102294646		libm
+math.pow(191.1673244868454, (-19.063025218659845))	R:3.231125508497805e-44		libm
+0.1458040172015825 ** (-18.749974159325205)	R:4778597553759173.0		libm
+math.exp(471.5940052261924)	R:6.466572758453366e+204		libm
+math.log(9.749169367371428e-256)	R:-587.1846017181851		libm
+math.atan2(2.3119622833146806e-13, (-1.9391035545938562e-05))	R:3.1415926416669526		libm
+math.pow(3.015632367463753e-10, (-14.4549172589368))	R:4.166750908670237e+137		libm
+5526.236134208103 ** (-19.78130325810696)	R:9.329714632979252e-75		libm
+math.exp(0.00843089535271102)	R:1.008466535439808		libm
+math.log(1.0552436254744562)	R:0.053771664889381336		libm
+math.atan2(2.6432215190586662e-08, 1.1643354782002946e-16)	R:1.5707963223899102		libm
+math.pow(2.228051488593243e-05, (-22.587885037804387))	R:1.2037332413924404e+105		libm
+1.0692938734019419e-05 ** (-6.480635308595248)	R:1.6391133542940428e+32		libm
+math.exp(701.2057296543867)	R:3.386718248412832e+304		libm
+math.log(3.1705028130453256e-98)	R:-224.49944892200287		libm
+math.atan2(4.1665784258047394e-09, (-1.7965846999092464e-05))	R:3.141360736978719		libm
+math.pow(712884.4327892935, (-1.5139288854836188))	R:1.377035923399783e-09		libm
+0.00980789646963431 ** 4.137192927837489	R:4.9063881766078616e-09		libm
+math.log10(6.127597036889606e+70)	R:70.78729019748462		libm
+math.log2(2.915079868497159e+68)	R:227.4346458638303		libm
+math.log(4.433170012551643e-10, 0.049000066571535904)	R:7.140984756529854		libm
+math.asin((-0.36570721026024144))	R:-0.3743925344969195		libm
+math.acos(0.8241111962338201)	R:0.6021650607488184		libm
+math.atan((-1304137711.7234557))	R:-1.5707963260281064		libm
+math.sinh((-7.00774988484163))	R:-552.5820259011052		libm
+math.cosh((-5.229132907175096))	R:93.31813259480069		libm
+math.tanh(2.8032017171013655)	R:0.9926783808519394		libm
 math.hypot((-1.929440286461575e-09), (-3.446229605426049e-05))	R:3.446229610827227e-05	
-math.expm1((-1.7085991302080492))	R:-0.8188806604059171	
+math.expm1((-1.7085991302080492))	R:-0.8188806604059171		libm
 math.sqrt(2.327262703040239e-159)	R:4.824171123664913e-80	
 math.degrees((-3.014115294236137))	R:-172.69608532556296	
 math.radians(221.02389819563086)	R:3.8575947491065126	
-math.log10(7.364947364615021e-73)	R:-72.13283035260125	
-math.log2(1.967312062463439e+27)	R:90.66828438345905	
-math.log(113.24181132200225, 0.001393616140235104)	R:-0.7192261124524468	
-math.asin(0.23355052310082947)	R:0.2357275977886789	
-math.acos((-0.47248448914649566))	R:2.0629039754410234	
-math.atan((-87146505.43829764))	R:-1.570796315319967	
-math.sinh(27.025216243171194)	R:272817541520.89185	
-math.cosh(1.352129566809893)	R:2.0621688538587577	
-math.tanh(2.90793134178168)	R:0.9940578899438433	
+math.log10(7.364947364615021e-73)	R:-72.13283035260125		libm
+math.log2(1.967312062463439e+27)	R:90.66828438345905		libm
+math.log(113.24181132200225, 0.001393616140235104)	R:-0.7192261124524468		libm
+math.asin(0.23355052310082947)	R:0.2357275977886789		libm
+math.acos((-0.47248448914649566))	R:2.0629039754410234		libm
+math.atan((-87146505.43829764))	R:-1.570796315319967		libm
+math.sinh(27.025216243171194)	R:272817541520.89185		libm
+math.cosh(1.352129566809893)	R:2.0621688538587577		libm
+math.tanh(2.90793134178168)	R:0.9940578899438433		libm
 math.hypot(5.124066183253164, (-113430.27765763532))	R:113430.27777337185	
-math.expm1(0.061320980139725645)	R:0.0632401383893517	
+math.expm1(0.061320980139725645)	R:0.0632401383893517		libm
 math.sqrt(2.0769627262729463e+24)	R:1441167140297.3862	
 math.degrees((-6.125738736498238))	R:-350.9789760011505	
 math.radians((-138.6726562857167))	R:-2.420294434672167	
-math.log10(9.734042697216307e-10)	R:-9.011706753107433	
-math.log2(2.1274741852085526e+39)	R:130.6443373269496	
-math.log(6107.7365923294365, 0.0011020362532971574)	R:-1.2799631576160169	
-math.asin(0.8622545400839139)	R:1.0397043787247195	
-math.acos(0.12357388916222334)	R:1.4469057506113638	
-math.atan((-1966.1832464784463))	R:-1.5702877272452023	
-math.sinh(16.24908940874601)	R:5699803.327066364	
-math.cosh(12.577916027595023)	R:145040.5803958692	
-math.tanh(3.2197701202777473)	R:0.996810811957561	
+math.log10(9.734042697216307e-10)	R:-9.011706753107433		libm
+math.log2(2.1274741852085526e+39)	R:130.6443373269496		libm
+math.log(6107.7365923294365, 0.0011020362532971574)	R:-1.2799631576160169		libm
+math.asin(0.8622545400839139)	R:1.0397043787247195		libm
+math.acos(0.12357388916222334)	R:1.4469057506113638		libm
+math.atan((-1966.1832464784463))	R:-1.5702877272452023		libm
+math.sinh(16.24908940874601)	R:5699803.327066364		libm
+math.cosh(12.577916027595023)	R:145040.5803958692		libm
+math.tanh(3.2197701202777473)	R:0.996810811957561		libm
 math.hypot((-1.1129540502675797e-10), (-3.1621466119740383e-06))	R:3.1621466139326237e-06	
-math.expm1((-1.4951894559445935))	R:-0.7757938764764121	
+math.expm1((-1.4951894559445935))	R:-0.7757938764764121		libm
 math.sqrt(2.3648894505251303e+248)	R:1.5378197067683618e+124	
 math.degrees((-6.725850682341342))	R:-385.36285773334384	
 math.radians(380.9516071501437)	R:6.64885983553398	
-math.log10(9.333278661615037e-06)	R:-5.029965767344777	
-math.log2(1.4818435095356706e-81)	R:-268.5087825863686	
-math.log(0.002124165840793103, 0.04164836841231871)	R:1.9362559347378343	
-math.asin(0.3794836971549671)	R:0.3892381870347561	
-math.acos(0.794885574028519)	R:0.6519773560192985	
-math.atan((-43891.43651300272))	R:-1.57077354330729	
-math.sinh((-11.894038233841595))	R:-73195.63399071511	
-math.cosh((-10.539122080008294))	R:18882.1989013369	
-math.tanh((-4.923845999899546))	R:-0.9998942674416939	
+math.log10(9.333278661615037e-06)	R:-5.029965767344777		libm
+math.log2(1.4818435095356706e-81)	R:-268.5087825863686		libm
+math.log(0.002124165840793103, 0.04164836841231871)	R:1.9362559347378343		libm
+math.asin(0.3794836971549671)	R:0.3892381870347561		libm
+math.acos(0.794885574028519)	R:0.6519773560192985		libm
+math.atan((-43891.43651300272))	R:-1.57077354330729		libm
+math.sinh((-11.894038233841595))	R:-73195.63399071511		libm
+math.cosh((-10.539122080008294))	R:18882.1989013369		libm
+math.tanh((-4.923845999899546))	R:-0.9998942674416939		libm
 math.hypot((-8.445321300588423e-10), (-5.769183010130625e-05))	R:5.7691830107487665e-05	
-math.expm1((-1.2035033600988982))	R:-0.6998591336700329	
+math.expm1((-1.2035033600988982))	R:-0.6998591336700329		libm
 math.sqrt(1.6490067740431844e-102)	R:1.2841365869887768e-51	
 math.degrees((-5.375291356314729))	R:-307.98150836998593	
 math.radians((-313.02209691592805))	R:-5.463266222679732	
-math.log10(12516245942.425014)	R:10.097474088381844	
-math.log2(2.0601056839964827e+31)	R:104.02248929147338	
-math.log(127682.21521217603, 74.5259760970568)	R:2.7271855383639294	
-math.asin((-0.08646911326813056))	R:-0.08657723103286905	
-math.acos(0.8649822522515336)	R:0.5256813242110728	
-math.atan(1.6520723577993434e-07)	R:1.6520723577993283e-07	
-math.sinh((-11.524318210549605))	R:-50572.894498144095	
-math.cosh(6.341288820692149)	R:283.7645215845316	
-math.tanh(1.5752337766540725)	R:0.9178542814993074	
+math.log10(12516245942.425014)	R:10.097474088381844		libm
+math.log2(2.0601056839964827e+31)	R:104.02248929147338		libm
+math.log(127682.21521217603, 74.5259760970568)	R:2.7271855383639294		libm
+math.asin((-0.08646911326813056))	R:-0.08657723103286905		libm
+math.acos(0.8649822522515336)	R:0.5256813242110728		libm
+math.atan(1.6520723577993434e-07)	R:1.6520723577993283e-07		libm
+math.sinh((-11.524318210549605))	R:-50572.894498144095		libm
+math.cosh(6.341288820692149)	R:283.7645215845316		libm
+math.tanh(1.5752337766540725)	R:0.9178542814993074		libm
 math.hypot((-1.3314116155441913e-06), (-0.0005715046308111173))	R:0.0005715061816773652	
-math.expm1((-0.8989969521770078))	R:-0.5930223268530326	
+math.expm1((-0.8989969521770078))	R:-0.5930223268530326		libm
 math.sqrt(3.079224919205561e+295)	R:5.549076426943101e+147	
 math.degrees((-2.9995305597165993))	R:-171.8604415922747	
 math.radians(66.34260915899131)	R:1.1578969641881445	
-math.log10(5.5568192766207615e+66)	R:66.744826272538	
-math.log2(1.3282790058269321e-95)	R:-315.1736107967975	
-math.log(1.4583400643570836, 22.5624262455056)	R:0.12107324252726234	
-math.asin(0.44076917771671176)	R:0.45645540078434965	
-math.acos(0.0291311996850101)	R:1.5416610052828696	
-math.atan((-1.9090956942952324e-05))	R:-1.9090956940633e-05	
-math.sinh((-10.567692475925249))	R:-19429.45115555427	
-math.cosh((-8.878465962771322))	R:3587.887261261596	
-math.tanh((-1.3709201267513826))	R:-0.8789017208185166	
+math.log10(5.5568192766207615e+66)	R:66.744826272538		libm
+math.log2(1.3282790058269321e-95)	R:-315.1736107967975		libm
+math.log(1.4583400643570836, 22.5624262455056)	R:0.12107324252726234		libm
+math.asin(0.44076917771671176)	R:0.45645540078434965		libm
+math.acos(0.0291311996850101)	R:1.5416610052828696		libm
+math.atan((-1.9090956942952324e-05))	R:-1.9090956940633e-05		libm
+math.sinh((-10.567692475925249))	R:-19429.45115555427		libm
+math.cosh((-8.878465962771322))	R:3587.887261261596		libm
+math.tanh((-1.3709201267513826))	R:-0.8789017208185166		libm
 math.hypot(0.0342117904366092, 0.3395100256452045)	R:0.34122940101709565	
-math.expm1((-1.8146030294051094))	R:-0.8370974369162816	
+math.expm1((-1.8146030294051094))	R:-0.8370974369162816		libm
 math.sqrt(2.5360708817153713e+118)	R:1.5925045939385454e+59	
 math.degrees((-2.243326763985018))	R:-128.53315564508208	
 math.radians((-373.61978980782243))	R:-6.520895482755654	
-math.log10(1.0537279193818045e-13)	R:-12.977271512809537	
-math.log2(3.817737951000989e+21)	R:71.69320807238906	
-math.log(0.3060796028895764, 2.4767594052204904)	R:-1.3053737766135705	
-math.asin(0.34510619505343065)	R:0.3523519290968015	
-math.acos((-0.2497804848059615))	R:1.8232498742527432	
-math.atan((-12955809.696776785))	R:-1.5707962496094467	
-math.sinh(12.01465305447374)	R:82578.60229884027	
-math.cosh(9.928272877254877)	R:10250.950367757343	
-math.tanh((-0.31772749873307227))	R:-0.30745067041187896	
+math.log10(1.0537279193818045e-13)	R:-12.977271512809537		libm
+math.log2(3.817737951000989e+21)	R:71.69320807238906		libm
+math.log(0.3060796028895764, 2.4767594052204904)	R:-1.3053737766135705		libm
+math.asin(0.34510619505343065)	R:0.3523519290968015		libm
+math.acos((-0.2497804848059615))	R:1.8232498742527432		libm
+math.atan((-12955809.696776785))	R:-1.5707962496094467		libm
+math.sinh(12.01465305447374)	R:82578.60229884027		libm
+math.cosh(9.928272877254877)	R:10250.950367757343		libm
+math.tanh((-0.31772749873307227))	R:-0.30745067041187896		libm
 math.hypot((-9.425999565995937e-08), 9.030162254566819e-05)	R:9.030167174159685e-05	
-math.expm1((-1.8699308998041486))	R:-0.8458656878416857	
+math.expm1((-1.8699308998041486))	R:-0.8458656878416857		libm
 math.sqrt(2.3216785035365667e-35)	R:4.818379918122446e-18	
 math.degrees(0.7454058750379549)	R:42.708610663930855	
 math.radians(378.6225826231953)	R:6.608210689179026	
-math.log10(3.5369748094224476e+58)	R:58.548631966750634	
-math.log2(3.474592060456048e-81)	R:-267.27933207981124	
-math.log(300457.3019905847, 0.007486194306866285)	R:-2.5768840899128076	
-math.asin((-0.22680759839080933))	R:-0.22879860195926394	
-math.acos((-0.1412185457905386))	R:1.7124885149066371	
-math.atan(0.00022263998415075943)	R:0.00022263998047211155	
-math.sinh(12.117007583011528)	R:91478.60533262233	
-math.cosh((-28.504503538011207))	R:1197618787376.9216	
-math.tanh((-3.7448274081716884))	R:-0.998882952589745	
+math.log10(3.5369748094224476e+58)	R:58.548631966750634		libm
+math.log2(3.474592060456048e-81)	R:-267.27933207981124		libm
+math.log(300457.3019905847, 0.007486194306866285)	R:-2.5768840899128076		libm
+math.asin((-0.22680759839080933))	R:-0.22879860195926394		libm
+math.acos((-0.1412185457905386))	R:1.7124885149066371		libm
+math.atan(0.00022263998415075943)	R:0.00022263998047211155		libm
+math.sinh(12.117007583011528)	R:91478.60533262233		libm
+math.cosh((-28.504503538011207))	R:1197618787376.9216		libm
+math.tanh((-3.7448274081716884))	R:-0.998882952589745		libm
 math.hypot((-0.00018129628429576638), 54354.32148460232)	R:54354.32148460232	
-math.expm1((-0.6554306166596167))	R:-0.480781569665465	
+math.expm1((-0.6554306166596167))	R:-0.480781569665465		libm
 math.sqrt(24874440766.996216)	R:157716.33005810215	
 math.degrees(6.783436626183372)	R:388.66228927476953	
 math.radians((-528.8516638591043))	R:-9.23020278899167	
-math.log10(3.8025893790257315e-10)	R:-9.419920569158862	
-math.log2(3.548940293791736e-47)	R:-154.3032321565315	
-math.log(5.279633441762469e-08, 0.03785337714888224)	R:5.118095460368861	
-math.asin((-0.6697088636648367))	R:-0.7338166806499907	
-math.acos((-0.9738093745275118))	R:2.912220660829156	
-math.atan(1.1774278387679075e-06)	R:1.1774278387673635e-06	
-math.sinh((-22.119196288691583))	R:-2019365334.4636128	
-math.cosh(11.804040968378338)	R:66895.95546586999	
-math.tanh((-2.434690388359196))	R:-0.9847607720234642	
+math.log10(3.8025893790257315e-10)	R:-9.419920569158862		libm
+math.log2(3.548940293791736e-47)	R:-154.3032321565315		libm
+math.log(5.279633441762469e-08, 0.03785337714888224)	R:5.118095460368861		libm
+math.asin((-0.6697088636648367))	R:-0.7338166806499907		libm
+math.acos((-0.9738093745275118))	R:2.912220660829156		libm
+math.atan(1.1774278387679075e-06)	R:1.1774278387673635e-06		libm
+math.sinh((-22.119196288691583))	R:-2019365334.4636128		libm
+math.cosh(11.804040968378338)	R:66895.95546586999		libm
+math.tanh((-2.434690388359196))	R:-0.9847607720234642		libm
 math.hypot((-0.02335604271925383), 0.015053482924591117)	R:0.027786904823397768	
-math.expm1((-0.36891951207992024))	R:-0.30851893591682156	
+math.expm1((-0.36891951207992024))	R:-0.30851893591682156		libm
 math.sqrt(3.3367735991553344e+264)	R:1.826683770978254e+132	
 math.degrees((-0.5391996584827341))	R:-30.893864745956023	
 math.radians(662.0589977316029)	R:11.55510935287014	
-math.log10(6.5378063873506e-17)	R:-16.184567944898248	
-math.log2(1.7245440388264514e-31)	R:-102.19355597085078	
-math.log(0.005227287416548099, 0.016131700593559603)	R:1.2730560472655026	
-math.asin(0.1465225820038154)	R:0.14705199171731398	
-math.acos((-0.9627013009318475))	R:2.867611271779783	
-math.atan(3.6331522574371126e-08)	R:3.633152257437111e-08	
-math.sinh((-18.95028590206107))	R:-84913081.56935383	
-math.cosh(9.709848707556134)	R:8239.554292121471	
-math.tanh((-0.5880528988842144))	R:-0.5284937871067554	
+math.log10(6.5378063873506e-17)	R:-16.184567944898248		libm
+math.log2(1.7245440388264514e-31)	R:-102.19355597085078		libm
+math.log(0.005227287416548099, 0.016131700593559603)	R:1.2730560472655026		libm
+math.asin(0.1465225820038154)	R:0.14705199171731398		libm
+math.acos((-0.9627013009318475))	R:2.867611271779783		libm
+math.atan(3.6331522574371126e-08)	R:3.633152257437111e-08		libm
+math.sinh((-18.95028590206107))	R:-84913081.56935383		libm
+math.cosh(9.709848707556134)	R:8239.554292121471		libm
+math.tanh((-0.5880528988842144))	R:-0.5284937871067554		libm
 math.hypot(3.277931949860457e-05, 4.461495603672319)	R:4.461495603792736	
-math.expm1(1.3394992382793776)	R:2.8171315533256074	
+math.expm1(1.3394992382793776)	R:2.8171315533256074		libm
 math.sqrt(2.9772537069358704e-264)	R:1.7254720243851738e-132	
 math.degrees(6.910026205911519)	R:395.9153379235272	
 math.radians(466.1326466468802)	R:8.135549435023364	
-math.log10(1.2239795279175277e+63)	R:63.087774153931434	
-math.log2(3.345510771215385e-95)	R:-313.84094252515314	
-math.log(7.983392493662733e-09, 3.0055264810771503)	R:-16.94384635589889	
-math.asin((-0.22496728029689406))	R:-0.22690945555352188	
-math.acos(0.07974524751761525)	R:1.4909663157673116	
-math.atan((-40264164.580787554))	R:-1.5707963019589162	
-math.sinh((-28.548314595479287))	R:-1251254063245.1516	
-math.cosh((-11.037008046025324))	R:31065.739456035957	
-math.tanh((-3.511206891507533))	R:-0.9982182475486036	
+math.log10(1.2239795279175277e+63)	R:63.087774153931434		libm
+math.log2(3.345510771215385e-95)	R:-313.84094252515314		libm
+math.log(7.983392493662733e-09, 3.0055264810771503)	R:-16.94384635589889		libm
+math.asin((-0.22496728029689406))	R:-0.22690945555352188		libm
+math.acos(0.07974524751761525)	R:1.4909663157673116		libm
+math.atan((-40264164.580787554))	R:-1.5707963019589162		libm
+math.sinh((-28.548314595479287))	R:-1251254063245.1516		libm
+math.cosh((-11.037008046025324))	R:31065.739456035957		libm
+math.tanh((-3.511206891507533))	R:-0.9982182475486036		libm
 math.hypot(20996584.510561917, 565909819.8985697)	R:566299197.2612541	
-math.expm1((-1.4037181179448113))	R:-0.7543182102380798	
+math.expm1((-1.4037181179448113))	R:-0.7543182102380798		libm
 math.sqrt(1.4276350961872736e+62)	R:1.194836849192087e+31	
 math.degrees((-2.488958728876316))	R:-142.60683054685904	
 math.radians((-546.8487891254249))	R:-9.544311880782827	
-math.log10(2.258833720017461e+80)	R:80.35388426228965	
-math.log2(5.168826159732435e+92)	R:307.987221411374	
-math.log(8.868296528003206e-09, 12.145468664629723)	R:-7.425353906096422	
-math.asin((-0.9411821762139301))	R:-1.2261120321663943	
-math.acos(0.7253141464369508)	R:0.759305711214655	
-math.atan(18.388254741189385)	R:1.5164673032161065	
-math.sinh(2.188944390232379)	R:4.406875520803998	
-math.cosh((-29.647857254833646))	R:3757256205152.665	
-math.tanh((-4.69067088761057))	R:-0.9998314501275695	
+math.log10(2.258833720017461e+80)	R:80.35388426228965		libm
+math.log2(5.168826159732435e+92)	R:307.987221411374		libm
+math.log(8.868296528003206e-09, 12.145468664629723)	R:-7.425353906096422		libm
+math.asin((-0.9411821762139301))	R:-1.2261120321663943		libm
+math.acos(0.7253141464369508)	R:0.759305711214655		libm
+math.atan(18.388254741189385)	R:1.5164673032161065		libm
+math.sinh(2.188944390232379)	R:4.406875520803998		libm
+math.cosh((-29.647857254833646))	R:3757256205152.665		libm
+math.tanh((-4.69067088761057))	R:-0.9998314501275695		libm
 math.hypot(1766276.1817442346, (-7.2182617592717585e-06))	R:1766276.1817442346	
-math.expm1((-0.0838423802441941))	R:-0.08042381195303994	
+math.expm1((-0.0838423802441941))	R:-0.08042381195303994		libm
 math.sqrt(2.1814138189343365e-108)	R:1.4769610079261864e-54	
 math.degrees(1.2155522527158311)	R:69.64601385823678	
 math.radians(376.7008340085886)	R:6.5746698484585	
-math.log10(1.0619889633619237e+41)	R:41.026120003397125	
-math.log2(4.361396714332215e+25)	R:85.17299259667121	
-math.log(2.4508694804457226e-10, 0.047022504231109694)	R:7.2386242891412405	
-math.asin(0.1240192327811862)	R:0.12433937211553457	
-math.acos((-0.39674845409421367))	R:1.9787681803348371	
-math.atan((-1.827110782215155e-08))	R:-1.8271107822151546e-08	
-math.sinh(0.45630694141435413)	R:0.4723076863910325	
-math.cosh((-0.4935146336105447))	R:1.124270161580453	
-math.tanh(4.883820488448412)	R:0.9998854559473891	
+math.log10(1.0619889633619237e+41)	R:41.026120003397125		libm
+math.log2(4.361396714332215e+25)	R:85.17299259667121		libm
+math.log(2.4508694804457226e-10, 0.047022504231109694)	R:7.2386242891412405		libm
+math.asin(0.1240192327811862)	R:0.12433937211553457		libm
+math.acos((-0.39674845409421367))	R:1.9787681803348371		libm
+math.atan((-1.827110782215155e-08))	R:-1.8271107822151546e-08		libm
+math.sinh(0.45630694141435413)	R:0.4723076863910325		libm
+math.cosh((-0.4935146336105447))	R:1.124270161580453		libm
+math.tanh(4.883820488448412)	R:0.9998854559473891		libm
 math.hypot((-8.753100409638441e-08), (-469939359.9750965))	R:469939359.9750965	
-math.expm1((-1.7875173100534787))	R:-0.8326248050218497	
+math.expm1((-1.7875173100534787))	R:-0.8326248050218497		libm
 math.sqrt(2.3122247173100233e+32)	R:1.5206001174898098e+16	
 math.degrees(1.941148729177172)	R:111.21962958903521	
 math.radians(424.2594861372904)	R:7.404724915914957	
-math.log10(4.594319165918618e+84)	R:84.66222116220914	
-math.log2(3.1414804939349293e+66)	R:220.89869888470287	
-math.log(63154.65070574465, 0.053104557853913034)	R:-3.765413026408186	
-math.asin(0.08079667453665906)	R:0.08088484195143147	
-math.acos((-0.020809995493350275))	R:1.5916078245629524	
-math.atan((-0.004493106353392558))	R:-0.004493076118141393	
-math.sinh((-5.530954585656904))	R:-126.19037834850982	
-math.cosh((-18.67296901196541))	R:64348348.76151518	
-math.tanh(3.2553209965972734)	R:0.9970293700129282	
+math.log10(4.594319165918618e+84)	R:84.66222116220914		libm
+math.log2(3.1414804939349293e+66)	R:220.89869888470287		libm
+math.log(63154.65070574465, 0.053104557853913034)	R:-3.765413026408186		libm
+math.asin(0.08079667453665906)	R:0.08088484195143147		libm
+math.acos((-0.020809995493350275))	R:1.5916078245629524		libm
+math.atan((-0.004493106353392558))	R:-0.004493076118141393		libm
+math.sinh((-5.530954585656904))	R:-126.19037834850982		libm
+math.cosh((-18.67296901196541))	R:64348348.76151518		libm
+math.tanh(3.2553209965972734)	R:0.9970293700129282		libm
 math.hypot(3465411830.95529, (-20290172.467885472))	R:3465471230.4712143	
-math.expm1((-1.9652066649338202))	R:-0.8598730756983661	
+math.expm1((-1.9652066649338202))	R:-0.8598730756983661		libm
 math.sqrt(1.1247611137043736e+219)	R:3.3537458366792998e+109	
 math.degrees((-5.295117179980257))	R:-303.38786644008303	
 math.radians(339.1029400809832)	R:5.918462807606204	
-math.log10(2.0945672868841665e+38)	R:38.32109431640558	
-math.log2(3.2811571670433586e+50)	R:167.81060944480276	
-math.log(12.251696235379812, 0.08734834667789987)	R:-1.0278168028843087	
-math.asin(0.305717983588915)	R:0.3106924257946235	
-math.acos(0.32562086317962113)	R:1.2391280225459615	
-math.atan(0.14974347511750347)	R:0.14863905809260264	
-math.sinh(20.69640645587173)	R:486749062.07999355	
-math.cosh((-23.18468932107942))	R:5860742508.944024	
-math.tanh((-1.817534295929808))	R:-0.9485920027428405	
+math.log10(2.0945672868841665e+38)	R:38.32109431640558		libm
+math.log2(3.2811571670433586e+50)	R:167.81060944480276		libm
+math.log(12.251696235379812, 0.08734834667789987)	R:-1.0278168028843087		libm
+math.asin(0.305717983588915)	R:0.3106924257946235		libm
+math.acos(0.32562086317962113)	R:1.2391280225459615		libm
+math.atan(0.14974347511750347)	R:0.14863905809260264		libm
+math.sinh(20.69640645587173)	R:486749062.07999355		libm
+math.cosh((-23.18468932107942))	R:5860742508.944024		libm
+math.tanh((-1.817534295929808))	R:-0.9485920027428405		libm
 math.hypot((-1.8371274049424492e-08), (-202324.59407957928))	R:202324.59407957928	
-math.expm1((-0.5585981299553766))	R:-0.4279896137316426	
+math.expm1((-0.5585981299553766))	R:-0.4279896137316426		libm
 math.sqrt(6.229770797837743e+215)	R:7.89288971026312e+107	
 math.degrees((-4.208533937054153))	R:-241.13123253077902	
 math.radians(446.04449126929967)	R:7.78494498303238	
-math.log10(7.085435822060948e-78)	R:-77.14963343133114	
-math.log2(4.705672408768032e+20)	R:68.6729627867973	
-math.log(65730559.62096362, 1.2031582794191722)	R:97.3294112924297	
-math.asin((-0.21233978772303064))	R:-0.21396872911900994	
-math.acos(0.6003540480920262)	R:0.9268525844004376	
-math.atan((-0.00011615047181685664))	R:-0.0001161504712945306	
-math.sinh(19.150217185565708)	R:103705945.47871383	
-math.cosh((-4.850931045949402))	R:63.93359924688868	
-math.tanh((-4.7643214603728845))	R:-0.9998545340436651	
+math.log10(7.085435822060948e-78)	R:-77.14963343133114		libm
+math.log2(4.705672408768032e+20)	R:68.6729627867973		libm
+math.log(65730559.62096362, 1.2031582794191722)	R:97.3294112924297		libm
+math.asin((-0.21233978772303064))	R:-0.21396872911900994		libm
+math.acos(0.6003540480920262)	R:0.9268525844004376		libm
+math.atan((-0.00011615047181685664))	R:-0.0001161504712945306		libm
+math.sinh(19.150217185565708)	R:103705945.47871383		libm
+math.cosh((-4.850931045949402))	R:63.93359924688868		libm
+math.tanh((-4.7643214603728845))	R:-0.9998545340436651		libm
 math.hypot((-34637728.727424905), (-293088522.60916066))	R:295128199.83291185	
-math.expm1(0.2678640366929894)	R:0.3071694008576444	
+math.expm1(0.2678640366929894)	R:0.3071694008576444		libm
 math.sqrt(8.480337748894404e+134)	R:2.912101946858043e+67	
 math.degrees(3.672909440288871)	R:210.44220946230976	
 math.radians(642.7135667945297)	R:11.21746788780104	
-math.log10(3.3644150683935945e+61)	R:61.5269095694068	
-math.log2(2.080864448482643e-28)	R:-91.95680366864522	
-math.log(7720.817309438023, 0.11075777918702873)	R:-4.068185931443136	
-math.asin(0.14680079131466628)	R:0.14733324227261455	
-math.acos(0.3445640352310235)	R:1.2190219848345885	
-math.atan(13557059.188055746)	R:1.5707962530325867	
-math.sinh(6.485826291404052)	R:327.88954070443623	
-math.cosh(15.777032125400055)	R:3555068.6961351414	
-math.tanh((-0.4648210978988754))	R:-0.43400537827912233	
+math.log10(3.3644150683935945e+61)	R:61.5269095694068		libm
+math.log2(2.080864448482643e-28)	R:-91.95680366864522		libm
+math.log(7720.817309438023, 0.11075777918702873)	R:-4.068185931443136		libm
+math.asin(0.14680079131466628)	R:0.14733324227261455		libm
+math.acos(0.3445640352310235)	R:1.2190219848345885		libm
+math.atan(13557059.188055746)	R:1.5707962530325867		libm
+math.sinh(6.485826291404052)	R:327.88954070443623		libm
+math.cosh(15.777032125400055)	R:3555068.6961351414		libm
+math.tanh((-0.4648210978988754))	R:-0.43400537827912233		libm
 math.hypot((-735.2782106990176), 2.5352219376443393e-05)	R:735.278210699018	
-math.expm1(0.3777062635847024)	R:0.4589343377878809	
+math.expm1(0.3777062635847024)	R:0.4589343377878809		libm
 math.sqrt(1.1788089808058667e-86)	R:1.0857296996977962e-43	
 math.degrees(0.08161450980205132)	R:4.676166958686628	
 math.radians(348.2744425863284)	R:6.078535723679386	
-math.log10(4.925879657485387e+18)	R:18.69248379752979	
-math.log2(1.0620621757594448e-59)	R:-195.9068893707866	
-math.log(141107541.73839372, 28.63993471368258)	R:5.593484359189869	
-math.asin((-0.47428090300549575))	R:-0.49414704290411754	
-math.acos(0.9705937826162474)	R:0.24311100042056322	
-math.atan((-4.6899841636249306e-05))	R:-4.689984160186242e-05	
-math.sinh((-2.5659036060710108))	R:-6.467780722224246	
-math.cosh(20.67969098550593)	R:478680445.78359157	
-math.tanh((-0.542943060803033))	R:-0.49521252039840774	
+math.log10(4.925879657485387e+18)	R:18.69248379752979		libm
+math.log2(1.0620621757594448e-59)	R:-195.9068893707866		libm
+math.log(141107541.73839372, 28.63993471368258)	R:5.593484359189869		libm
+math.asin((-0.47428090300549575))	R:-0.49414704290411754		libm
+math.acos(0.9705937826162474)	R:0.24311100042056322		libm
+math.atan((-4.6899841636249306e-05))	R:-4.689984160186242e-05		libm
+math.sinh((-2.5659036060710108))	R:-6.467780722224246		libm
+math.cosh(20.67969098550593)	R:478680445.78359157		libm
+math.tanh((-0.542943060803033))	R:-0.49521252039840774		libm
 math.hypot(9.020410066535078e-06, 1.5382748325062394)	R:1.5382748325326872	
-math.expm1((-1.6752273655747705))	R:-0.812734403108839	
+math.expm1((-1.6752273655747705))	R:-0.812734403108839		libm
 math.sqrt(3.873041220501935e+18)	R:1968004375.1226609	
 math.degrees(4.645989456402338)	R:266.1955875141336	
 math.radians(276.8262305837751)	R:4.8315291795719	
-math.log10(1.5050976800981525e+92)	R:92.17756468634249	
-math.log2(4.253289190250575e+49)	R:164.8630555997081	
-math.log(1.2153967813033193, 103.69686771545112)	R:0.042027743840041695	
-math.asin((-0.7163270662428673))	R:-0.7985241368372352	
-math.acos(0.48034015917384765)	R:1.0697538251577612	
-math.atan((-0.9546595972229892))	R:-0.7622062615670285	
-math.sinh((-13.320717130401466))	R:-304848.42042469163	
-math.cosh(16.671510742334917)	R:8695911.770760212	
-math.tanh(2.69648543455991)	R:0.9909443084291174	
+math.log10(1.5050976800981525e+92)	R:92.17756468634249		libm
+math.log2(4.253289190250575e+49)	R:164.8630555997081		libm
+math.log(1.2153967813033193, 103.69686771545112)	R:0.042027743840041695		libm
+math.asin((-0.7163270662428673))	R:-0.7985241368372352		libm
+math.acos(0.48034015917384765)	R:1.0697538251577612		libm
+math.atan((-0.9546595972229892))	R:-0.7622062615670285		libm
+math.sinh((-13.320717130401466))	R:-304848.42042469163		libm
+math.cosh(16.671510742334917)	R:8695911.770760212		libm
+math.tanh(2.69648543455991)	R:0.9909443084291174		libm
 math.hypot(0.0026690930997075625, (-2.2110803136961526e-06))	R:0.0026690940155383583	
-math.expm1(1.78932692856757)	R:4.985422493414072	
+math.expm1(1.78932692856757)	R:4.985422493414072		libm
 math.sqrt(5.002407728001524e+152)	R:2.2366062970495107e+76	
 math.degrees(6.553067259765426)	R:375.4630968499184	
 math.radians((-352.1853794784453))	R:-6.146794449284541	
-math.log10(128685392231.63187)	R:11.109529250608688	
-math.log2(8.655048853055388e-42)	R:-136.4074380224235	
-math.log(2.9116496678204585e-10, 0.5856240840103878)	R:41.03544594856206	
-math.asin(0.5045723315656963)	R:0.5288865454454473	
-math.acos((-0.18582402703993184))	R:1.7577067562163504	
-math.atan(173496687.88687986)	R:1.5707963210310978	
-math.sinh((-12.269748697201024))	R:-106574.7095819921	
-math.cosh(24.1792594109613)	R:15844879583.402157	
-math.tanh(4.384530617091281)	R:0.9996891094108318	
+math.log10(128685392231.63187)	R:11.109529250608688		libm
+math.log2(8.655048853055388e-42)	R:-136.4074380224235		libm
+math.log(2.9116496678204585e-10, 0.5856240840103878)	R:41.03544594856206		libm
+math.asin(0.5045723315656963)	R:0.5288865454454473		libm
+math.acos((-0.18582402703993184))	R:1.7577067562163504		libm
+math.atan(173496687.88687986)	R:1.5707963210310978		libm
+math.sinh((-12.269748697201024))	R:-106574.7095819921		libm
+math.cosh(24.1792594109613)	R:15844879583.402157		libm
+math.tanh(4.384530617091281)	R:0.9996891094108318		libm
 math.hypot(328.07721300860044, (-108.19998428870043))	R:345.4589618110458	
-math.expm1(1.373075314193688)	R:2.9474717638151815	
+math.expm1(1.373075314193688)	R:2.9474717638151815		libm
 math.sqrt(5.277447854127023e-193)	R:7.264604499989675e-97	
 math.degrees((-4.559427878380279))	R:-261.2359744254772	
 math.radians((-656.0265552779873))	R:-11.449823370117462	
-math.log10(5.891512061714244e-47)	R:-46.22977322884909	
-math.log2(1.1320219727224914e-68)	R:-225.71220849096403	
-math.log(6.932834532979784e-05, 0.7419752830432493)	R:32.089122255034276	
-math.asin((-0.015131778216029845))	R:-0.015132355731209092	
-math.acos(0.30944683340766965)	R:1.256185068724991	
-math.atan(22190566.233537935)	R:1.5707962817307017	
-math.sinh(23.732998352673306)	R:10140987045.256907	
-math.cosh((-16.466996591453615))	R:7087543.828353333	
-math.tanh((-0.5175014046065858))	R:-0.4757692890488685	
+math.log10(5.891512061714244e-47)	R:-46.22977322884909		libm
+math.log2(1.1320219727224914e-68)	R:-225.71220849096403		libm
+math.log(6.932834532979784e-05, 0.7419752830432493)	R:32.089122255034276		libm
+math.asin((-0.015131778216029845))	R:-0.015132355731209092		libm
+math.acos(0.30944683340766965)	R:1.256185068724991		libm
+math.atan(22190566.233537935)	R:1.5707962817307017		libm
+math.sinh(23.732998352673306)	R:10140987045.256907		libm
+math.cosh((-16.466996591453615))	R:7087543.828353333		libm
+math.tanh((-0.5175014046065858))	R:-0.4757692890488685		libm
 math.hypot((-62627.13645826804), 5066778781.156362)	R:5066778781.543408	
-math.expm1(0.534553771113746)	R:0.7066864994951855	
+math.expm1(0.534553771113746)	R:0.7066864994951855		libm
 math.sqrt(6.569657781309879e-230)	R:2.5631343666124643e-115	
 math.degrees(1.1333289090756722)	R:64.93496329020184	
 math.radians((-431.5756953404338))	R:-7.53241685527452	
-math.log10(8.035421956506262)	R:0.9050086873931633	
-math.log2(2.979649709438879e+51)	R:170.99347557525846	
-math.log(7939.855358239484, 0.15102538929836046)	R:-4.750365332014253	
-math.asin(0.03244469914750048)	R:0.032450394043635755	
-math.acos(0.24570987418965462)	R:1.3225443773883365	
-math.atan((-5.994144981301545e-05))	R:-5.9941449741226026e-05	
-math.sinh(19.171642051370924)	R:105951804.14598796	
-math.cosh((-13.233434272591428))	R:279368.5318967934	
-math.tanh((-0.5548123089405461))	R:-0.5041182439715881	
+math.log10(8.035421956506262)	R:0.9050086873931633		libm
+math.log2(2.979649709438879e+51)	R:170.99347557525846		libm
+math.log(7939.855358239484, 0.15102538929836046)	R:-4.750365332014253		libm
+math.asin(0.03244469914750048)	R:0.032450394043635755		libm
+math.acos(0.24570987418965462)	R:1.3225443773883365		libm
+math.atan((-5.994144981301545e-05))	R:-5.9941449741226026e-05		libm
+math.sinh(19.171642051370924)	R:105951804.14598796		libm
+math.cosh((-13.233434272591428))	R:279368.5318967934		libm
+math.tanh((-0.5548123089405461))	R:-0.5041182439715881		libm
 math.hypot((-1.0071245185252464e-09), (-3.1353053968800875e-06))	R:3.1353055586346283e-06	
-math.expm1((-1.6711804867768194))	R:-0.8119750264188549	
+math.expm1((-1.6711804867768194))	R:-0.8119750264188549		libm
 math.sqrt(2.855064288405494e+191)	R:5.34328016147899e+95	
 math.degrees(2.293233361042592)	R:131.39259302634107	
 math.radians(263.79107675386297)	R:4.604022826735984	
-math.log10(3.1561338395798936e-86)	R:-85.50084458830212	
-math.log2(126847553.39567225)	R:26.91852045242294	
-math.log(0.0002451575491903209, 0.07958037742929563)	R:3.284729275292243	
-math.asin(0.676866894038697)	R:0.7434979320078768	
-math.acos((-0.9767155733187214))	R:2.9253735390967814	
-math.atan((-5.4820123966791354e-05))	R:-5.482012391187537e-05	
-math.sinh(22.942927217724304)	R:4602106807.238584	
-math.cosh((-10.300477043505008))	R:14873.403011445358	
-math.tanh((-1.186737567167416))	R:-0.8295643161792987	
+math.log10(3.1561338395798936e-86)	R:-85.50084458830212		libm
+math.log2(126847553.39567225)	R:26.91852045242294		libm
+math.log(0.0002451575491903209, 0.07958037742929563)	R:3.284729275292243		libm
+math.asin(0.676866894038697)	R:0.7434979320078768		libm
+math.acos((-0.9767155733187214))	R:2.9253735390967814		libm
+math.atan((-5.4820123966791354e-05))	R:-5.482012391187537e-05		libm
+math.sinh(22.942927217724304)	R:4602106807.238584		libm
+math.cosh((-10.300477043505008))	R:14873.403011445358		libm
+math.tanh((-1.186737567167416))	R:-0.8295643161792987		libm
 math.hypot((-83.07648790614017), (-1.5427895816434058e-08))	R:83.07648790614017	
-math.expm1(1.5198773654571056)	R:3.571664516775313	
+math.expm1(1.5198773654571056)	R:3.571664516775313		libm
 math.sqrt(5.792829283354874e+247)	R:7.611063843744101e+123	
 math.degrees((-0.5748428545544257))	R:-32.93606944922123	
 math.radians((-229.57768865248562))	R:-4.006886556104298	
-math.log10(7.192966005045416e-16)	R:-15.143091992230296	
-math.log2(2.0990707606905064e-65)	R:-214.8555753662812	
-math.log(12.187632205766054, 0.010694632050822734)	R:-0.5509947847415295	
-math.asin((-0.3153339402131894))	R:-0.32080852703624096	
-math.acos(0.11494720863964658)	R:1.45559447090816	
-math.atan((-1664568814.9470181))	R:-1.5707963261941404	
-math.sinh((-11.80652189060774))	R:-67062.12516319446	
-math.cosh(5.614065265320868)	R:137.13027406204677	
-math.tanh(4.740157364668962)	R:0.9998473318407427	
+math.log10(7.192966005045416e-16)	R:-15.143091992230296		libm
+math.log2(2.0990707606905064e-65)	R:-214.8555753662812		libm
+math.log(12.187632205766054, 0.010694632050822734)	R:-0.5509947847415295		libm
+math.asin((-0.3153339402131894))	R:-0.32080852703624096		libm
+math.acos(0.11494720863964658)	R:1.45559447090816		libm
+math.atan((-1664568814.9470181))	R:-1.5707963261941404		libm
+math.sinh((-11.80652189060774))	R:-67062.12516319446		libm
+math.cosh(5.614065265320868)	R:137.13027406204677		libm
+math.tanh(4.740157364668962)	R:0.9998473318407427		libm
 math.hypot(0.0007615649296712166, (-823.1573085523396))	R:823.1573085526919	
-math.expm1(1.5309128136318373)	R:3.6223942816417583	
+math.expm1(1.5309128136318373)	R:3.6223942816417583		libm
 math.sqrt(2.3145574401824056e+18)	R:1521366964.3391123	
 math.degrees((-5.647116609091475))	R:-323.55594811917024	
 math.radians(295.4469764118146)	R:5.156522503448187	
-math.log10(1.1232106148850564e+50)	R:50.050461199098606	
-math.log2(2.7427566192615156e-80)	R:-264.2986209818406	
-math.log(0.09384374010829535, 61.205899796705566)	R:-0.5751055253043827	
-math.asin((-0.8474786334359028))	R:-1.0112172667453654	
-math.acos((-0.7836158885049718))	R:2.4712613508434966	
-math.atan((-1206106.3959028593))	R:-1.5707954976806464	
-math.sinh(8.434445310513233)	R:2301.4579278066026	
-math.cosh((-26.545223618942792))	R:168816208831.7166	
-math.tanh((-4.097787575258405))	R:-0.9994484090414385	
+math.log10(1.1232106148850564e+50)	R:50.050461199098606		libm
+math.log2(2.7427566192615156e-80)	R:-264.2986209818406		libm
+math.log(0.09384374010829535, 61.205899796705566)	R:-0.5751055253043827		libm
+math.asin((-0.8474786334359028))	R:-1.0112172667453654		libm
+math.acos((-0.7836158885049718))	R:2.4712613508434966		libm
+math.atan((-1206106.3959028593))	R:-1.5707954976806464		libm
+math.sinh(8.434445310513233)	R:2301.4579278066026		libm
+math.cosh((-26.545223618942792))	R:168816208831.7166		libm
+math.tanh((-4.097787575258405))	R:-0.9994484090414385		libm
 math.hypot(10.244790727423814, 84658972.8182773)	R:84658972.81827793	
-math.expm1((-0.057767919893972675))	R:-0.056131024768333836	
+math.expm1((-0.057767919893972675))	R:-0.056131024768333836		libm
 math.sqrt(5.835852435816007e-65)	R:7.639275119941687e-33	
 math.degrees(4.3062824130936)	R:246.731807661675	
 math.radians((-141.64323499396392))	R:-2.472140813820721	
-math.log10(5.370108085916061e+77)	R:77.72998302697414	
-math.log2(3.139738076560845e-15)	R:-48.17827721177567	
-math.log(114.88475919816123, 28.145038405561916)	R:1.4214570131235509	
-math.asin(0.20767144166647)	R:0.20919390018776782	
-math.acos(0.581455852226374)	R:0.950279333926517	
-math.atan(0.01892645674705012)	R:0.018924197345785338	
-math.sinh((-25.05815128143691))	R:-38158107973.000084	
-math.cosh(1.5104563022123152)	R:2.3748030110816774	
-math.tanh(1.9898973089434167)	R:0.9633068214758864	
+math.log10(5.370108085916061e+77)	R:77.72998302697414		libm
+math.log2(3.139738076560845e-15)	R:-48.17827721177567		libm
+math.log(114.88475919816123, 28.145038405561916)	R:1.4214570131235509		libm
+math.asin(0.20767144166647)	R:0.20919390018776782		libm
+math.acos(0.581455852226374)	R:0.950279333926517		libm
+math.atan(0.01892645674705012)	R:0.018924197345785338		libm
+math.sinh((-25.05815128143691))	R:-38158107973.000084		libm
+math.cosh(1.5104563022123152)	R:2.3748030110816774		libm
+math.tanh(1.9898973089434167)	R:0.9633068214758864		libm
 math.hypot((-0.0003958620443231795), (-0.017642821832430863))	R:0.017647262364713538	
-math.expm1((-0.9164192129962312))	R:-0.6000513891474921	
+math.expm1((-0.9164192129962312))	R:-0.6000513891474921		libm
 math.sqrt(15.829573219458071)	R:3.9786396191987623	
 math.degrees(6.103849514871991)	R:349.7248159851401	
 math.radians((-631.573497524203))	R:-11.023037000133598	
-math.log10(1.1515017464011916e-72)	R:-71.93873539903555	
-math.log2(9.128441884252978e-91)	R:-299.10508800429886	
-math.log(3.5996811195611384e-07, 0.2448538365949678)	R:10.544606231713939	
-math.asin(0.5361524547772456)	R:0.5658724278539501	
-math.acos(0.6993332948006805)	R:0.7963319775723806	
-math.atan(3.4173910642013726e-07)	R:3.41739106420124e-07	
-math.sinh((-14.028860512480431))	R:-618908.8776843357	
-math.cosh((-9.037793384367895))	R:4207.593794064101	
-math.tanh((-0.06134109143923716))	R:-0.06126427041510705	
+math.log10(1.1515017464011916e-72)	R:-71.93873539903555		libm
+math.log2(9.128441884252978e-91)	R:-299.10508800429886		libm
+math.log(3.5996811195611384e-07, 0.2448538365949678)	R:10.544606231713939		libm
+math.asin(0.5361524547772456)	R:0.5658724278539501		libm
+math.acos(0.6993332948006805)	R:0.7963319775723806		libm
+math.atan(3.4173910642013726e-07)	R:3.41739106420124e-07		libm
+math.sinh((-14.028860512480431))	R:-618908.8776843357		libm
+math.cosh((-9.037793384367895))	R:4207.593794064101		libm
+math.tanh((-0.06134109143923716))	R:-0.06126427041510705		libm
 math.hypot((-5411332856.899114), 0.00014174441134229206)	R:5411332856.899114	
-math.expm1((-0.41308009325276185))	R:-0.33839070973441143	
+math.expm1((-0.41308009325276185))	R:-0.33839070973441143		libm
 math.sqrt(2.008141063216685e-48)	R:1.4170889397693728e-24	
 math.degrees(2.20534523513769)	R:126.35697434267578	
 math.radians((-59.97887612450495))	R:-1.0468288700184278	
-math.log10(1.8304682666831737e+88)	R:88.262562204278	
-math.log2(2.310969891917235e+64)	R:213.81189653680934	
-math.log(5.13250537562144e-09, 0.014052383777610792)	R:4.475459898180047	
-math.asin((-0.018086820564768624))	R:-0.018087806842846266	
-math.acos(0.313200665131953)	R:1.2522349271887518	
-math.atan((-1951516.226222038))	R:-1.5707958143728185	
-math.sinh((-27.547945612600785))	R:-460140830134.5398	
-math.cosh(24.212185385589628)	R:16375271607.20453	
-math.tanh(1.3121470982241066)	R:0.8648176817254555	
+math.log10(1.8304682666831737e+88)	R:88.262562204278		libm
+math.log2(2.310969891917235e+64)	R:213.81189653680934		libm
+math.log(5.13250537562144e-09, 0.014052383777610792)	R:4.475459898180047		libm
+math.asin((-0.018086820564768624))	R:-0.018087806842846266		libm
+math.acos(0.313200665131953)	R:1.2522349271887518		libm
+math.atan((-1951516.226222038))	R:-1.5707958143728185		libm
+math.sinh((-27.547945612600785))	R:-460140830134.5398		libm
+math.cosh(24.212185385589628)	R:16375271607.20453		libm
+math.tanh(1.3121470982241066)	R:0.8648176817254555		libm
 math.hypot((-0.017236715792245387), (-2.937900046549536e-10))	R:0.01723671579224539	
-math.expm1((-0.6573467781007398))	R:-0.4817755234091507	
+math.expm1((-0.6573467781007398))	R:-0.4817755234091507		libm
 math.sqrt(9.212482699955842e+195)	R:9.598167898070883e+97	
 math.degrees(4.954444834605008)	R:283.86877885325816	
 math.radians((-263.97976130480924))	R:-4.607315993397644	
-math.log10(1.4862109343468938e-73)	R:-72.82791954782863	
-math.log2(2.328949310223732e+84)	R:280.2616392100509	
-math.log(5.137374493569702e-09, 99.29109420627557)	R:-4.151042131644556	
-math.asin((-0.12956002744538964))	R:-0.1299252544770851	
-math.acos(0.0010625734365512507)	R:1.5697337531583933	
-math.atan((-0.31639784479939426))	R:-0.30643197868397826	
-math.sinh((-2.2079099016941477))	R:-4.493376686701378	
-math.cosh(29.557280157301257)	R:3431892508653.314	
-math.tanh((-4.870899543864777))	R:-0.9998824575108716	
+math.log10(1.4862109343468938e-73)	R:-72.82791954782863		libm
+math.log2(2.328949310223732e+84)	R:280.2616392100509		libm
+math.log(5.137374493569702e-09, 99.29109420627557)	R:-4.151042131644556		libm
+math.asin((-0.12956002744538964))	R:-0.1299252544770851		libm
+math.acos(0.0010625734365512507)	R:1.5697337531583933		libm
+math.atan((-0.31639784479939426))	R:-0.30643197868397826		libm
+math.sinh((-2.2079099016941477))	R:-4.493376686701378		libm
+math.cosh(29.557280157301257)	R:3431892508653.314		libm
+math.tanh((-4.870899543864777))	R:-0.9998824575108716		libm
 math.hypot((-1391611132.8033152), 0.01582544007184546)	R:1391611132.8033152	
-math.expm1(1.6679972122259588)	R:4.301539299328811	
+math.expm1(1.6679972122259588)	R:4.301539299328811		libm
 math.sqrt(5.435219166526717e-224)	R:2.3313556499441942e-112	
 math.degrees(3.7814040030236296)	R:216.65849000712876	
 math.radians(594.5180426891884)	R:10.376297307438541	
-math.log10(5.090299946964844e+71)	R:71.70674337398188	
-math.log2(6.690510304323412e+37)	R:125.65345576436573	
-math.log(765024.795442551, 0.001244090908783604)	R:-2.0252585229154274	
-math.asin((-0.8104628402929324))	R:-0.9449417967792831	
-math.acos(0.005743327386926289)	R:1.5650529678327845	
-math.atan(0.005022390784111064)	R:0.005022348555803425	
-math.sinh(10.301581082589045)	R:14889.832864014932	
-math.cosh(23.35332140148448)	R:6937270406.581616	
-math.tanh(2.7469199582920645)	R:0.9918096310127943	
+math.log10(5.090299946964844e+71)	R:71.70674337398188		libm
+math.log2(6.690510304323412e+37)	R:125.65345576436573		libm
+math.log(765024.795442551, 0.001244090908783604)	R:-2.0252585229154274		libm
+math.asin((-0.8104628402929324))	R:-0.9449417967792831		libm
+math.acos(0.005743327386926289)	R:1.5650529678327845		libm
+math.atan(0.005022390784111064)	R:0.005022348555803425		libm
+math.sinh(10.301581082589045)	R:14889.832864014932		libm
+math.cosh(23.35332140148448)	R:6937270406.581616		libm
+math.tanh(2.7469199582920645)	R:0.9918096310127943		libm
 math.hypot((-0.6836569975129774), 2661499.216969566)	R:2661499.216969654	
-math.expm1((-1.1230783636096509))	R:-0.6747230688421395	
+math.expm1((-1.1230783636096509))	R:-0.6747230688421395		libm
 math.sqrt(1.0061330494820379e+236)	R:1.0030618373171406e+118	
 math.degrees((-4.156210370448377))	R:-238.13331299519638	
 math.radians(469.55018957283164)	R:8.195196811409458	
