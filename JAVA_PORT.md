@@ -20,10 +20,11 @@ fork is: Moddy's own modifications only.
 | Output | `mcworld.py` | Zip entry order and `json.dumps(indent=4)` text (ASCII-escaped) reproduced exactly. |
 | Driver | `compile_once.py` | JSON verdict `{ok, namespace, output, log, error}`; the Java CLI prints the same shape. |
 
-Branches: `master` (oldest Minecraft Moddy supports) → `mc/1.21.10` → `mc/1.21.11` → `mc/26.1.2` → `mc/26.2-ladder` →
-`mc/26.3`, each made by merging the one before it and adding its own version's spellings (pack format/meta, the
-chain-length game rule id, the loot-function key). The Java port lands on `master` and is carried up the ladder by the
-same merges, with each branch's delta ported in its merge.
+Branches: `master` (oldest Minecraft Moddy supports) → `java-port-1.21.10` → `java-port-1.21.11` → `java-port-26.1.2` →
+`java-port-26.2` → `java-port-26.3`, each master plus its own version's spellings (pack format/meta, the chain-length
+game rule id, the loot-function key). Master is carried up them automatically by merge (`.github/carry-up-branches.txt`,
+`CLAUDE.md`). The Python-only `mc/<v>` branches (`mc/1.21.10` … `mc/26.2-ladder`, `mc/26.3`) predate them and are
+kept while Moddy still vendors the Python bundle from them.
 
 ## Order of work
 
