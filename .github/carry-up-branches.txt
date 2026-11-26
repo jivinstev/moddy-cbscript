@@ -1,0 +1,8 @@
+# Branches the carry-up (.github/workflows/carry-up.yml) merges master into, oldest Minecraft version first.
+# One branch per line; '#' starts a comment. Adding a version is adding its line here, in version order.
+# A conflict or red parity on one branch stops the carry-up there: that branch and every one below it wait.
+java-port-1.21.10
+java-port-1.21.11
+java-port-26.1.2
+java-port-26.2-ladder
+java-port-26.3
