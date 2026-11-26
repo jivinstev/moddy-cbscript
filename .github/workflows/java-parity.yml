@@ -8,7 +8,7 @@ name: java-parity
 on:
   pull_request:
   push:
-    branches: [master, 'mc/**']
+    branches: [master, 'mc/**', 'java-port-**']
 
 jobs:
   goldens:

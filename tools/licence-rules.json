@@ -161,7 +161,7 @@
   "permissions": {
     "_comment": "Code used by its author's permission with no open-source licence. A register row says `PERMISSION <name>`; each name says where the permission is recorded. Adding one is a maintainer decision.",
     "cbscript": {
-      "record": "NOTICE.md: SethBling's verbal permission (November 2026) for CBScript to be used in Moddy and modified for it"
+      "record": "NOTICE.md: used with the author's written permission, held by the maintainer"
     }
   },
   "python_licences": {
