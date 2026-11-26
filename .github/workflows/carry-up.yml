@@ -1,0 +1,89 @@
+# Carry master up the version branches (CLAUDE.md, "Branches"). No model runs here: tools/carry-up/carry_up.py.
+#
+#   On every push to master (and on Run workflow): for each branch in .github/carry-up-branches.txt, oldest version
+#   first, merge master into it (a merge commit) and run tools/carry-up/parity.sh, which runs the checks of
+#   java-parity.yml, on the result. Clean and green: push the merge. A conflict or red parity: push neither that
+#   branch nor any later one, and open (or update) the one issue labelled carry-up-blocked, naming the version, the
+#   files and the failing cases. A later run that gets every branch through closes it.
+#
+#   fixture: tools/carry-up/test_carry_up.py, the carry-up's own logic against a throwaway repository. Runs first,
+#            and on pull requests that touch the carry-up.
+name: carry-up
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/carry-up/**'
+      - '.github/carry-up-branches.txt'
+      - '.github/workflows/carry-up.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  # One carry-up at a time, in push order; a run is never cancelled half-way through the ladder.
+  group: carry-up-${{ github.event_name == 'pull_request' && github.ref || 'master' }}
+  cancel-in-progress: false
+
+jobs:
+  fixture:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Carry-up logic against a fixture repository
+        run: python3 tools/carry-up/test_carry_up.py
+
+  carry:
+    if: github.event_name != 'pull_request'
+    needs: fixture
+    # The goldens are CPython's output on this platform (java-parity.yml, "goldens"): the same runner, Python and JDK.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Python compiler's dependencies
+        run: pip install ply==3.11 pyyaml
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Carry master up
+        id: carry
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          # The run checks out each branch in turn, so keep master's copy of the script and config to the end.
+          cp tools/carry-up/carry_up.py .github/carry-up-branches.txt "$RUNNER_TEMP/"
+          set +e
+          python3 "$RUNNER_TEMP/carry_up.py" --push --config "$RUNNER_TEMP/carry-up-branches.txt" \
+            --report "$RUNNER_TEMP/carry-up.json" | tee "$RUNNER_TEMP/carry-up.txt"
+          echo "rc=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+      - name: Open, update or close the carry-up-blocked issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test -f "$RUNNER_TEMP/carry-up.json" || { echo 'no report: the carry-up itself failed (see above)'; exit 1; }
+          python3 "$RUNNER_TEMP/carry_up.py" --sync-issue "$RUNNER_TEMP/carry-up.json" --repo "$GITHUB_REPOSITORY" \
+            --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Summary
+        if: always()
+        run: |
+          { echo '### carry-up'; echo '```'; cat "$RUNNER_TEMP/carry-up.txt" 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          test "${{ steps.carry.outputs.rc }}" = 0
