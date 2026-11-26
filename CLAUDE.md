@@ -10,7 +10,7 @@ regenerated goldens.
 - **`master` is the base version, Minecraft 1.21.8.** Its corpus covers 1.21.1, 1.21.4, 1.21.5 and 1.21.8
   (`corpus/versions.txt`). Work lands here, by PR, first.
 - **One `java-port-<v>` branch per newer Minecraft version:** `java-port-1.21.10`, `java-port-1.21.11`,
-  `java-port-26.1.2`, `java-port-26.2-ladder`, `java-port-26.3`. Each one is master plus that version's own
+  `java-port-26.1.2`, `java-port-26.2`, `java-port-26.3`. Each one is master plus that version's own
   spellings and ids, with goldens for every version up to its own. The list, oldest first, is
   `.github/carry-up-branches.txt`.
 - Commit only what is specific to a version to its branch. Everything else goes to master and reaches the branches
