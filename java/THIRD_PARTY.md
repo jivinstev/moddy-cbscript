@@ -1,16 +1,13 @@
-# Third-party code in the Java compiler
+# Licences of the Java compiler's code
 
-`src/main/java/com/moddingfromamod/cbscript/py/LibM.java` and `LibMTables.java` translate the GNU C Library's
-double-precision math functions (glibc 2.39, `sysdeps/ieee754/dbl-64`) so that compile-time `$math.$sin(...)` and
-friends give CPython-on-Linux's exact last bit (glibc is not correctly rounded, and Java's `Math`/`StrictMath` round
-differently). They are **not** covered by this repository's `LICENSE`:
+All of `java/` is this repository's code (a translation of CBScript, under the permission and `LICENSE` described in
+`NOTICE.md`), with these specifics in the compile-time math (`src/main/java/com/moddingfromamod/cbscript/py/`):
 
-| Functions | Origin | Licence |
+| File | What | Licence |
 |---|---|---|
-| sin, cos, tan, atan, atan2, asin, acos, `__branred` (and tables) | IBM Accurate Mathematical Library, as distributed in glibc | LGPL-2.1-or-later |
-| exp, log, log2, pow (and tables) | Arm optimized-routines, as distributed in glibc | MIT / Apache-2.0 (Arm's own release); LGPL-2.1-or-later in glibc |
-| log10, expm1, sinh, cosh, tanh | Sun fdlibm | Sun's permissive notice |
+| `CRMath.java`, `LibM.java` | Correctly rounded sin, cos, tan, asin, acos, atan, atan2, exp, log, log2, pow; dispatch | Written for this project: `LICENSE` (MPL-2.0) |
+| `FdHyp.java` | sinh, cosh, tanh by fdlibm's formulas (re-written here, no code copied) | fdlibm's notice, which the file reproduces: "Copyright (C) 1993 by Sun Microsystems, Inc. ... Permission to use, copy, modify, and distribute this software is freely granted, provided that this notice is preserved." |
+| (calls only) | `java.lang.StrictMath.expm1`, `log10`, and for infinities/NaN | The JDK's own API; nothing copied |
 
-**Open question (not yet decided):** whether shipping the LGPL-derived part inside the mod is acceptable. If it is
-not, those seven functions can be replaced by a permissive implementation; the cost is that their results may differ
-from Python's in the last digit for roughly 0.1–0.4% of arguments, which the corpus would then show as differences.
+No code from any C library is included. Why results can still differ from Python in a last bit: `JAVA_PORT.md`,
+"Compile-time math".

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# PRE-COMMIT: refuse a commit whose staged changes ADD third-party code or text under a licence that is not on the
+# allow-list, or a foreign copyright with no THIRD_PARTY.md row (tools/licence-scan.py --staged; README, "Third-party
+# code"). A scan that cannot run refuses the commit: it never passes what it did not read.
+set -uo pipefail
+top="$(git rev-parse --show-toplevel)" || exit 1
+if [ ! -f "$top/tools/licence-scan.py" ]; then
+    echo "pre-commit: tools/licence-scan.py is missing, so nothing can be checked; refusing the commit" >&2
+    exit 1
+fi
+if ! python3 "$top/tools/licence-scan.py" --repo "$top" --staged >&2; then
+    echo "pre-commit: REFUSED. Code or text from someone else comes in only under an allow-listed licence; anything" >&2
+    echo "pre-commit: else goes to the maintainers first. A foreign copyright needs its THIRD_PARTY.md row." >&2
+    exit 1
+fi

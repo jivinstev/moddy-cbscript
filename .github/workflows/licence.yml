@@ -1,0 +1,40 @@
+# Third-party code comes in only under an allow-listed licence (README, "Third-party code"; tools/licence-rules.json).
+#
+#   self-tests   tools/test-licence-scan.py: every rule can go red, both ways through hold, both hooks refuse
+#   tree         every tracked file, and the register (THIRD_PARTY.md): no off-list licence wording, id or
+#                provenance, and every copyright that is not ours has a row
+#   commits      what this pull request's commits ADD (the base is the upstream's history, so not the whole history)
+#   installs     every Python package requirements.txt asks a user to install has an allow-listed licence, and so does
+#                anything bundled inside the Java compiler's jar
+name: licence
+
+on:
+  pull_request:
+  push:
+    branches: [master, 'mc/**']
+
+permissions:
+  contents: read
+
+jobs:
+  licence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: The scanner can still go red
+        run: python3 tools/test-licence-scan.py
+      - name: Every tracked file and the register
+        run: python3 tools/licence-scan.py --tree
+      - name: What this pull request's commits add
+        if: github.event_name == 'pull_request'
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python3 tools/licence-scan.py --range -- "$BASE..$HEAD_SHA"
+      - name: What a user installs, and what the Java jar bundles
+        run: |
+          java/build.sh
+          python3 tools/licence-scan.py --bundled java/build/moddy-cbscript.jar --requirements requirements.txt

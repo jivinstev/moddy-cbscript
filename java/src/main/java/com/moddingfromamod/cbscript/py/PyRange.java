@@ -71,6 +71,7 @@ public final class PyRange extends PyObject {
 
             @Override
             public PyObject next() {
+                Cancelled.check();
                 return PyInt.of(get(i++));
             }
         };

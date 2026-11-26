@@ -47,6 +47,19 @@ public final class CbScript {
 
     /** As {@link #compile(String, String, String)}, with the files beside the script supplied by the caller. */
     public static CompileResult compile(String namespace, String source, String minecraftVersion, SourceFiles files) {
+        return compile(namespace, source, minecraftVersion, files, null);
+    }
+
+    /** What a compile that ran out of time reports (the wording the mod used for a timed-out Python compile). */
+    public static final String TIMED_OUT = "CBScript compile timed out.";
+
+    /**
+     * As {@link #compile(String, String, String, SourceFiles)}, stopped after {@code timeout} (null: no limit). A
+     * stopped compile is refused with {@link #TIMED_OUT}: a program can ask for unbounded work at compile time (a
+     * {@code for $i in $range(10**12)}), which the Python compiler's caller ended by killing its process.
+     */
+    public static CompileResult compile(String namespace, String source, String minecraftVersion, SourceFiles files,
+                                        java.time.Duration timeout) {
         // On its own thread with a deep stack: java.util.regex recurses on long string literals, and the compiler
         // recurses as deep as a program nests.
         Driver.Result[] out = new Driver.Result[1];
@@ -56,14 +69,30 @@ public final class CbScript {
                 out[0] = Driver.compile(namespace, source, minecraftVersion, files);
             } catch (RuntimeException e) {
                 failure[0] = e;
+            } catch (com.moddingfromamod.cbscript.py.Cancelled e) {
+                // out[0] stays null: timed out
             }
         }, "cbscript-compile", STACK_BYTES);
+        t.setDaemon(true);
         t.start();
         boolean interrupted = false;
+        long deadline = timeout == null ? Long.MAX_VALUE : System.nanoTime() + timeout.toNanos();
         while (true) {
             try {
-                t.join();
-                break;
+                long left = deadline - System.nanoTime();
+                if (timeout != null && left <= 0) {
+                    t.interrupt();
+                    t.join(5_000);
+                    break;
+                }
+                if (timeout == null) {
+                    t.join();
+                } else {
+                    t.join(Math.max(1, left / 1_000_000));
+                }
+                if (!t.isAlive()) {
+                    break;
+                }
             } catch (InterruptedException e) {
                 interrupted = true;
             }
@@ -75,6 +104,9 @@ public final class CbScript {
             throw failure[0];
         }
         Driver.Result r = out[0];
+        if (r == null) {
+            return new CompileResult(false, Driver.namespaceOf(namespace), TIMED_OUT, java.util.List.of(), java.util.List.of());
+        }
         return new CompileResult(r.ok(), r.namespace(), r.error(), r.log(), r.files());
     }
 
