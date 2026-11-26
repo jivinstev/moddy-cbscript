@@ -5,10 +5,10 @@ eval(expr, {'math': math, 'json': json}, locals) with a fresh copy of LOCALS. Th
 the result, or the exception's type and str(), plus whatever print() wrote.
 
 Output: java/src/test/resources/pyeval_cases.tsv, one case per line:
-	expr <TAB> R:repr | E:Type: message <TAB> printed
+	expr <TAB> R:repr | E:Type: message <TAB> printed [<TAB> libm]
 with backslash, tab, newline and carriage return escaped as \\ \t \n \r.
 
-Run with python3 (3.13 on Linux/glibc, the reference the goldens are made with). The script re-executes itself with
+Run with python3 (3.13, on the platform the goldens are made with: Ubuntu 24.04 x86-64). The script re-executes itself with
 PYTHONHASHSEED=0 so str hashes and set orders are reproducible. Random cases are seeded: the file only changes when
 this script does.
 """
@@ -663,7 +663,7 @@ for _ in range(10):
 	for op in ['|', '&', '-', '^']:
 		add('set(%r) %s set(%r)' % (a, op, b))
 
-# transcendental functions: bit-exactness with glibc
+# transcendental functions (marked libm: equal, or one last-bit apart where the platform libm misrounds)
 for _ in range(60):
 	for fn in ['sin', 'cos', 'tan']:
 		add('math.%s(%s)' % (fn, lit(rnd.choice([rnd.uniform(-10, 10), wide(rnd, -8, 22), rnd.uniform(-1e6, 1e6)]))))
@@ -734,7 +734,12 @@ def evaluate(expr):
 		sys.stdout = saved
 	if ' at 0x' in result or ' at 0x' in out.getvalue():
 		return None, None  # object addresses are not reproducible
+	if "<module '" in result:
+		return None, None  # a module's repr says how that Python was built (built-in or a shared library)
 	return result, out.getvalue()
+
+
+LIBM = re.compile(r'math\.(sin|cos|tan|asin|acos|atan|atan2|exp|expm1|log|log2|log10|pow|sinh|cosh|tanh)\(|\*\*')
 
 
 def main():
@@ -749,7 +754,9 @@ def main():
 		if result is None:
 			skipped += 1
 			continue
-		lines.append('%s\t%s\t%s' % (escape(expr), escape(result), escape(printed)))
+		# A libm result may differ in its last bit: CPython's libm is not correctly rounded, the Java one is.
+		flag = '\tlibm' if LIBM.search(expr) else ''
+		lines.append('%s\t%s\t%s%s' % (escape(expr), escape(result), escape(printed), flag))
 	with open(OUT, 'w', encoding='utf-8', newline='\n') as f:
 		f.write('\n'.join(lines) + '\n')
 	print('%d cases written to %s (%d skipped)' % (len(lines), os.path.relpath(OUT), skipped))

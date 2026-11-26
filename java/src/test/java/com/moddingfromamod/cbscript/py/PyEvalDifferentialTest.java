@@ -101,6 +101,7 @@ public final class PyEvalDifferentialTest {
         List<String> lines = readCases(args);
         int pass = 0;
         int fail = 0;
+        int lastBit = 0;
         long start = System.nanoTime();
         for (String line : lines) {
             String[] cols = line.split("\t", -1);
@@ -110,6 +111,11 @@ public final class PyEvalDifferentialTest {
             String[] got = run(expr);
             if (got[0].equals(expected) && got[1].equals(expectedPrint)) {
                 pass++;
+            } else if (cols.length > 3 && cols[3].equals("libm") && withinOneUlp(expected, got[0]) && got[1].equals(expectedPrint)) {
+                // A libm function's last bit: CPython's libm is not correctly rounded, this is (JAVA_PORT.md).
+                pass++;
+                lastBit++;
+                System.out.println("last bit: " + expr + "  python " + expected + "  java " + got[0]);
             } else {
                 fail++;
                 if (fail <= 200) {
@@ -122,10 +128,24 @@ public final class PyEvalDifferentialTest {
             }
         }
         long ms = (System.nanoTime() - start) / 1_000_000;
-        System.out.println("PyEvalDifferentialTest: " + pass + " passed, " + fail + " failed, " + lines.size()
-                + " cases (" + ms + " ms)");
+        System.out.println("PyEvalDifferentialTest: " + pass + " passed (" + lastBit + " of them a libm last-bit difference), "
+                + fail + " failed, " + lines.size() + " cases (" + ms + " ms)");
         if (fail > 0) {
             System.exit(1);
+        }
+    }
+
+    /** Both results are floats ("R:" + repr) at most one unit in the last place apart. */
+    static boolean withinOneUlp(String expected, String got) {
+        if (!expected.startsWith("R:") || !got.startsWith("R:")) {
+            return false;
+        }
+        try {
+            double a = Double.parseDouble(expected.substring(2));
+            double b = Double.parseDouble(got.substring(2));
+            return Math.abs(a - b) <= Math.ulp(a) && Math.abs(a - b) <= Math.ulp(b);
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }
