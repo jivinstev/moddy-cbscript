@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # The parity checks of .github/workflows/java-parity.yml, run in one place (the carry-up runs them on each merge).
-#   tools/carry-up/parity.sh [repo-root]
+#   tools/carry-up/parity.sh [repo-root]      (default: the current directory, so the tree being checked)
 # Needs python3 with ply==3.11 and pyyaml, and a JDK 21+. Exits non-zero on the first failing check, after printing
 # a line "PARITY-FAIL: <check>" that the carry-up puts in its issue.
 set -uo pipefail
-cd "${1:-$(dirname "$0")/../..}"
+cd "${1:-.}"
 PY=${PYTHON:-python3}
 fail() { echo "PARITY-FAIL: $1"; exit 1; }
 step() { echo "== $1"; }
