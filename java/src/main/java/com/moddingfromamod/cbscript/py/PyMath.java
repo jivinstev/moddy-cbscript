@@ -10,7 +10,7 @@ import java.util.function.DoubleUnaryOperator;
 
 /**
  * Python's {@code math} module (CPython 3.13 {@code Modules/mathmodule.c}): the libm functions come from
- * {@link LibM}, bit-exact with glibc; CPython's own wrappers (error rules, {@code hypot}, {@code log} of huge ints,
+ * {@link LibM} (StrictMath; may differ from a given CPython in the last bit); CPython's own wrappers (error rules, {@code hypot}, {@code log} of huge ints,
  * {@code pow} special cases) are ported here.
  */
 final class PyMath {
