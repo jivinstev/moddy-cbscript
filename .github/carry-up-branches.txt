@@ -4,5 +4,5 @@
 java-port-1.21.10
 java-port-1.21.11
 java-port-26.1.2
-java-port-26.2-ladder
+java-port-26.2
 java-port-26.3
