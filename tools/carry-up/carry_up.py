@@ -50,7 +50,7 @@ def read_config(path):
 
 
 def version_of(branch):
-	"""java-port-26.2-ladder -> 26.2-ladder; anything else is its own name."""
+	"""java-port-26.3 -> 26.3; anything else is its own name."""
 	return branch[len('java-port-'):] if branch.startswith('java-port-') else branch
 
 
