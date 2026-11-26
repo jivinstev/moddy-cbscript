@@ -1,0 +1,14 @@
+# Files the compilers and their tests read as data are LF on every checkout, whatever core.autocrlf says: the Java
+# compiler reads its parser tables line by line, the corpus compares output bytes to the goldens, and a .cblib or
+# .cbscript is compiled as it is checked out.
+java/src/main/resources/** text eol=lf
+java/src/test/resources/** text eol=lf
+Scripts/*.cblib text eol=lf
+Scripts/**/*.cbscript text eol=lf
+corpus/** text eol=lf
+*.sh text eol=lf
+tools/git-hooks/* text eol=lf
+
+# Corpus cases about line endings: their bytes are the test, so git never converts them.
+corpus/malformed/crlf_line_endings.cbscript -text
+corpus/malformed/lone_cr.cbscript -text
