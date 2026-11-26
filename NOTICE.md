@@ -5,8 +5,8 @@
 This repository, **moddy-cbscript**, is a modified fork maintained for **Moddy the Wish Watch**, a Minecraft mod
 by Moddy LLC, which bundles this compiler to turn CBScript into datapacks.
 
-**The basis for this fork.** The original author gave **verbal permission (November 2026)** for CBScript to be
-used in Moddy and modified for it. The original code is **not** released under an open-source license and
+**The basis for this fork.** CBScript is used in Moddy, and modified for it, **used with the author's written
+permission, held by the maintainer**. The original code is **not** released under an open-source license and
 remains the copyright of its author, used with permission.
 
 **What the license in this repository covers.** The `LICENSE` file (Mozilla Public License 2.0) applies **only to
