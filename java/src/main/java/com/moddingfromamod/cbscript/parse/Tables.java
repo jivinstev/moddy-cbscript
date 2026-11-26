@@ -35,21 +35,33 @@ public final class Tables {
     }
 
     private Tables() {
-        String text;
+        this(resourceText());
+    }
+
+    /** The bundled parser_tables.txt, as text. */
+    static String resourceText() {
         try (InputStream in = Tables.class.getResourceAsStream("/com/moddingfromamod/cbscript/parser_tables.txt")) {
             if (in == null) {
                 throw new IllegalStateException("parser_tables.txt is missing from the classpath");
             }
-            text = new String(in.readAllBytes(), StandardCharsets.UTF_8);
+            return new String(in.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
+    }
+
+    /**
+     * Parses the tables from their text. Lines end in LF, CRLF or CR: a Windows checkout with core.autocrlf=true writes
+     * CRLF (the repository's .gitattributes asks for LF), and a field must never keep the CR. The table text itself has
+     * no CR in it (the ignore string is a repr, {@code '\r'}).
+     */
+    Tables(String text) {
         List<String[]> rLines = new ArrayList<>();
         List<String[]> nLines = new ArrayList<>();
         String ign = "";
         int states = 0;
         List<String[]> rows = new ArrayList<>();
-        for (String line : text.split("\n")) {
+        for (String line : (Iterable<String>) text.lines()::iterator) {
             if (line.isEmpty() || line.startsWith("#")) {
                 continue;
             }
